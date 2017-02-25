@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour {
 	// MACROS
-	private const float CAMERA_X_FACTOR = 6.0f;		// camera sensibility (along X axis)
-	private const float CAMERA_Y_FACTOR = 4.0f;		// camera sensibility (along Y axis)
-	private const float DEFAULT_SPEED = 3.0f;		// running speed 
+	private const float CAMERA_X_FACTOR = 4.0f;		// camera sensibility (along X axis)
+	private const float CAMERA_Y_FACTOR = 3.0f;		// camera sensibility (along Y axis)
+	private const float DEFAULT_SPEED = 3.0f;		// running speed
+	private const float STRAFE_FACTOR = 0.7f;		// speed factor while strafing
 	
 	// Public variables
 	public GameObject _cameraPivot;
 	public bool _invertYAxis;
 	
 	// Private variables
-	private float _runningSpeed = 0;		// Current running speed
-	private float _camRotX = 0.0f;			// Current camera rotation around X
+	private float _forwardRunningSpeed = 0;		// Current forward running speed (can be negative for backward)
+	private float _strafeSpeed = 0;				// Current strafing speed (negative value means left, positive means right)
+	private float _camRotX = 0.0f;				// Current camera rotation around X
 
 	// Private values stocking vertical and horizontal input for camera
 	private float _XInput;
@@ -31,6 +33,8 @@ public class PlayerController : MonoBehaviour {
 		set { _YInput = value; }
 	}
 
+	// ----------------------------------------------------------------------------------------------------
+
 	// Use this for initialization
 	void Start () {
 		// Hide cursor
@@ -43,9 +47,15 @@ public class PlayerController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		MoveCamera ();
+		MovePlayer ();
 	}
-	
-	// Move the camera along the axis 
+
+	// ----------------------------------------------------------------------------------------------------
+
+	/**
+	 * MoveCamera
+	 * Move the camera along X & Y axis, using the inputs given by PlayerInput.
+	 **/
 	private void MoveCamera () {
 		float invertFactor;
 
@@ -74,5 +84,38 @@ public class PlayerController : MonoBehaviour {
 		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
 		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
 			- CamY * CAMERA_Y_FACTOR * invertFactor);
+	}
+
+
+	/**
+	 * MovePlayer
+	 * Move player along forward and right axis, using parameters updated by PlayerInput via
+	 * UpdateForwardSpeed & UpdateStrafeSpeed methods.
+	 **/
+	void MovePlayer () {
+		transform.position += 
+			transform.forward * _forwardRunningSpeed * Time.deltaTime
+			+ transform.right * _strafeSpeed * Time.deltaTime;
+	}
+
+	/**
+	 * UpdateForwardSpeed
+	 * Update the current running speed along forward vector (called via PlayerInput).
+	 * @param d : whether player should run backward (-1), forward (1) or not run at all (0).
+	 **/
+	void UpdateForwardSpeed (int d) {
+		_forwardRunningSpeed = Mathf.Clamp (d, -1, 1) * DEFAULT_SPEED;
+		//Debug.Log (_forwardRunningSpeed);
+	}
+
+
+	/**
+	 * UpdateStrafeSpeed
+	 * Update the current strafe speed along right vector (called via PlayerInput).
+	 * @param d : whether player should strafe left (-1), right (1) or not strafe at all (0).
+	 **/
+	void UpdateStrafeSpeed (int d) {
+		_strafeSpeed = Mathf.Clamp (d, -1, 1) * STRAFE_FACTOR * DEFAULT_SPEED;
+		//Debug.Log (_strafeSpeed);
 	}
 }
