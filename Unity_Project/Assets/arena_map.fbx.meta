@@ -1,29 +1,64 @@
 fileFormatVersion: 2
-guid: 9038f26b1da4b5c46b9d7ba3e18f35d6
-timeCreated: 1487161052
+guid: 049b087c23aff3d4a95fecd3237c3730
+timeCreated: 1487176157
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
     100000: //RootNode
-    100002: Sphere
-    100004: Sphere_001
-    100006: Torus
+    100002: Lamp
+    100004: left_stairs
+    100006: map_border
+    100008: map_skeleton
+    100010: right_stairs
+    100012: Torus
+    100014: underground
+    100016: pPipe1
+    100018: pPipe1.001
+    100020: colonne1
+    100022: colonne2
     400000: //RootNode
-    400002: Sphere
-    400004: Sphere_001
-    400006: Torus
-    2300000: Sphere
-    2300002: Sphere_001
-    2300004: Torus
-    3300000: Sphere
-    3300002: Sphere_001
-    3300004: Torus
-    4300000: Sphere_001
-    4300002: Torus
-    4300004: Sphere
-    7400000: Default Take
-    9500000: //RootNode
+    400002: Lamp
+    400004: left_stairs
+    400006: map_border
+    400008: map_skeleton
+    400010: right_stairs
+    400012: Torus
+    400014: underground
+    400016: pPipe1
+    400018: pPipe1.001
+    400020: colonne1
+    400022: colonne2
+    2300000: left_stairs
+    2300002: map_border
+    2300004: map_skeleton
+    2300006: right_stairs
+    2300008: Torus
+    2300010: underground
+    2300012: pPipe1
+    2300014: pPipe1.001
+    2300016: colonne1
+    2300018: colonne2
+    3300000: left_stairs
+    3300002: map_border
+    3300004: map_skeleton
+    3300006: right_stairs
+    3300008: Torus
+    3300010: underground
+    3300012: pPipe1
+    3300014: pPipe1.001
+    3300016: colonne1
+    3300018: colonne2
+    4300000: map_border
+    4300002: left_stairs
+    4300004: right_stairs
+    4300006: map_skeleton
+    4300008: Torus
+    4300010: underground
+    4300012: pPipe1.001
+    4300014: pPipe1
+    4300016: colonne2
+    4300018: colonne1
   materials:
     importMaterials: 1
     materialName: 0
@@ -86,7 +121,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
