@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		// Hide cursor
 		Cursor.visible = false;
+		Cursor.lockState = CursorLockMode.Locked;
 
 		// Default Y camera axis is not inverted
 		_invertYAxis = false;
