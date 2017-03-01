@@ -5,9 +5,10 @@ using UnityEngine;
 public class Weapon : MonoBehaviour {
     public int degat;
     public string nom;
+    public GameObject FireSpot;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -16,7 +17,7 @@ public class Weapon : MonoBehaviour {
 		
 	}
 
-    public void shoot()
+    public virtual void shoot()
     {
         print("Tir de : " + nom);
     }

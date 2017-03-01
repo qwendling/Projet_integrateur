@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Arme : Weapon {
     public int cadence;
-	// Use this for initialization
-	void Start () {
+    public GameObject projectile;
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +14,10 @@ public class Arme : Weapon {
 	void Update () {
 		
 	}
+
+    public override void shoot()
+    {
+        GameObject bullet = Instantiate(projectile, FireSpot.transform.position, Quaternion.identity) as GameObject;
+        bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+    }
 }
