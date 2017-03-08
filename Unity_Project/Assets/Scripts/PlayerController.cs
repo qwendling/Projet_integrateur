@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour {
 	// Public variables
 	public GameObject _cameraPivot;
 	public bool _invertYAxis;
+	public bool _InGameMenuIsDisplayed = false;
 	
 	// Private variables
 	private float _forwardRunningSpeed = 0;		// Current forward running speed (can be negative for backward)
@@ -47,8 +48,10 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-		MoveCamera ();
-		MovePlayer ();
+		if (!_InGameMenuIsDisplayed) {
+			MoveCamera ();
+			MovePlayer ();
+		}
 	}
 
 	// ----------------------------------------------------------------------------------------------------
