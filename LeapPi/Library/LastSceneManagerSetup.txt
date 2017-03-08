@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/projet_serveur.unity
+  isLoaded: 1
+  isActive: 1
