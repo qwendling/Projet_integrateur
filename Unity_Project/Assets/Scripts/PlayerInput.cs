@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerInput : MonoBehaviour {
+public class PlayerInput : NetworkBehaviour {
 	public GameObject _player;
 
 	private PlayerController _controller;

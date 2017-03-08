@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Weapon : MonoBehaviour {
+public class Weapon : NetworkBehaviour {
     public int degat;
     public string nom;
     public GameObject FireSpot;
@@ -17,7 +18,8 @@ public class Weapon : MonoBehaviour {
 		
 	}
 
-    public virtual void shoot()
+
+    public virtual void Cmdshoot()
     {
         print("Tir de : " + nom);
     }

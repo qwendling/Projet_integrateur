@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : NetworkBehaviour {
 	// MACROS
 	private const float CAMERA_X_FACTOR = 4.0f;		// camera sensibility (along X axis)
 	private const float CAMERA_Y_FACTOR = 3.0f;		// camera sensibility (along Y axis)
