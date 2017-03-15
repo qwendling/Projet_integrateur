@@ -101,6 +101,8 @@ public class PlayerController : NetworkBehaviour {
 		transform.position += 
 			transform.forward * _forwardRunningSpeed * Time.deltaTime
 			+ transform.right * _strafeSpeed * Time.deltaTime;
+			
+		//rigidbody.velocity = new Vector3(_forwardRunningSpeed, 0.0f, _strafeSpeed);
 	}
 
 	/**
@@ -108,7 +110,8 @@ public class PlayerController : NetworkBehaviour {
 	 * Update the current running speed along forward vector (called via PlayerInput).
 	 * @param d : whether player should run backward (-1), forward (1) or not run at all (0).
 	 **/
-	void UpdateForwardSpeed (int d) {
+	 [Command]
+	void CmdUpdateForwardSpeed (int d) {
 		_forwardRunningSpeed = Mathf.Clamp (d, -1, 1) * DEFAULT_SPEED;
 		//Debug.Log (_forwardRunningSpeed);
 	}
@@ -119,7 +122,8 @@ public class PlayerController : NetworkBehaviour {
 	 * Update the current strafe speed along right vector (called via PlayerInput).
 	 * @param d : whether player should strafe left (-1), right (1) or not strafe at all (0).
 	 **/
-	void UpdateStrafeSpeed (int d) {
+	 [Command]
+	void CmdUpdateStrafeSpeed (int d) {
 		_strafeSpeed = Mathf.Clamp (d, -1, 1) * STRAFE_FACTOR * DEFAULT_SPEED;
 		//Debug.Log (_strafeSpeed);
 	}

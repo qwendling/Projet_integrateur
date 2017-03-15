@@ -28,7 +28,7 @@ public class PlayerInput : NetworkBehaviour {
 			forward = 0;
 		}
 
-		_player.SendMessage ("UpdateForwardSpeed", forward);
+		_player.SendMessage ("CmdUpdateForwardSpeed", forward);
 
 		if (Input.GetKey (KeyCode.D)) {
 			right = 1;
@@ -38,6 +38,6 @@ public class PlayerInput : NetworkBehaviour {
 			right = 0;
 		}
 
-		_player.SendMessage ("UpdateStrafeSpeed", right);
+		_player.SendMessage ("CmdUpdateStrafeSpeed", right);
 	}
 }

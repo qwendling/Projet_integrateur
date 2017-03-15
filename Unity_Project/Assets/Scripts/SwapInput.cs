@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class SwapInput : MonoBehaviour {
+public class SwapInput : NetworkBehaviour {
 	public GameObject _swapEngine;
 	
 	// Use this for initialization

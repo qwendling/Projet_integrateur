@@ -15,7 +15,7 @@ public class Arme : Weapon {
 		
 	}
 
-    public override void shoot()
+    public override void Cmdshoot()
     {
         GameObject bullet = Instantiate(projectile, FireSpot.transform.position, Quaternion.identity) as GameObject;
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);

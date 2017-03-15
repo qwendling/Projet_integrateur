@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ToolSwap : MonoBehaviour {
+public class ToolSwap : NetworkBehaviour {
 	// Maximum weapon/spell equiped
 	public static int INVENTORY_SIZE = 3;
 	
