@@ -131,6 +131,22 @@ class DBConnect{
 		}
 		return false;
 	}
+	/**
+	 * Suppression d'une classe dans la base
+	 * argument: int-id de la classe sur le serveur
+	 * retour: true si ok
+	 */	
+	  public bool deleteClass(int idClass,)
+	{
+		string query ="DELETE FROM CLASSES WHERE id_classe = "+idClass+";";
+		if(this.ouvertureConnection() == true){
+			MySqlCommand cmd = new MySqlCommand(query,connection);
+			cmd.ExecuteNonQuery();
+			this.fermetureConnection();
+			return true;
+		}
+		return false;
+	}	
 							
 
 }
