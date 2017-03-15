@@ -11,7 +11,7 @@ using GameMessages;
 public class LeapMotionController : MonoBehaviour {
 	LeapProvider provider;
 	double marge= 0.4;
-	double marge_pitch= 0.2;
+	double marge_pitch= 0.5;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
@@ -97,7 +97,7 @@ public class LeapMotionController : MonoBehaviour {
 					dataSend (200, 998);
 					print ("forward");
 				}
-				else if (pitch + marge_pitch < pitch_max && pitch < 0)
+				else if (pitch + marge_pitch < pitch_max && pitch > 0)
 				{
 					dataSend (200, 997);
 					print ("backward");
