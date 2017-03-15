@@ -13,6 +13,9 @@ public class SwapInput : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(!isLocalPlayer)
+			return;
+		
 		// For some reason, sending message "swap" with 0 as argument won't work,
 		//	because 0 is interpreted as null (╯°□°）╯︵ ┻━┻
 		int i = 0;

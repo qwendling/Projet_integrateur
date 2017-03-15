@@ -15,6 +15,9 @@ public class PlayerInput : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(!isLocalPlayer)
+			return;
+		
 		_controller.CamX = Input.GetAxis("Mouse X");
 		_controller.CamY = Input.GetAxis("Mouse Y");
 
