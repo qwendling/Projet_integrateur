@@ -21,7 +21,9 @@ public class PlayerController : NetworkBehaviour {
 	private float _camRotX = 0.0f;				// Current camera rotation around X
 
 	// Private values stocking vertical and horizontal input for camera
+	[SyncVar]
 	private float _XInput;
+	[SyncVar]
 	private float _YInput;
 
 	// Public corresponding properties (to be updated)
@@ -29,7 +31,7 @@ public class PlayerController : NetworkBehaviour {
 		get { return _XInput; }
 		set { _XInput = value; }
 	}
-
+	
 	public float CamY {
 		get { return _YInput; }
 		set { _YInput = value; }

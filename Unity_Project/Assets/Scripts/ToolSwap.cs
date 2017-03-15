@@ -8,8 +8,10 @@ public class ToolSwap : NetworkBehaviour {
 	public static int INVENTORY_SIZE = 3;
 	
 	public GameObject[] _inventory = new GameObject[INVENTORY_SIZE];
+	[SyncVar]
 	public GameObject _activeItem;
 	
+	[SyncVar]
 	private int _currentItem = 0;
 	private int CurrentItem {
 		get { return _currentItem; }
@@ -33,7 +35,8 @@ public class ToolSwap : NetworkBehaviour {
 		
 	}
 	
-	void Swap (int i) {
+	[Command]
+	void CmdSwap (int i) {
 		i = Mathf.Clamp (i, 0, INVENTORY_SIZE);
 		if(i != CurrentItem){
 			_inventory[CurrentItem].SetActive(false);
