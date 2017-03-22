@@ -136,7 +136,12 @@ class DBConnect{
 	 * argument: int-id de la classe sur le serveur
 	 * retour: true si ok
 	 */	
-	  public bool deleteClass(int idClass,)
+	 /**
+	 * Suppression d'une classe dans la base
+	 * argument: int-id de la classe sur le serveur
+	 * retour: true si ok
+	 */	
+	  public bool deleteClass(int idClass)
 	{
 		string query ="DELETE FROM CLASSES WHERE id_classe = "+idClass+";";
 		if(this.ouvertureConnection() == true){
@@ -146,7 +151,33 @@ class DBConnect{
 			return true;
 		}
 		return false;
-	}	
+	}
+		  
+	/**
+	 * Selectionne les entrées dans la table ARMES
+	 * retour: -une strnig vide si échec ou si la table est vide
+	 *	   -une string contenant les valeurs de chaque n-uplet ou deux n-uplets sont séparé par un /
+	 * TODO: faire un format de retour plus facilement exploitable
+	 */
+	public string selectArme()
+	{
+		string result = "";
+		string query ="SELECT * FROM ARMES;";
+		if(this.ouvertureConnection() == true){
+			MySqlCommand cmd = new MySqlCommand(query,connection);
+			cmd.ExecuteNonQuery();
+			MySqlDataReader reader = cmd.ExecuteReader();
+			if(reader.Read()){
+				result = reader.ToString();
+			}
+			while (reader.Read()){
+    				result = result+"/"+reader.ToString();
+			}
+			this.fermetureConnection();
+		}
+		return result;
+	}
+
 							
 
 }
