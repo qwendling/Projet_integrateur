@@ -8,7 +8,6 @@ public class ToolSwap : NetworkBehaviour {
 	public static int INVENTORY_SIZE = 3;
 
 	public GameObject[] _inventory = new GameObject[INVENTORY_SIZE];
-
 	public GameObject _activeItem;
 
 	private int _currentItem = 0;
