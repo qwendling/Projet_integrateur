@@ -7,6 +7,7 @@ public class Weapon : NetworkBehaviour {
     public int degat;
     public string nom;
     public GameObject FireSpot;
+    public float vitesse = 1;
 
     // Use this for initialization
     void Start () {

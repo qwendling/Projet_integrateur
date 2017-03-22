@@ -12,9 +12,11 @@ public class CanShoot : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!isLocalPlayer)
+            return;
         if (Input.GetButtonDown("Fire1"))
         {
-           gameObject.GetComponentInChildren<ToolSwap>()._activeItem.GetComponent<Weapon>().Cmdshoot();
+           gameObject.GetComponent<ToolSwap>()._activeItem.GetComponent<Weapon>().Cmdshoot();
         }
 	}
 }
