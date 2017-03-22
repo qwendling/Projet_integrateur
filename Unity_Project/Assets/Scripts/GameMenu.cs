@@ -16,6 +16,4 @@ public class GameMenu : MonoBehaviour {
 	public void EnterName(){
 		
 	}
-
-
 }
