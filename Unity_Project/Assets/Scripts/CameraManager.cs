@@ -8,9 +8,9 @@ public class CameraManager : NetworkBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		if(!isLocalPlayer){
+		/*if(!isLocalPlayer){
 			_myCamera.enabled = false;
-		}
+		}*/
 	}
 	
 	// Update is called once per frame
