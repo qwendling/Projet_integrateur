@@ -21,21 +21,8 @@ public class PlayerController : NetworkBehaviour {
 	private float _camRotX = 0.0f;				// Current camera rotation around X
 
 	// Private values stocking vertical and horizontal input for camera
-	[SyncVar]
 	private float _XInput;
-	[SyncVar]
 	private float _YInput;
-
-	// Public corresponding properties (to be updated)
-	public float CamX {
-		get { return _XInput; }
-		set { _XInput = value; }
-	}
-	
-	public float CamY {
-		get { return _YInput; }
-		set { _YInput = value; }
-	}
 
 	// ----------------------------------------------------------------------------------------------------
 
@@ -67,7 +54,7 @@ public class PlayerController : NetworkBehaviour {
 		float invertFactor;
 
 		// Update current camera rotation around X to cap it
-		_camRotX += CamY * CAMERA_Y_FACTOR;
+		_camRotX += _YInput * CAMERA_Y_FACTOR;
 
 		// If the rotation exceeds 90° (up or down), ignore the rest.
 		if (_camRotX < -90f) {
@@ -81,7 +68,7 @@ public class PlayerController : NetworkBehaviour {
 
 		// Rotate player around Y axis (along X) with horizontal input
 		transform.RotateAround(transform.position, transform.up, 
-			CAMERA_X_FACTOR * CamX);
+			CAMERA_X_FACTOR * _XInput);
 
 		if (_invertYAxis)
 			invertFactor = -1.0f;
@@ -90,7 +77,7 @@ public class PlayerController : NetworkBehaviour {
 
 		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
 		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
-			- CamY * CAMERA_Y_FACTOR * invertFactor);
+			- _YInput * CAMERA_Y_FACTOR * invertFactor);
 	}
 
 
@@ -108,25 +95,57 @@ public class PlayerController : NetworkBehaviour {
 	}
 
 	/**
+	 * UpdateCameraXY
+	 * Update the X and Y axis input
+	 * @param X_val : X axis input
+	 * @param Y_val : Y axis input
+	 **/
+	[Command]
+	public void CmdUpdateCameraXY (float X_val, float Y_val) {
+		_XInput = X_val;
+		_YInput = Y_val;
+		RpcUpdateCameraXY (X_val, Y_val);
+	}
+
+	[ClientRpc]
+	void RpcUpdateCameraXY (float X_val, float Y_val) {
+		_XInput = X_val;
+		_YInput = Y_val;
+	}
+
+	/**
 	 * UpdateForwardSpeed
 	 * Update the current running speed along forward vector (called via PlayerInput).
 	 * @param d : whether player should run backward (-1), forward (1) or not run at all (0).
 	 **/
-	 [Command]
-	void CmdUpdateForwardSpeed (int d) {
-		_forwardRunningSpeed = Mathf.Clamp (d, -1, 1) * DEFAULT_SPEED;
+	[Command]
+	public void CmdUpdateForwardSpeed (int d) {
+		d = Mathf.Clamp (d, -1, 1);
+		RpcUpdateForwardSpeed (d);
+		_forwardRunningSpeed = d * DEFAULT_SPEED;
 		//Debug.Log (_forwardRunningSpeed);
 	}
 
+	[ClientRpc]
+	void RpcUpdateForwardSpeed (int d) {
+		_forwardRunningSpeed = d * DEFAULT_SPEED;
+	}
 
 	/**
 	 * UpdateStrafeSpeed
 	 * Update the current strafe speed along right vector (called via PlayerInput).
 	 * @param d : whether player should strafe left (-1), right (1) or not strafe at all (0).
 	 **/
-	 [Command]
-	void CmdUpdateStrafeSpeed (int d) {
-		_strafeSpeed = Mathf.Clamp (d, -1, 1) * STRAFE_FACTOR * DEFAULT_SPEED;
+	[Command]
+	public void CmdUpdateStrafeSpeed (int d) {
+		d = Mathf.Clamp (d, -1, 1);
+		RpcUpdateStrafeSpeed (d);
+		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
 		//Debug.Log (_strafeSpeed);
+	}
+
+	[ClientRpc]
+	void RpcUpdateStrafeSpeed (int d) {
+		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
 	}
 }
