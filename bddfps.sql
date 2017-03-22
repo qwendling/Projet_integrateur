@@ -13,6 +13,7 @@ CREATE TABLE ARMES(
 	nom_arme varchar(256),
 	cadence_arme decimal(5,3),
 	degats_arme int,
+	vitesse_bullet_arme decimal(5,3),
 	range_arme int
 )ENGINE = INNODB;
 
