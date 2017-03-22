@@ -177,6 +177,30 @@ class DBConnect{
 		}
 		return result;
 	}
+	/**
+	 * Selectionne les entrées dans la table ARENES
+	 * retour: -une strnig vide si échec ou si la table est vide
+	 *	   -une string contenant les valeurs de chaque n-uplet ou deux n-uplets sont séparé par un /
+	 * TODO: faire un format de retour plus facilement exploitable
+	 */
+	public string selectArene()
+	{
+		string result = "";
+		string query ="SELECT * FROM ARENES;";
+		if(this.ouvertureConnection() == true){
+			MySqlCommand cmd = new MySqlCommand(query,connection);
+			cmd.ExecuteNonQuery();
+			MySqlDataReader reader = cmd.ExecuteReader();
+			if(reader.Read()){
+				result = reader.ToString();
+			}
+			while (reader.Read()){
+    				result = result+"/"+reader.ToString();
+			}
+			this.fermetureConnection();
+		}
+		return result;
+	}
 
 							
 
