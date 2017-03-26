@@ -16,7 +16,7 @@ public class Arme : Weapon {
 	void Update () {
 		
 	}
-
+		
     public override void Cmdshoot()
     {
         GameObject bullet = Instantiate(projectile, FireSpot.transform.position, Quaternion.identity) as GameObject;
