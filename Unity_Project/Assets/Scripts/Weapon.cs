@@ -19,8 +19,7 @@ public class Weapon : NetworkBehaviour {
 		
 	}
 
-
-    public virtual void Cmdshoot()
+    public virtual void Shoot()
     {
         print("Tir de : " + nom);
     }

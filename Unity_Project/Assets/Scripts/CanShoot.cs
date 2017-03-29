@@ -16,7 +16,13 @@ public class CanShoot : NetworkBehaviour {
             return;
         if (Input.GetButtonDown("Fire1"))
         {
-           gameObject.GetComponent<ToolSwap>()._activeItem.GetComponent<Weapon>().Cmdshoot();
+			CmdFire ();
         }
 	}
+
+	[Command]
+	public void CmdFire () {
+		gameObject.GetComponent<ToolSwap> ()._activeItem.GetComponent<Weapon> ().Shoot ();
+	}
+
 }

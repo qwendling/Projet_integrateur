@@ -16,8 +16,8 @@ public class Arme : Weapon {
 	void Update () {
 		
 	}
-		
-    public override void Cmdshoot()
+
+    public override void Shoot()
     {
         GameObject bullet = Instantiate(projectile, FireSpot.transform.position, Quaternion.identity) as GameObject;
         bullet.GetComponent<MeshRenderer>().material.color = couleurTir;
