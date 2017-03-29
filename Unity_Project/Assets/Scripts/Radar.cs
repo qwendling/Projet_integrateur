@@ -5,21 +5,28 @@ using UnityEngine;
 public class Radar : MonoBehaviour {
 
 	public GameObject radarPrefab;
+	public GameObject player;
+	private float offset = 5.0f;
 
 	void Start () {
-		
+		createRadarObjects();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		createRadarObjects();
+		
 	}
-
+	
+	//player appears on radar for 5 seconds;
 	void createRadarObjects()
 	{
 		foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player")) 
 		{
-			Destroy(Instantiate(radarPrefab, go.transform.position, Quaternion.identity),0.1f);
+
+			if(player.transform.position.y >= (go.transform.position.y - offset) && player.transform.position.y <= (go.transform.position.y + offset ))
+			{
+				Destroy(Instantiate(radarPrefab, go.transform.position, Quaternion.identity),5.0f);
+			}
 		}
 	}
 }
