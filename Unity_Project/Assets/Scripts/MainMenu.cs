@@ -17,7 +17,7 @@ public class MainMenu : MonoBehaviour {
 
 	public void OnPlayClicked(){
 	
-		SceneManager.LoadScene ("Arena1");
+		SceneManager.LoadScene ("ConnectionMenu");
 		Cursor.visible = false;
 	}
 
