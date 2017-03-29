@@ -8,122 +8,174 @@ using Leap.Unity;
 using Leap;
 using GameMessages;
 
-public class LeapMotionController : MonoBehaviour {
+public class LeapMotionController : MonoBehaviour 
+{
+	//Motion capture device related attributes
 	LeapProvider provider;
+
 	double marge= 0.4;
-	double marge_pitch= 0.5;
+	double marge_pitch= 0.2;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
 
-	const string srvaddr = "localhost";
-	const int port = 7000;
+	//System related attributes
+	string identifier;
+	bool deviceLinked = false;
+
+	//Network related attributes
 	NetworkManager netmgr;
 
-	public String getServerInfo()
+	public void sendGameMessage(int mouvement)
 	{
-		return ("Server address: " + netmgr.networkAddress + " on port: " + netmgr.networkPort);
+		if (netmgr.client.connection != null) 
+		{
+			GameMessage msg = new GameMessage ();
+			msg.deviceId = this.identifier;
+			msg.mouvement = mouvement;
+
+			if(netmgr.client.isConnected) 
+			{
+				netmgr.client.Send (200, msg);
+			}
+		}
 	}
 
-	public void dataSend(short type, int mouvement)
+	public void sendSystemMessage(int content)
 	{
-		GameMessage msg = new GameMessage ();
-		msg.mouvement = mouvement;
-
-		if(netmgr.client.isConnected) 
+		if (netmgr.client != null && netmgr.client.connection != null) 
 		{
-			netmgr.client.Send (type, msg);
+			SystemMessage sysmsg = new SystemMessage ();
+			sysmsg.deviceId = this.identifier;
+			sysmsg.clientConnection = netmgr.client.connection.connectionId;
+			sysmsg.content = content;
+
+			if (netmgr.client.isConnected) 
+			{
+				netmgr.client.Send (100, sysmsg);
+			}
 		}
+	}
+
+	public void onSystemMessage(NetworkMessage net)
+	{
+		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
+		if (sysmsg.content == MessageTypes.LINK_ESTABLISHED && !this.deviceLinked) 
+		{
+			this.deviceLinked = true;
+			print ("Link to device " + sysmsg.deviceId + " has been successfully established.");
+		}
+		//print ("SYSMSG RECEIVED [LEAP DEVICE ID: " + sysmsg.deviceId + ", CLIENT CONNECTION ID: " + sysmsg.clientConnection + ", CONTENT: " + sysmsg.content + "]");
 	}
 
 	void Start ()
 	{
-		//Set Network Manager
+		//INITIAL CONFIGURATION
+		//1. Device identity
+		if (SystemInfo.deviceUniqueIdentifier != SystemInfo.unsupportedIdentifier) 
+		{
+			this.identifier = SystemInfo.deviceUniqueIdentifier;
+		} 
+		else 
+		{
+			this.identifier = SystemInfo.unsupportedIdentifier;
+		}
+			
+		//2. Network setup
+		//2.1 Retrieve NetworkManager object
 		netmgr = gameObject.GetComponent<NetworkManager>();
 
-		//Configure Network Manager parameters
-		netmgr.networkAddress = srvaddr;
-		netmgr.networkPort = port;
+		//2.2 Set game server parameters
+		netmgr.networkAddress = "127.0.0.1";
+		netmgr.networkPort = 3000;
 
-		print("Client was configured to: " + getServerInfo());
-
-		//Connect to the game server
-		//Attempt to connect to the defined server
+		//2.3 Start client
 		netmgr.StartClient(); 
 
+		if (netmgr.client.isConnected)
+			print ("Client connetcted!");
+
+		//2.4 Register message handler(s)
+		netmgr.client.RegisterHandler (100, onSystemMessage);
+
+		//3. Motion capture device link
 		provider = FindObjectOfType<LeapProvider>() as LeapProvider;
 	}
 
 	void Update ()
 	{
-		Frame frame = provider.CurrentFrame;
-		foreach (Hand hand in frame.Hands)
+		if (this.deviceLinked) 
 		{
-			float pitch = hand.Direction.Pitch;
-			float yaw = hand.Direction.Yaw;
-			float roll = hand.PalmNormal.Roll;
-
-			print("yaw: " + yaw + " pitch: " + pitch);
-
-			if (hand.IsLeft) {
-				if (yaw < yaw_min)
-					yaw_min = yaw;
-				else if ( yaw > yaw_max)
-					yaw_max = yaw;
-				
-				if (pitch < pitch_min)
-					pitch_min = pitch;
-				else if (pitch > pitch_max)
-					pitch_max = pitch;
-
-				if (yaw - marge > yaw_min && yaw < 0)
-				{
-					dataSend (200, 310);
-					print ("left");
-				}
-				else if (yaw + marge < yaw_max && yaw > 0)
-				{
-					dataSend (200, 320);
-					print ("right");
-				}
-				else
-				{
-					dataSend (200, 999);
-					print("centre");
-				}
-
-				if (pitch - marge_pitch > pitch_min && pitch < 0)
-				{
-					dataSend (200, 998);
-					print ("forward");
-				}
-				else if (pitch + marge_pitch < pitch_max && pitch > 0)
-				{
-					dataSend (200, 997);
-					print ("backward");
-				}
-				else
-				{
-					dataSend (200, 996);
-					print("stay");
-				}
-			}
-
-
-			else if (hand.IsRight)
+			Frame frame = provider.CurrentFrame;
+			foreach (Hand hand in frame.Hands) 
 			{
-				if(hand.PinchStrength > 0.6)
-					print("Feu");
-				if(pitch < 1.9 && pitch > 0)
-					change_arme = 1;
-				if(pitch  <= 0.2)
-					if(change_arme == 1)
+				float pitch = hand.Direction.Pitch;
+				float yaw = hand.Direction.Yaw;
+				float roll = hand.PalmNormal.Roll;
+
+				if (hand.IsLeft) 
+				{
+					if (yaw < yaw_min)
+						yaw_min = yaw;
+					else if (yaw > yaw_max)
+						yaw_max = yaw;
+
+					if (pitch < pitch_min)
+						pitch_min = pitch;
+					else if (pitch > pitch_max)
+						pitch_max = pitch;
+
+					if (yaw - marge > yaw_min && yaw < 0) 
+					{
+						sendGameMessage (310);
+						print ("left");
+					} 
+					else if (yaw + marge < yaw_max && yaw > 0) 
+					{
+						sendGameMessage (320);
+						print ("right");
+					}
+					else 
+					{
+						sendGameMessage (330);
+						print ("centre");
+					}
+
+					if (pitch - marge_pitch > pitch_min && pitch < 0) 
+					{
+						sendGameMessage (998);
+						print ("forward");
+					} 
+					else if (pitch + marge_pitch < pitch_max && pitch < 0) 
+					{
+						sendGameMessage (997);
+						print ("backward");
+					} 
+					else 
+					{
+						sendGameMessage (998);
+						print ("stay");
+					}
+				} 
+				else if (hand.IsRight) 
+				{
+					if (hand.PinchStrength > 0.6)
+						print ("Feu");
+					if (pitch < 1.9 && pitch > 0)
+						change_arme = 1;
+					if (pitch <= 0.2)
+					if (change_arme == 1) 
 					{
 						change_arme = 0;
-						dataSend (200, 888);
-						print("changement d'arme");
+						sendGameMessage (999);
+						print ("changement d'arme");
 					}
+				}
 			}
+		} 
+		else 
+		{
+			sendSystemMessage (MessageTypes.ASK_FOR_CONNECTION);
 		}
 	}
 
