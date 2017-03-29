@@ -7,6 +7,7 @@ public class Arme : Weapon {
     public int cadence;
     public GameObject projectile;
     public Color couleurTir;
+
     // Use this for initialization
     void Start () {
 		
@@ -17,12 +18,11 @@ public class Arme : Weapon {
 		
 	}
 
-    public override void Shoot()
+	public override void Shoot()
     {
         GameObject bullet = Instantiate(projectile, FireSpot.transform.position, Quaternion.identity) as GameObject;
         bullet.GetComponent<MeshRenderer>().material.color = couleurTir;
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
-        NetworkServer.Spawn(bullet);
-        Destroy(bullet, 2.0f);
+		Destroy (bullet, 2.0f);
     }
 }
