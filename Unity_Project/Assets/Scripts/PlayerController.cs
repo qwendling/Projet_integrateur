@@ -26,6 +26,18 @@ public class PlayerController : NetworkBehaviour {
 
 	// ----------------------------------------------------------------------------------------------------
 
+	/*public override void OnStartLocalPlayer() {
+		GetComponent<CameraManager> ().enabled = true;
+		GetComponent<PlayerInput> ().enabled = true;
+		GetComponent<SkinChoice> ().enabled = true;
+		SkinChoice SC = GetComponent<SkinChoice> ();
+		for (int i = 0; i < 2; i++) {
+			SC._skins [i].SetActive (false);
+		}
+
+		base.OnStartLocalPlayer ();
+	}*/
+
 	// Use this for initialization
 	void Start () {
 		// Hide cursor

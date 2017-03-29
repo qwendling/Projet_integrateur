@@ -1,9 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
-public class Weapon : NetworkBehaviour {
+public class Weapon : MonoBehaviour {
     public int degat;
     public string nom;
     public GameObject FireSpot;
