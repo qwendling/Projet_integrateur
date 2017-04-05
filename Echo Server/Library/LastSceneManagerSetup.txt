@@ -1,4 +1,0 @@
-sceneSetups:
-- path: Assets/EchoResponder.unity
-  isLoaded: 1
-  isActive: 1
