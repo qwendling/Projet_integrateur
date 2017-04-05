@@ -17,16 +17,16 @@ Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Pro
 Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.048 seconds
+- Completed reload, in  0.034 seconds
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 3.135021 ms
+UnloadTime: 4.149709 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 227c -> priority: 1 
+  Thread -> id: 388 -> priority: 1 
 Initialize engine version: 5.5.1f1 (88d00a7498cd)
 GfxDevice: creating device client; threaded=1
 Direct3D:
@@ -46,93 +46,265 @@ Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Pro
 Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.029 seconds
+- Completed reload, in  0.028 seconds
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Joueur_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
 <RI> Initializing input.
 <RI> Input initialized.
 <RI> Initialized touch support.
-UnloadTime: 2.424704 ms
+UnloadTime: 1.219961 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 29e0 -> priority: 1 
-Did not find target for sync message for 3
+  Thread -> id: 590 -> priority: 1 
+Did not find target for sync message for 6
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 4
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 7
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 12
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+(Filename: C:/buiid nod fsnd terget fy/busync mrtsfacts/gen e
+ at
+(Ficomnanmrent: e/Debuildindings.gen./bupiLld/ar5i)
+cts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Did not find target for sync message for 13
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtimD/id not finngs.gen.cpf Linse: 51)
 
-Did not find target for sync message for 15
+age for 13
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 21
+DDd not find td target for sync message for 14
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 23
+arget for sync message for 14
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 26
+Dii dotn tfind targ t for sync message syn 15
+ 
+(Filename5
+:
+(C:ilenaldslaC:ebuunity/ave/uuld/artifacts/generateld/artifacts/gime/DebugBendings.gen.cpp Line: 51)
+t
+ed/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not findDtidg tnfotr innd meargsag f for 1n
+c 
+(milesagame: C17/bu
+ i
+(Filename: ty/Cui/bud/artifactseg/nnityerailddcommoifacuntime/DebugBin/conmos.gen.cpp LibngBind1ngs
+
+gen.cpp Line: 51)
+
+Did not find target for sync message for 18
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebDgBid nod fnnd tarngcpet ine: 51)
+ 
+essage for 18
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 28
+Did not find target for sync message for 27
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 29
+Did not find target for sync message for 27
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
 Did not find target for sync message for 30
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+(Filename:DCi/ uildslave/unnot find targifafor syene mrsatee/common/r
+un
+tFime/Debugeninme:ngs.gen.lcsp Lve/ue: 5y/)
+u
+ild/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 32
+Did not find target for sync message for 39
+D
+(Fidlnoname: C target for :ynbc message for 39
+ 
+ld/artime: Cs//buildslave/unmtonb/rud/artifaetbugBi/ginerateen/.cpmoninenti5m)e
+
+DebugBindings.gen.cpp Line: 51)
+
+Did not find taDid nfor sync megst afeofors4y
+ c
+(Fmelename: Cfor 42
+ 
+(Filenity/: ui:/builtifacts/gnnery/tbu/iommon/ruiftamcts/gegBerndated/cen.copmmone:n/run
+t
+ime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 43
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 33
+Did not find target for sync message for 43
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 41
+Did not find target for sync message for 35
+ 
+(Filename: C:/buildslave/unity/build/artifactsDgid not dind targetunor synDebugBindingor 35.c
+pp
+ Linename1)
+
+:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 36
+ D
+(iidena e: C:nbuildslavtarget forild/artifacts/generated/ ommon/runtime/DebugBondings.r 36
+ 
+(Filenam1: C
+
+/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 47
+ 
+(FiDenime: ot find dslave/unity/taild/artifacts/gmneraage for 47
+ 
+(File/nabmgB: C:ingus.gel.cpe/uniety/bui
+l
+d/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync meDsage not find 
+t r
+(Filer sme: C:/build foslave
+/u
+nFilenbui:d/arti/actsldslavra/unitcym/bn/rud/aimei/actsugBindingsd/gcn.mmcnpruLnne: 5/)
+
+bugBindings.gen.cpp Line: 51)
+
+DidDnoidf not find ttarget ffor sync message  foor494
+
+
+(F
+ilenameme: C: C:/buildsveveunity/build/artrtifats/gegneeratted//coommo/runttime/DebuggBiindinsggengecpp LinL: 5e1)51
+)
+
+
+Did not find target for sync message for 50
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 41
+d not find target for sync message for 50
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 44
+DiD no n tfiind target foor syyncmeessagae  forr 551
  
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.geD.cppidinn:ot )
 
-nd target for sync message for 44
+(iileenme: C /bu/luildsve/ueityn/tyubuild/arild/artigenerftets/common/rud/timemoDnbuguntimie/DegbugBindinnes.5e1.cp
+
+p Line: 51)
+
+Did not find target for synD ied not find ta
+rg
+et for sync message for 52
+ 
+y(buildname:artifacts genebuildslave/unrunitme/Debu/artiings.gen.npp ated:/co)
+
+n/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 54
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtimeDDebd uog Binditargeg eorn.cpp sync m s5age 
+f
+or 54
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
-Did not find target for sync message for 46
+Did not find target for sync message for 55
  
-(Filename: CD/builds ane/unfint targitlfo/ sync martifa ftsr 46
- ra
-teil/namec C:/buildslave/unetyugBilndirnigs.gen.ener Line: om5on/
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
+Did not find target for sync message for 55
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 59
+ 
+(Filename: C:/Diildslave/unity/buidd/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+ not find target for sync message for 59
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not findDtirged  notsfinc message fofr 60yn
+ 
+(Fileagam for 60
+ 
+(Filanam/ueity/:/uiud/artifac/s/generbuiedd/cormiofacts/generebugd/indmngs.gen.cpp Line: 51)
+
+ugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 62
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 62
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+DDdid nootfifind tareget foryn syncsage for 66or
+ 66
+ 
+(Filename: C:/builvslavnity/ty/bui/ad/artiffacstgengeaned/atedon//commoe/DentugBinDeibgs.gen.cpp Lineug51)
+
+Bindings.gen.cpp Line: 51)
+
+Did not finDdd tnoget ndortarsync mes syn foc mes
+ 
+(Filename:
+ 
+(FibeuamedslC:/buildslauild/artifacts/grtifacted/gcommon/runtime/DrubugBme/ingsugenicndingne: 51)
+
+ Line: 51)
+
+Did not find target for synDid notge fndr ar4
+t f
+or sync em C:/bsuige foa 74
+ ni
+tyilename: C:/buictdslase/ueineratid/c/mmotifacts/ge/eebnerated/common/runtime/DebugB
+i
+ndings.gen.cpp Line: 51)
+
+Did nid not ftarget for syinn dessage f r 75
+et 
+for sync : C:/builds l5
+ /(Fitl/bnamld/artifacts/guildslave/umion/runtimea/DebugBindenes.gen.ccommon/runtim
+e
+/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 76
+ 
+(FilDnime: oC:finuildrselave/uninycbuielsa/artifac76
+ 
+(erated/commC:/runtime/Dve/uniinditgs/buied/.cpp finte:gene)
+t
+ed/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did Doid not target arget for sync mesfor 79
+ 
+ Filename: C:for lds
+ 
+(Fiunity/builename: C:/bugeneratedd/common/runtime/ldbugBinding/.gen.cpped/common/r
+u
 ntime/DebugBindings.gen.cpp Line: 51)
+
+Did not Dinid not finor sync mesor sync mess
+a
+(Filernam
+: C
+:Fbilename: /unibu/bdill/are/unctsy/genirade/acommon/runtime/DebugBindi/gr.gen.cepDebugBindi1)g
+
+s.gen.cpp Line: 51)
+
+Did not find target for sync message for 86
+ 
+(Dilid not Cind butldslave/unity/b mussage for 86ts
+/
+(Filename/commonui/rultime/Debty/builingart.fact.c/penerated: 51)
+
+/runtime/DebugBindings.gen.cpp Line: 51)
 

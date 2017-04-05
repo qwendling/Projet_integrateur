@@ -7,12 +7,16 @@ public class PlayerInput : NetworkBehaviour {
 	public GameObject _player;
 
 	private PlayerController _controller;
+	private PlayerHealth _health;
 	private ToolSwap _swapper;
+	private CanShoot _shoot;
 
 	// Use this for initialization
 	void Start () {
 		_controller = _player.GetComponent<PlayerController> ();
+		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
+		_shoot = _player.GetComponent<CanShoot> ();
 	}
 	
 	// Update is called once per frame
@@ -23,6 +27,19 @@ public class PlayerInput : NetworkBehaviour {
 
 		if(!isLocalPlayer)
 			return;
+
+		// TEST HEALTH
+
+		if (Input.GetKeyDown (KeyCode.K)) {
+			CmdTestHealth ();
+		}
+
+		// SHOOT COMMAND
+
+		if (Input.GetButtonDown("Fire1"))
+		{
+			_shoot.CmdFire ();
+		}
 
 		// CAMERA CONTROL
 
@@ -66,5 +83,10 @@ public class PlayerInput : NetworkBehaviour {
 		if(Input.GetKeyDown (KeyCode.Alpha3)){
 			_swapper.CmdSwap (2);
 		}
+	}
+
+	[Command] 
+	void CmdTestHealth() {
+		_health.TakeDamage (100);
 	}
 }

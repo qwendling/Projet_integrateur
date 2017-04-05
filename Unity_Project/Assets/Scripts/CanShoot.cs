@@ -14,10 +14,6 @@ public class CanShoot : NetworkBehaviour {
 	void Update () {
         if (!isLocalPlayer)
             return;
-        if (Input.GetButtonDown("Fire1"))
-        {
-			CmdFire ();
-        }
 	}
 
 	[Command]
