@@ -22,9 +22,9 @@ public class CanShoot : NetworkBehaviour {
 		if (W is Arme) {
 			Arme A = (Arme)W;
             A.Bruit.Play();
-			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, Quaternion.identity) as GameObject;
+			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<MeshRenderer>().material.color = A.couleurTir;
-			bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
+			bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 1000);
 			NetworkServer.Spawn (bullet);
 			Destroy (bullet, 2.0f);
 		} else if (W is Sort) {

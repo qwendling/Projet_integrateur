@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class Bullet : MonoBehaviour {
+public class Bullet : NetworkBehaviour {
 	public int DAMAGE = 10;
 
 	// Use this for initialization
@@ -18,7 +19,10 @@ public class Bullet : MonoBehaviour {
 	void OnTriggerEnter (Collider hit) {
 		if (hit.tag == "Player") {
 			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE);
+			Destroy (gameObject);
 		}
-		Destroy (gameObject);
+		if (hit.tag == "Wall") {
+			Destroy (gameObject);
+		}
 	}
 }

@@ -25,6 +25,10 @@ public class PlayerInput : NetworkBehaviour {
 			// MDR
 		}
 
+		if (Input.GetKeyDown (KeyCode.T)) {
+			Time.timeScale = 0;
+		}
+
 		if(!isLocalPlayer)
 			return;
 

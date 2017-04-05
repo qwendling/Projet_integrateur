@@ -19,11 +19,11 @@ public class Arme : Weapon {
 		
 	}
 
-	public override void Shoot()
+	/*public override void Shoot()
     {
-        GameObject bullet = Instantiate(projectile, FireSpot.transform.position, Quaternion.identity) as GameObject;
+		GameObject bullet = Instantiate(projectile, FireSpot.transform.position, FireSpot.transform.rotation) as GameObject;
         bullet.GetComponent<MeshRenderer>().material.color = couleurTir;
         bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
 		Destroy (bullet, 2.0f);
-    }
+    }*/
 }

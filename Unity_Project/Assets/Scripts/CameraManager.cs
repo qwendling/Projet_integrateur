@@ -10,6 +10,7 @@ public class CameraManager : NetworkBehaviour {
 	void Start () {
 		if(!isLocalPlayer){
 			_myCamera.enabled = false;
+			_myCamera.GetComponent<AudioListener> ().enabled = false;
 		}
 	}
 	
