@@ -21,6 +21,7 @@ public class CanShoot : NetworkBehaviour {
 		Weapon W = gameObject.GetComponent<ToolSwap> ()._activeItem.GetComponent<Weapon> ();
 		if (W is Arme) {
 			Arme A = (Arme)W;
+            A.Bruit.Play();
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, Quaternion.identity) as GameObject;
 			bullet.GetComponent<MeshRenderer>().material.color = A.couleurTir;
 			bullet.GetComponent<Rigidbody>().AddForce(transform.forward * 1000);
