@@ -21,6 +21,9 @@ public class InGameMenu : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
+		if (_Player == null) {
+			_Player = GameObject.Find ("Player_test(Clone)");
+		}
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			//If the menu was not displayed, then display it

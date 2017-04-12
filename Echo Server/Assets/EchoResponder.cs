@@ -7,14 +7,7 @@ using UnityEngine;
 using GameMessages;
 
 public class EchoResponder : MonoBehaviour 
-{
-	NetworkManager netmgr;
-
-	public String getServerInfo()
-	{
-		return ("[ server address: " + netmgr.networkAddress + ", port number: " + netmgr.networkPort + " ]");
-	}
-	
+{	
 	public void sendSystemMessage(string deviceId, int connectionId, int content)
 	{
 		SystemMessage msg = new SystemMessage ();
@@ -47,19 +40,11 @@ public class EchoResponder : MonoBehaviour
 	// Use this for initialization
 	void Start () 
 	{
-		//Set Network Manager
-		netmgr = gameObject.GetComponent<NetworkManager>();
-
-		//Configure Network Manager parameters
-		netmgr.networkAddress = "localhost";
-		netmgr.networkPort = 7000;
-
-		print("Server was configured to: " + getServerInfo());
-
-		netmgr.StartServer();
-
+		NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (200, onGameMessage);
 		NetworkServer.RegisterHandler (100, onSystemMessage);
+
+		print ("Server is listening on : " + NetworkServer.listenPort);
 	}
 	
 	// Update is called once per frame
