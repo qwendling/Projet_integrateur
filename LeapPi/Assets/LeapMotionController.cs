@@ -22,6 +22,7 @@ public class LeapMotionController : MonoBehaviour
 	//System related attributes
 	string identifier;
 	bool deviceLinked = false;
+	string clientIp;
 
 	//Network related attributes
 	NetworkClient netcln = new NetworkClient();
@@ -63,7 +64,9 @@ public class LeapMotionController : MonoBehaviour
 		if (sysmsg.content == MessageTypes.LINK_ESTABLISHED && !this.deviceLinked) 
 		{
 			this.deviceLinked = true;
-			print ("Link to device " + sysmsg.deviceId + " has been successfully established.");
+			this.clientIp = sysmsg.clientIpAddress;
+			netcln.Connect (this.clientIp, 7500);
+			print ("Your MCD was successfully atached to the client: " + sysmsg.deviceId + " located on: " + sysmsg.clientIpAddress + " .");
 		}
 		//print ("SYSMSG RECEIVED [LEAP DEVICE ID: " + sysmsg.deviceId + ", CLIENT CONNECTION ID: " + sysmsg.clientConnection + ", CONTENT: " + sysmsg.content + "]");
 	}
@@ -83,7 +86,7 @@ public class LeapMotionController : MonoBehaviour
 			
 		//2. Network setup
 		//2.1 Retrieve NetworkManager object
-		netcln.Connect("192.168.1.3", 7500);
+		netcln.Connect("255.255.255.255", 7500);
 
 		//2.2 Register message handler(s)
 		netcln.RegisterHandler(100, onSystemMessage);
@@ -94,68 +97,74 @@ public class LeapMotionController : MonoBehaviour
 
 	void Update ()
 	{
-		Frame frame = provider.CurrentFrame;
-		foreach (Hand hand in frame.Hands) 
+		if (!deviceLinked) 
 		{
-			float pitch = hand.Direction.Pitch;
-			float yaw = hand.Direction.Yaw;
-			float roll = hand.PalmNormal.Roll;
-
-			if (hand.IsLeft) 
+			//Connection phase
+			sendSystemMessage(MessageTypes.ASK_FOR_CONNECTION);
+		} 
+		else
+		{
+			Frame frame = provider.CurrentFrame;
+			foreach (Hand hand in frame.Hands) 
 			{
-				if (yaw < yaw_min)
-					yaw_min = yaw;
-				else if (yaw > yaw_max)
-					yaw_max = yaw;
+				float pitch = hand.Direction.Pitch;
+				float yaw = hand.Direction.Yaw;
+				float roll = hand.PalmNormal.Roll;
 
-				if (pitch < pitch_min)
-					pitch_min = pitch;
-				else if (pitch > pitch_max)
-					pitch_max = pitch;
+				if (hand.IsLeft) 
+				{
+					if (yaw < yaw_min)
+						yaw_min = yaw;
+					else if (yaw > yaw_max)
+						yaw_max = yaw;
 
-				if (yaw - marge > yaw_min && yaw < 0) 
-				{
-					sendGameMessage (310);
-					print ("left");
+					if (pitch < pitch_min)
+						pitch_min = pitch;
+					else if (pitch > pitch_max)
+						pitch_max = pitch;
+
+					if (yaw - marge > yaw_min && yaw < 0) 
+					{
+						sendGameMessage (310);
+						print ("left");
+					} 
+					else if (yaw + marge < yaw_max && yaw > 0) 
+					{
+						sendGameMessage (410);
+						print ("right");
+					}
+					if (pitch + marge_pitch < 3 && pitch < 0) 
+					{
+						sendGameMessage (810);
+						print ("down");
+					} 
+					else if (pitch + marge_pitch < 3 && pitch > 0) 
+					{
+						sendGameMessage (710);
+						print ("up");
+					} 
+					if (hand.PinchStrength > 0.6) {
+						print ("avancer");
+						sendGameMessage (110);
+					}
 				} 
-				else if (yaw + marge < yaw_max && yaw > 0) 
+				else if (hand.IsRight) 
 				{
-					sendGameMessage (410);
-					print ("right");
-				}
-				if (pitch + marge_pitch < 3 && pitch < 0) 
-				{
-					sendGameMessage (810);
-					print ("down");
-				} 
-				else if (pitch + marge_pitch < 3 && pitch > 0) 
-				{
-					sendGameMessage (710);
-					print ("up");
-				} 
-				if (hand.PinchStrength > 0.6) {
-					print ("avancer");
-					sendGameMessage (110);
+					if (hand.PinchStrength > 0.6) {
+						sendGameMessage (120);
+						print ("Feu");
+					}
+					if (pitch < 1.9 && pitch > 0)
+						change_arme = 1;
+					if (pitch <= 0.2)
+					if (change_arme == 1) 
+					{
+						change_arme = 0;
+						sendGameMessage (999);
+						print ("changement d'arme");
+					}
 				}
 			} 
-			else if (hand.IsRight) 
-			{
-				if (hand.PinchStrength > 0.6) {
-					sendGameMessage (120);
-					print ("Feu");
-				}
-				if (pitch < 1.9 && pitch > 0)
-					change_arme = 1;
-				if (pitch <= 0.2)
-				if (change_arme == 1) 
-				{
-					change_arme = 0;
-					sendGameMessage (999);
-					print ("changement d'arme");
-				}
-			}
-
-		} 
+		}
 	}
-
 }
