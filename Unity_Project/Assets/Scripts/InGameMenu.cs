@@ -16,6 +16,7 @@ public class InGameMenu : MonoBehaviour {
 		_inGameMenu.SetActive (false);
 		//_inGameUI.SetActive (true);
 		display = false;
+		_Player = GameObject.Find ("Player_test");
 		Time.timeScale = 1.0f;
 	}
 
