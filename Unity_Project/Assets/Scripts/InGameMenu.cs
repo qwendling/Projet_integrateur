@@ -16,12 +16,14 @@ public class InGameMenu : MonoBehaviour {
 		_inGameMenu.SetActive (false);
 		//_inGameUI.SetActive (true);
 		display = false;
-		_Player = GameObject.Find ("Player_test");
 		Time.timeScale = 1.0f;
 	}
 
 	// Update is called once per frame
 	void Update () {
+		if (_Player == null) {
+			_Player = GameObject.Find ("Player_test(Clone)");
+		}
 
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			//If the menu was not displayed, then display it
