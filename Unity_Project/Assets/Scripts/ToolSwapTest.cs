@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class ToolSwap : NetworkBehaviour {
+public class ToolSwapTest : NetworkBehaviour {
 	// Maximum weapon/spell equiped
 	public static int INVENTORY_SIZE = 3;
 
@@ -21,10 +21,10 @@ public class ToolSwap : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
-		/*while (_PlayerMenuChoices == null) {
+
+		while (_PlayerMenuChoices == null) {
 			_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
-		}*/
+		}
 
 		for (int i = 1; i < INVENTORY_SIZE; i++) {
 			if(i == CurrentItem) {
@@ -35,7 +35,7 @@ public class ToolSwap : NetworkBehaviour {
 		}
 		_activeItem = _inventory[CurrentItem];
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
 		if (_inventory [0] == null) {
@@ -48,7 +48,7 @@ public class ToolSwap : NetworkBehaviour {
 			_inventory [2] = GameObject.Find ("Weapon3");
 		}
 	}
-	
+
 	[Command]
 	public void CmdSwap (int i) {		
 		i = Mathf.Clamp (i, 0, INVENTORY_SIZE);
