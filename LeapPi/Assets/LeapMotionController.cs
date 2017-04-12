@@ -24,35 +24,35 @@ public class LeapMotionController : MonoBehaviour
 	bool deviceLinked = false;
 
 	//Network related attributes
-	NetworkManager netmgr;
+	NetworkClient netcln = new NetworkClient();
 
 	public void sendGameMessage(int mouvement)
 	{
-		if (netmgr.client.connection != null) 
+		if (netcln.connection != null) 
 		{
 			GameMessage msg = new GameMessage ();
 			msg.deviceId = this.identifier;
 			msg.mouvement = mouvement;
 
-			if(netmgr.client.isConnected) 
+			if(netcln.isConnected) 
 			{
-				netmgr.client.Send (200, msg);
+				netcln.Send(200, msg);
 			}
 		}
 	}
 
 	public void sendSystemMessage(int content)
 	{
-		if (netmgr.client != null && netmgr.client.connection != null) 
+		if (netcln != null && netcln.connection != null) 
 		{
 			SystemMessage sysmsg = new SystemMessage ();
 			sysmsg.deviceId = this.identifier;
-			sysmsg.clientConnection = netmgr.client.connection.connectionId;
+			sysmsg.clientConnection = netcln.connection.connectionId;
 			sysmsg.content = content;
 
-			if (netmgr.client.isConnected) 
+			if (netcln.isConnected) 
 			{
-				netmgr.client.Send (100, sysmsg);
+				netcln.Send(100, sysmsg);
 			}
 		}
 	}
@@ -83,20 +83,10 @@ public class LeapMotionController : MonoBehaviour
 			
 		//2. Network setup
 		//2.1 Retrieve NetworkManager object
-		netmgr = gameObject.GetComponent<NetworkManager>();
+		netcln.Connect("192.168.1.3", 7500);
 
-		//2.2 Set game server parameters
-		netmgr.networkAddress = "127.0.0.1";
-		netmgr.networkPort = 3000;
-
-		//2.3 Start client
-		netmgr.StartClient(); 
-
-		if (netmgr.client.isConnected)
-			print ("Client connetcted!");
-
-		//2.4 Register message handler(s)
-		netmgr.client.RegisterHandler (100, onSystemMessage);
+		//2.2 Register message handler(s)
+		netcln.RegisterHandler(100, onSystemMessage);
 
 		//3. Motion capture device link
 		provider = FindObjectOfType<LeapProvider>() as LeapProvider;
@@ -132,35 +122,37 @@ public class LeapMotionController : MonoBehaviour
 					} 
 					else if (yaw + marge < yaw_max && yaw > 0) 
 					{
-						sendGameMessage (320);
+						sendGameMessage (410);
 						print ("right");
 					}
 					else 
 					{
-						sendGameMessage (330);
+						sendGameMessage (10);
 						print ("centre");
 					}
 
 					if (pitch - marge_pitch > pitch_min && pitch < 0) 
 					{
-						sendGameMessage (998);
+						sendGameMessage (810);
 						print ("forward");
 					} 
 					else if (pitch + marge_pitch < pitch_max && pitch < 0) 
 					{
-						sendGameMessage (997);
+						sendGameMessage (710);
 						print ("backward");
 					} 
 					else 
 					{
-						sendGameMessage (998);
+						sendGameMessage (10);
 						print ("stay");
 					}
 				} 
 				else if (hand.IsRight) 
 				{
-					if (hand.PinchStrength > 0.6)
+					if (hand.PinchStrength > 0.6) {
+						sendGameMessage (110);
 						print ("Feu");
+					}
 					if (pitch < 1.9 && pitch > 0)
 						change_arme = 1;
 					if (pitch <= 0.2)
