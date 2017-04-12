@@ -21,13 +21,13 @@ public class ToolSwapTest : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
+		/*
 		while (_PlayerMenuChoices == null) {
 			_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
 		}
+*/
 
-
-
+		/*
 		for (int i = 1; i < INVENTORY_SIZE; i++) {
 			if(i == CurrentItem) {
 				_inventory[i].SetActive(true);
@@ -35,7 +35,7 @@ public class ToolSwapTest : NetworkBehaviour {
 			} else {
 				_inventory[i].SetActive(false);
 			}
-		}
+		}*/
 
 	}
 
