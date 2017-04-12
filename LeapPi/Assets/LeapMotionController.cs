@@ -94,81 +94,68 @@ public class LeapMotionController : MonoBehaviour
 
 	void Update ()
 	{
-		if (this.deviceLinked) 
+		Frame frame = provider.CurrentFrame;
+		foreach (Hand hand in frame.Hands) 
 		{
-			Frame frame = provider.CurrentFrame;
-			foreach (Hand hand in frame.Hands) 
+			float pitch = hand.Direction.Pitch;
+			float yaw = hand.Direction.Yaw;
+			float roll = hand.PalmNormal.Roll;
+
+			if (hand.IsLeft) 
 			{
-				float pitch = hand.Direction.Pitch;
-				float yaw = hand.Direction.Yaw;
-				float roll = hand.PalmNormal.Roll;
+				if (yaw < yaw_min)
+					yaw_min = yaw;
+				else if (yaw > yaw_max)
+					yaw_max = yaw;
 
-				if (hand.IsLeft) 
+				if (pitch < pitch_min)
+					pitch_min = pitch;
+				else if (pitch > pitch_max)
+					pitch_max = pitch;
+
+				if (yaw - marge > yaw_min && yaw < 0) 
 				{
-					if (yaw < yaw_min)
-						yaw_min = yaw;
-					else if (yaw > yaw_max)
-						yaw_max = yaw;
-
-					if (pitch < pitch_min)
-						pitch_min = pitch;
-					else if (pitch > pitch_max)
-						pitch_max = pitch;
-
-					if (yaw - marge > yaw_min && yaw < 0) 
-					{
-						sendGameMessage (310);
-						print ("left");
-					} 
-					else if (yaw + marge < yaw_max && yaw > 0) 
-					{
-						sendGameMessage (410);
-						print ("right");
-					}
-					else 
-					{
-						sendGameMessage (10);
-						print ("centre");
-					}
-
-					if (pitch - marge_pitch > pitch_min && pitch < 0) 
-					{
-						sendGameMessage (810);
-						print ("forward");
-					} 
-					else if (pitch + marge_pitch < pitch_max && pitch < 0) 
-					{
-						sendGameMessage (710);
-						print ("backward");
-					} 
-					else 
-					{
-						sendGameMessage (10);
-						print ("stay");
-					}
+					sendGameMessage (310);
+					print ("left");
 				} 
-				else if (hand.IsRight) 
+				else if (yaw + marge < yaw_max && yaw > 0) 
 				{
-					if (hand.PinchStrength > 0.6) {
-						sendGameMessage (110);
-						print ("Feu");
-					}
-					if (pitch < 1.9 && pitch > 0)
-						change_arme = 1;
-					if (pitch <= 0.2)
-					if (change_arme == 1) 
-					{
-						change_arme = 0;
-						sendGameMessage (999);
-						print ("changement d'arme");
-					}
+					sendGameMessage (410);
+					print ("right");
+				}
+				if (pitch + marge_pitch < 3 && pitch < 0) 
+				{
+					sendGameMessage (810);
+					print ("down");
+				} 
+				else if (pitch + marge_pitch < 3 && pitch > 0) 
+				{
+					sendGameMessage (710);
+					print ("up");
+				} 
+				if (hand.PinchStrength > 0.6) {
+					print ("avancer");
+					sendGameMessage (110);
+				}
+			} 
+			else if (hand.IsRight) 
+			{
+				if (hand.PinchStrength > 0.6) {
+					sendGameMessage (120);
+					print ("Feu");
+				}
+				if (pitch < 1.9 && pitch > 0)
+					change_arme = 1;
+				if (pitch <= 0.2)
+				if (change_arme == 1) 
+				{
+					change_arme = 0;
+					sendGameMessage (999);
+					print ("changement d'arme");
 				}
 			}
+
 		} 
-		else 
-		{
-			sendSystemMessage (MessageTypes.ASK_FOR_CONNECTION);
-		}
 	}
 
 }
