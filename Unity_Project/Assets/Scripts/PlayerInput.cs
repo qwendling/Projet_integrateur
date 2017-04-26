@@ -98,12 +98,6 @@ public class PlayerInput : NetworkBehaviour {
 		if(!isLocalPlayer)
 			return;
 
-		// TEST HEALTH
-
-		if (Input.GetKeyDown (KeyCode.K)) {
-			CmdTestHealth ();
-		}
-
 		// SHOOT COMMAND
 
 		if (Input.GetButtonDown("Fire1") || (commande == 120))
@@ -185,10 +179,5 @@ public class PlayerInput : NetworkBehaviour {
 			_swapper.CmdSwap (2);
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
-	}
-
-	[Command]
-	void CmdTestHealth() {
-		_health.TakeDamage (100);
 	}
 }

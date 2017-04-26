@@ -35,6 +35,16 @@ public class PlayerHealth : NetworkBehaviour {
 		}
 	}
 
+	public void HealUp(int amount) {
+		if (!isServer)
+			return;
+
+		currentHealth += amount;
+		if (currentHealth > MAX_HEALTH) {
+			currentHealth = MAX_HEALTH;
+		}
+	}
+
 	void OnChangeHealth (int health) {
 		if (healthBar == null)
 			return;

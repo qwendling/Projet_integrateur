@@ -12,11 +12,11 @@ public class PU_Manager : MonoBehaviour {
 		Heal
 	};
 
-	private int NBR_OF_PU = 2;
+	private int NBR_OF_PU;
 
 	// Use this for initialization
 	void Start () {
-		
+		NBR_OF_PU = PU_List.Length;
 	}
 	
 	// Update is called once per frame
@@ -25,15 +25,15 @@ public class PU_Manager : MonoBehaviour {
 	}
 
 	public PU ChoosePU () {
-		int r = Random.Range (1, NBR_OF_PU);
+		int r = Random.Range (0, NBR_OF_PU);
 		PU ret = PU.ThisIsJustAnEquivalentOfNullButInstanciatedAsAnEnumBecauseItIsImpossibleToCastAnEnumIntoNullAndINeedThatToDoAPrettySwitchWithoutFilthyReturnStatementsInsideTheDifferentCases;
 
 		switch (r) {
-		case 1: 
+		case 0: 
 			ret = PU.MSBoost;
 			break;
 		
-		case 2:
+		case 1:
 			ret = PU.Heal;
 			break;
 

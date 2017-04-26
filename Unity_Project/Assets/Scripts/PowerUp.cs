@@ -19,15 +19,14 @@ public class PowerUp : NetworkBehaviour {
 	private float MIN_DELAY = 15;
 	private float MAX_DELAY = 30;
 
-	// Respawn only if PowerUp is consumed
-	private bool _isConsumed = false;
-
 	// Give PowerUp only if spawned
 	private bool _isSpawned = false;
 
 	// Current spawned PU type
 	private PU_Manager.PU _currentPU;
 
+	// Bonus stats
+	private int _healAmount = 50; 
 
 	// Use this for initialization
 	void Start () {
@@ -47,13 +46,6 @@ public class PowerUp : NetworkBehaviour {
 			// TODO : spawn power up
 			_currentPU = _manager.ChoosePU();
 			_isSpawned = true;
-
-			// When the power up is consumed, refresh timer
-			if (_isConsumed) {
-				_delay = Random.Range (MIN_DELAY, MAX_DELAY);
-				_isConsumed = false;
-				StartTimer ();
-			}
 		}
 	}
 
@@ -72,13 +64,27 @@ public class PowerUp : NetworkBehaviour {
 	void OnTriggerEnter (Collider c) {
 		if (c.tag == "Player" && _isSpawned) {
 			// TODO : Unspawn
-			_isSpawned = false;
-			_isConsumed = true;
+
 
 			// TODO : Give bonus
 			switch (_currentPU) {
+			case PU_Manager.PU.MSBoost:
+				c.gameObject.GetComponent<PlayerBonus> ().Heal (_healAmount);
+				Debug.Log ("Healing");
+				break;
 
+			case PU_Manager.PU.Heal:
+				c.gameObject.GetComponent<PlayerBonus> ().SpeedUp ();
+				Debug.Log ("MSBoost");
+				break;
+
+			default:
+				break;
 			}
+
+			_isSpawned = false;
+			_delay = Random.Range (MIN_DELAY, MAX_DELAY);
+			StartTimer ();
 		}
 	}
 }

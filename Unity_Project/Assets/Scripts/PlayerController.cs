@@ -9,6 +9,8 @@ public class PlayerController : NetworkBehaviour {
 	private const float CAMERA_Y_FACTOR = 3.0f;		// camera sensibility (along Y axis)
 	private const float DEFAULT_SPEED = 3.0f;		// running speed
 	private const float STRAFE_FACTOR = 0.7f;		// speed factor while strafing
+	private const float ACCELERATION = 2.0f;		// acceleration factor on ms boost
+	private const float MS_BOOST_DURATION = 5.0f;	// in seconds
 	
 	// Public variables
 	public GameObject _cameraPivot;
@@ -16,27 +18,18 @@ public class PlayerController : NetworkBehaviour {
 	public bool _InGameMenuIsDisplayed = false;
 	
 	// Private variables
-	private float _forwardRunningSpeed = 0;		// Current forward running speed (can be negative for backward)
-	private float _strafeSpeed = 0;				// Current strafing speed (negative value means left, positive means right)
+	private float _acceleration = 1.0f;			// Current acceleration factor
+	private float _forwardRunningSpeed = 0.0f;	// Current forward running speed (can be negative for backward)
+	private float _strafeSpeed = 0.0f;			// Current strafing speed (negative value means left, positive means right)
 	private float _camRotX = 0.0f;				// Current camera rotation around X
+	private float _msBoostTimer;
+	private bool _msBoostRunning = false;
 
 	// Private values stocking vertical and horizontal input for camera
 	private float _XInput;
 	private float _YInput;
 
 	// ----------------------------------------------------------------------------------------------------
-
-	/*public override void OnStartLocalPlayer() {
-		GetComponent<CameraManager> ().enabled = true;
-		GetComponent<PlayerInput> ().enabled = true;
-		GetComponent<SkinChoice> ().enabled = true;
-		SkinChoice SC = GetComponent<SkinChoice> ();
-		for (int i = 0; i < 2; i++) {
-			SC._skins [i].SetActive (false);
-		}
-
-		base.OnStartLocalPlayer ();
-	}*/
 
 	// Use this for initialization
 	void Start () {
@@ -50,9 +43,38 @@ public class PlayerController : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+		if (!isLocalPlayer)
+			return;
+		
 		if (!_InGameMenuIsDisplayed) {
 			MoveCamera ();
 			MovePlayer ();
+		}
+
+		if (_msBoostRunning && TimerFinished()) {
+			_acceleration = 1.0f;
+			_msBoostRunning = false;
+		}
+	}
+
+	// ----------------------------------------------------------------------------------------------------
+
+	// Run the timer, return true if timer has ended
+	bool TimerFinished () {
+		_msBoostTimer -= 1.0f * Time.deltaTime;
+		return (_msBoostTimer <= 0);
+	}
+
+	// Start/Refresh the timer
+	void StartTimer () {
+		_msBoostTimer = MS_BOOST_DURATION;
+		_msBoostRunning = true;
+	}
+
+	public void BoostSpeed() {
+		if (isLocalPlayer) {
+			_acceleration = ACCELERATION;
+			StartTimer ();
 		}
 	}
 
@@ -100,11 +122,11 @@ public class PlayerController : NetworkBehaviour {
 	 **/
 	void MovePlayer () {
 		transform.position += 
-			transform.forward * _forwardRunningSpeed * Time.deltaTime
-			+ transform.right * _strafeSpeed * Time.deltaTime;
-			
-		//rigidbody.velocity = new Vector3(_forwardRunningSpeed, 0.0f, _strafeSpeed);
+			transform.forward * _forwardRunningSpeed * _acceleration * Time.deltaTime
+			+ transform.right * _strafeSpeed * _acceleration * Time.deltaTime;
 	}
+
+	// ----------------------------------------------------------------------------------------------------
 
 	/**
 	 * UpdateCameraXY

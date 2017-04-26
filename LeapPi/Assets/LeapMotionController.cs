@@ -18,6 +18,8 @@ public class LeapMotionController : MonoBehaviour
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
+	int i=0;
+	int gauche=0 , prevgauche=0, gauche1=0, prevgauche1=0, gauche2=0, prevgauche2=0;
 
 	//System related attributes
 	string identifier;
@@ -96,7 +98,7 @@ public class LeapMotionController : MonoBehaviour
 	}
 
 	void Update ()
-	{
+	{			
 		if (!deviceLinked) 
 		{
 			//Connection phase
@@ -104,64 +106,96 @@ public class LeapMotionController : MonoBehaviour
 		} 
 		else
 		{
-			Frame frame = provider.CurrentFrame;
-			foreach (Hand hand in frame.Hands) 
+			i = i + 1;
+			if(i== 5)
 			{
-				float pitch = hand.Direction.Pitch;
-				float yaw = hand.Direction.Yaw;
-				float roll = hand.PalmNormal.Roll;
+				i = 0;
+				Frame frame = provider.CurrentFrame;
+				foreach (Hand hand in frame.Hands) {
+					float pitch = hand.Direction.Pitch;
+					float yaw = hand.Direction.Yaw;
+					float roll = hand.PalmNormal.Roll;
 
-				if (hand.IsLeft) 
-				{
-					if (yaw < yaw_min)
-						yaw_min = yaw;
-					else if (yaw > yaw_max)
-						yaw_max = yaw;
+					if (hand.IsLeft) {
+						if (yaw < yaw_min)
+							yaw_min = yaw;
+						else if (yaw > yaw_max)
+							yaw_max = yaw;
 
-					if (pitch < pitch_min)
-						pitch_min = pitch;
-					else if (pitch > pitch_max)
-						pitch_max = pitch;
+						if (pitch < pitch_min)
+							pitch_min = pitch;
+						else if (pitch > pitch_max)
+							pitch_max = pitch;
 
-					if (yaw - marge > yaw_min && yaw < 0) 
-					{
-						sendGameMessage (310);
-						print ("left");
-					} 
-					else if (yaw + marge < yaw_max && yaw > 0) 
-					{
-						sendGameMessage (410);
-						print ("right");
-					}
-					if (pitch + marge_pitch < 3 && pitch < 0) 
-					{
-						sendGameMessage (810);
-						print ("down");
-					} 
-					else if (pitch + marge_pitch < 3 && pitch > 0) 
-					{
-						sendGameMessage (710);
-						print ("up");
-					} 
-					if (hand.PinchStrength > 0.6) {
-						print ("avancer");
-						sendGameMessage (110);
-					}
-				} 
-				else if (hand.IsRight) 
-				{
-					if (hand.PinchStrength > 0.6) {
-						sendGameMessage (120);
-						print ("Feu");
-					}
-					if (pitch < 1.9 && pitch > 0)
-						change_arme = 1;
-					if (pitch <= 0.2)
-					if (change_arme == 1) 
-					{
-						change_arme = 0;
-						sendGameMessage (999);
-						print ("changement d'arme");
+						if (yaw - marge > yaw_min && yaw < 0) {
+							gauche = 310;
+							print ("left");
+						} else if (yaw + marge < yaw_max && yaw > 0) {
+							print ("right");
+							gauche = 410;
+						} else
+							gauche = 0;
+						
+						if (pitch - marge_pitch > -3 && pitch < 0) {
+							gauche1 = 810;
+							print ("down");
+						} else if (pitch + marge_pitch < 3 && pitch > 0) {
+							gauche1 = 710;
+							print ("up");
+						} else
+							gauche1 = 0;
+
+						//avancer
+						if (hand.PinchStrength > 0.6) {
+							gauche2 = 110;
+						} else
+							gauche2 = 0;
+
+						if (gauche == 0) {
+							prevgauche = prevgauche + 1;
+							sendGameMessage (prevgauche);
+							prevgauche = 0;
+						}
+						else if (prevgauche != gauche) {
+							prevgauche = gauche;
+							sendGameMessage (gauche);
+						}
+
+						if (gauche1 == 0 && prevgauche1 != 0) {
+							prevgauche1 = prevgauche1 + 1;
+							sendGameMessage (prevgauche1);
+							prevgauche1 = 0;
+						}
+						if (prevgauche1 != gauche1) {
+							prevgauche1 = gauche1;
+							sendGameMessage (gauche1);
+						}
+
+						if (gauche2 != 110 && prevgauche2 == 110) {
+							print ("stoper");
+							sendGameMessage (111);
+							prevgauche = 0;
+						} else if (gauche2 == 110 && prevgauche == 0) {
+							print ("avancer");
+							sendGameMessage (110);
+						}
+
+
+					} else if (hand.IsRight) {
+						if (hand.PinchStrength > 0.6) {
+							sendGameMessage (120);
+							print ("Feu");
+						} else {
+							sendGameMessage (210);
+						}
+						if (pitch < 1.9 && pitch > 0)
+							change_arme = 1;
+						if (pitch <= 0.2)
+						if (change_arme == 1) {
+							change_arme = 0;
+							sendGameMessage (999);
+							print ("changement d'arme");
+						}
 					}
 				}
 			} 
