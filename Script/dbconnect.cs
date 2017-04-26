@@ -11,7 +11,7 @@ class DBConnect{
 		*/
 		
 		//Pour les tests tant qu'on a pas le serveur web
-		Arme arme = new Arme(0,"toto",3.4,10,10);
+		Arme arme = new Arme(0,"toto",3.4,10,10,3.4);
 		Arme.armes = new Arme[1];
 		Arme.armes[0] = arme;
 
