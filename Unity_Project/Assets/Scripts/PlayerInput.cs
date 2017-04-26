@@ -28,7 +28,7 @@ public class PlayerInput : NetworkBehaviour {
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
 
-		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
+		//timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 
 		NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (200, onGameMessage);
