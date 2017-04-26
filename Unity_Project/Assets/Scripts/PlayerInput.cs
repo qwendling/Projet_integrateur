@@ -11,12 +11,17 @@ public class PlayerInput : NetworkBehaviour {
 	private ToolSwap _swapper;
 	private CanShoot _shoot;
 
+	private float timebetweenShot;
+	private bool isFire = false;
+	private double _timeShot;
+
 	// Use this for initialization
 	void Start () {
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
+		timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 	}
 	
 	// Update is called once per frame
@@ -42,7 +47,24 @@ public class PlayerInput : NetworkBehaviour {
 
 		if (Input.GetButtonDown("Fire1"))
 		{
+			isFire = true;
+			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 			_shoot.CmdFire ();
+			_timeShot = timebetweenShot;
+			print (_timeShot);
+		}
+
+		if (Input.GetButtonUp("Fire1"))
+		{
+			isFire = false;
+		}
+		if (isFire) {
+			if (_timeShot <= 0) {
+				_shoot.CmdFire ();
+				_timeShot = timebetweenShot;
+			} else {
+				_timeShot -= 1.0 * Time.deltaTime;
+			}
 		}
 
 		// CAMERA CONTROL
@@ -80,12 +102,15 @@ public class PlayerInput : NetworkBehaviour {
 		// int i = 0;
 		if(Input.GetKeyDown (KeyCode.Alpha1)){
 			_swapper.CmdSwap (0);
+			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha2)){
 			_swapper.CmdSwap (1);
+			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha3)){
 			_swapper.CmdSwap (2);
+			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
 	}
 
