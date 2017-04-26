@@ -7,12 +7,14 @@ public class Arme{
 	private float cadence;
 	private int degat;
 	private int range;
-	public Arme(id,nom,cadence,degat,range){
+	private float vitesseBullet;
+	public Arme(id,nom,cadence,degat,range,vitesseBullet){
 		this.id = id;
 		this.nom = nom;
 		this.cadence =cadence;
 		this.degat = degat;
 		this.range = range;
+		this.vitesseBullet = vitesseBullet;
 	}
 
 	public int getId(){
@@ -32,6 +34,10 @@ public class Arme{
 	}
 	public int getRange(){
 		return range;
+	}
+
+	public float getVitesseBullet(){
+		return vitesseBullet;
 	}
 
 
