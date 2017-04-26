@@ -22,19 +22,19 @@ public class PlayerInput : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-    
+
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
-		//timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence; NE FONCTIONNE PAS 
+		//timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence; NE FONCTIONNE PAS
 
 		NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (200, onGameMessage);
 		NetworkServer.RegisterHandler (100, onSystemMessage);
     print ("Server is listening on : " + NetworkServer.listenPort);
 
-		
+
 	}
 
 	// LEAP
@@ -62,7 +62,7 @@ public class PlayerInput : NetworkBehaviour {
 			print ("Connection etablished");
 		}
 	}
-  
+
   public string localIp()
   {
 	IPHostEntry host;
@@ -131,6 +131,18 @@ public class PlayerInput : NetworkBehaviour {
 		// CAMERA CONTROL
 
 		_controller.CmdUpdateCameraXY (Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+
+		if ( (commande == 710 ) )// up
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.40);
+
+		if ( (commande == 810 ) ) // down
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)-0.40);
+
+		if ( (commande == 310 ) )// gauche
+				_controller.CmdUpdateCameraXY ((float)-0.40, (float)0.00);
+
+		if ( (commande == 410 ) ) // droite
+				_controller.CmdUpdateCameraXY ((float)0.40, (float)0.00);
 
 		// MOVEMENT CONTROL
 
