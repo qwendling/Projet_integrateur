@@ -7,16 +7,16 @@ public class PlayerInputTest : NetworkBehaviour {
 	public GameObject _player;
 
 	private PlayerController _controller;
-	private PlayerHealth _health;
+	private PlayerHealthTest _health;
 	private ToolSwapTest _swapper;
-	private CanShoot _shoot;
+	private CanShootTest _shoot;
 
 	// Use this for initialization
 	void Start () {
 		_controller = _player.GetComponent<PlayerController> ();
-		_health = _player.GetComponent<PlayerHealth> ();
+		_health = _player.GetComponent<PlayerHealthTest> ();
 		_swapper = _player.GetComponent<ToolSwapTest> ();
-		_shoot = _player.GetComponent<CanShoot> ();
+		_shoot = _player.GetComponent<CanShootTest> ();
 	}
 
 	// Update is called once per frame

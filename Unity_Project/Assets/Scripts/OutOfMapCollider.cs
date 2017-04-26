@@ -1,14 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerChoices : MonoBehaviour {
-
-	public GameObject _Model;
-	public GameObject _Wep1;
-	public GameObject _Wep2;
-	public GameObject _Wep3;
-
+public class OutOfMapCollider : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -18,5 +13,9 @@ public class PlayerChoices : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+	}
+
+	void OnTriggerEnter (Collider hit) {
+		hit.gameObject.GetComponent<PlayerHealthTest> ().TakeDamage (666);
 	}
 }

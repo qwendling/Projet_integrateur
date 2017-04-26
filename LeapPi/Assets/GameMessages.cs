@@ -15,6 +15,7 @@ namespace GameMessages
 	{
 		public string deviceId;
 		public int clientConnection;
+		public string clientIpAddress;
 		public int content;
 	}
 
