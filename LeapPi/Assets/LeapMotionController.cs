@@ -133,7 +133,7 @@ public class LeapMotionController : MonoBehaviour
 						sendGameMessage (410);
 						print ("right");
 					}
-					if (pitch + marge_pitch < 3 && pitch < 0) 
+					if (pitch - marge_pitch > -3 && pitch < 0) 
 					{
 						sendGameMessage (810);
 						print ("down");
