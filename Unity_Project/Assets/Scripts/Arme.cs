@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class Arme : Weapon {
-    public int cadence;
+    
     public GameObject projectile;
     public Color couleurTir;
     public AudioSource Bruit;

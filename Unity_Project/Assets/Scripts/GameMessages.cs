@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -15,7 +15,9 @@ namespace GameMessages
 	{
 		public string deviceId;
 		public int clientConnection;
+		public string clientIpAddress;
 		public int content;
+
 	}
 
 	public class MessageTypes
