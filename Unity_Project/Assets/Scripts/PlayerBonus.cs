@@ -15,7 +15,11 @@ public class PlayerBonus : NetworkBehaviour {
 		
 	}
 
-	public void Heal () {
+	public void Heal (int amount) {
+		GetComponent<PlayerHealth> ().HealUp (amount);
+	}
 
+	public void SpeedUp () {
+		GetComponent<PlayerController> ().BoostSpeed ();
 	}
 }

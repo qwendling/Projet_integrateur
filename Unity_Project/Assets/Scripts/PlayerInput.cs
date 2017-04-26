@@ -32,12 +32,6 @@ public class PlayerInput : NetworkBehaviour {
 		if(!isLocalPlayer)
 			return;
 
-		// TEST HEALTH
-
-		if (Input.GetKeyDown (KeyCode.K)) {
-			CmdTestHealth ();
-		}
-
 		// SHOOT COMMAND
 
 		if (Input.GetButtonDown("Fire1"))
@@ -87,10 +81,5 @@ public class PlayerInput : NetworkBehaviour {
 		if(Input.GetKeyDown (KeyCode.Alpha3)){
 			_swapper.CmdSwap (2);
 		}
-	}
-
-	[Command] 
-	void CmdTestHealth() {
-		_health.TakeDamage (100);
 	}
 }
