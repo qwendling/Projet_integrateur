@@ -1,0 +1,101 @@
+Initialize engine version: 5.5.1f1 (88d00a7498cd)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 950M (ID=0x139a)
+    Vendor:   NVIDIA
+    VRAM:     2019 MB
+    Driver:   22.21.13.8189
+Begin MonoManager ReloadAssembly
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
+Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
+Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
+- Completed reload, in  0.047 seconds
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\System.dll (this message is harmless)
+desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+<RI> Initialized touch support.
+UnloadTime: 1.420278 ms
+Setting up 1 worker threads for Enlighten.
+  Thread -> id: 129c -> priority: 1 
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 8
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 10
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 11
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 12
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+0.333333343267441
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+
+Did not find target for sync message for 14
+ 
+(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
+

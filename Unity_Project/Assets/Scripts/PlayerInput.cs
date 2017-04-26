@@ -30,11 +30,12 @@ public class PlayerInput : NetworkBehaviour {
 
 		//timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 
+		/* BOUGEZ CA D'ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (200, onGameMessage);
 		NetworkServer.RegisterHandler (100, onSystemMessage);
     print ("Server is listening on : " + NetworkServer.listenPort);
-
+*/
 
 	}
 
@@ -126,7 +127,7 @@ public class PlayerInput : NetworkBehaviour {
 		// CAMERA CONTROL
 
 		_controller.CmdUpdateCameraXY (Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-
+		/*
 		if ( (commande == 710 ) )// up
 				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.40);
 
@@ -138,7 +139,7 @@ public class PlayerInput : NetworkBehaviour {
 
 		if ( (commande == 410 ) ) // droite
 				_controller.CmdUpdateCameraXY ((float)0.40, (float)0.00);
-
+*/
 		// MOVEMENT CONTROL
 
 		int forward, right;
