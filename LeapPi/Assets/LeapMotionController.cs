@@ -161,7 +161,7 @@ public class LeapMotionController : MonoBehaviour
 							sendGameMessage (gauche);
 						}
 
-						if (gauche1 == 0) {
+						if (gauche1 == 0 && prevgauche1 != 0) {
 							prevgauche1 = prevgauche1 + 1;
 							sendGameMessage (prevgauche1);
 							prevgauche1 = 0;
