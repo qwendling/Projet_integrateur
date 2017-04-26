@@ -21,7 +21,7 @@ public class PlayerInput : NetworkBehaviour {
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
-		timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +48,7 @@ public class PlayerInput : NetworkBehaviour {
 		if (Input.GetButtonDown("Fire1"))
 		{
 			isFire = true;
-			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+			timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 			_shoot.CmdFire ();
 			_timeShot = timebetweenShot;
 			print (_timeShot);
