@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using GameMessages;
+using System.Net.Sockets;
+using System.Net;
 
 public class PlayerInput : NetworkBehaviour {
 	public GameObject _player;
@@ -15,15 +18,73 @@ public class PlayerInput : NetworkBehaviour {
 	private bool isFire = false;
 	private double _timeShot;
 
+	private int commande; // COMMANDE LEAP
+
 	// Use this for initialization
 	void Start () {
+    
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
-		timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+		//timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence; NE FONCTIONNE PAS 
+
+		NetworkServer.Listen (7500);
+		NetworkServer.RegisterHandler (200, onGameMessage);
+		NetworkServer.RegisterHandler (100, onSystemMessage);
+    print ("Server is listening on : " + NetworkServer.listenPort);
+
+		
 	}
-	
+
+	// LEAP
+
+	public void sendSystemMessage(string deviceId, int connectionId,string clientIpAddress, int content)
+	{
+		SystemMessage msg = new SystemMessage ();
+		msg.deviceId = deviceId;
+		msg.clientConnection = connectionId;
+		msg.clientIpAddress = clientIpAddress;
+		msg.content = content;
+
+		NetworkServer.SendToClient (connectionId, 100, msg);
+	}
+
+	public void onSystemMessage(NetworkMessage net)
+	{
+		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
+		print ("SYSMSG RECEIVED [LEAP DEVICE ID: " + sysmsg.deviceId + ", CLIENT CONNECTION ID: " + sysmsg.clientConnection + ", CONTENT: " + sysmsg.content + "]");
+		if (sysmsg.content == MessageTypes.ASK_FOR_CONNECTION)
+		{
+			//Create database entry with device link
+			//Confirm
+			sendSystemMessage(sysmsg.deviceId, sysmsg.clientConnection, localIp(), MessageTypes.LINK_ESTABLISHED);
+			print ("Connection etablished");
+		}
+	}
+  
+  public string localIp()
+  {
+	IPHostEntry host;
+	string localIP = "";
+	host = Dns.GetHostEntry (Dns.GetHostName ());
+	foreach (IPAddress ip in host.AddressList) {
+		if (ip.AddressFamily == AddressFamily.InterNetwork) {
+			localIP = ip.ToString ();
+			break;
+		}
+	}
+	return localIP;
+  }
+
+
+	public void onGameMessage(NetworkMessage net)
+	{
+		DataMessage msg = net.ReadMessage<DataMessage> ();
+		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + ", CODE MOUVEMENT: " + msg.mouvement + " ]");
+		commande = msg.mouvement;
+	}
+
 	// Update is called once per frame
 	void Update () {
 		if (isServer) {
@@ -45,7 +106,7 @@ public class PlayerInput : NetworkBehaviour {
 
 		// SHOOT COMMAND
 
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButtonDown("Fire1") || (commande == 120))
 		{
 			isFire = true;
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
@@ -75,7 +136,7 @@ public class PlayerInput : NetworkBehaviour {
 
 		int forward, right;
 
-		if (Input.GetKey (KeyCode.Z)) {
+		if (Input.GetKey (KeyCode.Z) || (commande == 110 ) ) {
 			forward = 1;
 		} else if (Input.GetKey (KeyCode.S)) {
 			forward = -1;
@@ -85,9 +146,9 @@ public class PlayerInput : NetworkBehaviour {
 
 		_controller.CmdUpdateForwardSpeed (forward);
 
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.D) || (commande == 610 )) {
 			right = 1;
-		} else if (Input.GetKey (KeyCode.Q)) {
+		} else if (Input.GetKey (KeyCode.Q) || (commande == 510 ) ) {
 			right = -1;
 		} else {
 			right = 0;
@@ -104,7 +165,7 @@ public class PlayerInput : NetworkBehaviour {
 			_swapper.CmdSwap (0);
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
-		if(Input.GetKeyDown (KeyCode.Alpha2)){
+		if(Input.GetKeyDown (KeyCode.Alpha2) || (commande == 999 ) ){
 			_swapper.CmdSwap (1);
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
@@ -114,7 +175,7 @@ public class PlayerInput : NetworkBehaviour {
 		}
 	}
 
-	[Command] 
+	[Command]
 	void CmdTestHealth() {
 		_health.TakeDamage (100);
 	}
