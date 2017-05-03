@@ -27,6 +27,7 @@ public class PowerUp : NetworkBehaviour {
 
 	// Bonus stats
 	private int _healAmount = 50; 
+	private float _acceleration = 2.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -83,7 +84,7 @@ public class PowerUp : NetworkBehaviour {
 				break;
 
 			case PU_Manager.PU.Heal:
-				c.gameObject.GetComponent<PlayerBonus> ().SpeedUp ();
+				c.gameObject.GetComponent<PlayerBonus> ().SpeedUp (_acceleration);
 				Debug.Log ("MSBoost");
 				break;
 

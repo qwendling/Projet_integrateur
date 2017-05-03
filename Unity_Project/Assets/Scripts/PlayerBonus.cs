@@ -19,7 +19,7 @@ public class PlayerBonus : NetworkBehaviour {
 		GetComponent<PlayerHealth> ().HealUp (amount);
 	}
 
-	public void SpeedUp () {
-		GetComponent<PlayerController> ().RpcBoostSpeed ();
+	public void SpeedUp (float acc_factor) {
+		GetComponent<PlayerController> ().RpcBoostSpeed (acc_factor);
 	}
 }
