@@ -11,6 +11,7 @@ public class GameMenu : MonoBehaviour {
 	public GameObject Model_menu;
 	public GameObject Weapons_Menu;
 	public GameObject PlayerChoices;
+	public GameObject NameInput;
 
 	public void Start (){
 		Cursor.visible = true;
@@ -35,6 +36,7 @@ public class GameMenu : MonoBehaviour {
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Wep1 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ()._Weapons [Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon1_index];
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Wep2 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ()._Weapons [Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon2_index];
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Wep3 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ()._Weapons [Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon3_index];
+		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Name = NameInput.GetComponent<Text> ().text;
 		DontDestroyOnLoad (PlayerChoices);
 		SceneManager.LoadScene("Arena1");
 	}

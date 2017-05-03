@@ -6,7 +6,8 @@ using UnityEngine.Networking;
 public class SkinChoice : NetworkBehaviour {
 	//public static int NBR_OF_SKINS = 2;
 
-	public GameObject skin;
+	public GameObject _Skin;
+	public string _PlayerName;
 
 	//private int _activeSkin = 0;
 	//private bool _uptodate = false;
@@ -14,7 +15,7 @@ public class SkinChoice : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		if (isLocalPlayer) {
-			skin.SetActive (false);
+			_Skin.SetActive (false);
 		}
 	}
 	

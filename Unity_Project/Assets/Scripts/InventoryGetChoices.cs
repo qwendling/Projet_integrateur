@@ -26,6 +26,8 @@ public class InventoryGetChoices : MonoBehaviour {
 		_Wep3.transform.parent = transform;
 
 
+
+
 	}
 	
 	// Update is called once per frame

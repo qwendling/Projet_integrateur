@@ -8,6 +8,7 @@ public class EmptyObject_PlayerChoices : MonoBehaviour {
 	public GameObject _Wep1;
 	public GameObject _Wep2;
 	public GameObject _Wep3;
+	public string _Name;
 
 
 	// Use this for initialization
