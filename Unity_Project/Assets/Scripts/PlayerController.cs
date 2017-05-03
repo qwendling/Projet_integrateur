@@ -84,18 +84,7 @@ public class PlayerController : NetworkBehaviour {
 	private void MoveCamera () {
 		
 
-		// Update current camera rotation around X to cap it
-		_camRotX += _YInput * CAMERA_Y_FACTOR;
 
-		// If the rotation exceeds 90° (up or down), ignore the rest.
-		if (_camRotX < -90f) {
-			_camRotX = -90f;
-			return;
-		}
-		if (_camRotX > 90f) {
-			_camRotX = 90f;
-			return;
-		}
 
 
 
@@ -143,6 +132,21 @@ public class PlayerController : NetworkBehaviour {
 			invertFactor = 1.0f;
 		_XInput = X_val;
 		_YInput = Y_val;
+
+
+		// Update current camera rotation around X to cap it
+		_camRotX += _YInput * CAMERA_Y_FACTOR;
+
+		// If the rotation exceeds 90° (up or down), ignore the rest.
+		if (_camRotX < -90f) {
+			_camRotX = -90f;
+			return;
+		}
+		if (_camRotX > 90f) {
+			_camRotX = 90f;
+			return;
+		}
+
 		// Rotate player around Y axis (along X) with horizontal input
 		transform.RotateAround(transform.position, transform.up, 
 			CAMERA_X_FACTOR * _XInput);
