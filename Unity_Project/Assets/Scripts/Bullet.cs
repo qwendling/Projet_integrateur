@@ -17,6 +17,9 @@ public class Bullet : NetworkBehaviour {
 	}
 
 	void OnTriggerEnter (Collider hit) {
+		if (!isServer)
+			return;
+		
 		if (hit.tag == "Player") {
 			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE);
 			Destroy (gameObject);
