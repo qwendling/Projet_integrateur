@@ -46,7 +46,6 @@ public class PlayerController : NetworkBehaviour {
 			return;
 		
 		if (!_InGameMenuIsDisplayed) {
-			MoveCamera ();
 			MovePlayer ();
 		}
 
@@ -144,6 +143,7 @@ public class PlayerController : NetworkBehaviour {
 	void RpcUpdateCameraXY (float X_val, float Y_val) {
 		_XInput = X_val;
 		_YInput = Y_val;
+		MoveCamera ();
 	}
 
 	/**
