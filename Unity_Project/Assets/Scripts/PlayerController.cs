@@ -138,6 +138,7 @@ public class PlayerController : NetworkBehaviour {
 	public void CmdUpdateCameraXY (float X_val, float Y_val) {
 		_XInput = X_val;
 		_YInput = Y_val;
+		MoveCamera ();
 		RpcUpdateCameraXY (X_val, Y_val);
 	}
 

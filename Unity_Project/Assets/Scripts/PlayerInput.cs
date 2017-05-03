@@ -18,7 +18,9 @@ public class PlayerInput : NetworkBehaviour {
 	private bool isFire = false;
 	private double _timeShot;
 
-	private int commande; // COMMANDE LEAP
+	public int commande;
+
+
 
 	// Use this for initialization
 	void Start () {
@@ -27,64 +29,6 @@ public class PlayerInput : NetworkBehaviour {
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
-
-		//timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
-
-		/* BOUGEZ CA D'ICI !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-		NetworkServer.Listen (7500);
-		NetworkServer.RegisterHandler (200, onGameMessage);
-		NetworkServer.RegisterHandler (100, onSystemMessage);
-    print ("Server is listening on : " + NetworkServer.listenPort);
-*/
-
-	}
-
-	// LEAP
-
-	public void sendSystemMessage(string deviceId, int connectionId,string clientIpAddress, int content)
-	{
-		SystemMessage msg = new SystemMessage ();
-		msg.deviceId = deviceId;
-		msg.clientConnection = connectionId;
-		msg.clientIpAddress = clientIpAddress;
-		msg.content = content;
-
-		NetworkServer.SendToClient (connectionId, 100, msg);
-	}
-
-	public void onSystemMessage(NetworkMessage net)
-	{
-		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
-		print ("SYSMSG RECEIVED [LEAP DEVICE ID: " + sysmsg.deviceId + ", CLIENT CONNECTION ID: " + sysmsg.clientConnection + ", CONTENT: " + sysmsg.content + "]");
-		if (sysmsg.content == MessageTypes.ASK_FOR_CONNECTION)
-		{
-			//Create database entry with device link
-			//Confirm
-			sendSystemMessage(sysmsg.deviceId, sysmsg.clientConnection, localIp(), MessageTypes.LINK_ESTABLISHED);
-			print ("Connection etablished");
-		}
-	}
-
-  public string localIp()
-  {
-	IPHostEntry host;
-	string localIP = "";
-	host = Dns.GetHostEntry (Dns.GetHostName ());
-	foreach (IPAddress ip in host.AddressList) {
-		if (ip.AddressFamily == AddressFamily.InterNetwork) {
-			localIP = ip.ToString ();
-			break;
-		}
-	}
-	return localIP;
-  }
-
-
-	public void onGameMessage(NetworkMessage net)
-	{
-		DataMessage msg = net.ReadMessage<DataMessage> ();
-		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + ", CODE MOUVEMENT: " + msg.mouvement + " ]");
-		commande = msg.mouvement;
 	}
 
 	// Update is called once per frame
