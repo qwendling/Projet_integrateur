@@ -162,13 +162,16 @@ public class PlayerController : NetworkBehaviour {
 		d = Mathf.Clamp (d, -1, 1);
 		RpcUpdateForwardSpeed (d);
 		_forwardRunningSpeed = d * DEFAULT_SPEED;
-		MovePlayer ();
+		//MovePlayer ();
 		//Debug.Log (_forwardRunningSpeed);
 	}
 
 	[ClientRpc]
 	void RpcUpdateForwardSpeed (int d) {
+		if (!isLocalPlayer)
+			return;
 		_forwardRunningSpeed = d * DEFAULT_SPEED;
+		MovePlayer ();
 	}
 
 	/**
@@ -181,12 +184,14 @@ public class PlayerController : NetworkBehaviour {
 		d = Mathf.Clamp (d, -1, 1);
 		RpcUpdateStrafeSpeed (d);
 		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
-		MovePlayer ();
+		//MovePlayer ();
 		//Debug.Log (_strafeSpeed);
 	}
 
 	[ClientRpc]
 	void RpcUpdateStrafeSpeed (int d) {
+		if (!isLocalPlayer)
+			return;
 		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
 		//MovePlayer ();
 	}
