@@ -30,6 +30,9 @@ public class PowerUp : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (!isServer)
+			return;
+		
 		_manager = PU_Man.GetComponent<PU_Manager> ();
 		_position = new Vector3 (
 			transform.position.x,
@@ -42,6 +45,9 @@ public class PowerUp : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if (!isServer)
+			return;
+		
 		if (TimerFinished ()) {
 			// TODO : spawn power up
 			_currentPU = _manager.ChoosePU();
@@ -62,6 +68,9 @@ public class PowerUp : NetworkBehaviour {
 
 	// If a player steps in the powerup
 	void OnTriggerEnter (Collider c) {
+		if (!isServer)
+			return;
+		
 		if (c.tag == "Player" && _isSpawned) {
 			// TODO : Unspawn
 

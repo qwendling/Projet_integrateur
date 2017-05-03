@@ -9,7 +9,7 @@ public class PlayerController : NetworkBehaviour {
 	private const float CAMERA_Y_FACTOR = 3.0f;		// camera sensibility (along Y axis)
 	private const float DEFAULT_SPEED = 3.0f;		// running speed
 	private const float STRAFE_FACTOR = 0.7f;		// speed factor while strafing
-	private const float ACCELERATION = 2.0f;		// acceleration factor on ms boost
+	private const float ACCELERATION = 5.0f;		// acceleration factor on ms boost
 	private const float MS_BOOST_DURATION = 5.0f;	// in seconds
 	
 	// Public variables
@@ -71,11 +71,10 @@ public class PlayerController : NetworkBehaviour {
 		_msBoostRunning = true;
 	}
 
-	public void BoostSpeed() {
-		if (isLocalPlayer) {
-			_acceleration = ACCELERATION;
-			StartTimer ();
-		}
+	[ClientRpc]
+	public void RpcBoostSpeed() {
+		_acceleration = ACCELERATION;
+		StartTimer ();
 	}
 
 	// ----------------------------------------------------------------------------------------------------

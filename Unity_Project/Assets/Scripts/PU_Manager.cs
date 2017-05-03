@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PU_Manager : MonoBehaviour {
+public class PU_Manager : NetworkBehaviour {
 	public GameObject[] PU_List;
 
 	public enum PU
@@ -16,6 +17,9 @@ public class PU_Manager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		if (!isServer)
+			return;
+		
 		NBR_OF_PU = PU_List.Length;
 	}
 	
@@ -25,6 +29,9 @@ public class PU_Manager : MonoBehaviour {
 	}
 
 	public PU ChoosePU () {
+		if (!isServer)
+			return PU.ThisIsJustAnEquivalentOfNullButInstanciatedAsAnEnumBecauseItIsImpossibleToCastAnEnumIntoNullAndINeedThatToDoAPrettySwitchWithoutFilthyReturnStatementsInsideTheDifferentCases;
+		
 		int r = Random.Range (0, NBR_OF_PU);
 		PU ret = PU.ThisIsJustAnEquivalentOfNullButInstanciatedAsAnEnumBecauseItIsImpossibleToCastAnEnumIntoNullAndINeedThatToDoAPrettySwitchWithoutFilthyReturnStatementsInsideTheDifferentCases;
 

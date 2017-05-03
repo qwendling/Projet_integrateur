@@ -20,6 +20,6 @@ public class PlayerBonus : NetworkBehaviour {
 	}
 
 	public void SpeedUp () {
-		GetComponent<PlayerController> ().BoostSpeed ();
+		GetComponent<PlayerController> ().RpcBoostSpeed ();
 	}
 }
