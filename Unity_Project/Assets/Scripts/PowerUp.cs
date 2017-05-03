@@ -9,8 +9,6 @@ public class PowerUp : NetworkBehaviour {
 	public GameObject PU_Man;
 	private PU_Manager _manager;
 
-	// PowerUp spawn position
-	private Vector3 _position;
 	// PowerUp spawn delay (in sec)
 	private float _delay;
 	private float _timer;
@@ -24,6 +22,8 @@ public class PowerUp : NetworkBehaviour {
 
 	// Current spawned PU type
 	private PU_Manager.PU _currentPU;
+	// Current spawned PU Object
+	private GameObject _puObject;
 
 	// Bonus stats
 	private int _healAmount = 50; 
@@ -35,10 +35,6 @@ public class PowerUp : NetworkBehaviour {
 			return;
 		
 		_manager = PU_Man.GetComponent<PU_Manager> ();
-		_position = new Vector3 (
-			transform.position.x,
-			transform.position.y,
-			transform.position.z);
 
 		_delay = MIN_DELAY;
 		StartTimer ();
@@ -49,9 +45,11 @@ public class PowerUp : NetworkBehaviour {
 		if (!isServer)
 			return;
 		
-		if (TimerFinished ()) {
-			// TODO : spawn power up
+		if (TimerFinished () && !_isSpawned) {
+			// spawn power up
 			_currentPU = _manager.ChoosePU();
+			_puObject = Instantiate (_manager.PU_List [(int)_currentPU - 1], transform.position, transform.rotation);
+			NetworkServer.Spawn (_puObject);
 			_isSpawned = true;
 		}
 	}
@@ -73,10 +71,10 @@ public class PowerUp : NetworkBehaviour {
 			return;
 		
 		if (c.tag == "Player" && _isSpawned) {
-			// TODO : Unspawn
+			// Unspawn
+			Destroy(_puObject);
 
-
-			// TODO : Give bonus
+			// Give bonus
 			switch (_currentPU) {
 			case PU_Manager.PU.MSBoost:
 				c.gameObject.GetComponent<PlayerBonus> ().Heal (_healAmount);
