@@ -46,7 +46,7 @@ public class PlayerController : NetworkBehaviour {
 			return;
 		
 		if (!_InGameMenuIsDisplayed) {
-			MovePlayer ();
+			
 		}
 
 		if (_msBoostRunning && TimerFinished()) {
@@ -82,7 +82,7 @@ public class PlayerController : NetworkBehaviour {
 	 * Move the camera along X & Y axis, using the inputs given by PlayerInput.
 	 **/
 	private void MoveCamera () {
-		float invertFactor;
+		
 
 		// Update current camera rotation around X to cap it
 		_camRotX += _YInput * CAMERA_Y_FACTOR;
@@ -97,18 +97,11 @@ public class PlayerController : NetworkBehaviour {
 			return;
 		}
 
-		// Rotate player around Y axis (along X) with horizontal input
-		transform.RotateAround(transform.position, transform.up, 
-			CAMERA_X_FACTOR * _XInput);
 
-		if (_invertYAxis)
-			invertFactor = -1.0f;
-		else
-			invertFactor = 1.0f;
 
-		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
-		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
-			- _YInput * CAMERA_Y_FACTOR * invertFactor);
+
+
+
 	}
 
 
@@ -121,6 +114,7 @@ public class PlayerController : NetworkBehaviour {
 		transform.position += 
 			transform.forward * _forwardRunningSpeed * _acceleration * Time.deltaTime
 			+ transform.right * _strafeSpeed * _acceleration * Time.deltaTime;
+		
 	}
 
 	// ----------------------------------------------------------------------------------------------------
@@ -136,13 +130,25 @@ public class PlayerController : NetworkBehaviour {
 		_XInput = X_val;
 		_YInput = Y_val;
 		MoveCamera ();
+
 		RpcUpdateCameraXY (X_val, Y_val);
 	}
 
 	[ClientRpc]
 	void RpcUpdateCameraXY (float X_val, float Y_val) {
+		float invertFactor;
+		if (_invertYAxis)
+			invertFactor = -1.0f;
+		else
+			invertFactor = 1.0f;
 		_XInput = X_val;
 		_YInput = Y_val;
+		// Rotate player around Y axis (along X) with horizontal input
+		transform.RotateAround(transform.position, transform.up, 
+			CAMERA_X_FACTOR * _XInput);
+		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
+		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
+			- _YInput * CAMERA_Y_FACTOR * invertFactor);
 		MoveCamera ();
 	}
 
@@ -156,6 +162,7 @@ public class PlayerController : NetworkBehaviour {
 		d = Mathf.Clamp (d, -1, 1);
 		RpcUpdateForwardSpeed (d);
 		_forwardRunningSpeed = d * DEFAULT_SPEED;
+		MovePlayer ();
 		//Debug.Log (_forwardRunningSpeed);
 	}
 
@@ -174,11 +181,13 @@ public class PlayerController : NetworkBehaviour {
 		d = Mathf.Clamp (d, -1, 1);
 		RpcUpdateStrafeSpeed (d);
 		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
+		MovePlayer ();
 		//Debug.Log (_strafeSpeed);
 	}
 
 	[ClientRpc]
 	void RpcUpdateStrafeSpeed (int d) {
 		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
+		//MovePlayer ();
 	}
 }
