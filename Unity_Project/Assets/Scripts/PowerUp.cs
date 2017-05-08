@@ -65,7 +65,7 @@ public class PowerUp : NetworkBehaviour {
 		_timer = _delay;
 	}
 
-	// If a player steps in the powerup
+	// If a player steps in the powerup zone
 	void OnTriggerEnter (Collider c) {
 		if (!isServer)
 			return;
