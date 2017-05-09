@@ -118,6 +118,34 @@ public class PlayerController : NetworkBehaviour {
 	public void CmdUpdateCameraXY (float X_val, float Y_val) {
 		_XInput = X_val;
 		_YInput = Y_val;
+		float invertFactor;
+		if (_invertYAxis)
+			invertFactor = -1.0f;
+		else
+			invertFactor = 1.0f;
+		_XInput = X_val;
+		_YInput = Y_val;
+
+
+		// Update current camera rotation around X to cap it
+		_camRotX += _YInput * CAMERA_Y_FACTOR;
+
+		// If the rotation exceeds 90° (up or down), ignore the rest.
+		if (_camRotX < -90f) {
+			_camRotX = -90f;
+			return;
+		}
+		if (_camRotX > 90f) {
+			_camRotX = 90f;
+			return;
+		}
+
+		// Rotate player around Y axis (along X) with horizontal input
+		transform.RotateAround(transform.position, transform.up, 
+			CAMERA_X_FACTOR * _XInput);
+		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
+		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
+			- _YInput * CAMERA_Y_FACTOR * invertFactor);
 		MoveCamera ();
 
 		RpcUpdateCameraXY (X_val, Y_val);
