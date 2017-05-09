@@ -8,6 +8,7 @@ public class InventoryGetChoices : MonoBehaviour {
 	//public GameObject _Player;
 	public GameObject _PlayerMenuChoices;
 	public GameObject _NManager;
+	public ArmeTest[] _Weapons;
 
 	// Use this for initialization
 	void Start () {
@@ -29,24 +30,30 @@ public class InventoryGetChoices : MonoBehaviour {
 		_Wep1.transform.parent = transform;
 		_Wep2.transform.parent = transform;
 		_Wep3.transform.parent = transform;
-
+		ArmeTest.armes = new List<ArmeTest> ();
 		DBConnect db_link = new DBConnect ();
+
 		db_link.init (_NManager.GetComponent<NetworkManager>().networkAddress);
 
+		_Weapons = ArmeTest.armes.ToArray();
 
-		_Wep1.GetComponent<ArmeTest> ().cadence = ArmeTest.armes [_Wep1.GetComponent<ArmeTest> ().id].cadence;
-		_Wep1.GetComponent<ArmeTest> ().degat = ArmeTest.armes [_Wep1.GetComponent<ArmeTest> ().id].degat;
-		_Wep1.GetComponent<ArmeTest> ().vitesse = ArmeTest.armes [_Wep1.GetComponent<ArmeTest> ().id].vitesse;
+		_Wep1.GetComponent<ArmeTest> ().cadence = _Weapons [_Wep1.GetComponent<ArmeTest> ().id].cadence;
+		_Wep1.GetComponent<ArmeTest> ().degat = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].degat;
+		_Wep1.GetComponent<ArmeTest> ().vitesse = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].vitesse;
+		_Wep1.GetComponent<ArmeTest> ().range = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].range;
+		_Wep1.GetComponent<ArmeTest> ().nom = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].nom;
 
-		_Wep2.GetComponent<ArmeTest> ().cadence = ArmeTest.armes [_Wep2.GetComponent<ArmeTest> ().id].cadence;
-		_Wep2.GetComponent<ArmeTest> ().degat = ArmeTest.armes [_Wep2.GetComponent<ArmeTest> ().id].degat;
-		_Wep2.GetComponent<ArmeTest> ().vitesse = ArmeTest.armes [_Wep2.GetComponent<ArmeTest> ().id].vitesse;
+		_Wep2.GetComponent<ArmeTest> ().cadence = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].cadence;
+		_Wep2.GetComponent<ArmeTest> ().degat = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].degat;
+		_Wep2.GetComponent<ArmeTest> ().vitesse = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].vitesse;
+		_Wep2.GetComponent<ArmeTest> ().range = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].range;
+		_Wep2.GetComponent<ArmeTest> ().nom = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].nom;
 
-
-		_Wep3.GetComponent<ArmeTest> ().cadence = ArmeTest.armes [_Wep3.GetComponent<ArmeTest> ().id].cadence;
-		_Wep3.GetComponent<ArmeTest> ().degat = ArmeTest.armes [_Wep3.GetComponent<ArmeTest> ().id].degat;
-		_Wep3.GetComponent<ArmeTest> ().vitesse = ArmeTest.armes [_Wep3.GetComponent<ArmeTest> ().id].vitesse;
-
+		_Wep3.GetComponent<ArmeTest> ().cadence = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].cadence;
+		_Wep3.GetComponent<ArmeTest> ().degat = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].degat;
+		_Wep3.GetComponent<ArmeTest> ().vitesse = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].vitesse;
+		_Wep3.GetComponent<ArmeTest> ().range = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].range;
+		_Wep3.GetComponent<ArmeTest> ().nom = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].nom;
 
 	}
 

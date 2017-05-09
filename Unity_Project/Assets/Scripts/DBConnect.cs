@@ -15,32 +15,35 @@ public class DBConnect {
 	 **/
 	public void init(string url){		
 
-
-
-		WWW request = new WWW(url+"pageArmes.php");
-
+		//WWW request = new WWW(url+"pageArmes.php");
+		WWW request = new WWW("192.168.43.5/pageArmes.php");
 		//Tant que la récup' n'est pas achevée
 		while (!request.isDone) {}
 
 
 		// Splitting des données en strings && push dans le tableau static de la classe Arme
 		string reponse = request.text;
-		string[] armes = reponse.Split(';');
+		string[] armesList = reponse.Split(';');
+
 		string[] arme;
-		ArmeTest.armes = new ArmeTest[armes.Length];
-		int i = 0;
-		for(i = 0; i<armes.Length; i++){
-			arme = armes[i].Split(',');
-			ArmeTest.armes[i] = new ArmeTest(int.Parse(arme[0]), arme[1], float.Parse(arme[2]), int.Parse(arme[3]), int.Parse(arme[4]), float.Parse(arme[5]));
+		for(int i = 0; i < armesList.Length-1; i++){
+			arme = armesList[i].Split(',');
+			for (int j = 0; j < arme.Length; j++) {
+				Debug.Log (arme [j].ToString());
+			}
+
+			ArmeTest temp;
+			GameObject tempArme = new GameObject ();
+			temp = tempArme.gameObject.AddComponent<ArmeTest> ();
+			temp.GetComponent<ArmeTest> ().id = string.IsNullOrEmpty(arme[0]) ? 0 : int.Parse(arme[0])-1;
+			temp.GetComponent<ArmeTest> ().nom = arme [1];
+			temp.GetComponent<ArmeTest> ().cadence = string.IsNullOrEmpty(arme[2]) ? 0 : float.Parse(arme[2]);
+			temp.GetComponent<ArmeTest> ().degat = string.IsNullOrEmpty(arme[3]) ? 0 : int.Parse(arme[3]);
+			temp.GetComponent<ArmeTest> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
+			temp.GetComponent<ArmeTest> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
+
+			ArmeTest.armes.Add (temp);
 		}
-
-		/*
-		//Pour les tests tant qu'on a pas le serveur web
-		Arme arme = new Arme(0,"toto",3.4,10,10,3.4);
-		Arme.armes = new Arme[1];
-		Arme.armes[0] = arme;
-		*/
-
 	}
 
 }
