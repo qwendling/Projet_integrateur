@@ -15,7 +15,6 @@ public class PlayerInput : NetworkBehaviour {
 	private CanShoot _shoot;
 
 	private float timebetweenShot;
-	private bool isFire = false;
 	private double _timeShot;
 
 	public int commande;
@@ -29,6 +28,8 @@ public class PlayerInput : NetworkBehaviour {
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
+
+		_timeShot = -1.0;
 	}
 
 	// Update is called once per frame
@@ -37,34 +38,20 @@ public class PlayerInput : NetworkBehaviour {
 			// MDR
 		}
 
-		if (Input.GetKeyDown (KeyCode.T)) {
-			Time.timeScale = 0;
-		}
-
 		if(!isLocalPlayer)
 			return;
 
+		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
+		_timeShot -= 1.0 * Time.deltaTime;
+
 		// SHOOT COMMAND
 
-		if (Input.GetButtonDown("Fire1") || (commande == 120))
+		if (Input.GetButton("Fire1") || (commande == 120))
 		{
-			isFire = true;
-			timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
-			_shoot.CmdFire ();
-			_timeShot = timebetweenShot;
-			print (_timeShot);
-		}
-
-		if (Input.GetButtonUp("Fire1"))
-		{
-			isFire = false;
-		}
-		if (isFire) {
-			if (_timeShot <= 0) {
-				_shoot.CmdFire ();
+			// Si le delais de la cadence est passe
+			if (_timeShot <= 0.0) {
 				_timeShot = timebetweenShot;
-			} else {
-				_timeShot -= 1.0 * Time.deltaTime;
+				_shoot.CmdFire ();
 			}
 		}
 
