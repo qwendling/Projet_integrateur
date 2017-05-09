@@ -6,6 +6,8 @@ using UnityEngine.Networking;
 public class Bullet : NetworkBehaviour {
 	public int DAMAGE = 0;
 
+
+	[SyncVar]
 	public GameObject monJoueur;
 
 	// Use this for initialization
@@ -37,5 +39,10 @@ public class Bullet : NetworkBehaviour {
 		gameObject.GetComponent<Renderer> ().enabled = false;
 		gameObject.GetComponent<Collider> ().enabled = false;
 		Destroy (gameObject, 2.0f);
+	}
+
+	[ClientRpc]
+	public void RpcPlayBruit(){
+		gameObject.GetComponent<AudioSource>().PlayOneShot (monJoueur.GetComponent<ToolSwap>()._activeItem.GetComponent<Arme>().Clip);
 	}
 }
