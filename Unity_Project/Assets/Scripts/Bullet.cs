@@ -22,10 +22,16 @@ public class Bullet : NetworkBehaviour {
 		
 		if (hit.tag == "Player") {
 			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE);
-			Destroy (gameObject);
+			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+			gameObject.GetComponent<Renderer> ().enabled = false;
+			gameObject.GetComponent<Collider> ().enabled = false;
+			Destroy (gameObject, 2.0f);
 		}
 		if (hit.tag == "Wall") {
-			Destroy (gameObject);
+			gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+			gameObject.GetComponent<Renderer> ().enabled = false;
+			gameObject.GetComponent<Collider> ().enabled = false;
+			Destroy (gameObject, 2.0f);
 		}
 	}
 }
