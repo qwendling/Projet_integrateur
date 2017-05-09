@@ -4,17 +4,33 @@ using UnityEngine;
 
 public class WeaponTest : MonoBehaviour {
 
+	public int id;
 	public int degat;
 	public float cadence;
 	public string nom;
 	public GameObject FireSpot;
 	public float vitesse = 1;
 
+	public WeaponTest(int id, string nom, float cadence, int degat, float vitesse){
+		this.id = id;
+		this.nom = nom;
+		this.cadence = cadence;
+		this.degat = degat;
+		this.vitesse = vitesse;
+	}
+
+	public WeaponTest(){
+		this.nom = "";
+		this.cadence = 0;
+		this.degat = 0;
+		this.vitesse = 0;
+	}
+
 	/*public float timeBetweenTicks = 2;
 	public float _timer = 2;*/
 	// Use this for initialization
 	void Start () {
-		GameObject _Player = GameObject.FindGameObjectWithTag ("Player");
+		//GameObject _Player = GameObject.FindGameObjectWithTag ("Player");
 	}
 
 	// Update is called once per frame

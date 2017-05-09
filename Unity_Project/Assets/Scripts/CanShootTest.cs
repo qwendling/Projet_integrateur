@@ -18,9 +18,9 @@ public class CanShootTest : NetworkBehaviour {
 
 	[Command]
 	public void CmdFire () {
-		Weapon W = gameObject.GetComponent<ToolSwapTest> ()._activeItem.GetComponent<Weapon> ();
-		if (W is Arme) {
-			Arme A = (Arme)W;
+		WeaponTest W = gameObject.GetComponent<ToolSwapTest> ()._activeItem.GetComponent<WeaponTest> ();
+		if (W is ArmeTest) {
+			ArmeTest A = (ArmeTest)W;
 			A.Bruit.Play();
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<MeshRenderer>().material.color = A.couleurTir;
