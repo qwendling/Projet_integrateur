@@ -41,9 +41,4 @@ public class GameMenu : MonoBehaviour {
 		SceneManager.LoadScene("Arena1");
 	}
 
-	public void EnterName(){
-		
-	}
-
-
 }

@@ -20,4 +20,5 @@ public class CameraManager : NetworkBehaviour {
 	void Update () {
 		
 	}
+
 }
