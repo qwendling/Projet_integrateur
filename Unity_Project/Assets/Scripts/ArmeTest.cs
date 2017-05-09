@@ -7,7 +7,7 @@ public class ArmeTest : WeaponTest {
 
 	public GameObject projectile;
 	public Color couleurTir;
-	public AudioSource Bruit;
+	public AudioClip Clip;
 
 	public static List<ArmeTest> armes = new List<ArmeTest> ();
 
@@ -23,7 +23,7 @@ public class ArmeTest : WeaponTest {
 
 	// Use this for initialization
 	void Start () {
-		Bruit.enabled = true;
+		//Clip.enabled = true;
 	}
 
 	// Update is called once per frame

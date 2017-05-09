@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class Bullet : NetworkBehaviour {
-	public int DAMAGE = 10;
+	public int DAMAGE = 0;
 
 	public GameObject monJoueur;
 

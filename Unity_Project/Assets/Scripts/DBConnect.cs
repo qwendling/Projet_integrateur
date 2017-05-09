@@ -14,7 +14,7 @@ public class DBConnect {
 	 * initialise le tableau static Arme.armes avec le contenu de la BDD
 	 **/
 	public void init(string url){		
-
+		/*
 		//WWW request = new WWW(url+"pageArmes.php");
 		WWW request = new WWW("192.168.43.5/pageArmes.php");
 		//Tant que la récup' n'est pas achevée
@@ -43,7 +43,42 @@ public class DBConnect {
 			temp.GetComponent<ArmeTest> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
 
 			ArmeTest.armes.Add (temp);
+
+			GameObject.Destroy (temp);
+			GameObject.Destroy (tempArme);
 		}
+		*/
+
+		// WHEN THE SERV IS DOWN
+		ArmeTest temp2;
+		GameObject tempArme2 = new GameObject ();
+		temp2 = tempArme2.gameObject.AddComponent<ArmeTest> ();
+		temp2.GetComponent<ArmeTest> ().id = 0;
+		temp2.GetComponent<ArmeTest> ().nom = "Gun";
+		temp2.GetComponent<ArmeTest> ().cadence = 1;
+		temp2.GetComponent<ArmeTest> ().degat = 15;
+		temp2.GetComponent<ArmeTest> ().range = 50;
+		temp2.GetComponent<ArmeTest> ().vitesse = 5;
+
+		ArmeTest.armes.Add (temp2);
+
+		GameObject.Destroy (temp2);
+		GameObject.Destroy (tempArme2);
+
+		temp2 = null;
+		tempArme2 = new GameObject ();
+		temp2 = tempArme2.gameObject.AddComponent<ArmeTest> ();
+		temp2.GetComponent<ArmeTest> ().id = 1;
+		temp2.GetComponent<ArmeTest> ().nom = "AK";
+		temp2.GetComponent<ArmeTest> ().cadence = 6;
+		temp2.GetComponent<ArmeTest> ().degat = 10;
+		temp2.GetComponent<ArmeTest> ().range = 50;
+		temp2.GetComponent<ArmeTest> ().vitesse = 5;
+
+		ArmeTest.armes.Add (temp2);
+
+		GameObject.Destroy (temp2);
+		GameObject.Destroy (tempArme2);
 	}
 
 }
