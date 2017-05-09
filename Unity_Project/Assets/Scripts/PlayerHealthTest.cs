@@ -35,10 +35,20 @@ public class PlayerHealthTest : NetworkBehaviour {
 		}
 	}
 
+	public void HealUp(int amount) {
+		if (!isServer)
+			return;
+
+		currentHealth += amount;
+		if (currentHealth > MAX_HEALTH) {
+			currentHealth = MAX_HEALTH;
+		}
+	}
+
 	void OnChangeHealth (int health) {
 		if (healthBar == null)
 			return;
-		healthBar.sizeDelta = new Vector2 (currentHealth, healthBar.sizeDelta.y);
+		healthBar.sizeDelta = new Vector2 (health, healthBar.sizeDelta.y);
 	}
 
 	[ClientRpc]

@@ -2,26 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using GameMessages;
+using System.Net.Sockets;
+using System.Net;
 
 public class PlayerInputTest : NetworkBehaviour {
 	public GameObject _player;
 
 	private PlayerController _controller;
 	private PlayerHealthTest _health;
-	public ToolSwapTest _swapper;
+	private ToolSwapTest _swapper;
 	private CanShootTest _shoot;
 
 	private float timebetweenShot;
-	private bool isFire = false;
 	private double _timeShot;
+
+	public int commande;
+
+
 
 	// Use this for initialization
 	void Start () {
+
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealthTest> ();
 		_swapper = _player.GetComponent<ToolSwapTest> ();
 		_shoot = _player.GetComponent<CanShootTest> ();
-		timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+
+		_timeShot = -1.0;
 	}
 
 	// Update is called once per frame
@@ -30,53 +38,44 @@ public class PlayerInputTest : NetworkBehaviour {
 			// MDR
 		}
 
-		if (Input.GetKeyDown (KeyCode.T)) {
-			Time.timeScale = 0;
-		}
-
 		if(!isLocalPlayer)
 			return;
 
-		// TEST HEALTH
-
-		if (Input.GetKeyDown (KeyCode.K)) {
-			CmdTestHealth ();
-		}
+		timebetweenShot = 1/_swapper._activeItem.GetComponent<WeaponTest>().cadence;
+		_timeShot -= 1.0 * Time.deltaTime;
 
 		// SHOOT COMMAND
 
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButton("Fire1") || (commande == 120))
 		{
-			isFire = true;
-			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
-			_shoot.CmdFire ();
-			_timeShot = timebetweenShot;
-			print (_timeShot);
-		}
-
-		if (Input.GetButtonUp("Fire1"))
-		{
-			isFire = false;
-		}
-		if (isFire) {
-			if (_timeShot <= 0) {
-				_shoot.CmdFire ();
+			// Si le delais de la cadence est passe
+			if (_timeShot <= 0.0) {
 				_timeShot = timebetweenShot;
-			} else {
-				_timeShot -= 1.0 * Time.deltaTime;
+				_shoot.CmdFire ();
 			}
 		}
-
 
 		// CAMERA CONTROL
 
 		_controller.CmdUpdateCameraXY (Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
+		/*
+		if ( (commande == 710 ) )// up
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.40);
 
+		if ( (commande == 810 ) ) // down
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)-0.40);
+
+		if ( (commande == 310 ) )// gauche
+				_controller.CmdUpdateCameraXY ((float)-0.40, (float)0.00);
+
+		if ( (commande == 410 ) ) // droite
+				_controller.CmdUpdateCameraXY ((float)0.40, (float)0.00);
+*/
 		// MOVEMENT CONTROL
 
 		int forward, right;
 
-		if (Input.GetKey (KeyCode.Z)) {
+		if (Input.GetKey (KeyCode.Z) || (commande == 110 ) ) {
 			forward = 1;
 		} else if (Input.GetKey (KeyCode.S)) {
 			forward = -1;
@@ -86,9 +85,9 @@ public class PlayerInputTest : NetworkBehaviour {
 
 		_controller.CmdUpdateForwardSpeed (forward);
 
-		if (Input.GetKey (KeyCode.D)) {
+		if (Input.GetKey (KeyCode.D) || (commande == 610 )) {
 			right = 1;
-		} else if (Input.GetKey (KeyCode.Q)) {
+		} else if (Input.GetKey (KeyCode.Q) || (commande == 510 ) ) {
 			right = -1;
 		} else {
 			right = 0;
@@ -103,20 +102,15 @@ public class PlayerInputTest : NetworkBehaviour {
 		// int i = 0;
 		if(Input.GetKeyDown (KeyCode.Alpha1)){
 			_swapper.CmdSwap (0);
-			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+			timebetweenShot = _swapper._activeItem.GetComponent<WeaponTest>().cadence;
 		}
-		if(Input.GetKeyDown (KeyCode.Alpha2)){
+		if(Input.GetKeyDown (KeyCode.Alpha2) || (commande == 999 ) ){
 			_swapper.CmdSwap (1);
-			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+			timebetweenShot = _swapper._activeItem.GetComponent<WeaponTest>().cadence;
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha3)){
 			_swapper.CmdSwap (2);
-			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
+			timebetweenShot = _swapper._activeItem.GetComponent<WeaponTest>().cadence;
 		}
-	}
-
-	[Command] 
-	void CmdTestHealth() {
-		_health.TakeDamage (100);
 	}
 }
