@@ -12,14 +12,14 @@ public class CanShoot : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (!isLocalPlayer)
-            return;
+       
 	}
 
 	[Command]
 	public void CmdFire () {
 		Weapon W = gameObject.GetComponent<ToolSwap> ()._activeItem.GetComponent<Weapon> ();
 		if (W is Arme) {
+			// Tir
 			Arme A = (Arme)W;
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<Bullet> ().monJoueur = gameObject;
