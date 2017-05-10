@@ -11,10 +11,10 @@ public class DBConnect {
 	}
 
 
-	/** 
+	/**
 	 * initialise le tableau static Arme.armes avec le contenu de la BDD
 	 **/
-	public void init(string url){		
+	public void init(string url){
 		/*
 		//WWW request = new WWW(url+"pageArmes.php");
 		WWW request = new WWW("192.168.43.5/pageArmes.php");
@@ -83,6 +83,26 @@ public class DBConnect {
 
 		GameObject.Destroy (temp2);
 		GameObject.Destroy (tempArme2);
+
+
+
+
+//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		SortTest temp3;
+		GameObject tempSort = new GameObject ();
+		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
+		temp3.GetComponent<SortTest> ().id = 3;
+		temp3.GetComponent<SortTest> ().nom = "Fire";
+		temp3.GetComponent<SortTest> ().cadence = 1;
+		temp3.GetComponent<SortTest> ().degat = 15;
+		temp3.GetComponent<SortTest> ().range = 10;
+		temp3.GetComponent<SortTest> ().vitesse = 5;
+		temp3.GetComponent<SortTest> ().surchauffe = 10;
+
+		SortTest.sorts.Add (temp3);
+
+		GameObject.Destroy (temp3);
+		GameObject.Destroy (tempSort);
 
 	}
 

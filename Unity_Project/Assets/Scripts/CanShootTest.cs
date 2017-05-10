@@ -31,7 +31,16 @@ public class CanShootTest : NetworkBehaviour {
 			NetworkServer.Spawn (bullet);
 			bullet.GetComponent<BulletTest> ().RpcPlayBruit();
 			Destroy (bullet, 2.0f);
-		} else if (W is Sort) {
+		} else if (W is SortTest) {
+
+			SortTest S = (SortTest)W;
+			GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
+			//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+			sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
+			NetworkServer.Spawn (sort);
+			Destroy (sort, 2.0f);
+
+
 		} else {
 		}
 	}
