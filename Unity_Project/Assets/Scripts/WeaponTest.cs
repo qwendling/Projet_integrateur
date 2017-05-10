@@ -10,6 +10,7 @@ public class WeaponTest : MonoBehaviour {
 	public string nom;
 	public GameObject FireSpot;
 	public float vitesse = 1;
+	public int surchauffe;
 
 	public WeaponTest(int id, string nom, float cadence, int degat, float vitesse){
 		this.id = id;

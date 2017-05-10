@@ -24,6 +24,7 @@ public class CanShootTest : NetworkBehaviour {
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<AudioSource>().PlayOneShot (A.Clip);
 			bullet.GetComponent<MeshRenderer>().material.color = A.couleurTir;
+			bullet.GetComponent<Bullet> ().monJoueur = this.gameObject;
 			bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 1000);
 			NetworkServer.Spawn (bullet);
 			Destroy (bullet, 2.0f);
