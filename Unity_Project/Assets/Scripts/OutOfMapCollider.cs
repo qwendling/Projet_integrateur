@@ -16,6 +16,7 @@ public class OutOfMapCollider : NetworkBehaviour {
 	}
 
 	void OnTriggerEnter (Collider hit) {
-		hit.gameObject.GetComponent<PlayerHealthTest> ().TakeDamage (666, null);
+		if (hit.tag == "Player")
+			hit.gameObject.GetComponent<PlayerHealthTest> ().TakeDamage (666, null);
 	}
 }

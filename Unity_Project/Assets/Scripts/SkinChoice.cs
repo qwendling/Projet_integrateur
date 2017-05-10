@@ -5,7 +5,7 @@ using UnityEngine.Networking;
 
 public class SkinChoice : NetworkBehaviour {
 	//public static int NBR_OF_SKINS = 2;
-
+	public GameObject _PlayerMenuChoices;
 	public GameObject _Skin;
 	public string _PlayerName;
 
@@ -16,6 +16,11 @@ public class SkinChoice : NetworkBehaviour {
 	void Start () {
 		if (isLocalPlayer) {
 			_Skin.SetActive (false);
+
+			while (_PlayerMenuChoices == null) {
+				_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
+			}
+			_PlayerName = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._Name;
 		}
 	}
 	
