@@ -17,7 +17,7 @@ Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Pro
 Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
 Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.047 seconds
+- Completed reload, in  0.033 seconds
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\System.Core.dll (this message is harmless)
 Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\System.dll (this message is harmless)
 desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
@@ -32,46 +32,9 @@ The referenced script on this Behaviour (Game Object 'visual health') is missing
  
 (Filename:  Line: 1754)
 
-UnloadTime: 4.454074 ms
+UnloadTime: 3.114135 ms
 Setting up 1 worker threads for Enlighten.
-  Thread -> id: 2814 -> priority: 1 
-Initialize engine version: 5.5.1f1 (88d00a7498cd)
-GfxDevice: creating device client; threaded=1
-Direct3D:
-    Version:  Direct3D 11.0 [level 11.0]
-    Renderer: NVIDIA GeForce GTX 950M (ID=0x139a)
-    Vendor:   NVIDIA
-    VRAM:     2019 MB
-    Driver:   22.21.13.8189
-Begin MonoManager ReloadAssembly
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.dll (this message is harmless)
-Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.dll into Unity Child Domain
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\Assembly-CSharp.dll (this message is harmless)
-Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.UI.dll (this message is harmless)
-Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.Networking.dll (this message is harmless)
-Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.Networking.dll into Unity Child Domain
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll (this message is harmless)
-Loading C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\UnityEngine.PlaymodeTestsRunner.dll into Unity Child Domain
-- Completed reload, in  0.029 seconds
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\System.Core.dll (this message is harmless)
-Platform assembly: C:\Users\Martin\Documents\GitHub\Projet_integrateur\Unity_Project\DEV_Sandbox_Data\Managed\System.dll (this message is harmless)
-desktop: 1366x768 60Hz; virtual: 1366x768 at 0,0
-<RI> Initializing input.
-<RI> Input initialized.
-<RI> Initialized touch support.
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-UnloadTime: 2.842679 ms
-Setting up 1 worker threads for Enlighten.
-  Thread -> id: 46c -> priority: 1 
+  Thread -> id: 678 -> priority: 1 
 The referenced script on this Behaviour (Game Object '<null>') is missing!
  
 (Filename:  Line: 1754)
@@ -96,171 +59,8 @@ The referenced script on this Behaviour (Game Object 'visual health') is missing
  
 (Filename:  Line: 1754)
 
-The referenced script on this Behaviour (Game Object '<null>') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object '<null>') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object '<null>') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object '<null>') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object '<null>') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object '<null>') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-The referenced script on this Behaviour (Game Object 'visual health') is missing!
- 
-(Filename:  Line: 1754)
-
-Did not find target for sync message for 5
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 5
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 7
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 7
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 9
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 11
- 
-(Filename: C:/buildslave/unity/build/artifacDs/gid not d/cnomtarget foi menc message fos.gen
- 
-(F iine: 51)
-
-name: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find Did nt foird targemtssaor sfnc  1es
- 
-(e for ame:
- C
-:Fileildsl:aCve/:/buy/build/artifacts/generated/common/ruitlde/Dabvgeindings.gen.cpp Lune: 5il
-
-d/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 16
- 
-(FilenameD C:/ builfslade utitarbgil forr sfactme/ssagea for o1m6n
-r n
-(milDebngaind:n C.gen.cldslavee 5unit
-
-build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 20
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 20
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 22
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.geD.cp not find t
-
-rget for sync message for 22
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 27
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 27
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 28
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindDngidgen.cpfiLine: d ta51)
-
-for sync message for 28
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 38
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 38
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 41
- 
-(Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
-
-Did not find target for sync message for 41
+Log: connection {1} has been disconnected by timeout; address {::ffff:127.0.0.1:56668}
+ServerDisconnected due to error: Timeout
  
 (Filename: C:/buildslave/unity/build/artifacts/generated/common/runtime/DebugBindings.gen.cpp Line: 51)
 
