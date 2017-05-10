@@ -9,21 +9,14 @@ public class Server_PlayerList : NetworkBehaviour {
 	int _NbPlayers = 0;
 
 
-	public SyncListInt _Scores;
-	public SyncListString _Names;
+	public SyncListInt _Scores = new SyncListInt ();
+	public SyncListString _Names = new SyncListString ();
 
 	[SyncVar]
 	bool _Mutex = false;
 
 
 	// Use this for initialization
-	void Awake () {
-		if (Network.isServer) {
-			_Scores = new SyncListInt ();
-			_Names = new SyncListString ();
-			_Mutex = false;
-		}
-	}
 	
 	// Update is called once per frame
 	void Update () {

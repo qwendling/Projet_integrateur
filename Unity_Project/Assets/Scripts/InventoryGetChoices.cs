@@ -8,6 +8,7 @@ public class InventoryGetChoices : MonoBehaviour {
 	//public GameObject _Player;
 	public GameObject _PlayerMenuChoices;
 	public GameObject _NManager;
+	public GameObject _Coordinator;
 	public ArmeTest[] _Weapons;
 
 	// Use this for initialization
@@ -18,6 +19,12 @@ public class InventoryGetChoices : MonoBehaviour {
 		while (_NManager == null) {
 			_NManager = GameObject.Find ("NetworkManager");
 		}
+
+		while (_Coordinator == null) {
+			_Coordinator = GameObject.Find ("Coordinator");
+		}
+
+		_Coordinator.GetComponent<Server_PlayerList> ().PlayerJoinedTheGame (_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._Name);
 
 		GameObject _Wep1 = (GameObject) Instantiate (_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._Wep1, transform.position, Quaternion.identity);
 		GameObject _Wep2 = (GameObject) Instantiate (_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._Wep2, transform.position, Quaternion.identity);
