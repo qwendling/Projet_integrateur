@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class InGameMenu : MonoBehaviour {
 
 	public GameObject _inGameMenu;
 	//public GameObject _inGameUI;
 	public GameObject _Player;
+	public Text _LeaderBoardTextBox;
+
 	private bool display = false;
 
 
@@ -24,12 +27,12 @@ public class InGameMenu : MonoBehaviour {
 		if (_Player == null) {
 			_Player = GameObject.Find ("Player_test(Clone)");
 		}
-
 		if (Input.GetKeyDown (KeyCode.Escape)) {
 			//If the menu was not displayed, then display it
 			if (display == false) {				
 				_inGameMenu.SetActive (true);
 				//_inGameUI.SetActive (false);
+				_LeaderBoardTextBox.GetComponent<GetLeaderboard>().UpdateLeaderBoard();
 				_Player.GetComponent<PlayerController> ()._InGameMenuIsDisplayed = true;
 				display = true;
 				Cursor.visible = true;
@@ -53,7 +56,7 @@ public class InGameMenu : MonoBehaviour {
 	}
 
 	public void OnMainMenuClicked(){
-		SceneManager.LoadScene ("MainMenu_scene");
+		SceneManager.LoadScene ("ConnectionMenu");
 		Cursor.visible = true;
 	}
 	
