@@ -1,9 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
-public class OutOfMapCollider : NetworkBehaviour {
+public class MenuManager_LeapChoice : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +15,9 @@ public class OutOfMapCollider : NetworkBehaviour {
 		
 	}
 
-	void OnTriggerEnter (Collider hit) {
-		hit.gameObject.GetComponent<PlayerHealthTest> ().TakeDamage (666, null);
+	public void OnNextClicked(){
+
+		SceneManager.LoadScene ("ConnectionMenu");
+		Cursor.visible = false;
 	}
 }

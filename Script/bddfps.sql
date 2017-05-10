@@ -11,10 +11,11 @@ DROP TABLE IF EXISTS ARENES;
 CREATE TABLE ARMES(
 	id_arme int PRIMARY KEY NOT NULL AUTO_INCREMENT,
 	nom_arme varchar(256),
-	cadence_arme decimal(5,3),
+	cadence_arme decimal(5,2),
 	degats_arme int,
-	vitesse_bullet_arme decimal(5,3),
-	range_arme int
+	vitesse_bullet_arme decimal(5,2),
+	range_arme int,
+	surchauffe_arme int
 )ENGINE = INNODB;
 
 CREATE TABLE JOUEURS(
@@ -54,3 +55,8 @@ ALTER TABLE CLASSES ADD CONSTRAINT fkarmeA FOREIGN KEY(id_armeA) REFERENCES ARME
 ALTER TABLE CLASSES ADD CONSTRAINT fkarmeB FOREIGN KEY(id_armeB) REFERENCES ARMES(id_arme);
 ALTER TABLE CLASSES ADD CONSTRAINT fkarmeC FOREIGN KEY(id_armeC) REFERENCES ARMES(id_arme);
 ALTER TABLE CLASSES ADD CONSTRAINT fkavatar FOREIGN KEY(id_avatar) REFERENCES AVATAR(id_avatar);
+
+/** inset ARMES **/
+INSERT INTO ARMES VALUES (NULL,"Pistolet",1.2,10,5.5,100,10);
+INSERT INTO ARMES VALUES (NULL,"AK",10.5,10,4.5,75,30);
+INSERT INTO ARMES VALUES (NULL,"Cube",7,2,1.3,80,35);

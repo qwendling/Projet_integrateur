@@ -19,6 +19,8 @@ public class PlayerInput : NetworkBehaviour {
 
 	public int commande;
 
+	private float _heatTimer;
+	private bool _overHeat = false;
 
 
 	// Use this for initialization
@@ -41,6 +43,10 @@ public class PlayerInput : NetworkBehaviour {
 		if(!isLocalPlayer)
 			return;
 
+		if (HeatTimerFinished ()) {
+			_overHeat = false;
+		}
+
 		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 		_timeShot -= 1.0 * Time.deltaTime;
 
@@ -49,9 +55,13 @@ public class PlayerInput : NetworkBehaviour {
 		if (Input.GetButton("Fire1") || (commande == 120))
 		{
 			// Si le delais de la cadence est passe
-			if (_timeShot <= 0.0) {
+			if (!_overHeat && _timeShot <= 0.0) {
 				_timeShot = timebetweenShot;
 				_shoot.CmdFire ();
+				PlayerOverHeat POH = gameObject.GetComponent<PlayerOverHeat> ();
+				if (POH.Heat ()) {
+					StartHeatTimer ();
+				}
 			}
 		}
 
@@ -112,5 +122,17 @@ public class PlayerInput : NetworkBehaviour {
 			_swapper.CmdSwap (2);
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
+	}
+
+	// Run the timer, return true if timer has ended
+	bool HeatTimerFinished () {
+		_heatTimer -= 1.0f * Time.deltaTime;
+		return (_heatTimer <= 0);
+	}
+
+	// Start/Refresh the timer
+	void StartHeatTimer () {
+		_overHeat = true;
+		_heatTimer = PlayerOverHeat.HEAT_COOLDOWN;
 	}
 }

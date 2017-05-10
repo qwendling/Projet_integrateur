@@ -9,21 +9,20 @@ public class Server_PlayerList : NetworkBehaviour {
 	int _NbPlayers = 0;
 
 
-	SyncListInt _Scores;
-	SyncListString _Names;
+	public SyncListInt _Scores;
+	public SyncListString _Names;
 
 	[SyncVar]
 	bool _Mutex = false;
 
 
 	// Use this for initialization
-	void Start () {
-		if (!isServer) {
-			return;
+	void Awake () {
+		if (Network.isServer) {
+			_Scores = new SyncListInt ();
+			_Names = new SyncListString ();
+			_Mutex = false;
 		}
-		_Scores = new SyncListInt();
-		_Names = new SyncListString();
-
 	}
 	
 	// Update is called once per frame
@@ -39,13 +38,16 @@ public class Server_PlayerList : NetworkBehaviour {
 
 	public void MamaJustKilledAMan(string mama){
 
-		while (_Mutex) {}
+		//while (_Mutex) {}
 		_Mutex = true;
 		for (int i = 0; i < _NbPlayers; i++) {
 			if (mama == _Names [i]) {
 				_Scores[i] = +100;
 				break;
 			}
+		}
+		for (int i = 0; i < _Names.Count; i++) {
+			Debug.Log (_Names [i] + " - " + _Scores [i] + " points");
 		}
 		_Mutex = false;
 	}
