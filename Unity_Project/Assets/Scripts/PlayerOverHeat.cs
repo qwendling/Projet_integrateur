@@ -14,13 +14,14 @@ public class PlayerOverHeat : NetworkBehaviour {
 	public int currentHeat = 0;
 
 	public RectTransform heatBar;
+	private float _maxBar;
 
 	// Timer pour le refroidissement
 	private float _timer = 1.0f;
 
 	// Use this for initialization
 	void Start () {
-		
+		_maxBar = heatBar.sizeDelta.x;
 	}
 	
 	// Update is called once per frame
@@ -31,7 +32,6 @@ public class PlayerOverHeat : NetworkBehaviour {
 		_timer -= 4.0f * Time.deltaTime;
 		if (_timer <= 0.0f) {
 			_timer = 1.0f;
-			Debug.Log (currentHeat);
 			if (currentHeat > 0) {
 				currentHeat -= (int) (0.25f * (float)MAX_HEAT / (HEAT_COOLDOWN - 0.25f));
 			}
@@ -50,6 +50,6 @@ public class PlayerOverHeat : NetworkBehaviour {
 	void OnHeatChange(int heat) {
 		if (heatBar == null)
 			return;
-		heatBar.sizeDelta = new Vector2 (heat, heatBar.sizeDelta.y);
+		heatBar.sizeDelta = new Vector2 (((float)heat/(float)MAX_HEAT)*_maxBar, heatBar.sizeDelta.y);
 	}
 }

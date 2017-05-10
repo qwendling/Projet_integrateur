@@ -12,10 +12,11 @@ public class PlayerHealth : NetworkBehaviour {
 	public int currentHealth = MAX_HEALTH;
 
 	public RectTransform healthBar;
+	private float _barMax;
 
 	// Use this for initialization
 	void Start () {
-		
+		_barMax = healthBar.sizeDelta.x;
 	}
 	
 	// Update is called once per frame
@@ -48,7 +49,7 @@ public class PlayerHealth : NetworkBehaviour {
 	void OnChangeHealth (int health) {
 		if (healthBar == null)
 			return;
-		healthBar.sizeDelta = new Vector2 (health, healthBar.sizeDelta.y);
+		healthBar.sizeDelta = new Vector2 (((float)health/(float)MAX_HEALTH)*_barMax, healthBar.sizeDelta.y);
 	}
 
 	[ClientRpc]
