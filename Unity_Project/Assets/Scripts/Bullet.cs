@@ -4,7 +4,11 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 public class Bullet : NetworkBehaviour {
-	public int DAMAGE = 10;
+	public int DAMAGE = 0;
+
+
+	[SyncVar]
+	public GameObject monJoueur;
 
 	// Use this for initialization
 	void Start () {
@@ -20,12 +24,25 @@ public class Bullet : NetworkBehaviour {
 		if (!isServer)
 			return;
 		
-		if (hit.tag == "Player") {
+		if (hit.tag == "Player" && monJoueur != hit.gameObject) {
 			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE);
-			Destroy (gameObject);
+			RpcDestroyBullet ();
 		}
 		if (hit.tag == "Wall") {
-			Destroy (gameObject);
+			RpcDestroyBullet ();
 		}
+	}
+
+	[ClientRpc]
+	void RpcDestroyBullet() {
+		gameObject.GetComponent<Rigidbody>().velocity = new Vector3(0.0f, 0.0f, 0.0f);
+		gameObject.GetComponent<Renderer> ().enabled = false;
+		gameObject.GetComponent<Collider> ().enabled = false;
+		Destroy (gameObject, 2.0f);
+	}
+
+	[ClientRpc]
+	public void RpcPlayBruit(){
+		gameObject.GetComponent<AudioSource>().PlayOneShot (monJoueur.GetComponent<ToolSwap>()._activeItem.GetComponent<Arme>().Clip);
 	}
 }

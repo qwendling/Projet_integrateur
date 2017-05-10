@@ -7,11 +7,10 @@ public class Arme : Weapon {
     
     public GameObject projectile;
     public Color couleurTir;
-    public AudioSource Bruit;
+    public AudioClip Clip;
 
     // Use this for initialization
     void Start () {
-        Bruit.enabled = true;
 	}
 	
 	// Update is called once per frame

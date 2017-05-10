@@ -6,50 +6,79 @@ using UnityEngine;
 public class DBConnect {
 
 	public DBConnect(){
+
 	}
 
 
 	/** 
-	 * initialise les deux tableau static, Arme.armes et Arene.arenes, avec le contenu de la BDD
+	 * initialise le tableau static Arme.armes avec le contenu de la BDD
 	 **/
 	public void init(string url){		
-		
-		WWW request = new WWW(url+"pageArmes.php");
-
-		string reponse = request.text;
-		string[] armes = reponse.Split(';');
-		string[] arme;
-		ArmeTest.armes = new ArmeTest[armes.Length];
-		int i = 0;
-		for(i = 0; i<armes.Length; i++){
-			arme = armes[i].Split(',');
-			ArmeTest.armes[i] = new ArmeTest(int.Parse(arme[0]),arme[1],float.Parse(arme[2]),int.Parse(arme[3]),int.Parse(arme[4]),float.Parse(arme[5]));
-		}
-
 		/*
-		request = new WWW(url+"pageArenes.php");
+		//WWW request = new WWW(url+"pageArmes.php");
+		WWW request = new WWW("192.168.43.5/pageArmes.php");
+		//Tant que la récup' n'est pas achevée
+		while (!request.isDone) {}
 
-		reponse = request.text;
-		string[] arenes = reponse.Split(';');
-		string[] arene;
-		Arene.arenes = new Arene[arenes.Length];
-		for(i = 0; i < arenes.Length; i++){
-			arene = arenes[i].Split(',');
-			Arene.arenes[i] = new Arene(int.Parse(arene[0]),arene[1],arene[2]);
+
+		// Splitting des données en strings && push dans le tableau static de la classe Arme
+		string reponse = request.text;
+		string[] armesList = reponse.Split(';');
+
+		string[] arme;
+		for(int i = 0; i < armesList.Length-1; i++){
+			arme = armesList[i].Split(',');
+			for (int j = 0; j < arme.Length; j++) {
+				Debug.Log (arme [j].ToString());
+			}
+
+			ArmeTest temp;
+			GameObject tempArme = new GameObject ();
+			temp = tempArme.gameObject.AddComponent<ArmeTest> ();
+			temp.GetComponent<ArmeTest> ().id = string.IsNullOrEmpty(arme[0]) ? 0 : int.Parse(arme[0])-1;
+			temp.GetComponent<ArmeTest> ().nom = arme [1];
+			temp.GetComponent<ArmeTest> ().cadence = string.IsNullOrEmpty(arme[2]) ? 0 : float.Parse(arme[2]);
+			temp.GetComponent<ArmeTest> ().degat = string.IsNullOrEmpty(arme[3]) ? 0 : int.Parse(arme[3]);
+			temp.GetComponent<ArmeTest> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
+			temp.GetComponent<ArmeTest> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
+
+			ArmeTest.armes.Add (temp);
+
+			GameObject.Destroy (temp);
+			GameObject.Destroy (tempArme);
 		}
-
-		
-		//Pour les tests tant qu'on a pas le serveur web
-		Arme arme = new Arme(0,"toto",3.4,10,10,3.4);
-		Arme.armes = new Arme[1];
-		Arme.armes[0] = arme;
-
-		Arene arene = new Arene(0,"nom","scene");
-		Arene.arenes = new Arene[1];
-		Arene.arenes[0] = arene
 		*/
 
+		// WHEN THE SERV IS DOWN
+		ArmeTest temp2;
+		GameObject tempArme2 = new GameObject ();
+		temp2 = tempArme2.gameObject.AddComponent<ArmeTest> ();
+		temp2.GetComponent<ArmeTest> ().id = 0;
+		temp2.GetComponent<ArmeTest> ().nom = "Gun";
+		temp2.GetComponent<ArmeTest> ().cadence = 1;
+		temp2.GetComponent<ArmeTest> ().degat = 15;
+		temp2.GetComponent<ArmeTest> ().range = 50;
+		temp2.GetComponent<ArmeTest> ().vitesse = 5;
+
+		ArmeTest.armes.Add (temp2);
+
+		GameObject.Destroy (temp2);
+		GameObject.Destroy (tempArme2);
+
+		temp2 = null;
+		tempArme2 = new GameObject ();
+		temp2 = tempArme2.gameObject.AddComponent<ArmeTest> ();
+		temp2.GetComponent<ArmeTest> ().id = 1;
+		temp2.GetComponent<ArmeTest> ().nom = "AK";
+		temp2.GetComponent<ArmeTest> ().cadence = 6;
+		temp2.GetComponent<ArmeTest> ().degat = 10;
+		temp2.GetComponent<ArmeTest> ().range = 50;
+		temp2.GetComponent<ArmeTest> ().vitesse = 5;
+
+		ArmeTest.armes.Add (temp2);
+
+		GameObject.Destroy (temp2);
+		GameObject.Destroy (tempArme2);
 	}
 
-	
 }

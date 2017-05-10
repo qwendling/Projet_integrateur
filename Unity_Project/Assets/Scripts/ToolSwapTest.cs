@@ -12,7 +12,7 @@ public class ToolSwapTest : NetworkBehaviour {
 	public GameObject _activeItem;
 	public GameObject _PlayerMenuChoices;
 
-
+	[SyncVar]
 	private int _currentItem = 0;
 	private int CurrentItem {
 		get { return _currentItem; }

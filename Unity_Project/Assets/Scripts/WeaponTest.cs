@@ -21,9 +21,9 @@ public class WeaponTest : MonoBehaviour {
 
 	public WeaponTest(){
 		this.nom = "";
-		this.cadence = 0;
-		this.degat = 0;
-		this.vitesse = 0;
+		this.cadence = 3;
+		this.degat = 10;
+		this.vitesse = 1;
 	}
 
 	/*public float timeBetweenTicks = 2;

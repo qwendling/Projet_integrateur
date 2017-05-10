@@ -7,23 +7,23 @@ public class ArmeTest : WeaponTest {
 
 	public GameObject projectile;
 	public Color couleurTir;
-	public AudioSource Bruit;
+	public AudioClip Clip;
 
-	public static ArmeTest[] armes;
+	public static List<ArmeTest> armes = new List<ArmeTest> ();
 
-	private int range;
-
+	public int range;
+	/*
 	public ArmeTest(int id,string nom, float cadence, int degat, int range, float vitesseBullet) : base(id, nom, cadence, degat, vitesseBullet){
 		this.nom = nom;
-		this.cadence =cadence;
+		this.cadence = cadence;
 		this.degat = degat;
 		this.range = range;
 		this.vitesse = vitesseBullet;
-	}
+	}*/
 
 	// Use this for initialization
 	void Start () {
-		Bruit.enabled = true;
+		//Clip.enabled = true;
 	}
 
 	// Update is called once per frame

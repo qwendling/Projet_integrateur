@@ -12,8 +12,8 @@ public class ToolSwap : NetworkBehaviour {
 	public GameObject _activeItem;
 	public GameObject _PlayerMenuChoices;
 
-
-	private int _currentItem = 0;
+	[SyncVar]
+	private int _currentItem = 1;
 	private int CurrentItem {
 		get { return _currentItem; }
 		set { _currentItem = value; }

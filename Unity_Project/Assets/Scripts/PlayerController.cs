@@ -12,6 +12,7 @@ public class PlayerController : NetworkBehaviour {
 	private const float MS_BOOST_DURATION = 5.0f;	// in seconds
 	
 	// Public variables
+
 	public GameObject _cameraPivot;
 	public bool _invertYAxis;
 	public bool _InGameMenuIsDisplayed = false;
@@ -20,12 +21,15 @@ public class PlayerController : NetworkBehaviour {
 	private float _acceleration = 1.0f;			// Current acceleration factor
 	private float _forwardRunningSpeed = 0.0f;	// Current forward running speed (can be negative for backward)
 	private float _strafeSpeed = 0.0f;			// Current strafing speed (negative value means left, positive means right)
+
+	[SyncVar]
 	private float _camRotX = 0.0f;				// Current camera rotation around X
 	private float _msBoostTimer;
 	private bool _msBoostRunning = false;
 
 	// Private values stocking vertical and horizontal input for camera
 	private float _XInput;
+
 	private float _YInput;
 
 	// ----------------------------------------------------------------------------------------------------
@@ -38,6 +42,8 @@ public class PlayerController : NetworkBehaviour {
 
 		// Default Y camera axis is not inverted
 		_invertYAxis = false;
+		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
+			- _camRotX );
 	}
 	
 	// Update is called once per frame
@@ -53,6 +59,7 @@ public class PlayerController : NetworkBehaviour {
 			_acceleration = 1.0f;
 			_msBoostRunning = false;
 		}
+
 	}
 
 	// ----------------------------------------------------------------------------------------------------
@@ -118,6 +125,34 @@ public class PlayerController : NetworkBehaviour {
 	public void CmdUpdateCameraXY (float X_val, float Y_val) {
 		_XInput = X_val;
 		_YInput = Y_val;
+		float invertFactor;
+		if (_invertYAxis)
+			invertFactor = -1.0f;
+		else
+			invertFactor = 1.0f;
+		_XInput = X_val;
+		_YInput = Y_val;
+
+
+		// Update current camera rotation around X to cap it
+		_camRotX += _YInput * CAMERA_Y_FACTOR;
+
+		// If the rotation exceeds 90° (up or down), ignore the rest.
+		if (_camRotX < -90f) {
+			_camRotX = -90f;
+			return;
+		}
+		if (_camRotX > 90f) {
+			_camRotX = 90f;
+			return;
+		}
+
+		// Rotate player around Y axis (along X) with horizontal input
+		transform.RotateAround(transform.position, transform.up, 
+			CAMERA_X_FACTOR * _XInput);
+		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
+		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
+			- _YInput * CAMERA_Y_FACTOR * invertFactor);
 		MoveCamera ();
 
 		RpcUpdateCameraXY (X_val, Y_val);
