@@ -8,6 +8,7 @@ public class Arme : Weapon {
     public GameObject projectile;
     public Color couleurTir;
     public AudioClip Clip;
+	public ParticleSystem EffetTir;
 
     // Use this for initialization
     void Start () {
