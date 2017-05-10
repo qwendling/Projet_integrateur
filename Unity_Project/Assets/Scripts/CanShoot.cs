@@ -24,10 +24,12 @@ public class CanShoot : NetworkBehaviour {
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<Bullet> ().monJoueur = gameObject;
 			bullet.GetComponent<Bullet> ().DAMAGE = 10;
-			bullet.GetComponent<AudioSource>().PlayOneShot (A.Clip);
+			//bullet.GetComponent<AudioSource>().PlayOneShot (A.Clip);
+
 			bullet.GetComponent<MeshRenderer>().material.color = A.couleurTir;
 			bullet.GetComponent<Rigidbody>().AddForce(bullet.transform.forward * 1000);
 			NetworkServer.Spawn (bullet);
+			bullet.GetComponent<Bullet> ().RpcPlayBruit();
 			Destroy (bullet, 2.0f);
 		} else if (W is Sort) {
 		} else {

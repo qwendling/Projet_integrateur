@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class DBConnect {
 
+
 	public DBConnect(){
 
 	}
@@ -41,6 +42,7 @@ public class DBConnect {
 			temp.GetComponent<ArmeTest> ().degat = string.IsNullOrEmpty(arme[3]) ? 0 : int.Parse(arme[3]);
 			temp.GetComponent<ArmeTest> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
 			temp.GetComponent<ArmeTest> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
+			temp.GetComponent<ArmeTest> ().surchauffe = string.IsNullOrEmpty(arme[6]) ? 0 : int.Parse(arme[6]);
 
 			ArmeTest.armes.Add (temp);
 
@@ -59,6 +61,7 @@ public class DBConnect {
 		temp2.GetComponent<ArmeTest> ().degat = 15;
 		temp2.GetComponent<ArmeTest> ().range = 50;
 		temp2.GetComponent<ArmeTest> ().vitesse = 5;
+		temp2.GetComponent<ArmeTest> ().surchauffe = 10;
 
 		ArmeTest.armes.Add (temp2);
 
@@ -74,11 +77,13 @@ public class DBConnect {
 		temp2.GetComponent<ArmeTest> ().degat = 10;
 		temp2.GetComponent<ArmeTest> ().range = 50;
 		temp2.GetComponent<ArmeTest> ().vitesse = 5;
+		temp2.GetComponent<ArmeTest> ().surchauffe = 30;
 
 		ArmeTest.armes.Add (temp2);
 
 		GameObject.Destroy (temp2);
 		GameObject.Destroy (tempArme2);
+
 	}
 
 }

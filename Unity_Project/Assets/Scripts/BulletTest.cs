@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
-public class Bullet : NetworkBehaviour {
+public class BulletTest : NetworkBehaviour {
 	public int DAMAGE = 0;
 
 
@@ -12,20 +12,20 @@ public class Bullet : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	void OnTriggerEnter (Collider hit) {
 		if (!isServer)
 			return;
-		
+
 		if (hit.tag == "Player" && monJoueur != hit.gameObject) {
-			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE);
+			hit.gameObject.GetComponent<PlayerHealthTest> ().TakeDamage (DAMAGE, monJoueur.GetComponent<SkinChoice>()._PlayerName);
 			RpcDestroyBullet ();
 		}
 		if (hit.tag == "Wall") {
@@ -43,6 +43,6 @@ public class Bullet : NetworkBehaviour {
 
 	[ClientRpc]
 	public void RpcPlayBruit(){
-		gameObject.GetComponent<AudioSource>().PlayOneShot (monJoueur.GetComponent<ToolSwap>()._activeItem.GetComponent<Arme>().Clip);
+		gameObject.GetComponent<AudioSource>().PlayOneShot (monJoueur.GetComponent<ToolSwapTest>()._activeItem.GetComponent<ArmeTest>().Clip);
 	}
 }

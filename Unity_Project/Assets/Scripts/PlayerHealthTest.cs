@@ -12,10 +12,11 @@ public class PlayerHealthTest : NetworkBehaviour {
 	public int currentHealth = MAX_HEALTH;
 
 	public RectTransform healthBar;
+	public GameObject _Coord;
 
 	// Use this for initialization
 	void Start () {
-
+		_Coord = GameObject.Find ("Coordinator");
 	}
 
 	// Update is called once per frame
@@ -24,12 +25,15 @@ public class PlayerHealthTest : NetworkBehaviour {
 	}
 
 
-	public void TakeDamage(int amount) {
+	public void TakeDamage(int amount, string opponentName) {
 		if (!isServer)
 			return;
 
 		currentHealth -= amount;
 		if (currentHealth <= 0) {
+			if (opponentName != null) {
+				_Coord.GetComponent<Server_PlayerList> ().MamaJustKilledAMan (opponentName);
+			}
 			currentHealth = MAX_HEALTH;
 			RpcRespawn ();
 		}
@@ -54,9 +58,6 @@ public class PlayerHealthTest : NetworkBehaviour {
 	[ClientRpc]
 	void RpcRespawn() {
 		if (isLocalPlayer) {
-			//TODO
-				// Score dead /2
-				// Score killer++
 			this.GetComponent<PlayerSpawn>().RandomSpawn();
 		}
 	}

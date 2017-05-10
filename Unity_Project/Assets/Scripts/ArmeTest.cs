@@ -61,4 +61,8 @@ public class ArmeTest : WeaponTest {
 	public float getVitesseBullet(){
 		return vitesse;
 	}
+
+	public int getSurchauffe(){
+		return surchauffe;
+	}
 }
