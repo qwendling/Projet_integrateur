@@ -13,7 +13,7 @@ public class Menu_WeaponsChoice : MonoBehaviour {
 	public int Weapon2_index = 0;
 	public int Weapon3_index = 0;
 
-	public static int numberOfAvaibleWeapons = 2;
+	public static int numberOfAvaibleWeapons = 3;
 	public GameObject[] _Weapons = new GameObject[numberOfAvaibleWeapons];
 
 	// Use this for initialization
@@ -23,10 +23,10 @@ public class Menu_WeaponsChoice : MonoBehaviour {
 		_Weapon3.GetComponent<Image> ().sprite =_Weapons [Weapon1_index].GetComponent<WeaponIconReferencing>()._WeaponSprite;
 
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 	public void OnWep1UpClicked(){
