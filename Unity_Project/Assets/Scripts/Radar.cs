@@ -5,20 +5,25 @@ using UnityEngine.Networking;
 
 public class Radar : NetworkBehaviour {
 
-	public GameObject radarPrefab;
-	public GameObject player;
+	public GameObject radarPlayer;
+	public GameObject radarOtherPlayer;
+	// public GameObject player;
 	public GameObject radarArena;
 	private float offset = 5.0f;
 
 	void Start () {
 		if(isLocalPlayer){
 			radarArena.SetActive (true);
+			radarPlayer.SetActive(true);
+			radarOtherPlayer.SetActive(false);
 		}
 		else
 		{
 			radarArena.SetActive (false);
+			radarPlayer.SetActive(false);
+			radarOtherPlayer.SetActive(true);
 		}
-		createRadarObjects();
+		
 	}
 	
 	// Update is called once per frame
@@ -30,6 +35,7 @@ public class Radar : NetworkBehaviour {
 				// createRadarObjects();
 			// }
 		// }
+		createRadarObjects();
 	}
 	
 	//player appears on radar for 5 seconds;
@@ -37,11 +43,15 @@ public class Radar : NetworkBehaviour {
 	{
 		foreach(GameObject go in GameObject.FindGameObjectsWithTag("Player")) 
 		{
-			if((player.transform.position.y >= (go.transform.position.y - offset) && player.transform.position.y <= (go.transform.position.y + offset ))&&(!isLocalPlayer))
+			if(!isLocalPlayer)
 			{
-				// Destroy(Instantiate(radarPrefab, go.transform.position, Quaternion.identity),5.0f);
-				Instantiate(radarPrefab, go.transform.position, Quaternion.identity);
+				radarOtherPlayer.SetActive(true);
 			}
+			// if((player.transform.position.y >= (go.transform.position.y - offset) && player.transform.position.y <= (go.transform.position.y + offset ))&&(!isLocalPlayer))
+			// {
+				// Destroy(Instantiate(radarPrefab, go.transform.position, Quaternion.identity),5.0f);
+				// Instantiate(radarPrefab, go.transform.position, Quaternion.identity);
+			// }
 		}
 	}
 }

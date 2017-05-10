@@ -50,6 +50,7 @@ public class PlayerOverHeat : NetworkBehaviour {
 	void OnHeatChange(int heat) {
 		if (heatBar == null)
 			return;
-		heatBar.sizeDelta = new Vector2 (((float)heat/(float)MAX_HEAT)*_maxBar, heatBar.sizeDelta.y);
+		Vector3 rowX = new Vector3(_maxBar-(((float)heat/(float)MAX_HEAT)*_maxBar),0,0);
+		heatBar.transform.position -= rowX;
 	}
 }

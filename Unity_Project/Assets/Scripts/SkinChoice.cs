@@ -17,10 +17,10 @@ public class SkinChoice : NetworkBehaviour {
 		if (isLocalPlayer) {
 			_Skin.SetActive (false);
 
-			while (_PlayerMenuChoices == null) {
-				_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
-			}
-			_PlayerName = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._Name;
+			// while (_PlayerMenuChoices == null) {
+			// 	_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
+			// }
+			// _PlayerName = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._Name;
 		}
 	}
 	
