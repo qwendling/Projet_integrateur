@@ -49,7 +49,8 @@ public class PlayerHealth : NetworkBehaviour {
 	void OnChangeHealth (int health) {
 		if (healthBar == null)
 			return;
-		healthBar.sizeDelta = new Vector2 (((float)health/(float)MAX_HEALTH)*_barMax, healthBar.sizeDelta.y);
+		Vector3 rowX = new Vector3(_barMax-(((float)health/(float)MAX_HEALTH)*_barMax),0,0);
+		healthBar.transform.position -= rowX;
 	}
 
 	[ClientRpc]

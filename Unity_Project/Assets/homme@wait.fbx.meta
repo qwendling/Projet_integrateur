@@ -1,0 +1,1840 @@
+fileFormatVersion: 2
+guid: 22005df0509efc44a98354ab68127e89
+timeCreated: 1492001357
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: abRTDeleteMeWhenDone
+    100002: abRTLine_Mite_lf_elbow_line_loc
+    100004: abRTLine_Mite_lf_knee_line_loc
+    100006: abRTLine_Mite_rt_elbow_line_loc
+    100008: abRTLine_Mite_rt_knee_line_loc
+    100010: eye_small01
+    100012: eye_small02
+    100014: Google
+    100016: group1
+    100018: Head
+    100020: //RootNode
+    100022: Mite_charVars
+    100024: Mite_cog_ctrl
+    100026: Mite_cogCtrl_space_grp
+    100028: Mite_cogCtrl_space_switch_grp
+    100030: Mite_eyeFrzGrp_space_grp
+    100032: Mite_eyeMaster_ctrl
+    100034: Mite_eyeMaster_ctrl_frzGrp
+    100036: Mite_head_a_jnt
+    100038: Mite_head_b_jnt
+    100040: Mite_head_fk_ctrl
+    100042: Mite_head_fk_ctrl_frzGrp
+    100044: Mite_head_fk_ctrl_frzGrp 1
+    100046: Mite_head_fk_ctrl_frzGrp 2
+    100048: Mite_head_ik_ctrl
+    100050: Mite_head_rig_grp
+    100052: Mite_headAlignOffset_rig_grp
+    100054: Mite_headAlignOffset_rig_grp_frzGrp
+    100056: Mite_headCtrl_space_grp
+    100058: Mite_headCtrl_space_switch_grp
+    100060: Mite_hip_ctrl
+    100062: Mite_hip_jnt
+    100064: Mite_hipCtrl_space_grp
+    100066: Mite_hipCtrl_space_switch_grp
+    100068: Mite_hiSpineCtrl_space_grp
+    100070: Mite_hiSpineCtrl_space_switch_grp
+    100072: Mite_ikSpline_crv
+    100074: Mite_lf__ik_jnt
+    100076: Mite_lf_ankle_fk_ctrl
+    100078: Mite_lf_ankle_fk_ctrl_frzGrp
+    100080: Mite_lf_ankle_fk_ctrl_frzGrp 1
+    100082: Mite_lf_ankle_fk_jnt
+    100084: Mite_lf_ankle_ik_jnt
+    100086: Mite_lf_ankle_jnt
+    100088: Mite_lf_ankle_rev_rig_jnt
+    100090: Mite_lf_ankleBallReader_Ankle_jnt
+    100092: Mite_lf_ankleBallReader_Ball_jnt
+    100094: Mite_lf_ankleBallReader_Knee_jnt
+    100096: Mite_lf_ankleBallReader_UpLeg_jnt
+    100098: Mite_lf_arm_ik_ctrl
+    100100: Mite_lf_arm_ik_ctrl_frzGrp
+    100102: Mite_lf_arm_ikHandle
+    100104: Mite_lf_arm_rig_grp
+    100106: Mite_lf_armFK_Grp
+    100108: Mite_lf_armIK_Grp
+    100110: Mite_lf_armIkCtrl_space_grp
+    100112: Mite_lf_armPvCtrlGrp_space_grp
+    100114: Mite_lf_armPvIkCtrl_dist
+    100116: Mite_lf_armPvIkCtrl_dist_ep
+    100118: Mite_lf_armPvIkCtrl_dist_sp
+    100120: Mite_lf_armStrDist_dist
+    100122: Mite_lf_armStrDist_dist_ep
+    100124: Mite_lf_armStrDist_dist_sp
+    100126: Mite_lf_ball_fk_ctrl
+    100128: Mite_lf_ball_fk_ctrl_frzGrp
+    100130: Mite_lf_ball_fk_ctrl_frzGrp 1
+    100132: Mite_lf_ball_fk_jnt
+    100134: Mite_lf_ball_ik_jnt
+    100136: Mite_lf_ball_jnt
+    100138: Mite_lf_ball_rev_rig_jnt
+    100140: Mite_lf_clavicle_fk_ctrl
+    100142: Mite_lf_clavicle_fk_ctrl_frzGrp
+    100144: Mite_lf_clavicle_fk_ctrl_frzGrp 1
+    100146: Mite_lf_clavicle_jnt
+    100148: Mite_lf_elbow_fk_ctrl
+    100150: Mite_lf_elbow_fk_ctrl_frzGrp
+    100152: Mite_lf_elbow_fk_ctrl_frzGrp 1
+    100154: Mite_lf_elbow_fk_jnt
+    100156: Mite_lf_elbow_ik_jnt
+    100158: Mite_lf_elbow_jnt
+    100160: Mite_lf_elbow_line_loc
+    100162: Mite_lf_elbow_pv_ctrl
+    100164: Mite_lf_elbow_pv_ctrl_annLoc
+    100166: Mite_lf_elbow_pv_ctrl_frzGrp
+    100168: Mite_lf_eye_ctrl
+    100170: Mite_lf_eye_ctrl_frzGrp
+    100172: Mite_lf_eye_ctrl_frzGrp 1
+    100174: Mite_lf_eye_jnt
+    100176: Mite_lf_foot_ctrl
+    100178: Mite_lf_hand_ctrl
+    100180: Mite_lf_hand_ctrl_frzGrp
+    100182: Mite_lf_hand_ctrl_frzGrp 1
+    100184: Mite_lf_hand_jnt
+    100186: Mite_lf_hand_rig_grp
+    100188: Mite_lf_handCtrl_grp
+    100190: Mite_lf_heel_ik_ctrl
+    100192: Mite_lf_heel_ik_ctrl_frzGrp
+    100194: Mite_lf_heel_loc
+    100196: Mite_lf_heel_loc_frzGrp
+    100198: Mite_lf_heel_rev_rig_jnt
+    100200: Mite_lf_index_a_jnt
+    100202: Mite_lf_index_b_jnt
+    100204: Mite_lf_index_c_jnt
+    100206: Mite_lf_index_d_jnt
+    100208: Mite_lf_knee_fk_ctrl
+    100210: Mite_lf_knee_fk_ctrl_frzGrp
+    100212: Mite_lf_knee_fk_ctrl_frzGrp 1
+    100214: Mite_lf_knee_fk_jnt
+    100216: Mite_lf_knee_ik_jnt
+    100218: Mite_lf_knee_jnt
+    100220: Mite_lf_knee_line_loc
+    100222: Mite_lf_knee_pv_ctrl
+    100224: Mite_lf_knee_pv_ctrl_annLoc
+    100226: Mite_lf_knee_pv_ctrl_frzGrp
+    100228: Mite_lf_leg_ikHandle
+    100230: Mite_lf_leg_rig_grp
+    100232: Mite_lf_legFK_Grp
+    100234: Mite_lf_legIK_Grp
+    100236: Mite_lf_legIkCtrl_space_grp
+    100238: Mite_lf_legPvCtrlGrp_space_grp
+    100240: Mite_lf_legPvIkCtrl_dist
+    100242: Mite_lf_legPvIkCtrl_dist_ep
+    100244: Mite_lf_legPvIkCtrl_dist_sp
+    100246: Mite_lf_legStrDist_dist
+    100248: Mite_lf_legStrDist_dist_ep
+    100250: Mite_lf_legStrDist_dist_sp
+    100252: Mite_lf_middle_a_jnt
+    100254: Mite_lf_middle_b_jnt
+    100256: Mite_lf_middle_c_jnt
+    100258: Mite_lf_middle_d_jnt
+    100260: Mite_lf_pinky_a_jnt
+    100262: Mite_lf_pinky_b_jnt
+    100264: Mite_lf_pinky_c_jnt
+    100266: Mite_lf_pinky_d_jnt
+    100268: Mite_lf_pinkyCup_jnt
+    100270: Mite_lf_reverseFoot_rig_grp
+    100272: Mite_lf_ring_a_jnt
+    100274: Mite_lf_ring_b_jnt
+    100276: Mite_lf_ring_c_jnt
+    100278: Mite_lf_ring_d_jnt
+    100280: Mite_lf_ringCup_jnt
+    100282: Mite_lf_thumb_a_jnt
+    100284: Mite_lf_thumb_b_jnt
+    100286: Mite_lf_thumb_c_jnt
+    100288: Mite_lf_thumb_d_jnt
+    100290: Mite_lf_toe_fk_jnt
+    100292: Mite_lf_toe_ik_jnt
+    100294: Mite_lf_toe_jnt
+    100296: Mite_lf_toe_rev_rig_jnt
+    100298: Mite_lf_upArm_fk_ctrl
+    100300: Mite_lf_upArm_fk_ctrl_frzGrp
+    100302: Mite_lf_upArm_fk_ctrl_frzGrp 1
+    100304: Mite_lf_upArm_fk_jnt
+    100306: Mite_lf_upArm_ik_jnt
+    100308: Mite_lf_upArm_jnt
+    100310: Mite_lf_upArmAlignOffset_rig_grp
+    100312: Mite_lf_upArmAlignOffset_rig_grp_frzGrp
+    100314: Mite_lf_upArmPvCtrl_dist
+    100316: Mite_lf_upArmPvCtrl_dist_ep
+    100318: Mite_lf_upArmPvCtrl_dist_sp
+    100320: Mite_lf_upArmupJntFkCtrl_grp
+    100322: Mite_lf_upLeg_fk_ctrl
+    100324: Mite_lf_upLeg_fk_ctrl_frzGrp
+    100326: Mite_lf_upLeg_fk_ctrl_frzGrp 1
+    100328: Mite_lf_upLeg_fk_jnt
+    100330: Mite_lf_upLeg_ik_jnt
+    100332: Mite_lf_upLeg_jnt
+    100334: Mite_lf_upLegAlignOffset_rig_grp
+    100336: Mite_lf_upLegAlignOffset_rig_grp_frzGrp
+    100338: Mite_lf_upLegPvCtrl_dist
+    100340: Mite_lf_upLegPvCtrl_dist_ep
+    100342: Mite_lf_upLegPvCtrl_dist_sp
+    100344: Mite_lf_upLegupJntFkCtrl_grp
+    100346: Mite_lf_wrist_fk_jnt
+    100348: Mite_lf_wrist_ik_jnt
+    100350: Mite_lf_wrist_jnt
+    100352: Mite_lfArmIkCtrl_space_switch_grp
+    100354: Mite_lfLegIkCtrl_space_switch_grp
+    100356: Mite_lowSpineCtrl_space_grp
+    100358: Mite_lowSpineCtrl_space_switch_grp
+    100360: Mite_midSpineCtrl_space_grp
+    100362: Mite_midSpineCtrl_space_switch_grp
+    100364: Mite_neck_fk_ctrl
+    100366: Mite_neck_fk_ctrl_frzGrp
+    100368: Mite_neck_fk_ctrl_frzGrp 1
+    100370: Mite_neck_jnt
+    100372: Mite_neckAlignOffset_rig_grp
+    100374: Mite_neckAlignOffset_rig_grp_frzGrp
+    100376: Mite_neckCtrl_space_switch_grp
+    100378: Mite_neckupJntFkCtrl_grp
+    100380: Mite_rig_grp
+    100382: Mite_root_ctrl
+    100384: Mite_rootCtrl_space_switch_grp
+    100386: Mite_rt__ik_jnt
+    100388: Mite_rt_ankle_fk_ctrl
+    100390: Mite_rt_ankle_fk_ctrl_frzGrp
+    100392: Mite_rt_ankle_fk_ctrl_frzGrp 1
+    100394: Mite_rt_ankle_fk_jnt
+    100396: Mite_rt_ankle_ik_jnt
+    100398: Mite_rt_ankle_jnt
+    100400: Mite_rt_ankle_rev_rig_jnt
+    100402: Mite_rt_ankleBallReader_Ankle_jnt
+    100404: Mite_rt_ankleBallReader_Ball_jnt
+    100406: Mite_rt_ankleBallReader_Knee_jnt
+    100408: Mite_rt_ankleBallReader_UpLeg_jnt
+    100410: Mite_rt_arm_ik_ctrl
+    100412: Mite_rt_arm_ik_ctrl_frzGrp
+    100414: Mite_rt_arm_ikHandle
+    100416: Mite_rt_arm_rig_grp
+    100418: Mite_rt_armFK_Grp
+    100420: Mite_rt_armIK_Grp
+    100422: Mite_rt_armIkCtrl_space_grp
+    100424: Mite_rt_armPvCtrlGrp_space_grp
+    100426: Mite_rt_armPvIkCtrl_dist
+    100428: Mite_rt_armPvIkCtrl_dist_ep
+    100430: Mite_rt_armPvIkCtrl_dist_sp
+    100432: Mite_rt_armStrDist_dist
+    100434: Mite_rt_armStrDist_dist_ep
+    100436: Mite_rt_armStrDist_dist_sp
+    100438: Mite_rt_ball_fk_ctrl
+    100440: Mite_rt_ball_fk_ctrl_frzGrp
+    100442: Mite_rt_ball_fk_ctrl_frzGrp 1
+    100444: Mite_rt_ball_fk_jnt
+    100446: Mite_rt_ball_ik_jnt
+    100448: Mite_rt_ball_jnt
+    100450: Mite_rt_ball_rev_rig_jnt
+    100452: Mite_rt_clavicle_fk_ctrl
+    100454: Mite_rt_clavicle_fk_ctrl_frzGrp
+    100456: Mite_rt_clavicle_fk_ctrl_frzGrp 1
+    100458: Mite_rt_clavicle_jnt
+    100460: Mite_rt_elbow_fk_ctrl
+    100462: Mite_rt_elbow_fk_ctrl_frzGrp
+    100464: Mite_rt_elbow_fk_ctrl_frzGrp 1
+    100466: Mite_rt_elbow_fk_jnt
+    100468: Mite_rt_elbow_ik_jnt
+    100470: Mite_rt_elbow_jnt
+    100472: Mite_rt_elbow_line_loc
+    100474: Mite_rt_elbow_pv_ctrl
+    100476: Mite_rt_elbow_pv_ctrl_annLoc
+    100478: Mite_rt_elbow_pv_ctrl_frzGrp
+    100480: Mite_rt_eye_ctrl
+    100482: Mite_rt_eye_ctrl_frzGrp
+    100484: Mite_rt_eye_ctrl_frzGrp 1
+    100486: Mite_rt_eye_jnt
+    100488: Mite_rt_foot_ctrl
+    100490: Mite_rt_hand_ctrl
+    100492: Mite_rt_hand_ctrl_frzGrp
+    100494: Mite_rt_hand_ctrl_frzGrp 1
+    100496: Mite_rt_hand_jnt
+    100498: Mite_rt_hand_rig_grp
+    100500: Mite_rt_handCtrl_grp
+    100502: Mite_rt_heel_ik_ctrl
+    100504: Mite_rt_heel_ik_ctrl_frzGrp
+    100506: Mite_rt_heel_loc
+    100508: Mite_rt_heel_loc_frzGrp
+    100510: Mite_rt_heel_rev_rig_jnt
+    100512: Mite_rt_index_a_jnt
+    100514: Mite_rt_index_b_jnt
+    100516: Mite_rt_index_c_jnt
+    100518: Mite_rt_index_d_jnt
+    100520: Mite_rt_knee_fk_ctrl
+    100522: Mite_rt_knee_fk_ctrl_frzGrp
+    100524: Mite_rt_knee_fk_ctrl_frzGrp 1
+    100526: Mite_rt_knee_fk_jnt
+    100528: Mite_rt_knee_ik_jnt
+    100530: Mite_rt_knee_jnt
+    100532: Mite_rt_knee_line_loc
+    100534: Mite_rt_knee_pv_ctrl
+    100536: Mite_rt_knee_pv_ctrl_annLoc
+    100538: Mite_rt_knee_pv_ctrl_frzGrp
+    100540: Mite_rt_leg_ikHandle
+    100542: Mite_rt_leg_rig_grp
+    100544: Mite_rt_legFK_Grp
+    100546: Mite_rt_legIK_Grp
+    100548: Mite_rt_legIkCtrl_space_grp
+    100550: Mite_rt_legPvCtrlGrp_space_grp
+    100552: Mite_rt_legPvIkCtrl_dist
+    100554: Mite_rt_legPvIkCtrl_dist_ep
+    100556: Mite_rt_legPvIkCtrl_dist_sp
+    100558: Mite_rt_legStrDist_dist
+    100560: Mite_rt_legStrDist_dist_ep
+    100562: Mite_rt_legStrDist_dist_sp
+    100564: Mite_rt_middle_a_jnt
+    100566: Mite_rt_middle_b_jnt
+    100568: Mite_rt_middle_c_jnt
+    100570: Mite_rt_middle_d_jnt
+    100572: Mite_rt_pinky_a_jnt
+    100574: Mite_rt_pinky_b_jnt
+    100576: Mite_rt_pinky_c_jnt
+    100578: Mite_rt_pinky_d_jnt
+    100580: Mite_rt_pinkyCup_jnt
+    100582: Mite_rt_reverseFoot_rig_grp
+    100584: Mite_rt_ring_a_jnt
+    100586: Mite_rt_ring_b_jnt
+    100588: Mite_rt_ring_c_jnt
+    100590: Mite_rt_ring_d_jnt
+    100592: Mite_rt_ringCup_jnt
+    100594: Mite_rt_thumb_a_jnt
+    100596: Mite_rt_thumb_b_jnt
+    100598: Mite_rt_thumb_c_jnt
+    100600: Mite_rt_thumb_d_jnt
+    100602: Mite_rt_toe_fk_jnt
+    100604: Mite_rt_toe_ik_jnt
+    100606: Mite_rt_toe_jnt
+    100608: Mite_rt_toe_rev_rig_jnt
+    100610: Mite_rt_upArm_fk_ctrl
+    100612: Mite_rt_upArm_fk_ctrl_frzGrp
+    100614: Mite_rt_upArm_fk_ctrl_frzGrp 1
+    100616: Mite_rt_upArm_fk_jnt
+    100618: Mite_rt_upArm_ik_jnt
+    100620: Mite_rt_upArm_jnt
+    100622: Mite_rt_upArmAlignOffset_rig_grp
+    100624: Mite_rt_upArmAlignOffset_rig_grp_frzGrp
+    100626: Mite_rt_upArmPvCtrl_dist
+    100628: Mite_rt_upArmPvCtrl_dist_ep
+    100630: Mite_rt_upArmPvCtrl_dist_sp
+    100632: Mite_rt_upArmupJntFkCtrl_grp
+    100634: Mite_rt_upLeg_fk_ctrl
+    100636: Mite_rt_upLeg_fk_ctrl_frzGrp
+    100638: Mite_rt_upLeg_fk_ctrl_frzGrp 1
+    100640: Mite_rt_upLeg_fk_jnt
+    100642: Mite_rt_upLeg_ik_jnt
+    100644: Mite_rt_upLeg_jnt
+    100646: Mite_rt_upLegAlignOffset_rig_grp
+    100648: Mite_rt_upLegAlignOffset_rig_grp_frzGrp
+    100650: Mite_rt_upLegPvCtrl_dist
+    100652: Mite_rt_upLegPvCtrl_dist_ep
+    100654: Mite_rt_upLegPvCtrl_dist_sp
+    100656: Mite_rt_upLegupJntFkCtrl_grp
+    100658: Mite_rt_wrist_fk_jnt
+    100660: Mite_rt_wrist_ik_jnt
+    100662: Mite_rt_wrist_jnt
+    100664: Mite_rtArmIkCtrl_space_switch_grp
+    100666: Mite_rtLegIkCtrl_space_switch_grp
+    100668: Mite_Skeleton_grp
+    100670: Mite_spine0_clstrHandle
+    100672: Mite_spine1_clstrHandle
+    100674: Mite_spine2_clstrHandle
+    100676: Mite_spine3_clstrHandle
+    100678: Mite_spine4_clstrHandle
+    100680: Mite_spine5_clstrHandle
+    100682: Mite_spine_end_jnt
+    100684: Mite_spine_hi_jnt
+    100686: Mite_spine_ikHandle
+    100688: Mite_spine_low_jnt
+    100690: Mite_spine_mid_jnt
+    100692: Mite_spine_rig_grp
+    100694: Mite_spineHigh_ctrl
+    100696: Mite_spineHigh_ctrl_frzGrp
+    100698: Mite_spineLow_ctrl
+    100700: Mite_spineMid_ctrl
+    100702: Mite_spineMid_ctrl_frzGrp
+    100704: Mite_spineNoScale_rig_grp
+    100706: Mite_spineRig_a_jnt
+    100708: Mite_spineRig_b_jnt
+    100710: Mite_spineRig_c_jnt
+    100712: Mite_spineRig_d_jnt
+    100714: Mite_spineRig_e_jnt
+    100716: Mite_spineRig_f_jnt
+    100718: Mite_spineRig_g_jnt
+    100720: Mite_spineRig_h_jnt
+    100722: Mite_spineShaper_ctrl
+    100724: Mite_spineShaper_ctrl_frzGrp
+    100726: Mite_spineShaper_ctrl_frzGrp 1
+    100728: Mite_spineSplitRot_ctrl
+    100730: Mite_weightSpine_b_jnt
+    100732: Mite_weightSpine_c_jnt
+    100734: Mite_weightSpine_d_jnt
+    100736: Mite_weightSpine_e_jnt
+    100738: Mite_weightSpine_f_jnt
+    100740: Mite_weightSpine_g_jnt
+    100742: NanoSuit_01
+    100744: nanosuit_nec01
+    100746: nanosuithelmet
+    100748: polySurface16
+    100750: polySurface17
+    100752: polySurface18
+    100754: polySurface19
+    100756: polySurface20
+    100758: polySurface21
+    100760: polySurface22
+    100762: polySurface23
+    100764: polySurface24
+    100766: polySurface25
+    100768: polySurface26
+    100770: polySurface27
+    100772: polySurface28
+    100774: polySurface29
+    100776: polySurface30
+    100778: polySurface31
+    100780: polySurface32
+    100782: polySurface33
+    100784: polySurface34
+    100786: polySurface35
+    100788: polySurface36
+    100790: polySurface37
+    100792: refSpine_a
+    100794: refSpine_b
+    100796: refSpine_c
+    100798: refSpine_d
+    100800: refSpine_e
+    100802: refSpine_f
+    100804: refSpine_g
+    100806: refSpine_h
+    100808: Sykes01
+    100810: transform1
+    100812: weightSpine_grp
+    400000: abRTDeleteMeWhenDone
+    400002: abRTLine_Mite_lf_elbow_line_loc
+    400004: abRTLine_Mite_lf_knee_line_loc
+    400006: abRTLine_Mite_rt_elbow_line_loc
+    400008: abRTLine_Mite_rt_knee_line_loc
+    400010: eye_small01
+    400012: eye_small02
+    400014: Google
+    400016: group1
+    400018: Head
+    400020: //RootNode
+    400022: Mite_charVars
+    400024: Mite_cog_ctrl
+    400026: Mite_cogCtrl_space_grp
+    400028: Mite_cogCtrl_space_switch_grp
+    400030: Mite_eyeFrzGrp_space_grp
+    400032: Mite_eyeMaster_ctrl
+    400034: Mite_eyeMaster_ctrl_frzGrp
+    400036: Mite_head_a_jnt
+    400038: Mite_head_b_jnt
+    400040: Mite_head_fk_ctrl
+    400042: Mite_head_fk_ctrl_frzGrp
+    400044: Mite_head_fk_ctrl_frzGrp 1
+    400046: Mite_head_fk_ctrl_frzGrp 2
+    400048: Mite_head_ik_ctrl
+    400050: Mite_head_rig_grp
+    400052: Mite_headAlignOffset_rig_grp
+    400054: Mite_headAlignOffset_rig_grp_frzGrp
+    400056: Mite_headCtrl_space_grp
+    400058: Mite_headCtrl_space_switch_grp
+    400060: Mite_hip_ctrl
+    400062: Mite_hip_jnt
+    400064: Mite_hipCtrl_space_grp
+    400066: Mite_hipCtrl_space_switch_grp
+    400068: Mite_hiSpineCtrl_space_grp
+    400070: Mite_hiSpineCtrl_space_switch_grp
+    400072: Mite_ikSpline_crv
+    400074: Mite_lf__ik_jnt
+    400076: Mite_lf_ankle_fk_ctrl
+    400078: Mite_lf_ankle_fk_ctrl_frzGrp
+    400080: Mite_lf_ankle_fk_ctrl_frzGrp 1
+    400082: Mite_lf_ankle_fk_jnt
+    400084: Mite_lf_ankle_ik_jnt
+    400086: Mite_lf_ankle_jnt
+    400088: Mite_lf_ankle_rev_rig_jnt
+    400090: Mite_lf_ankleBallReader_Ankle_jnt
+    400092: Mite_lf_ankleBallReader_Ball_jnt
+    400094: Mite_lf_ankleBallReader_Knee_jnt
+    400096: Mite_lf_ankleBallReader_UpLeg_jnt
+    400098: Mite_lf_arm_ik_ctrl
+    400100: Mite_lf_arm_ik_ctrl_frzGrp
+    400102: Mite_lf_arm_ikHandle
+    400104: Mite_lf_arm_rig_grp
+    400106: Mite_lf_armFK_Grp
+    400108: Mite_lf_armIK_Grp
+    400110: Mite_lf_armIkCtrl_space_grp
+    400112: Mite_lf_armPvCtrlGrp_space_grp
+    400114: Mite_lf_armPvIkCtrl_dist
+    400116: Mite_lf_armPvIkCtrl_dist_ep
+    400118: Mite_lf_armPvIkCtrl_dist_sp
+    400120: Mite_lf_armStrDist_dist
+    400122: Mite_lf_armStrDist_dist_ep
+    400124: Mite_lf_armStrDist_dist_sp
+    400126: Mite_lf_ball_fk_ctrl
+    400128: Mite_lf_ball_fk_ctrl_frzGrp
+    400130: Mite_lf_ball_fk_ctrl_frzGrp 1
+    400132: Mite_lf_ball_fk_jnt
+    400134: Mite_lf_ball_ik_jnt
+    400136: Mite_lf_ball_jnt
+    400138: Mite_lf_ball_rev_rig_jnt
+    400140: Mite_lf_clavicle_fk_ctrl
+    400142: Mite_lf_clavicle_fk_ctrl_frzGrp
+    400144: Mite_lf_clavicle_fk_ctrl_frzGrp 1
+    400146: Mite_lf_clavicle_jnt
+    400148: Mite_lf_elbow_fk_ctrl
+    400150: Mite_lf_elbow_fk_ctrl_frzGrp
+    400152: Mite_lf_elbow_fk_ctrl_frzGrp 1
+    400154: Mite_lf_elbow_fk_jnt
+    400156: Mite_lf_elbow_ik_jnt
+    400158: Mite_lf_elbow_jnt
+    400160: Mite_lf_elbow_line_loc
+    400162: Mite_lf_elbow_pv_ctrl
+    400164: Mite_lf_elbow_pv_ctrl_annLoc
+    400166: Mite_lf_elbow_pv_ctrl_frzGrp
+    400168: Mite_lf_eye_ctrl
+    400170: Mite_lf_eye_ctrl_frzGrp
+    400172: Mite_lf_eye_ctrl_frzGrp 1
+    400174: Mite_lf_eye_jnt
+    400176: Mite_lf_foot_ctrl
+    400178: Mite_lf_hand_ctrl
+    400180: Mite_lf_hand_ctrl_frzGrp
+    400182: Mite_lf_hand_ctrl_frzGrp 1
+    400184: Mite_lf_hand_jnt
+    400186: Mite_lf_hand_rig_grp
+    400188: Mite_lf_handCtrl_grp
+    400190: Mite_lf_heel_ik_ctrl
+    400192: Mite_lf_heel_ik_ctrl_frzGrp
+    400194: Mite_lf_heel_loc
+    400196: Mite_lf_heel_loc_frzGrp
+    400198: Mite_lf_heel_rev_rig_jnt
+    400200: Mite_lf_index_a_jnt
+    400202: Mite_lf_index_b_jnt
+    400204: Mite_lf_index_c_jnt
+    400206: Mite_lf_index_d_jnt
+    400208: Mite_lf_knee_fk_ctrl
+    400210: Mite_lf_knee_fk_ctrl_frzGrp
+    400212: Mite_lf_knee_fk_ctrl_frzGrp 1
+    400214: Mite_lf_knee_fk_jnt
+    400216: Mite_lf_knee_ik_jnt
+    400218: Mite_lf_knee_jnt
+    400220: Mite_lf_knee_line_loc
+    400222: Mite_lf_knee_pv_ctrl
+    400224: Mite_lf_knee_pv_ctrl_annLoc
+    400226: Mite_lf_knee_pv_ctrl_frzGrp
+    400228: Mite_lf_leg_ikHandle
+    400230: Mite_lf_leg_rig_grp
+    400232: Mite_lf_legFK_Grp
+    400234: Mite_lf_legIK_Grp
+    400236: Mite_lf_legIkCtrl_space_grp
+    400238: Mite_lf_legPvCtrlGrp_space_grp
+    400240: Mite_lf_legPvIkCtrl_dist
+    400242: Mite_lf_legPvIkCtrl_dist_ep
+    400244: Mite_lf_legPvIkCtrl_dist_sp
+    400246: Mite_lf_legStrDist_dist
+    400248: Mite_lf_legStrDist_dist_ep
+    400250: Mite_lf_legStrDist_dist_sp
+    400252: Mite_lf_middle_a_jnt
+    400254: Mite_lf_middle_b_jnt
+    400256: Mite_lf_middle_c_jnt
+    400258: Mite_lf_middle_d_jnt
+    400260: Mite_lf_pinky_a_jnt
+    400262: Mite_lf_pinky_b_jnt
+    400264: Mite_lf_pinky_c_jnt
+    400266: Mite_lf_pinky_d_jnt
+    400268: Mite_lf_pinkyCup_jnt
+    400270: Mite_lf_reverseFoot_rig_grp
+    400272: Mite_lf_ring_a_jnt
+    400274: Mite_lf_ring_b_jnt
+    400276: Mite_lf_ring_c_jnt
+    400278: Mite_lf_ring_d_jnt
+    400280: Mite_lf_ringCup_jnt
+    400282: Mite_lf_thumb_a_jnt
+    400284: Mite_lf_thumb_b_jnt
+    400286: Mite_lf_thumb_c_jnt
+    400288: Mite_lf_thumb_d_jnt
+    400290: Mite_lf_toe_fk_jnt
+    400292: Mite_lf_toe_ik_jnt
+    400294: Mite_lf_toe_jnt
+    400296: Mite_lf_toe_rev_rig_jnt
+    400298: Mite_lf_upArm_fk_ctrl
+    400300: Mite_lf_upArm_fk_ctrl_frzGrp
+    400302: Mite_lf_upArm_fk_ctrl_frzGrp 1
+    400304: Mite_lf_upArm_fk_jnt
+    400306: Mite_lf_upArm_ik_jnt
+    400308: Mite_lf_upArm_jnt
+    400310: Mite_lf_upArmAlignOffset_rig_grp
+    400312: Mite_lf_upArmAlignOffset_rig_grp_frzGrp
+    400314: Mite_lf_upArmPvCtrl_dist
+    400316: Mite_lf_upArmPvCtrl_dist_ep
+    400318: Mite_lf_upArmPvCtrl_dist_sp
+    400320: Mite_lf_upArmupJntFkCtrl_grp
+    400322: Mite_lf_upLeg_fk_ctrl
+    400324: Mite_lf_upLeg_fk_ctrl_frzGrp
+    400326: Mite_lf_upLeg_fk_ctrl_frzGrp 1
+    400328: Mite_lf_upLeg_fk_jnt
+    400330: Mite_lf_upLeg_ik_jnt
+    400332: Mite_lf_upLeg_jnt
+    400334: Mite_lf_upLegAlignOffset_rig_grp
+    400336: Mite_lf_upLegAlignOffset_rig_grp_frzGrp
+    400338: Mite_lf_upLegPvCtrl_dist
+    400340: Mite_lf_upLegPvCtrl_dist_ep
+    400342: Mite_lf_upLegPvCtrl_dist_sp
+    400344: Mite_lf_upLegupJntFkCtrl_grp
+    400346: Mite_lf_wrist_fk_jnt
+    400348: Mite_lf_wrist_ik_jnt
+    400350: Mite_lf_wrist_jnt
+    400352: Mite_lfArmIkCtrl_space_switch_grp
+    400354: Mite_lfLegIkCtrl_space_switch_grp
+    400356: Mite_lowSpineCtrl_space_grp
+    400358: Mite_lowSpineCtrl_space_switch_grp
+    400360: Mite_midSpineCtrl_space_grp
+    400362: Mite_midSpineCtrl_space_switch_grp
+    400364: Mite_neck_fk_ctrl
+    400366: Mite_neck_fk_ctrl_frzGrp
+    400368: Mite_neck_fk_ctrl_frzGrp 1
+    400370: Mite_neck_jnt
+    400372: Mite_neckAlignOffset_rig_grp
+    400374: Mite_neckAlignOffset_rig_grp_frzGrp
+    400376: Mite_neckCtrl_space_switch_grp
+    400378: Mite_neckupJntFkCtrl_grp
+    400380: Mite_rig_grp
+    400382: Mite_root_ctrl
+    400384: Mite_rootCtrl_space_switch_grp
+    400386: Mite_rt__ik_jnt
+    400388: Mite_rt_ankle_fk_ctrl
+    400390: Mite_rt_ankle_fk_ctrl_frzGrp
+    400392: Mite_rt_ankle_fk_ctrl_frzGrp 1
+    400394: Mite_rt_ankle_fk_jnt
+    400396: Mite_rt_ankle_ik_jnt
+    400398: Mite_rt_ankle_jnt
+    400400: Mite_rt_ankle_rev_rig_jnt
+    400402: Mite_rt_ankleBallReader_Ankle_jnt
+    400404: Mite_rt_ankleBallReader_Ball_jnt
+    400406: Mite_rt_ankleBallReader_Knee_jnt
+    400408: Mite_rt_ankleBallReader_UpLeg_jnt
+    400410: Mite_rt_arm_ik_ctrl
+    400412: Mite_rt_arm_ik_ctrl_frzGrp
+    400414: Mite_rt_arm_ikHandle
+    400416: Mite_rt_arm_rig_grp
+    400418: Mite_rt_armFK_Grp
+    400420: Mite_rt_armIK_Grp
+    400422: Mite_rt_armIkCtrl_space_grp
+    400424: Mite_rt_armPvCtrlGrp_space_grp
+    400426: Mite_rt_armPvIkCtrl_dist
+    400428: Mite_rt_armPvIkCtrl_dist_ep
+    400430: Mite_rt_armPvIkCtrl_dist_sp
+    400432: Mite_rt_armStrDist_dist
+    400434: Mite_rt_armStrDist_dist_ep
+    400436: Mite_rt_armStrDist_dist_sp
+    400438: Mite_rt_ball_fk_ctrl
+    400440: Mite_rt_ball_fk_ctrl_frzGrp
+    400442: Mite_rt_ball_fk_ctrl_frzGrp 1
+    400444: Mite_rt_ball_fk_jnt
+    400446: Mite_rt_ball_ik_jnt
+    400448: Mite_rt_ball_jnt
+    400450: Mite_rt_ball_rev_rig_jnt
+    400452: Mite_rt_clavicle_fk_ctrl
+    400454: Mite_rt_clavicle_fk_ctrl_frzGrp
+    400456: Mite_rt_clavicle_fk_ctrl_frzGrp 1
+    400458: Mite_rt_clavicle_jnt
+    400460: Mite_rt_elbow_fk_ctrl
+    400462: Mite_rt_elbow_fk_ctrl_frzGrp
+    400464: Mite_rt_elbow_fk_ctrl_frzGrp 1
+    400466: Mite_rt_elbow_fk_jnt
+    400468: Mite_rt_elbow_ik_jnt
+    400470: Mite_rt_elbow_jnt
+    400472: Mite_rt_elbow_line_loc
+    400474: Mite_rt_elbow_pv_ctrl
+    400476: Mite_rt_elbow_pv_ctrl_annLoc
+    400478: Mite_rt_elbow_pv_ctrl_frzGrp
+    400480: Mite_rt_eye_ctrl
+    400482: Mite_rt_eye_ctrl_frzGrp
+    400484: Mite_rt_eye_ctrl_frzGrp 1
+    400486: Mite_rt_eye_jnt
+    400488: Mite_rt_foot_ctrl
+    400490: Mite_rt_hand_ctrl
+    400492: Mite_rt_hand_ctrl_frzGrp
+    400494: Mite_rt_hand_ctrl_frzGrp 1
+    400496: Mite_rt_hand_jnt
+    400498: Mite_rt_hand_rig_grp
+    400500: Mite_rt_handCtrl_grp
+    400502: Mite_rt_heel_ik_ctrl
+    400504: Mite_rt_heel_ik_ctrl_frzGrp
+    400506: Mite_rt_heel_loc
+    400508: Mite_rt_heel_loc_frzGrp
+    400510: Mite_rt_heel_rev_rig_jnt
+    400512: Mite_rt_index_a_jnt
+    400514: Mite_rt_index_b_jnt
+    400516: Mite_rt_index_c_jnt
+    400518: Mite_rt_index_d_jnt
+    400520: Mite_rt_knee_fk_ctrl
+    400522: Mite_rt_knee_fk_ctrl_frzGrp
+    400524: Mite_rt_knee_fk_ctrl_frzGrp 1
+    400526: Mite_rt_knee_fk_jnt
+    400528: Mite_rt_knee_ik_jnt
+    400530: Mite_rt_knee_jnt
+    400532: Mite_rt_knee_line_loc
+    400534: Mite_rt_knee_pv_ctrl
+    400536: Mite_rt_knee_pv_ctrl_annLoc
+    400538: Mite_rt_knee_pv_ctrl_frzGrp
+    400540: Mite_rt_leg_ikHandle
+    400542: Mite_rt_leg_rig_grp
+    400544: Mite_rt_legFK_Grp
+    400546: Mite_rt_legIK_Grp
+    400548: Mite_rt_legIkCtrl_space_grp
+    400550: Mite_rt_legPvCtrlGrp_space_grp
+    400552: Mite_rt_legPvIkCtrl_dist
+    400554: Mite_rt_legPvIkCtrl_dist_ep
+    400556: Mite_rt_legPvIkCtrl_dist_sp
+    400558: Mite_rt_legStrDist_dist
+    400560: Mite_rt_legStrDist_dist_ep
+    400562: Mite_rt_legStrDist_dist_sp
+    400564: Mite_rt_middle_a_jnt
+    400566: Mite_rt_middle_b_jnt
+    400568: Mite_rt_middle_c_jnt
+    400570: Mite_rt_middle_d_jnt
+    400572: Mite_rt_pinky_a_jnt
+    400574: Mite_rt_pinky_b_jnt
+    400576: Mite_rt_pinky_c_jnt
+    400578: Mite_rt_pinky_d_jnt
+    400580: Mite_rt_pinkyCup_jnt
+    400582: Mite_rt_reverseFoot_rig_grp
+    400584: Mite_rt_ring_a_jnt
+    400586: Mite_rt_ring_b_jnt
+    400588: Mite_rt_ring_c_jnt
+    400590: Mite_rt_ring_d_jnt
+    400592: Mite_rt_ringCup_jnt
+    400594: Mite_rt_thumb_a_jnt
+    400596: Mite_rt_thumb_b_jnt
+    400598: Mite_rt_thumb_c_jnt
+    400600: Mite_rt_thumb_d_jnt
+    400602: Mite_rt_toe_fk_jnt
+    400604: Mite_rt_toe_ik_jnt
+    400606: Mite_rt_toe_jnt
+    400608: Mite_rt_toe_rev_rig_jnt
+    400610: Mite_rt_upArm_fk_ctrl
+    400612: Mite_rt_upArm_fk_ctrl_frzGrp
+    400614: Mite_rt_upArm_fk_ctrl_frzGrp 1
+    400616: Mite_rt_upArm_fk_jnt
+    400618: Mite_rt_upArm_ik_jnt
+    400620: Mite_rt_upArm_jnt
+    400622: Mite_rt_upArmAlignOffset_rig_grp
+    400624: Mite_rt_upArmAlignOffset_rig_grp_frzGrp
+    400626: Mite_rt_upArmPvCtrl_dist
+    400628: Mite_rt_upArmPvCtrl_dist_ep
+    400630: Mite_rt_upArmPvCtrl_dist_sp
+    400632: Mite_rt_upArmupJntFkCtrl_grp
+    400634: Mite_rt_upLeg_fk_ctrl
+    400636: Mite_rt_upLeg_fk_ctrl_frzGrp
+    400638: Mite_rt_upLeg_fk_ctrl_frzGrp 1
+    400640: Mite_rt_upLeg_fk_jnt
+    400642: Mite_rt_upLeg_ik_jnt
+    400644: Mite_rt_upLeg_jnt
+    400646: Mite_rt_upLegAlignOffset_rig_grp
+    400648: Mite_rt_upLegAlignOffset_rig_grp_frzGrp
+    400650: Mite_rt_upLegPvCtrl_dist
+    400652: Mite_rt_upLegPvCtrl_dist_ep
+    400654: Mite_rt_upLegPvCtrl_dist_sp
+    400656: Mite_rt_upLegupJntFkCtrl_grp
+    400658: Mite_rt_wrist_fk_jnt
+    400660: Mite_rt_wrist_ik_jnt
+    400662: Mite_rt_wrist_jnt
+    400664: Mite_rtArmIkCtrl_space_switch_grp
+    400666: Mite_rtLegIkCtrl_space_switch_grp
+    400668: Mite_Skeleton_grp
+    400670: Mite_spine0_clstrHandle
+    400672: Mite_spine1_clstrHandle
+    400674: Mite_spine2_clstrHandle
+    400676: Mite_spine3_clstrHandle
+    400678: Mite_spine4_clstrHandle
+    400680: Mite_spine5_clstrHandle
+    400682: Mite_spine_end_jnt
+    400684: Mite_spine_hi_jnt
+    400686: Mite_spine_ikHandle
+    400688: Mite_spine_low_jnt
+    400690: Mite_spine_mid_jnt
+    400692: Mite_spine_rig_grp
+    400694: Mite_spineHigh_ctrl
+    400696: Mite_spineHigh_ctrl_frzGrp
+    400698: Mite_spineLow_ctrl
+    400700: Mite_spineMid_ctrl
+    400702: Mite_spineMid_ctrl_frzGrp
+    400704: Mite_spineNoScale_rig_grp
+    400706: Mite_spineRig_a_jnt
+    400708: Mite_spineRig_b_jnt
+    400710: Mite_spineRig_c_jnt
+    400712: Mite_spineRig_d_jnt
+    400714: Mite_spineRig_e_jnt
+    400716: Mite_spineRig_f_jnt
+    400718: Mite_spineRig_g_jnt
+    400720: Mite_spineRig_h_jnt
+    400722: Mite_spineShaper_ctrl
+    400724: Mite_spineShaper_ctrl_frzGrp
+    400726: Mite_spineShaper_ctrl_frzGrp 1
+    400728: Mite_spineSplitRot_ctrl
+    400730: Mite_weightSpine_b_jnt
+    400732: Mite_weightSpine_c_jnt
+    400734: Mite_weightSpine_d_jnt
+    400736: Mite_weightSpine_e_jnt
+    400738: Mite_weightSpine_f_jnt
+    400740: Mite_weightSpine_g_jnt
+    400742: NanoSuit_01
+    400744: nanosuit_nec01
+    400746: nanosuithelmet
+    400748: polySurface16
+    400750: polySurface17
+    400752: polySurface18
+    400754: polySurface19
+    400756: polySurface20
+    400758: polySurface21
+    400760: polySurface22
+    400762: polySurface23
+    400764: polySurface24
+    400766: polySurface25
+    400768: polySurface26
+    400770: polySurface27
+    400772: polySurface28
+    400774: polySurface29
+    400776: polySurface30
+    400778: polySurface31
+    400780: polySurface32
+    400782: polySurface33
+    400784: polySurface34
+    400786: polySurface35
+    400788: polySurface36
+    400790: polySurface37
+    400792: refSpine_a
+    400794: refSpine_b
+    400796: refSpine_c
+    400798: refSpine_d
+    400800: refSpine_e
+    400802: refSpine_f
+    400804: refSpine_g
+    400806: refSpine_h
+    400808: Sykes01
+    400810: transform1
+    400812: weightSpine_grp
+    2300000: eye_small01
+    2300002: eye_small02
+    2300004: Google
+    2300006: polySurface29
+    2300008: polySurface30
+    2300010: polySurface31
+    2300012: polySurface32
+    2300014: polySurface33
+    2300016: polySurface34
+    2300018: polySurface35
+    2300020: polySurface36
+    2300022: Sykes01
+    3300000: eye_small01
+    3300002: eye_small02
+    3300004: Google
+    3300006: polySurface29
+    3300008: polySurface30
+    3300010: polySurface31
+    3300012: polySurface32
+    3300014: polySurface33
+    3300016: polySurface34
+    3300018: polySurface35
+    3300020: polySurface36
+    3300022: Sykes01
+    4300000: nanosuit_nec01
+    4300002: NanoSuit_01
+    4300004: Google
+    4300006: polySurface17
+    4300008: polySurface18
+    4300010: polySurface20
+    4300012: polySurface21
+    4300014: polySurface22
+    4300016: polySurface23
+    4300018: polySurface24
+    4300020: polySurface25
+    4300022: polySurface26
+    4300024: polySurface27
+    4300026: Sykes01
+    4300028: eye_small02
+    4300030: eye_small01
+    4300032: polySurface31
+    4300034: polySurface30
+    4300036: polySurface32
+    4300038: polySurface29
+    4300040: polySurface34
+    4300042: polySurface35
+    4300044: polySurface33
+    4300046: polySurface36
+    7400000: wait
+    9500000: //RootNode
+    13700000: NanoSuit_01
+    13700002: nanosuit_nec01
+    13700004: polySurface17
+    13700006: polySurface18
+    13700008: polySurface20
+    13700010: polySurface21
+    13700012: polySurface22
+    13700014: polySurface23
+    13700016: polySurface24
+    13700018: polySurface25
+    13700020: polySurface26
+    13700022: polySurface27
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: wait
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: abRTDeleteMeWhenDone
+        weight: 1
+      - path: abRTDeleteMeWhenDone/Mite_lf_heel_loc_frzGrp
+        weight: 1
+      - path: abRTDeleteMeWhenDone/Mite_lf_heel_loc_frzGrp/Mite_lf_heel_loc
+        weight: 1
+      - path: abRTDeleteMeWhenDone/Mite_rt_heel_loc_frzGrp
+        weight: 1
+      - path: abRTDeleteMeWhenDone/Mite_rt_heel_loc_frzGrp/Mite_rt_heel_loc
+        weight: 1
+      - path: group1
+        weight: 1
+      - path: group1/Google
+        weight: 1
+      - path: group1/NanoSuit_01
+        weight: 1
+      - path: group1/nanosuit_nec01
+        weight: 1
+      - path: group1/nanosuithelmet
+        weight: 1
+      - path: Head
+        weight: 1
+      - path: Mite_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_charVars
+        weight: 1
+      - path: Mite_rig_grp/Mite_cogCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_eyeFrzGrp_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_eyeFrzGrp_space_grp/Mite_eyeMaster_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_eyeFrzGrp_space_grp/Mite_eyeMaster_ctrl_frzGrp/Mite_eyeMaster_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_head_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_head_fk_ctrl_frzGrp/Mite_head_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_head_fk_ctrl_frzGrp/Mite_head_fk_ctrl_frzGrp
+          1/Mite_headAlignOffset_rig_grp_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_head_fk_ctrl_frzGrp/Mite_head_fk_ctrl_frzGrp
+          1/Mite_headAlignOffset_rig_grp_frzGrp/Mite_headAlignOffset_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_head_fk_ctrl_frzGrp/Mite_head_fk_ctrl_frzGrp
+          1/Mite_headAlignOffset_rig_grp_frzGrp/Mite_headAlignOffset_rig_grp/Mite_head_fk_ctrl_frzGrp
+          2
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_head_fk_ctrl_frzGrp/Mite_head_fk_ctrl_frzGrp
+          1/Mite_headAlignOffset_rig_grp_frzGrp/Mite_headAlignOffset_rig_grp/Mite_head_fk_ctrl_frzGrp
+          2/Mite_head_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_headCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_headCtrl_space_grp/Mite_head_ik_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_lf_eye_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_lf_eye_ctrl_frzGrp/Mite_lf_eye_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_lf_eye_ctrl_frzGrp/Mite_lf_eye_ctrl_frzGrp
+          1/Mite_lf_eye_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_neck_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_neck_fk_ctrl_frzGrp/Mite_neckAlignOffset_rig_grp_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_neck_fk_ctrl_frzGrp/Mite_neckAlignOffset_rig_grp_frzGrp/Mite_neckAlignOffset_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_neck_fk_ctrl_frzGrp/Mite_neckAlignOffset_rig_grp_frzGrp/Mite_neckAlignOffset_rig_grp/Mite_neck_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_neck_fk_ctrl_frzGrp/Mite_neckAlignOffset_rig_grp_frzGrp/Mite_neckAlignOffset_rig_grp/Mite_neck_fk_ctrl_frzGrp
+          1/Mite_neck_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_neckupJntFkCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_rt_eye_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_rt_eye_ctrl_frzGrp/Mite_rt_eye_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_head_rig_grp/Mite_rt_eye_ctrl_frzGrp/Mite_rt_eye_ctrl_frzGrp
+          1/Mite_rt_eye_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_headCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_hipCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_hiSpineCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_arm_ikHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armFK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armFK_Grp/Mite_lf_upArm_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armFK_Grp/Mite_lf_upArm_fk_jnt/Mite_lf_elbow_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armFK_Grp/Mite_lf_upArm_fk_jnt/Mite_lf_elbow_fk_jnt/Mite_lf_wrist_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIK_Grp/Mite_lf_upArm_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIK_Grp/Mite_lf_upArm_ik_jnt/Mite_lf_elbow_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIK_Grp/Mite_lf_upArm_ik_jnt/Mite_lf_elbow_ik_jnt/Mite_lf_wrist_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIkCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIkCtrl_space_grp/Mite_lf_arm_ik_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armIkCtrl_space_grp/Mite_lf_arm_ik_ctrl_frzGrp/Mite_lf_arm_ik_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armPvIkCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armPvIkCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armPvIkCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armStrDist_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armStrDist_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_armStrDist_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_clavicle_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_clavicle_fk_ctrl_frzGrp/Mite_lf_clavicle_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_clavicle_fk_ctrl_frzGrp/Mite_lf_clavicle_fk_ctrl_frzGrp
+          1/Mite_lf_clavicle_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_fk_ctrl_frzGrp/Mite_lf_elbow_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_fk_ctrl_frzGrp/Mite_lf_elbow_fk_ctrl_frzGrp
+          1/Mite_lf_elbow_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_pv_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_pv_ctrl_frzGrp/Mite_lf_armPvCtrlGrp_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_pv_ctrl_frzGrp/Mite_lf_armPvCtrlGrp_space_grp/Mite_lf_elbow_pv_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_pv_ctrl_frzGrp/Mite_lf_armPvCtrlGrp_space_grp/Mite_lf_elbow_pv_ctrl/Mite_lf_elbow_pv_ctrl_annLoc
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_pv_ctrl_frzGrp/Mite_lf_elbow_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_elbow_pv_ctrl_frzGrp/Mite_lf_elbow_line_loc/abRTLine_Mite_lf_elbow_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_handCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_handCtrl_grp/Mite_lf_hand_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_handCtrl_grp/Mite_lf_hand_ctrl_frzGrp/Mite_lf_hand_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_handCtrl_grp/Mite_lf_hand_ctrl_frzGrp/Mite_lf_hand_ctrl_frzGrp
+          1/Mite_lf_hand_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp/Mite_lf_upArmAlignOffset_rig_grp_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp/Mite_lf_upArmAlignOffset_rig_grp_frzGrp/Mite_lf_upArmAlignOffset_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp/Mite_lf_upArmAlignOffset_rig_grp_frzGrp/Mite_lf_upArmAlignOffset_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp/Mite_lf_upArmAlignOffset_rig_grp_frzGrp/Mite_lf_upArmAlignOffset_rig_grp/Mite_lf_upArm_fk_ctrl_frzGrp
+          1/Mite_lf_upArm_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArmPvCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArmPvCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArmPvCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_arm_rig_grp/Mite_lf_upArmupJntFkCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_hand_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankle_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankle_fk_ctrl_frzGrp/Mite_lf_ankle_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankle_fk_ctrl_frzGrp/Mite_lf_ankle_fk_ctrl_frzGrp
+          1/Mite_lf_ankle_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankleBallReader_UpLeg_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankleBallReader_UpLeg_jnt/Mite_lf_ankleBallReader_Knee_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankleBallReader_UpLeg_jnt/Mite_lf_ankleBallReader_Knee_jnt/Mite_lf_ankleBallReader_Ankle_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ankleBallReader_UpLeg_jnt/Mite_lf_ankleBallReader_Knee_jnt/Mite_lf_ankleBallReader_Ankle_jnt/Mite_lf_ankleBallReader_Ball_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ball_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ball_fk_ctrl_frzGrp/Mite_lf_ball_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_ball_fk_ctrl_frzGrp/Mite_lf_ball_fk_ctrl_frzGrp
+          1/Mite_lf_ball_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_foot_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_fk_ctrl_frzGrp/Mite_lf_knee_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_fk_ctrl_frzGrp/Mite_lf_knee_fk_ctrl_frzGrp
+          1/Mite_lf_knee_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_pv_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_pv_ctrl_frzGrp/Mite_lf_knee_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_pv_ctrl_frzGrp/Mite_lf_knee_line_loc/abRTLine_Mite_lf_knee_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_pv_ctrl_frzGrp/Mite_lf_legPvCtrlGrp_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_pv_ctrl_frzGrp/Mite_lf_legPvCtrlGrp_space_grp/Mite_lf_knee_pv_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_knee_pv_ctrl_frzGrp/Mite_lf_legPvCtrlGrp_space_grp/Mite_lf_knee_pv_ctrl/Mite_lf_knee_pv_ctrl_annLoc
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_leg_ikHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legFK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legFK_Grp/Mite_lf_upLeg_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legFK_Grp/Mite_lf_upLeg_fk_jnt/Mite_lf_knee_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legFK_Grp/Mite_lf_upLeg_fk_jnt/Mite_lf_knee_fk_jnt/Mite_lf_ankle_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legFK_Grp/Mite_lf_upLeg_fk_jnt/Mite_lf_knee_fk_jnt/Mite_lf_ankle_fk_jnt/Mite_lf_ball_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legFK_Grp/Mite_lf_upLeg_fk_jnt/Mite_lf_knee_fk_jnt/Mite_lf_ankle_fk_jnt/Mite_lf_ball_fk_jnt/Mite_lf_toe_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIK_Grp/Mite_lf_upLeg_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIK_Grp/Mite_lf_upLeg_ik_jnt/Mite_lf_knee_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIK_Grp/Mite_lf_upLeg_ik_jnt/Mite_lf_knee_ik_jnt/Mite_lf_ankle_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIkCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIkCtrl_space_grp/Mite_lf_heel_ik_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legIkCtrl_space_grp/Mite_lf_heel_ik_ctrl_frzGrp/Mite_lf_heel_ik_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legPvIkCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legPvIkCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legPvIkCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legStrDist_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legStrDist_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_legStrDist_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt/Mite_lf_toe_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt/Mite_lf_toe_rev_rig_jnt/Mite_lf__ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt/Mite_lf_toe_rev_rig_jnt/Mite_lf__ik_jnt/Mite_lf_ball_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt/Mite_lf_toe_rev_rig_jnt/Mite_lf__ik_jnt/Mite_lf_ball_ik_jnt/Mite_lf_toe_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt/Mite_lf_toe_rev_rig_jnt/Mite_lf_ball_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_reverseFoot_rig_grp/Mite_lf_heel_rev_rig_jnt/Mite_lf_toe_rev_rig_jnt/Mite_lf_ball_rev_rig_jnt/Mite_lf_ankle_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp/Mite_lf_upLegAlignOffset_rig_grp_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp/Mite_lf_upLegAlignOffset_rig_grp_frzGrp/Mite_lf_upLegAlignOffset_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp/Mite_lf_upLegAlignOffset_rig_grp_frzGrp/Mite_lf_upLegAlignOffset_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp/Mite_lf_upLegAlignOffset_rig_grp_frzGrp/Mite_lf_upLegAlignOffset_rig_grp/Mite_lf_upLeg_fk_ctrl_frzGrp
+          1/Mite_lf_upLeg_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLegPvCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLegPvCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLegPvCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lf_leg_rig_grp/Mite_lf_upLegupJntFkCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lfArmIkCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lfLegIkCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_lowSpineCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_midSpineCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_neckCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_root_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rootCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_arm_ikHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armFK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armFK_Grp/Mite_rt_upArm_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armFK_Grp/Mite_rt_upArm_fk_jnt/Mite_rt_elbow_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armFK_Grp/Mite_rt_upArm_fk_jnt/Mite_rt_elbow_fk_jnt/Mite_rt_wrist_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIK_Grp/Mite_rt_upArm_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIK_Grp/Mite_rt_upArm_ik_jnt/Mite_rt_elbow_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIK_Grp/Mite_rt_upArm_ik_jnt/Mite_rt_elbow_ik_jnt/Mite_rt_wrist_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIkCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIkCtrl_space_grp/Mite_rt_arm_ik_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armIkCtrl_space_grp/Mite_rt_arm_ik_ctrl_frzGrp/Mite_rt_arm_ik_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armPvIkCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armPvIkCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armPvIkCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armStrDist_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armStrDist_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_armStrDist_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_clavicle_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_clavicle_fk_ctrl_frzGrp/Mite_rt_clavicle_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_clavicle_fk_ctrl_frzGrp/Mite_rt_clavicle_fk_ctrl_frzGrp
+          1/Mite_rt_clavicle_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_fk_ctrl_frzGrp/Mite_rt_elbow_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_fk_ctrl_frzGrp/Mite_rt_elbow_fk_ctrl_frzGrp
+          1/Mite_rt_elbow_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_pv_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_pv_ctrl_frzGrp/Mite_rt_armPvCtrlGrp_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_pv_ctrl_frzGrp/Mite_rt_armPvCtrlGrp_space_grp/Mite_rt_elbow_pv_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_pv_ctrl_frzGrp/Mite_rt_armPvCtrlGrp_space_grp/Mite_rt_elbow_pv_ctrl/Mite_rt_elbow_pv_ctrl_annLoc
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_pv_ctrl_frzGrp/Mite_rt_elbow_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_elbow_pv_ctrl_frzGrp/Mite_rt_elbow_line_loc/abRTLine_Mite_rt_elbow_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_handCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_handCtrl_grp/Mite_rt_hand_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_handCtrl_grp/Mite_rt_hand_ctrl_frzGrp/Mite_rt_hand_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_handCtrl_grp/Mite_rt_hand_ctrl_frzGrp/Mite_rt_hand_ctrl_frzGrp
+          1/Mite_rt_hand_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp/Mite_rt_upArmAlignOffset_rig_grp_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp/Mite_rt_upArmAlignOffset_rig_grp_frzGrp/Mite_rt_upArmAlignOffset_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp/Mite_rt_upArmAlignOffset_rig_grp_frzGrp/Mite_rt_upArmAlignOffset_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp/Mite_rt_upArmAlignOffset_rig_grp_frzGrp/Mite_rt_upArmAlignOffset_rig_grp/Mite_rt_upArm_fk_ctrl_frzGrp
+          1/Mite_rt_upArm_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArmPvCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArmPvCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArmPvCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_arm_rig_grp/Mite_rt_upArmupJntFkCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_hand_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankle_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankle_fk_ctrl_frzGrp/Mite_rt_ankle_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankle_fk_ctrl_frzGrp/Mite_rt_ankle_fk_ctrl_frzGrp
+          1/Mite_rt_ankle_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankleBallReader_UpLeg_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankleBallReader_UpLeg_jnt/Mite_rt_ankleBallReader_Knee_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankleBallReader_UpLeg_jnt/Mite_rt_ankleBallReader_Knee_jnt/Mite_rt_ankleBallReader_Ankle_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ankleBallReader_UpLeg_jnt/Mite_rt_ankleBallReader_Knee_jnt/Mite_rt_ankleBallReader_Ankle_jnt/Mite_rt_ankleBallReader_Ball_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ball_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ball_fk_ctrl_frzGrp/Mite_rt_ball_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_ball_fk_ctrl_frzGrp/Mite_rt_ball_fk_ctrl_frzGrp
+          1/Mite_rt_ball_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_foot_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_fk_ctrl_frzGrp/Mite_rt_knee_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_fk_ctrl_frzGrp/Mite_rt_knee_fk_ctrl_frzGrp
+          1/Mite_rt_knee_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_pv_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_pv_ctrl_frzGrp/Mite_rt_knee_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_pv_ctrl_frzGrp/Mite_rt_knee_line_loc/abRTLine_Mite_rt_knee_line_loc
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_pv_ctrl_frzGrp/Mite_rt_legPvCtrlGrp_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_pv_ctrl_frzGrp/Mite_rt_legPvCtrlGrp_space_grp/Mite_rt_knee_pv_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_knee_pv_ctrl_frzGrp/Mite_rt_legPvCtrlGrp_space_grp/Mite_rt_knee_pv_ctrl/Mite_rt_knee_pv_ctrl_annLoc
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_leg_ikHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legFK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legFK_Grp/Mite_rt_upLeg_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legFK_Grp/Mite_rt_upLeg_fk_jnt/Mite_rt_knee_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legFK_Grp/Mite_rt_upLeg_fk_jnt/Mite_rt_knee_fk_jnt/Mite_rt_ankle_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legFK_Grp/Mite_rt_upLeg_fk_jnt/Mite_rt_knee_fk_jnt/Mite_rt_ankle_fk_jnt/Mite_rt_ball_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legFK_Grp/Mite_rt_upLeg_fk_jnt/Mite_rt_knee_fk_jnt/Mite_rt_ankle_fk_jnt/Mite_rt_ball_fk_jnt/Mite_rt_toe_fk_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIK_Grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIK_Grp/Mite_rt_upLeg_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIK_Grp/Mite_rt_upLeg_ik_jnt/Mite_rt_knee_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIK_Grp/Mite_rt_upLeg_ik_jnt/Mite_rt_knee_ik_jnt/Mite_rt_ankle_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIkCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIkCtrl_space_grp/Mite_rt_heel_ik_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legIkCtrl_space_grp/Mite_rt_heel_ik_ctrl_frzGrp/Mite_rt_heel_ik_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legPvIkCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legPvIkCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legPvIkCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legStrDist_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legStrDist_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_legStrDist_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt/Mite_rt_toe_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt/Mite_rt_toe_rev_rig_jnt/Mite_rt__ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt/Mite_rt_toe_rev_rig_jnt/Mite_rt__ik_jnt/Mite_rt_ball_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt/Mite_rt_toe_rev_rig_jnt/Mite_rt__ik_jnt/Mite_rt_ball_ik_jnt/Mite_rt_toe_ik_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt/Mite_rt_toe_rev_rig_jnt/Mite_rt_ball_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_reverseFoot_rig_grp/Mite_rt_heel_rev_rig_jnt/Mite_rt_toe_rev_rig_jnt/Mite_rt_ball_rev_rig_jnt/Mite_rt_ankle_rev_rig_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp/Mite_rt_upLegAlignOffset_rig_grp_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp/Mite_rt_upLegAlignOffset_rig_grp_frzGrp/Mite_rt_upLegAlignOffset_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp/Mite_rt_upLegAlignOffset_rig_grp_frzGrp/Mite_rt_upLegAlignOffset_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp/Mite_rt_upLegAlignOffset_rig_grp_frzGrp/Mite_rt_upLegAlignOffset_rig_grp/Mite_rt_upLeg_fk_ctrl_frzGrp
+          1/Mite_rt_upLeg_fk_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLegPvCtrl_dist
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLegPvCtrl_dist_ep
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLegPvCtrl_dist_sp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rt_leg_rig_grp/Mite_rt_upLegupJntFkCtrl_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rtArmIkCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_rtLegIkCtrl_space_switch_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_cogCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_cogCtrl_space_grp/Mite_cog_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_hipCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_hipCtrl_space_grp/Mite_hip_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_hiSpineCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_hiSpineCtrl_space_grp/Mite_spineHigh_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_hiSpineCtrl_space_grp/Mite_spineHigh_ctrl_frzGrp/Mite_spineHigh_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_lowSpineCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_lowSpineCtrl_space_grp/Mite_spineLow_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_midSpineCtrl_space_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_midSpineCtrl_space_grp/Mite_spineMid_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_midSpineCtrl_space_grp/Mite_spineMid_ctrl_frzGrp/Mite_spineMid_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_midSpineCtrl_space_grp/Mite_spineMid_ctrl_frzGrp/Mite_spineMid_ctrl/Mite_spineSplitRot_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_ikSpline_crv
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine0_clstrHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine1_clstrHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine2_clstrHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine3_clstrHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine4_clstrHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine5_clstrHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineNoScale_rig_grp/Mite_spine_ikHandle
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt/Mite_spineRig_c_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt/Mite_spineRig_c_jnt/Mite_spineRig_d_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt/Mite_spineRig_c_jnt/Mite_spineRig_d_jnt/Mite_spineRig_e_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt/Mite_spineRig_c_jnt/Mite_spineRig_d_jnt/Mite_spineRig_e_jnt/Mite_spineRig_f_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt/Mite_spineRig_c_jnt/Mite_spineRig_d_jnt/Mite_spineRig_e_jnt/Mite_spineRig_f_jnt/Mite_spineRig_g_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineRig_a_jnt/Mite_spineRig_b_jnt/Mite_spineRig_c_jnt/Mite_spineRig_d_jnt/Mite_spineRig_e_jnt/Mite_spineRig_f_jnt/Mite_spineRig_g_jnt/Mite_spineRig_h_jnt
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineShaper_ctrl_frzGrp
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineShaper_ctrl_frzGrp/Mite_spineShaper_ctrl_frzGrp
+          1
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/Mite_spineShaper_ctrl_frzGrp/Mite_spineShaper_ctrl_frzGrp
+          1/Mite_spineShaper_ctrl
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b/refSpine_c
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b/refSpine_c/refSpine_d
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b/refSpine_c/refSpine_d/refSpine_e
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b/refSpine_c/refSpine_d/refSpine_e/refSpine_f
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b/refSpine_c/refSpine_d/refSpine_e/refSpine_f/refSpine_g
+        weight: 1
+      - path: Mite_rig_grp/Mite_spine_rig_grp/refSpine_a/refSpine_b/refSpine_c/refSpine_d/refSpine_e/refSpine_f/refSpine_g/refSpine_h
+        weight: 1
+      - path: Mite_Skeleton_grp
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_lf_upLeg_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_lf_upLeg_jnt/Mite_lf_knee_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_lf_upLeg_jnt/Mite_lf_knee_jnt/Mite_lf_ankle_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_lf_upLeg_jnt/Mite_lf_knee_jnt/Mite_lf_ankle_jnt/Mite_lf_ball_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_lf_upLeg_jnt/Mite_lf_knee_jnt/Mite_lf_ankle_jnt/Mite_lf_ball_jnt/Mite_lf_toe_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_rt_upLeg_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_rt_upLeg_jnt/Mite_rt_knee_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_rt_upLeg_jnt/Mite_rt_knee_jnt/Mite_rt_ankle_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_rt_upLeg_jnt/Mite_rt_knee_jnt/Mite_rt_ankle_jnt/Mite_rt_ball_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_hip_jnt/Mite_rt_upLeg_jnt/Mite_rt_knee_jnt/Mite_rt_ankle_jnt/Mite_rt_ball_jnt/Mite_rt_toe_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_index_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_index_a_jnt/Mite_lf_index_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_index_a_jnt/Mite_lf_index_b_jnt/Mite_lf_index_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_index_a_jnt/Mite_lf_index_b_jnt/Mite_lf_index_c_jnt/Mite_lf_index_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_middle_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_middle_a_jnt/Mite_lf_middle_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_middle_a_jnt/Mite_lf_middle_b_jnt/Mite_lf_middle_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_middle_a_jnt/Mite_lf_middle_b_jnt/Mite_lf_middle_c_jnt/Mite_lf_middle_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_pinkyCup_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_pinkyCup_jnt/Mite_lf_pinky_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_pinkyCup_jnt/Mite_lf_pinky_a_jnt/Mite_lf_pinky_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_pinkyCup_jnt/Mite_lf_pinky_a_jnt/Mite_lf_pinky_b_jnt/Mite_lf_pinky_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_pinkyCup_jnt/Mite_lf_pinky_a_jnt/Mite_lf_pinky_b_jnt/Mite_lf_pinky_c_jnt/Mite_lf_pinky_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_ringCup_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_ringCup_jnt/Mite_lf_ring_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_ringCup_jnt/Mite_lf_ring_a_jnt/Mite_lf_ring_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_ringCup_jnt/Mite_lf_ring_a_jnt/Mite_lf_ring_b_jnt/Mite_lf_ring_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_ringCup_jnt/Mite_lf_ring_a_jnt/Mite_lf_ring_b_jnt/Mite_lf_ring_c_jnt/Mite_lf_ring_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_thumb_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_thumb_a_jnt/Mite_lf_thumb_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_thumb_a_jnt/Mite_lf_thumb_b_jnt/Mite_lf_thumb_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/Mite_lf_wrist_jnt/Mite_lf_hand_jnt/Mite_lf_thumb_a_jnt/Mite_lf_thumb_b_jnt/Mite_lf_thumb_c_jnt/Mite_lf_thumb_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/polySurface30
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/Mite_lf_elbow_jnt/polySurface31
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/polySurface29
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_lf_clavicle_jnt/Mite_lf_upArm_jnt/polySurface32
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt/eye_small01
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt/eye_small02
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt/Mite_head_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt/Mite_head_b_jnt/Sykes01
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt/Mite_lf_eye_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_neck_jnt/Mite_head_a_jnt/Mite_rt_eye_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_index_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_index_a_jnt/Mite_rt_index_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_index_a_jnt/Mite_rt_index_b_jnt/Mite_rt_index_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_index_a_jnt/Mite_rt_index_b_jnt/Mite_rt_index_c_jnt/Mite_rt_index_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_middle_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_middle_a_jnt/Mite_rt_middle_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_middle_a_jnt/Mite_rt_middle_b_jnt/Mite_rt_middle_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_middle_a_jnt/Mite_rt_middle_b_jnt/Mite_rt_middle_c_jnt/Mite_rt_middle_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_pinkyCup_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_pinkyCup_jnt/Mite_rt_pinky_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_pinkyCup_jnt/Mite_rt_pinky_a_jnt/Mite_rt_pinky_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_pinkyCup_jnt/Mite_rt_pinky_a_jnt/Mite_rt_pinky_b_jnt/Mite_rt_pinky_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_pinkyCup_jnt/Mite_rt_pinky_a_jnt/Mite_rt_pinky_b_jnt/Mite_rt_pinky_c_jnt/Mite_rt_pinky_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_ringCup_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_ringCup_jnt/Mite_rt_ring_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_ringCup_jnt/Mite_rt_ring_a_jnt/Mite_rt_ring_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_ringCup_jnt/Mite_rt_ring_a_jnt/Mite_rt_ring_b_jnt/Mite_rt_ring_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_ringCup_jnt/Mite_rt_ring_a_jnt/Mite_rt_ring_b_jnt/Mite_rt_ring_c_jnt/Mite_rt_ring_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_thumb_a_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_thumb_a_jnt/Mite_rt_thumb_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_thumb_a_jnt/Mite_rt_thumb_b_jnt/Mite_rt_thumb_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/Mite_rt_wrist_jnt/Mite_rt_hand_jnt/Mite_rt_thumb_a_jnt/Mite_rt_thumb_b_jnt/Mite_rt_thumb_c_jnt/Mite_rt_thumb_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/polySurface34
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/Mite_rt_elbow_jnt/polySurface35
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/polySurface33
+        weight: 1
+      - path: Mite_Skeleton_grp/Mite_spine_low_jnt/Mite_spine_mid_jnt/Mite_spine_hi_jnt/Mite_spine_end_jnt/Mite_rt_clavicle_jnt/Mite_rt_upArm_jnt/polySurface36
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp/Mite_weightSpine_b_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp/Mite_weightSpine_c_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp/Mite_weightSpine_d_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp/Mite_weightSpine_e_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp/Mite_weightSpine_f_jnt
+        weight: 1
+      - path: Mite_Skeleton_grp/weightSpine_grp/Mite_weightSpine_g_jnt
+        weight: 1
+      - path: polySurface16
+        weight: 1
+      - path: polySurface16/polySurface17
+        weight: 1
+      - path: polySurface16/polySurface18
+        weight: 1
+      - path: polySurface16/polySurface19
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface20
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface21
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface22
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface23
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface24
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface25
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface26
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface27
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface28
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface28/polySurface37
+        weight: 1
+      - path: polySurface16/polySurface19/polySurface28/transform1
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

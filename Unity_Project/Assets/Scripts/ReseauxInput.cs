@@ -8,7 +8,7 @@ using System.Net;
 using UnityEngine.UI;
 using System;
 
-public class ReseauxInput : NetworkBehaviour {
+public class ReseauxInput : MonoBehaviour {
 	public Dropdown panel;
 	private ArrayList listeLeap = new ArrayList();
 

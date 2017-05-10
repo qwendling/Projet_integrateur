@@ -44,5 +44,6 @@ public class Bullet : NetworkBehaviour {
 	[ClientRpc]
 	public void RpcPlayBruit(){
 		gameObject.GetComponent<AudioSource>().PlayOneShot (monJoueur.GetComponent<ToolSwap>()._activeItem.GetComponent<Arme>().Clip);
+		monJoueur.GetComponent<ToolSwap> ()._activeItem.GetComponent<Arme> ().EffetTir.Play ();
 	}
 }
