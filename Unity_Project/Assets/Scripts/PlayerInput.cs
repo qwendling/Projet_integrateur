@@ -19,8 +19,6 @@ public class PlayerInput : NetworkBehaviour {
 
 	public int commande;
 
-	// Delais de refroidissement de l'arme (en sec)
-	public const float HEAT_COOLDOWN = 3.0f;
 	private float _heatTimer;
 	private bool _overHeat = false;
 
@@ -135,6 +133,6 @@ public class PlayerInput : NetworkBehaviour {
 	// Start/Refresh the timer
 	void StartHeatTimer () {
 		_overHeat = true;
-		_heatTimer = HEAT_COOLDOWN;
+		_heatTimer = PlayerOverHeat.HEAT_COOLDOWN;
 	}
 }

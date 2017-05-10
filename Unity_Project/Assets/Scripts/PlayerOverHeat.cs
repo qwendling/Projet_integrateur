@@ -6,7 +6,8 @@ using UnityEngine.Networking;
 public class PlayerOverHeat : NetworkBehaviour {
 	// La chaleur est representee en pourcentage
 	public const int MAX_HEAT = 100;
-
+	// Delais de refroidissement de l'arme (en sec)
+	public const float HEAT_COOLDOWN = 3.0f;
 	public const int HEAT_PER_SHOT = 10;
 
 	[SyncVar(hook = "OnHeatChange")]
@@ -27,12 +28,12 @@ public class PlayerOverHeat : NetworkBehaviour {
 		if (!isLocalPlayer)
 			return;
 
-		_timer -= 2.0f * Time.deltaTime;
+		_timer -= 4.0f * Time.deltaTime;
 		if (_timer <= 0.0f) {
 			_timer = 1.0f;
 			Debug.Log (currentHeat);
 			if (currentHeat > 0) {
-				currentHeat -= 10;
+				currentHeat -= (int) (0.25f * (float)MAX_HEAT / (HEAT_COOLDOWN - 0.25f));
 			}
 		}
 	}
