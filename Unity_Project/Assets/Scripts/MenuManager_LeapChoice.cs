@@ -17,7 +17,7 @@ public class MenuManager_LeapChoice : MonoBehaviour {
 
 	public void OnNextClicked(){
 
-		SceneManager.LoadScene ("ConnectionMenu");
+		SceneManager.LoadScene ("Test_multi");
 		Cursor.visible = false;
 	}
 }

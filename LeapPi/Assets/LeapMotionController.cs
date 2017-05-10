@@ -98,15 +98,18 @@ public class LeapMotionController : MonoBehaviour
 	}
 
 	void Update ()
-	{			
+	{		
+		i = i + 1;
 		if (!deviceLinked) 
 		{
-			//Connection phase
-			sendSystemMessage(MessageTypes.ASK_FOR_CONNECTION);
+			if (i == 20) {
+				i = 0;
+				//Connection phase
+				sendSystemMessage(MessageTypes.ASK_FOR_CONNECTION);
+			}
 		} 
 		else
 		{
-			i = i + 1;
 			if(i== 5)
 			{
 				i = 0;
