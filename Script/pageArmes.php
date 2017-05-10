@@ -6,7 +6,6 @@
 	$donnees=$requete->fetchAll();
     	$requete->closeCursor();
 	foreach ($donnees as $row) {
-		echo $row['id_arme'].",".$row['nom_arme'].",".$row['cadence_arme'].",".$row['degat_arme'].",".$row['range_arme'].",".$row['surchauffe_arme'].';';
+		echo $row['id_arme'].",".$row['nom_arme'].",".$row['cadence_arme'].",".$row['degats_arme'].",".$row['range_arme'].",".$row['vitesse_bullet_arme'].",".$row['surchauffe_arme'].';';
 	}
-	
 	
