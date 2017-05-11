@@ -11,6 +11,7 @@ using System;
 public class ReseauListen : MonoBehaviour {
 
 	public GameObject Player;
+	DataMessage msg;
 
 	public int commande{
 		get {
@@ -27,17 +28,20 @@ public class ReseauListen : MonoBehaviour {
 		NetworkServer.RegisterHandler (200, onGameMessage);
 		print ("Server is listening on : " + NetworkServer.listenPort);
 	}
-		
+
 
 	public void onGameMessage(NetworkMessage net)
 	{
-		DataMessage msg = net.ReadMessage<DataMessage> ();
+		msg = net.ReadMessage<DataMessage> ();
 		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + ", CODE MOUVEMENT: " + msg.mouvement + " ]");
-		commande = msg.mouvement;
+
+		//commande = msg.mouvement;
+
 	}
 
 	// Update is called once per frame
 	void Update () {
+		
 
 	}
 }
