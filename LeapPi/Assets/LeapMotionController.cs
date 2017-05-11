@@ -172,7 +172,7 @@ public class LeapMotionController : MonoBehaviour
 					}
 
 					if (gauche1 == 0 && prevgauche1 != 0) {
-						prevgauche1 = prevgauche1 + 10;
+						prevgauche1 = prevgauche1 + 1;
 						cam_vertical1 = prevgauche1;
 						prevgauche1 = 0;
 					}
