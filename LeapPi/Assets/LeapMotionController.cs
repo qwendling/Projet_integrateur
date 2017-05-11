@@ -20,6 +20,7 @@ public class LeapMotionController : MonoBehaviour
 	int change_arme= 0;
 	int i=0;
 	int gauche=0 , prevgauche=0, gauche1=0, prevgauche1=0, gauche2=0, prevgauche2=0;
+	int prevtir=0;
 
 	//System related attributes
 	string identifier;
@@ -36,7 +37,7 @@ public class LeapMotionController : MonoBehaviour
 			GameMessage msg = new GameMessage ();
 			msg.deviceId = this.identifier;
 			msg.mouvement = mouvement;
-
+			print ("code: " +mouvement);
 			if(netcln.isConnected) 
 			{
 				netcln.Send(200, msg);
@@ -69,8 +70,8 @@ public class LeapMotionController : MonoBehaviour
 			this.clientIp = sysmsg.clientIpAddress;
 			netcln.Connect (this.clientIp, 7500);
 			print ("Your MCD was successfully atached to the client: " + sysmsg.deviceId + " located on: " + sysmsg.clientIpAddress + " .");
+			sendSystemMessage (MessageTypes.ACK_LINK_ESTABLISHED);
 		}
-		//print ("SYSMSG RECEIVED [LEAP DEVICE ID: " + sysmsg.deviceId + ", CLIENT CONNECTION ID: " + sysmsg.clientConnection + ", CONTENT: " + sysmsg.content + "]");
 	}
 
 	void Start ()
@@ -99,6 +100,7 @@ public class LeapMotionController : MonoBehaviour
 
 	void Update ()
 	{		
+		// compteur pour reduire le nombre d'images traités
 		i = i + 1;
 		if (!deviceLinked) 
 		{
@@ -117,6 +119,7 @@ public class LeapMotionController : MonoBehaviour
 				float roll = hand.PalmNormal.Roll;
 
 				if (hand.IsLeft) {
+					//enregistrement des min et max
 					if (yaw < yaw_min)
 						yaw_min = yaw;
 					else if (yaw > yaw_max)
@@ -127,21 +130,22 @@ public class LeapMotionController : MonoBehaviour
 					else if (pitch > pitch_max)
 						pitch_max = pitch;
 
+
 					if (yaw - marge > yaw_min && yaw < 0) {
 						gauche = 310;
-						print ("left");
+						//print ("left");
 					} else if (yaw + marge < yaw_max && yaw > 0) {
-						print ("right");
+						//print ("right");
 						gauche = 410;
 					} else
 						gauche = 0;
 					
 					if (pitch - marge_pitch > -3 && pitch < 0) {
 						gauche1 = 810;
-						print ("down");
+						//print ("down");
 					} else if (pitch + marge_pitch < 3 && pitch > 0) {
 						gauche1 = 710;
-						print ("up");
+						//print ("up");
 					} else
 						gauche1 = 0;
 
@@ -151,7 +155,7 @@ public class LeapMotionController : MonoBehaviour
 					} else
 						gauche2 = 0;
 
-					if (gauche == 0) {
+					if (gauche == 0 && prevgauche != 0) {
 						prevgauche = prevgauche + 1;
 						sendGameMessage (prevgauche);
 						prevgauche = 0;
@@ -172,7 +176,7 @@ public class LeapMotionController : MonoBehaviour
 					}
 
 					if (gauche2 != 110 && prevgauche2 == 110) {
-						print ("stoper");
+						//print ("stoper");
 						sendGameMessage (111);
 						prevgauche = 0;
 					} else if (gauche2 == 110 && prevgauche == 0) {
@@ -181,21 +185,28 @@ public class LeapMotionController : MonoBehaviour
 					}
 
 
-				} else if (hand.IsRight) {
+				} 
+
+				// main droite
+				else if (hand.IsRight) {
+					//si on ferme le poing on tire
 					if (hand.PinchStrength > 0.6) {
 						sendGameMessage (120);
-						print ("Feu");
-					} else {
-						sendGameMessage (210);
+						prevtir = 1;
+					} else if(prevtir == 1) {
+						prevtir = 0;
+						sendGameMessage (1);
 					}
+
+					// si on leve la main on enregistre
 					if (pitch < 1.9 && pitch > 0)
 						change_arme = 1;
+					//si on a lever la main et on la baisse on change d'arme
 					if (pitch <= 0.2)
-					if (change_arme == 1) {
-						change_arme = 0;
-						sendGameMessage (999);
-						print ("changement d'arme");
-					}
+						if (change_arme == 1) {
+							change_arme = 0;
+							sendGameMessage (999);
+						}
 				}
 			}
 		

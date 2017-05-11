@@ -23,6 +23,7 @@ namespace GameMessages
 	{
 		public const short ASK_FOR_CONNECTION = 101;
 		public const short LINK_ESTABLISHED = 102;
+		public const short ACK_LINK_ESTABLISHED = 103;
 	}
 }
 
