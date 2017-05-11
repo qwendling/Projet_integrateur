@@ -87,9 +87,10 @@ public class DBConnect {
 
 
 
-//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 		SortTest temp3;
 		GameObject tempSort = new GameObject ();
+
+		//Fire
 		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
 		temp3.GetComponent<SortTest> ().id = 3;
 		temp3.GetComponent<SortTest> ().nom = "Fire";
@@ -100,7 +101,51 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().surchauffe = 10;
 
 		SortTest.sorts.Add (temp3);
+		GameObject.Destroy (temp3);
+		GameObject.Destroy (tempSort);
 
+
+		//Bouclier de protection
+		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
+		temp3.GetComponent<SortTest> ().id = 4;
+		temp3.GetComponent<SortTest> ().nom = "Protection";
+		temp3.GetComponent<SortTest> ().cadence = 1;
+		temp3.GetComponent<SortTest> ().degat = 15;
+		temp3.GetComponent<SortTest> ().range = 10;
+		temp3.GetComponent<SortTest> ().vitesse = 5;
+		temp3.GetComponent<SortTest> ().surchauffe = 10;
+
+		SortTest.sorts.Add (temp3);
+		GameObject.Destroy (temp3);
+		GameObject.Destroy (tempSort);
+
+
+		//Push joueur
+		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
+		temp3.GetComponent<SortTest> ().id = 5;
+		temp3.GetComponent<SortTest> ().nom = "Push";
+		temp3.GetComponent<SortTest> ().cadence = 1;
+		temp3.GetComponent<SortTest> ().degat = 15;
+		temp3.GetComponent<SortTest> ().range = 10;
+		temp3.GetComponent<SortTest> ().vitesse = 5;
+		temp3.GetComponent<SortTest> ().surchauffe = 10;
+
+		SortTest.sorts.Add (temp3);
+		GameObject.Destroy (temp3);
+		GameObject.Destroy (tempSort);
+
+
+		//Teleportation
+		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
+		temp3.GetComponent<SortTest> ().id = 6;
+		temp3.GetComponent<SortTest> ().nom = "Teleportation";
+		temp3.GetComponent<SortTest> ().cadence = 1;
+		temp3.GetComponent<SortTest> ().degat = 15;
+		temp3.GetComponent<SortTest> ().range = 10;
+		temp3.GetComponent<SortTest> ().vitesse = 5;
+		temp3.GetComponent<SortTest> ().surchauffe = 10;
+
+		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
 		GameObject.Destroy (tempSort);
 

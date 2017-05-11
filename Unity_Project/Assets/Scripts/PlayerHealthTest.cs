@@ -14,6 +14,9 @@ public class PlayerHealthTest : NetworkBehaviour {
 	public RectTransform healthBar;
 	public GameObject _Coord;
 
+	public bool protectionIsOn = false; //bouclier désactivé par défaut
+
+
 	// Use this for initialization
 	void Start () {
 		_Coord = GameObject.Find ("Coordinator");
@@ -28,6 +31,10 @@ public class PlayerHealthTest : NetworkBehaviour {
 	public void TakeDamage(int amount, string opponentName) {
 		if (!isServer)
 			return;
+
+		// si bouclier actif, dégat réduit de moitié
+		if(protectionIsOn = true)
+			amount = amount/2;
 
 		currentHealth -= amount;
 		if (currentHealth <= 0) {
@@ -62,4 +69,3 @@ public class PlayerHealthTest : NetworkBehaviour {
 		}
 	}
 }
-
