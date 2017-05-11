@@ -10,19 +10,20 @@ using System;
 
 public class ReseauListen : MonoBehaviour {
 
+	public GameObject Player;
+
 	public int commande{
 		get {
-			return gameObject.GetComponent<PlayerInput> ().commande;
+			return Player.GetComponent<PlayerInput> ().commande;
 		}
 		set{
-			gameObject.GetComponent<PlayerInput> ().commande = value;
+			Player.GetComponent<PlayerInput> ().commande = value;
 		}
 	}
 
 
 	// Use this for initialization
 	void Start () {
-		NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (200, onGameMessage);
 		print ("Server is listening on : " + NetworkServer.listenPort);
 	}
