@@ -12,14 +12,6 @@ public class ReseauxInput : MonoBehaviour {
 	public Dropdown panel;
 	private ArrayList listeLeap = new ArrayList();
 
-	public int commande{
-		get {
-			return gameObject.GetComponent<PlayerInput> ().commande;
-		}
-		set{
-			gameObject.GetComponent<PlayerInput> ().commande = value;
-		}
-	}
 
 	public void connectToLeap()
 	{
@@ -33,7 +25,6 @@ public class ReseauxInput : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		NetworkServer.Listen (7500);
-		NetworkServer.RegisterHandler (200, onGameMessage);
 		NetworkServer.RegisterHandler (100, onSystemMessage);
 		print ("Server is listening on : " + NetworkServer.listenPort);
 	}
@@ -94,12 +85,7 @@ public class ReseauxInput : MonoBehaviour {
 	}
 
 
-	public void onGameMessage(NetworkMessage net)
-	{
-		DataMessage msg = net.ReadMessage<DataMessage> ();
-		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + ", CODE MOUVEMENT: " + msg.mouvement + " ]");
-		commande = msg.mouvement;
-	}
+
 	
 	// Update is called once per frame
 	void Update () {

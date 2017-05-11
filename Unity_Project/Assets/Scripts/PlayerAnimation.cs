@@ -1,7 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
+using UnityEngine.Networking;
 
-public class Player : MonoBehaviour
+public class PlayerAnimation : NetworkBehaviour
 {
 
     public float _runSpeed = 0.5f;
@@ -21,8 +23,9 @@ public class Player : MonoBehaviour
     void Update ()
     {
 
-        
-        // Get the input from up/down keys
+        // if(isLocalPlayer)
+        // {
+            // Get the input from up/down keys
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
 
@@ -38,48 +41,61 @@ public class Player : MonoBehaviour
 
         if(translation != 0)
         {
-        	anim.SetBool("walk", true);
-        	// anim.SetBool("ballattack", false);
+         anim.SetBool("walk", true);
+         // anim.SetBool("ballattack", false);
         }
         else
         {
-        	anim.SetBool("walk", false);
-        	anim.SetBool("weapon", false);
+         anim.SetBool("walk", false);
+         anim.SetBool("weapon", false);
         }
+
+        // if(Input.GetKeyDown("z"))
+        // {
+        //     anim.SetBool("walk", true);
+        //     // anim.SetBool("ballattack", false);
+        // }
+        // else
+        // {
+        //     anim.SetBool("walk", false);
+        //     anim.SetBool("weapon", false);
+        // }
 
         // if(Input.GetKeyDown("space"))
         // {
-        // 	anim.SetTrigger("attack");
+        //  anim.SetTrigger("attack");
         // }
-        if(Input.GetKeyDown("1"))
+        if(Input.GetKey("1"))
         {
-        	anim.SetBool("weapon", true);
-        	anim.SetBool("ak", false);
-        	anim.SetBool("ball", false);
+            anim.SetBool("weapon", true);
+            anim.SetBool("ak", false);
+            anim.SetBool("ball", false);
         }
         if(Input.GetKeyDown("2"))
         {
-        	anim.SetBool("ak", true);
-        	anim.SetBool("weapon", false);
-        	anim.SetBool("ball", false);
+            anim.SetBool("ak", true);
+            anim.SetBool("weapon", false);
+            anim.SetBool("ball", false);
         }
 
         if(Input.GetKeyDown("3"))
         {
-        	anim.SetBool("ball", true);
-        	anim.SetBool("weapon", false);
-        	anim.SetBool("ak", false);
-        	// anim.SetBool("ballattack", false);
+            anim.SetBool("ball", true);
+            anim.SetBool("weapon", false);
+            anim.SetBool("ak", false);
+            // anim.SetBool("ballattack", false);
         }
 
         if(Input.GetKeyDown("r"))
         {
-        	// anim.SetBool("ballattack", true);
-        	// anim.SetBool("walk", false);
-        	// animation["ballattack"].wrapMode = WrapMode.Once;
-        	anim.SetTrigger("w1attack");
-			// anim.Play("ballattack");
+            // anim.SetBool("ballattack", true);
+            // anim.SetBool("walk", false);
+            // animation["ballattack"].wrapMode = WrapMode.Once;
+            anim.SetTrigger("w1attack");
+            // anim.Play("ballattack");
         }
+        // }
+        
      
     }
 }

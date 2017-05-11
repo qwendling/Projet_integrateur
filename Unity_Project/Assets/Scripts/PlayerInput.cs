@@ -20,19 +20,32 @@ public class PlayerInput : NetworkBehaviour {
 	private float timebetweenShot;
 	private double _timeShot;
 
-	public int commande;
+
+	public int commande=0;
 
 	private float _heatTimer;
 
 	// Use this for initialization
-	void Start () {		
+	void Start () {
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
 		_POH = gameObject.GetComponent<PlayerOverHeat> ();
 
+		NetworkServer.RegisterHandler (200, onGameMessage);
+		print ("Server is listening on : " + NetworkServer.listenPort);
+
 		_timeShot = -1.0;
+	}
+
+	public void onGameMessage(NetworkMessage net)
+	{
+		DataMessage msg = net.ReadMessage<DataMessage> ();
+		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + ", CODE MOUVEMENT: " + msg.mouvement + " ]");
+
+		commande = msg.mouvement;
+
 	}
 
 	// Update is called once per frame
@@ -41,15 +54,18 @@ public class PlayerInput : NetworkBehaviour {
 			RpcOnOverheat ();
 		}
 
+
 		if(!isLocalPlayer)
 			return;
-		
+
 		if (HeatTimerFinished ()) {
 			_isOverheat = false;
 		}
 
 		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 		_timeShot -= 1.0 * Time.deltaTime;
+		print("Commande dans playerinput = " + commande);
+
 
 		// SHOOT COMMAND
 
@@ -66,7 +82,7 @@ public class PlayerInput : NetworkBehaviour {
 		// CAMERA CONTROL
 
 		_controller.CmdUpdateCameraXY (Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
-		/*
+
 		if ( (commande == 710 ) )// up
 				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.40);
 
@@ -78,7 +94,7 @@ public class PlayerInput : NetworkBehaviour {
 
 		if ( (commande == 410 ) ) // droite
 				_controller.CmdUpdateCameraXY ((float)0.40, (float)0.00);
-*/
+   
 		// MOVEMENT CONTROL
 
 		int forward, right;
@@ -137,7 +153,7 @@ public class PlayerInput : NetworkBehaviour {
 	void RpcOnOverheat() {
 		if (!isLocalPlayer)
 			return;
-		
+
 		if (gameObject.GetComponent<PlayerOverHeat> ().currentHeat >= PlayerOverHeat.MAX_HEAT) {
 			_isOverheat = true;
 			StartHeatTimer ();
