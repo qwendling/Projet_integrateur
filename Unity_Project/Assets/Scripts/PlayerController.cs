@@ -153,44 +153,17 @@ public class PlayerController : NetworkBehaviour {
 		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
 		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
 			- _YInput * CAMERA_Y_FACTOR * invertFactor);
-		MoveCamera ();
 
-		RpcUpdateCameraXY (X_val, Y_val);
+		//RpcUpdateCameraXY (X_val, Y_val);
+		RpcUpdateCamera (_cameraPivot.transform.rotation,transform.rotation);
 	}
 
 	[ClientRpc]
-	void RpcUpdateCameraXY (float X_val, float Y_val) {
-		float invertFactor;
-		if (_invertYAxis)
-			invertFactor = -1.0f;
-		else
-			invertFactor = 1.0f;
-		_XInput = X_val;
-		_YInput = Y_val;
-
-
-		// Update current camera rotation around X to cap it
-		_camRotX += _YInput * CAMERA_Y_FACTOR;
-
-		// If the rotation exceeds 90° (up or down), ignore the rest.
-		if (_camRotX < -90f) {
-			_camRotX = -90f;
-			return;
-		}
-		if (_camRotX > 90f) {
-			_camRotX = 90f;
-			return;
-		}
-
-		// Rotate player around Y axis (along X) with horizontal input
-		transform.RotateAround(transform.position, transform.up, 
-			CAMERA_X_FACTOR * _XInput);
-		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
-		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
-			- _YInput * CAMERA_Y_FACTOR * invertFactor);
-		MoveCamera ();
+	void RpcUpdateCamera(Quaternion qCam,Quaternion qTrans){
+		_cameraPivot.transform.rotation = qCam;
+		transform.rotation = qTrans;
 	}
-
+		
 	/**
 	 * UpdateForwardSpeed
 	 * Update the current running speed along forward vector (called via PlayerInput).
@@ -199,8 +172,12 @@ public class PlayerController : NetworkBehaviour {
 	[Command]
 	public void CmdUpdateForwardSpeed (int d) {
 		d = Mathf.Clamp (d, -1, 1);
-		RpcUpdateForwardSpeed (d);
+		//RpcUpdateForwardSpeed (d);
 		_forwardRunningSpeed = d * DEFAULT_SPEED;
+		transform.position += 
+			transform.forward * _forwardRunningSpeed * _acceleration * Time.deltaTime
+			+ transform.right * _strafeSpeed * _acceleration * Time.deltaTime;
+		RpcUpdatePos (transform.position);
 		//MovePlayer ();
 		//Debug.Log (_forwardRunningSpeed);
 	}
@@ -221,10 +198,15 @@ public class PlayerController : NetworkBehaviour {
 	[Command]
 	public void CmdUpdateStrafeSpeed (int d) {
 		d = Mathf.Clamp (d, -1, 1);
-		RpcUpdateStrafeSpeed (d);
+		//RpcUpdateStrafeSpeed (d);
 		_strafeSpeed = d * STRAFE_FACTOR * DEFAULT_SPEED;
 		//MovePlayer ();
 		//Debug.Log (_strafeSpeed);
+	}
+
+	[ClientRpc]
+	void RpcUpdatePos (Vector3 pos) {
+		transform.position = pos;
 	}
 
 	[ClientRpc]
