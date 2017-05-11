@@ -22,7 +22,7 @@ public class CanShootTest : NetworkBehaviour {
 			// Tir
 			ArmeTest A = (ArmeTest)W;
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
-			bullet.GetComponent<BulletTest> ().monJoueur = gameObject;
+			bullet.GetComponent<BulletTest> ().monJoueur = this.transform.gameObject;
 			bullet.GetComponent<BulletTest> ().DAMAGE = 10;
 			//bullet.GetComponent<AudioSource>().PlayOneShot (A.Clip);
 
