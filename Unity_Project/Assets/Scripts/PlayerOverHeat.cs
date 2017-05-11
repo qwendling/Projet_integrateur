@@ -12,6 +12,10 @@ public class PlayerOverHeat : NetworkBehaviour {
 
 	[SyncVar(hook = "OnHeatChange")]
 	public int currentHeat = 0;
+	[SyncVar(hook = "OnOverHeat")]
+	public bool overHeat = false;
+
+
 
 	public RectTransform heatBar;
 	private float _maxBar;
@@ -26,7 +30,7 @@ public class PlayerOverHeat : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (!isLocalPlayer)
+		if (!isServer)
 			return;
 
 		_timer -= 4.0f * Time.deltaTime;
@@ -38,19 +42,28 @@ public class PlayerOverHeat : NetworkBehaviour {
 		}
 	}
 
-	// Retourne true si l'arme entre en surchauffe, false sinon
-	public bool Heat() {
+
+	[Command]
+	public void CmdHeat() {
 		currentHeat += HEAT_PER_SHOT;
 		if (currentHeat >= MAX_HEAT) {
-			return true;
+			overHeat = true;
 		}
-		return false;
 	}
+
+	/*[ClientRpc]
+	void RpcHeat(){
+		overHeat = true;
+	}*/
 
 	void OnHeatChange(int heat) {
 		if (heatBar == null)
 			return;
 		Vector3 rowX = new Vector3(_maxBar-(((float)heat/(float)MAX_HEAT)*_maxBar),0,0);
 		heatBar.transform.position -= rowX;
+	}
+
+	void OnOverHeat(bool isOverHeat) {
+		gameObject.GetComponent<PlayerInput> ().OverHeat (isOverHeat);
 	}
 }

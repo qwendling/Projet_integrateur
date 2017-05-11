@@ -13,6 +13,9 @@ public class PlayerInput : NetworkBehaviour {
 	private PlayerHealth _health;
 	private ToolSwap _swapper;
 	private CanShoot _shoot;
+	private PlayerOverHeat _POH;
+
+	private bool _isOverheat = false;
 
 	private float timebetweenShot;
 	private double _timeShot;
@@ -20,16 +23,17 @@ public class PlayerInput : NetworkBehaviour {
 	public int commande;
 
 	private float _heatTimer;
-	private bool _overHeat = false;
-
 
 	// Use this for initialization
 	void Start () {
-
+		if (!isLocalPlayer)
+			return;
+		
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
+		_POH = gameObject.GetComponent<PlayerOverHeat> ();
 
 		_timeShot = -1.0;
 	}
@@ -44,7 +48,7 @@ public class PlayerInput : NetworkBehaviour {
 			return;
 
 		if (HeatTimerFinished ()) {
-			_overHeat = false;
+			_isOverheat = false;
 		}
 
 		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
@@ -55,11 +59,11 @@ public class PlayerInput : NetworkBehaviour {
 		if (Input.GetButton("Fire1") || (commande == 120))
 		{
 			// Si le delais de la cadence est passe
-			if (!_overHeat && _timeShot <= 0.0) {
+			if (!_isOverheat && _timeShot <= 0.0) {
 				_timeShot = timebetweenShot;
 				_shoot.CmdFire ();
-				PlayerOverHeat POH = gameObject.GetComponent<PlayerOverHeat> ();
-				if (POH.Heat ()) {
+				_POH.CmdHeat();
+				if (_isOverheat) {
 					StartHeatTimer ();
 				}
 			}
@@ -132,7 +136,25 @@ public class PlayerInput : NetworkBehaviour {
 
 	// Start/Refresh the timer
 	void StartHeatTimer () {
-		_overHeat = true;
 		_heatTimer = PlayerOverHeat.HEAT_COOLDOWN;
 	}
+
+	public void OverHeat(bool overHeat) {
+		if (!isLocalPlayer)
+			return;
+		_isOverheat = overHeat;
+	}
+
+	/*[Command]
+	public void CmdOnOverHeat(){
+		_overHeat = true;
+		RpcOnOverHeat ();
+	}
+
+	[ClientRpc]
+	public void RpcOnOverHeat() {
+		if (!isLocalPlayer)
+			return;
+		_overHeat = true;
+	}*/
 }

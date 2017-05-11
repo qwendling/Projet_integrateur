@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class Server_PlayerList : NetworkBehaviour {
 
 	[SyncVar]
-	int _NbPlayers = 0;
+	public int _NbPlayers = 0;
 
 
 	public SyncListInt _Scores = new SyncListInt ();
