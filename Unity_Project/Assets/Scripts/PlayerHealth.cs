@@ -33,6 +33,7 @@ public class PlayerHealth : NetworkBehaviour {
 		currentHealth -= amount;
 		if (currentHealth <= 0) {
 			currentHealth = MAX_HEALTH;
+			transform.position = Vector3.zero;
 			RpcRespawn ();
 		}
 	}
