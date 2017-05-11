@@ -153,9 +153,15 @@ public class PlayerController : NetworkBehaviour {
 		// Rotate camera pivot (and NOT player) around X axis (along Y) with vertical mouse movements
 		_cameraPivot.transform.RotateAround (_cameraPivot.transform.position, _cameraPivot.transform.right,
 			- _YInput * CAMERA_Y_FACTOR * invertFactor);
-		MoveCamera ();
 
-		RpcUpdateCameraXY (X_val, Y_val);
+		//RpcUpdateCameraXY (X_val, Y_val);
+		RpcUpdateCamera (_cameraPivot.transform.rotation,transform.rotation);
+	}
+
+	[ClientRpc]
+	void RpcUpdateCamera(Quaternion qCam,Quaternion qTrans){
+		_cameraPivot.transform.rotation = qCam;
+		transform.rotation = qTrans;
 	}
 
 	[ClientRpc]
