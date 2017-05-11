@@ -11,11 +11,7 @@ public class PlayerOverHeat : NetworkBehaviour {
 	public const int HEAT_PER_SHOT = 10;
 
 	[SyncVar(hook = "OnHeatChange")]
-	public int currentHeat = 0;
-	[SyncVar(hook = "OnOverHeat")]
-	public bool overHeat = false;
-
-
+	public int currentHeat;
 
 	public RectTransform heatBar;
 	private float _maxBar;
@@ -26,6 +22,7 @@ public class PlayerOverHeat : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		_maxBar = heatBar.sizeDelta.x;
+		currentHeat = 0;
 	}
 	
 	// Update is called once per frame
@@ -38,6 +35,7 @@ public class PlayerOverHeat : NetworkBehaviour {
 			_timer = 1.0f;
 			if (currentHeat > 0) {
 				currentHeat -= (int) (0.25f * (float)MAX_HEAT / (HEAT_COOLDOWN - 0.25f));
+				RpcHeat (currentHeat);
 			}
 		}
 	}
@@ -46,24 +44,17 @@ public class PlayerOverHeat : NetworkBehaviour {
 	[Command]
 	public void CmdHeat() {
 		currentHeat += HEAT_PER_SHOT;
-		if (currentHeat >= MAX_HEAT) {
-			overHeat = true;
-		}
+		RpcHeat (currentHeat);
 	}
 
-	/*[ClientRpc]
-	void RpcHeat(){
-		overHeat = true;
-	}*/
+	[ClientRpc]
+	void RpcHeat(int heat) {
+		currentHeat = heat;
+	}
 
 	void OnHeatChange(int heat) {
 		if (heatBar == null)
 			return;
-		Vector3 rowX = new Vector3(_maxBar-(((float)heat/(float)MAX_HEAT)*_maxBar),0,0);
-		heatBar.transform.position -= rowX;
-	}
-
-	void OnOverHeat(bool isOverHeat) {
-		gameObject.GetComponent<PlayerInput> ().OverHeat (isOverHeat);
+		heatBar.sizeDelta = new Vector2(((float)heat/(float)MAX_HEAT)*_maxBar, heatBar.sizeDelta.y);
 	}
 }

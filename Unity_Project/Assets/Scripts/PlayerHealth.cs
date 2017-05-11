@@ -9,7 +9,7 @@ public class PlayerHealth : NetworkBehaviour {
 	public const int MAX_HEALTH = 100;
 
 	[SyncVar(hook = "OnChangeHealth")]
-	public int currentHealth = MAX_HEALTH;
+	public int currentHealth;
 
 	public RectTransform healthBar;
 	private float _barMax;
@@ -17,6 +17,7 @@ public class PlayerHealth : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		_barMax = healthBar.sizeDelta.x;
+		currentHealth = MAX_HEALTH;
 	}
 	
 	// Update is called once per frame
@@ -49,8 +50,7 @@ public class PlayerHealth : NetworkBehaviour {
 	void OnChangeHealth (int health) {
 		if (healthBar == null)
 			return;
-		Vector3 rowX = new Vector3(_barMax-(((float)health/(float)MAX_HEALTH)*_barMax),0,0);
-		healthBar.transform.position -= rowX;
+		healthBar.sizeDelta = new Vector2(((float)health/(float)MAX_HEALTH)*_barMax, healthBar.sizeDelta.y);
 	}
 
 	[ClientRpc]

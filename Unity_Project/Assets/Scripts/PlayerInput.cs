@@ -25,10 +25,7 @@ public class PlayerInput : NetworkBehaviour {
 	private float _heatTimer;
 
 	// Use this for initialization
-	void Start () {
-		if (!isLocalPlayer)
-			return;
-		
+	void Start () {		
 		_controller = _player.GetComponent<PlayerController> ();
 		_health = _player.GetComponent<PlayerHealth> ();
 		_swapper = _player.GetComponent<ToolSwap> ();
@@ -41,12 +38,12 @@ public class PlayerInput : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (isServer) {
-			// MDR
+			RpcOnOverheat ();
 		}
 
 		if(!isLocalPlayer)
 			return;
-
+		
 		if (HeatTimerFinished ()) {
 			_isOverheat = false;
 		}
@@ -63,9 +60,6 @@ public class PlayerInput : NetworkBehaviour {
 				_timeShot = timebetweenShot;
 				_shoot.CmdFire ();
 				_POH.CmdHeat();
-				if (_isOverheat) {
-					StartHeatTimer ();
-				}
 			}
 		}
 
@@ -139,22 +133,14 @@ public class PlayerInput : NetworkBehaviour {
 		_heatTimer = PlayerOverHeat.HEAT_COOLDOWN;
 	}
 
-	public void OverHeat(bool overHeat) {
-		if (!isLocalPlayer)
-			return;
-		_isOverheat = overHeat;
-	}
-
-	/*[Command]
-	public void CmdOnOverHeat(){
-		_overHeat = true;
-		RpcOnOverHeat ();
-	}
-
 	[ClientRpc]
-	public void RpcOnOverHeat() {
+	void RpcOnOverheat() {
 		if (!isLocalPlayer)
 			return;
-		_overHeat = true;
-	}*/
+		
+		if (gameObject.GetComponent<PlayerOverHeat> ().currentHeat >= PlayerOverHeat.MAX_HEAT) {
+			_isOverheat = true;
+			StartHeatTimer ();
+		}
+	}
 }
