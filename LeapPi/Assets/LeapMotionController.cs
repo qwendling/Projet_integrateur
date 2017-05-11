@@ -22,6 +22,8 @@ public class LeapMotionController : MonoBehaviour
 	int gauche=0 , prevgauche=0, gauche1=0, prevgauche1=0, gauche2=0, prevgauche2=0;
 	int prevtir=0;
 
+	int cam_horizon1= 0, cam_vertical1= 0, avancer1= 0, decaler1= 0, tirer1= 0, changerarme1=0;
+
 	//System related attributes
 	string identifier;
 	bool deviceLinked = false;
@@ -30,14 +32,18 @@ public class LeapMotionController : MonoBehaviour
 	//Network related attributes
 	NetworkClient netcln = new NetworkClient();
 
-	public void sendGameMessage(int mouvement)
+	public void sendGameMessage(int cam_horizon, int cam_vertical, int avancer, int decaler, int tirer, int changerarme)
 	{
 		if (netcln.connection != null) 
 		{
 			GameMessage msg = new GameMessage ();
 			msg.deviceId = this.identifier;
-			msg.mouvement = mouvement;
-			print ("code: " +mouvement);
+			msg.cam_horizon = cam_horizon;
+			msg.cam_vertical = cam_vertical;
+			msg.avancer = avancer;
+			msg.decaler = decaler;
+			msg.tirer = tirer;
+			msg.changer_arme = changerarme;
 			if(netcln.isConnected) 
 			{
 				netcln.Send(200, msg);
@@ -53,7 +59,6 @@ public class LeapMotionController : MonoBehaviour
 			sysmsg.deviceId = this.identifier;
 			sysmsg.clientConnection = netcln.connection.connectionId;
 			sysmsg.content = content;
-
 			if (netcln.isConnected) 
 			{
 				netcln.Send(100, sysmsg);
@@ -68,9 +73,11 @@ public class LeapMotionController : MonoBehaviour
 		{
 			this.deviceLinked = true;
 			this.clientIp = sysmsg.clientIpAddress;
+
+			sendSystemMessage (MessageTypes.ASK_FOR_CONNECTION);
+
 			netcln.Connect (this.clientIp, 7500);
 			print ("Your MCD was successfully atached to the client: " + sysmsg.deviceId + " located on: " + sysmsg.clientIpAddress + " .");
-			sendSystemMessage (MessageTypes.ACK_LINK_ESTABLISHED);
 		}
 	}
 
@@ -132,56 +139,54 @@ public class LeapMotionController : MonoBehaviour
 
 
 					if (yaw - marge > yaw_min && yaw < 0) {
-						gauche = 310;
+						gauche = 10;
 						//print ("left");
 					} else if (yaw + marge < yaw_max && yaw > 0) {
 						//print ("right");
-						gauche = 410;
+						gauche = 20;
 					} else
 						gauche = 0;
 					
 					if (pitch - marge_pitch > -3 && pitch < 0) {
-						gauche1 = 810;
+						gauche1 = 20;
 						//print ("down");
 					} else if (pitch + marge_pitch < 3 && pitch > 0) {
-						gauche1 = 710;
+						gauche1 = 10;
 						//print ("up");
 					} else
 						gauche1 = 0;
 
 					//avancer
 					if (hand.PinchStrength > 0.6) {
-						gauche2 = 110;
+						gauche2 = 10;
 					} else
 						gauche2 = 0;
 
 					if (gauche == 0 && prevgauche != 0) {
-						prevgauche = prevgauche + 1;
-						sendGameMessage (prevgauche);
+						cam_horizon1 = cam_horizon1 + 1;
 						prevgauche = 0;
 					}
 					else if (prevgauche != gauche) {
 						prevgauche = gauche;
-						sendGameMessage (gauche);
+						cam_horizon1 = gauche;
 					}
 
 					if (gauche1 == 0 && prevgauche1 != 0) {
-						prevgauche1 = prevgauche1 + 1;
-						sendGameMessage (prevgauche1);
+						prevgauche1 = prevgauche1 + 10;
+						cam_vertical1 = prevgauche1;
 						prevgauche1 = 0;
 					}
 					if (prevgauche1 != gauche1) {
 						prevgauche1 = gauche1;
-						sendGameMessage (gauche1);
+						cam_vertical1 = gauche1;
 					}
 
-					if (gauche2 != 110 && prevgauche2 == 110) {
+					if (gauche2 != 0 && prevgauche2 == 10) {
 						//print ("stoper");
-						sendGameMessage (111);
+						avancer1 = 11;
 						prevgauche = 0;
-					} else if (gauche2 == 110 && prevgauche == 0) {
-						print ("avancer");
-						sendGameMessage (110);
+					} else if (gauche2 == 10 && prevgauche == 0) {
+						avancer1 = 10;
 					}
 
 
@@ -191,11 +196,11 @@ public class LeapMotionController : MonoBehaviour
 				else if (hand.IsRight) {
 					//si on ferme le poing on tire
 					if (hand.PinchStrength > 0.6) {
-						sendGameMessage (120);
+						tirer1 = 10;
 						prevtir = 1;
 					} else if(prevtir == 1) {
 						prevtir = 0;
-						sendGameMessage (1);
+						tirer1 = 11;
 					}
 
 					// si on leve la main on enregistre
@@ -205,9 +210,12 @@ public class LeapMotionController : MonoBehaviour
 					if (pitch <= 0.2)
 						if (change_arme == 1) {
 							change_arme = 0;
-							sendGameMessage (999);
+							changerarme1 = 999;
 						}
 				}
+
+				sendGameMessage (cam_horizon1, cam_vertical1, avancer1, decaler1, tirer1, changerarme1);
+				changerarme1 = 0;
 			}
 		
 		}
