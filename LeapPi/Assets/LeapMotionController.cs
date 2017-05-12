@@ -72,10 +72,10 @@ public class LeapMotionController : MonoBehaviour
 		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
 		if (sysmsg.content == MessageTypes.LINK_ESTABLISHED && !this.deviceLinked) 
 		{
+			sendSystemMessage (MessageTypes.ASK_FOR_CONNECTION);
+
 			this.deviceLinked = true;
 			this.clientIp = sysmsg.clientIpAddress;
-
-			sendSystemMessage (MessageTypes.ASK_FOR_CONNECTION);
 
 			netcln.Connect (this.clientIp, 7500);
 			print ("Your MCD was successfully atached to the client: " + sysmsg.deviceId + " located on: " + sysmsg.clientIpAddress + " .");

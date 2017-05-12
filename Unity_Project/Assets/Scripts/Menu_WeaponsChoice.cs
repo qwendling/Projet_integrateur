@@ -13,7 +13,7 @@ public class Menu_WeaponsChoice : MonoBehaviour {
 	public int Weapon2_index = 0;
 	public int Weapon3_index = 0;
 
-	public static int numberOfAvaibleWeapons = 3;
+	public static int numberOfAvaibleWeapons = 6;
 	public GameObject[] _Weapons = new GameObject[numberOfAvaibleWeapons];
 
 	// Use this for initialization
