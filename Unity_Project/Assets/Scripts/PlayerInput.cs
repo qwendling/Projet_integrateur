@@ -30,7 +30,7 @@ public class PlayerInput : NetworkBehaviour {
 	public int tirer;
 	public int changer_arme;
   
-  public int armes=0;
+  public int armes=-1;
   public int frame=0;
   public int changer=1;
 
@@ -161,16 +161,19 @@ public class PlayerInput : NetworkBehaviour {
     
 		if(Input.GetKeyDown (KeyCode.Alpha1) || armes == 0 ){
 			_swapper.CmdSwap (0);
+			armes = 100;
       
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha2) || armes == 1 ){
 			_swapper.CmdSwap (1);
+			armes = 100;
       
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
 		if(Input.GetKeyDown (KeyCode.Alpha3) || armes == 2 ){
 			_swapper.CmdSwap (2);
+			armes = 200;
       
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
