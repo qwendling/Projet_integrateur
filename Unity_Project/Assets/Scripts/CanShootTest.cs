@@ -12,12 +12,14 @@ public class CanShootTest : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		//CmdTP(); //pour la téléportation, fonctionne presque
 	}
 
 	[Command]
 	public void CmdFire () {
 		WeaponTest W = gameObject.GetComponent<ToolSwapTest> ()._activeItem.GetComponent<WeaponTest> ();
+		PlayerHealthTest ph = gameObject.GetComponent<PlayerHealthTest> ();
+
 		if (W is ArmeTest) {
 			// Tir
 			ArmeTest A = (ArmeTest)W;
@@ -34,14 +36,76 @@ public class CanShootTest : NetworkBehaviour {
 		} else if (W is SortTest) {
 
 			SortTest S = (SortTest)W;
-			GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
-			//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
-			sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
-			NetworkServer.Spawn (sort);
-			Destroy (sort, 2.0f);
+
+			if(S.id == 3){ //Fire
+
+				ph.protectionIsOn = false;
+				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
+				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+				sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
+				NetworkServer.Spawn (sort);
+				Destroy (sort, 2.0f);
+			}
+			else if(S.id == 4){  //Protection
+
+				ph.protectionIsOn = true;
+				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
+				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+				NetworkServer.Spawn (sort);
+				Destroy (sort, 5.0f);
+
+			}
+			else if(S.id == 5){ //Push, ici pas encore mis le bon code car ne fonctionne pas bien pour l'instant
+
+				ph.protectionIsOn = false;
+				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
+				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+				sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
+				NetworkServer.Spawn (sort);
+				Destroy (sort, 2.0f);
+
+			}
+			else if(S.id == 6){ //Teleportation, fonctionne presque
+
+				ph.protectionIsOn = false;
+				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
+				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+				sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
+				NetworkServer.Spawn (sort);
+				Destroy (sort, 6.0f);
+			}
+
 
 
 		} else {
 		}
 	}
+
+
+
+
+
+
+//pour la téléportation, fonctionne presque
+	[Command]
+	public void CmdTP() {
+
+		WeaponTest W = gameObject.GetComponent<ToolSwapTest> ()._activeItem.GetComponent<WeaponTest> ();
+		if (W is SortTest) {
+
+			SortTest S = (SortTest)W;
+
+			if(S.id == 6){
+
+					if(Input.GetButton("Fire2")){
+
+						if (S != null)
+								transform.position = S.transform.position;
+					}
+			}
+
+		}
+	}
+
+
 }

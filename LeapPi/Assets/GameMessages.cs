@@ -8,7 +8,12 @@ namespace GameMessages
 	public class GameMessage : MessageBase
 	{
 		public string deviceId;
-		public int mouvement;
+		public int cam_horizon;
+		public int cam_vertical;
+		public int avancer;
+		public int decaler;
+		public int tirer;
+		public int changer_arme;
 	}
 
 	public class SystemMessage : MessageBase

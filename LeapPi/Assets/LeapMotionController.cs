@@ -13,14 +13,16 @@ public class LeapMotionController : MonoBehaviour
 	//Motion capture device related attributes
 	LeapProvider provider;
 
-	double marge= 0.4;
-	double marge_pitch= 0.2;
+	double marge= 0.5;
+	double marge_pitch= 0.3;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
 	int i=0;
-	int gauche=0 , prevgauche=0, gauche1=0, prevgauche1=0, gauche2=0, prevgauche2=0;
+	int gauche=0 ,gauche1=0, gauche2=0;
 	int prevtir=0;
+	int start=0;
+	int cam_horizon1= 0, cam_vertical1= 0, avancer1= 0, decaler1= 0, tirer1= 0, changerarme1=0;
 
 	//System related attributes
 	string identifier;
@@ -30,14 +32,18 @@ public class LeapMotionController : MonoBehaviour
 	//Network related attributes
 	NetworkClient netcln = new NetworkClient();
 
-	public void sendGameMessage(int mouvement)
+	public void sendGameMessage(int cam_horizon, int cam_vertical, int avancer, int decaler, int tirer, int changerarme)
 	{
 		if (netcln.connection != null) 
 		{
 			GameMessage msg = new GameMessage ();
 			msg.deviceId = this.identifier;
-			msg.mouvement = mouvement;
-			print ("code: " +mouvement);
+			msg.cam_horizon = cam_horizon;
+			msg.cam_vertical = cam_vertical;
+			msg.avancer = avancer;
+			msg.decaler = decaler;
+			msg.tirer = tirer;
+			msg.changer_arme = changerarme;
 			if(netcln.isConnected) 
 			{
 				netcln.Send(200, msg);
@@ -53,7 +59,6 @@ public class LeapMotionController : MonoBehaviour
 			sysmsg.deviceId = this.identifier;
 			sysmsg.clientConnection = netcln.connection.connectionId;
 			sysmsg.content = content;
-
 			if (netcln.isConnected) 
 			{
 				netcln.Send(100, sysmsg);
@@ -66,13 +71,16 @@ public class LeapMotionController : MonoBehaviour
 		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
 		if (sysmsg.content == MessageTypes.LINK_ESTABLISHED && !this.deviceLinked) 
 		{
+			sendSystemMessage(MessageTypes.ACK_LINK_ESTABLISHED);
+
 			this.deviceLinked = true;
 			this.clientIp = sysmsg.clientIpAddress;
+
 			netcln.Connect (this.clientIp, 7500);
 			print ("Your MCD was successfully atached to the client: " + sysmsg.deviceId + " located on: " + sysmsg.clientIpAddress + " .");
-			sendSystemMessage (MessageTypes.ACK_LINK_ESTABLISHED);
 		}
 	}
+
 
 	void Start ()
 	{
@@ -93,6 +101,7 @@ public class LeapMotionController : MonoBehaviour
 
 		//2.2 Register message handler(s)
 		netcln.RegisterHandler(100, onSystemMessage);
+	
 
 		//3. Motion capture device link
 		provider = FindObjectOfType<LeapProvider>() as LeapProvider;
@@ -104,7 +113,7 @@ public class LeapMotionController : MonoBehaviour
 		i = i + 1;
 		if (!deviceLinked) 
 		{
-			if (i == 20) {
+			if (i == 10) {
 				i = 0;
 				//Connection phase
 				sendSystemMessage(MessageTypes.ASK_FOR_CONNECTION);
@@ -117,6 +126,7 @@ public class LeapMotionController : MonoBehaviour
 				float pitch = hand.Direction.Pitch;
 				float yaw = hand.Direction.Yaw;
 				float roll = hand.PalmNormal.Roll;
+				//print ("roll : " + roll);
 
 				if (hand.IsLeft) {
 					//enregistrement des min et max
@@ -132,82 +142,83 @@ public class LeapMotionController : MonoBehaviour
 
 
 					if (yaw - marge > yaw_min && yaw < 0) {
-						gauche = 310;
+						gauche = 10;
 						//print ("left");
 					} else if (yaw + marge < yaw_max && yaw > 0) {
 						//print ("right");
-						gauche = 410;
+						gauche = 20;
 					} else
 						gauche = 0;
 					
 					if (pitch - marge_pitch > -3 && pitch < 0) {
-						gauche1 = 810;
+						gauche1 = 20;
 						//print ("down");
 					} else if (pitch + marge_pitch < 3 && pitch > 0) {
-						gauche1 = 710;
+						gauche1 = 10;
 						//print ("up");
 					} else
 						gauche1 = 0;
 
 					//avancer
 					if (hand.PinchStrength > 0.6) {
-						gauche2 = 110;
+						gauche2 = 10;
 					} else
 						gauche2 = 0;
 
-					if (gauche == 0 && prevgauche != 0) {
-						prevgauche = prevgauche + 1;
-						sendGameMessage (prevgauche);
-						prevgauche = 0;
-					}
-					else if (prevgauche != gauche) {
-						prevgauche = gauche;
-						sendGameMessage (gauche);
-					}
+					if (gauche == 0 && (cam_horizon1 == 10 || cam_horizon1 == 20)) {
+						cam_horizon1 = cam_horizon1 + 1;
+					} else if (gauche != 0) {
+						cam_horizon1 = gauche;
+					} else
+						cam_horizon1 = 0;
 
-					if (gauche1 == 0 && prevgauche1 != 0) {
-						prevgauche1 = prevgauche1 + 1;
-						sendGameMessage (prevgauche1);
-						prevgauche1 = 0;
-					}
-					if (prevgauche1 != gauche1) {
-						prevgauche1 = gauche1;
-						sendGameMessage (gauche1);
-					}
+					if (gauche1 == 0 && (cam_vertical1 == 10 || cam_vertical1 == 20)) {
+						cam_vertical1 = cam_vertical1 + 1;
+					} else if (gauche1 != 0) {
+						cam_vertical1 = gauche1;
+					} else
+						cam_vertical1 = 0;
 
-					if (gauche2 != 110 && prevgauche2 == 110) {
+					if (gauche2 == 0 && avancer1 == 10) {
 						//print ("stoper");
-						sendGameMessage (111);
-						prevgauche = 0;
-					} else if (gauche2 == 110 && prevgauche == 0) {
-						print ("avancer");
-						sendGameMessage (110);
-					}
-
+						avancer1 = 11;
+					} else if (gauche2 == 10) {
+						avancer1 = 10;
+					} else
+						avancer1 = 0;
 
 				} 
 
 				// main droite
 				else if (hand.IsRight) {
 					//si on ferme le poing on tire
-					if (hand.PinchStrength > 0.6) {
-						sendGameMessage (120);
+					if (hand.PinchStrength > 0.6 && tirer1  != 10) {
+						tirer1 = 10;
 						prevtir = 1;
-					} else if(prevtir == 1) {
+					} else if (hand.PinchStrength < 0.6 && tirer1 == 10) {
 						prevtir = 0;
-						sendGameMessage (1);
-					}
+						tirer1 = 11;
+					} else
+						tirer1 = 0;
 
+
+					//print (pitch);
 					// si on leve la main on enregistre
 					if (pitch < 1.9 && pitch > 0)
 						change_arme = 1;
 					//si on a lever la main et on la baisse on change d'arme
-					if (pitch <= 0.2)
+					if ((pitch > 2.5 && pitch > 0) || pitch < 0) {
 						if (change_arme == 1) {
 							change_arme = 0;
-							sendGameMessage (999);
+							changerarme1 = 10;
 						}
+						else
+							changerarme1 = 0;
+					}
+						
 				}
+
+				sendGameMessage (cam_horizon1, cam_vertical1, avancer1, decaler1, tirer1, changerarme1);
 			}
 		
 		}
