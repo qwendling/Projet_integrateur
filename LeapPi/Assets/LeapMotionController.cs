@@ -44,6 +44,7 @@ public class LeapMotionController : MonoBehaviour
 			msg.decaler = decaler;
 			msg.tirer = tirer;
 			msg.changer_arme = changerarme;
+			print ("message: " + avancer);
 			if(netcln.isConnected) 
 			{
 				netcln.Send(200, msg);
