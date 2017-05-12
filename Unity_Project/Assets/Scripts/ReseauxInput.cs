@@ -7,6 +7,8 @@ using System.Net.Sockets;
 using System.Net;
 using UnityEngine.UI;
 using System;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ReseauxInput : MonoBehaviour {
 	public Dropdown panel;
@@ -19,7 +21,8 @@ public class ReseauxInput : MonoBehaviour {
 		int index = listeClients.value;
 		SystemMessage mes = listeLeap[index-1] as SystemMessage;
 		sendSystemMessage(mes.deviceId, mes.clientConnection, localIp(), MessageTypes.LINK_ESTABLISHED);
-		print ("Connection etablished");
+		print ("Connection established");
+   
 	}
 
 	// Use this for initialization
@@ -68,6 +71,12 @@ public class ReseauxInput : MonoBehaviour {
 			}
 
 		}
+    else if (sysmsg.content == MessageTypes.ACK_LINK_ESTABLISHED)
+    { 
+      print("Changement de scene");
+      SceneManager.LoadScene ("Test_multi");		
+      Cursor.visible = false;
+    }
 	}
 
 	public string localIp()

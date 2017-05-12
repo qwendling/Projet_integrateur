@@ -21,7 +21,18 @@ public class PlayerInput : NetworkBehaviour {
 	private double _timeShot;
 
 
-	public int commande=0;
+  
+  // Mouvements leap motion
+	public int cam_horizon;
+	public int cam_vertical;
+	public int avancer;
+	public int decaler;
+	public int tirer;
+	public int changer_arme;
+  
+  public int armes=0;
+  public int frame=0;
+  public int changer=1;
 
 	private float _heatTimer;
 
@@ -33,6 +44,7 @@ public class PlayerInput : NetworkBehaviour {
 		_shoot = _player.GetComponent<CanShoot> ();
 		_POH = gameObject.GetComponent<PlayerOverHeat> ();
 
+    //NetworkServer.Listen(7500);
 		NetworkServer.RegisterHandler (200, onGameMessage);
 		print ("Server is listening on : " + NetworkServer.listenPort);
 
@@ -42,9 +54,18 @@ public class PlayerInput : NetworkBehaviour {
 	public void onGameMessage(NetworkMessage net)
 	{
 		DataMessage msg = net.ReadMessage<DataMessage> ();
-		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + ", CODE MOUVEMENT: " + msg.mouvement + " ]");
+    if ( msg.changer_arme == 10 )
+		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + "avancer: "+msg.avancer + "cam_horizon : " + msg.cam_horizon + "cam_vertical: "+msg.cam_vertical + "tirer: "+msg.tirer + "changer_arme: "+msg.changer_arme + "decaler: "+msg.decaler);
+    
 
-		commande = msg.mouvement;
+
+
+	 cam_horizon=msg.cam_horizon;
+	 cam_vertical=msg.cam_vertical;
+	 avancer=msg.avancer;
+	 decaler=msg.decaler;
+	 tirer=msg.tirer;
+	 changer_arme=msg.changer_arme;
 
 	}
 
@@ -64,12 +85,13 @@ public class PlayerInput : NetworkBehaviour {
 
 		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 		_timeShot -= 1.0 * Time.deltaTime;
-		print("Commande dans playerinput = " + commande);
+		
+    
 
 
 		// SHOOT COMMAND
 
-		if (Input.GetButton("Fire1") || (commande == 120))
+		if (Input.GetButton("Fire1") || (tirer == 10))
 		{
 			// Si le delais de la cadence est passe
 			if (!_isOverheat && _timeShot <= 0.0) {
@@ -83,23 +105,23 @@ public class PlayerInput : NetworkBehaviour {
 
 		_controller.CmdUpdateCameraXY (Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
-		if ( (commande == 710 ) )// up
-				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.40);
+		if ( (cam_vertical == 10 ) )// up
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.60);
 
-		if ( (commande == 810 ) ) // down
-				_controller.CmdUpdateCameraXY ((float)0.0, (float)-0.40);
+		if ( (cam_vertical == 20 ) ) // down
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)-0.60);
 
-		if ( (commande == 310 ) )// gauche
-				_controller.CmdUpdateCameraXY ((float)-0.40, (float)0.00);
+		if ( (cam_horizon == 10 ) )// gauche
+				_controller.CmdUpdateCameraXY ((float)-0.60, (float)0.00);
 
-		if ( (commande == 410 ) ) // droite
-				_controller.CmdUpdateCameraXY ((float)0.40, (float)0.00);
+		if ( (cam_horizon == 20 ) ) // droite
+				_controller.CmdUpdateCameraXY ((float)0.60, (float)0.00);
    
 		// MOVEMENT CONTROL
 
 		int forward, right;
 
-		if (Input.GetKey (KeyCode.Z) || (commande == 110 ) ) {
+		if (Input.GetKey (KeyCode.Z) || (avancer == 10 ) ) {
 			forward = 1;
 		} else if (Input.GetKey (KeyCode.S)) {
 			forward = -1;
@@ -109,9 +131,9 @@ public class PlayerInput : NetworkBehaviour {
 
 		_controller.CmdUpdateForwardSpeed (forward);
 
-		if (Input.GetKey (KeyCode.D) || (commande == 610 )) {
+		if (Input.GetKey (KeyCode.D) || (decaler == 10 )) {
 			right = 1;
-		} else if (Input.GetKey (KeyCode.Q) || (commande == 510 ) ) {
+		} else if (Input.GetKey (KeyCode.Q) || (decaler == 20 ) ) {
 			right = -1;
 		} else {
 			right = 0;
@@ -123,17 +145,33 @@ public class PlayerInput : NetworkBehaviour {
 
 		// For some reason, sending message "swap" with 0 as argument won't work,
 		// because 0 is interpreted as null (╯°□°）╯︵ ┻━┻
-		// int i = 0;
-		if(Input.GetKeyDown (KeyCode.Alpha1)){
+
+    frame=(frame+1)%5;
+    if ( frame == 0 )
+    {
+      changer = 1;
+    }
+    
+      
+    if ( changer_arme == 10 && changer == 1 )
+    {
+      armes=(armes+1)%3;
+      changer = 0;
+    }
+    
+		if(Input.GetKeyDown (KeyCode.Alpha1) || armes == 0 ){
 			_swapper.CmdSwap (0);
+      
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
-		if(Input.GetKeyDown (KeyCode.Alpha2) || (commande == 999 ) ){
+		if(Input.GetKeyDown (KeyCode.Alpha2) || armes == 1 ){
 			_swapper.CmdSwap (1);
+      
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
-		if(Input.GetKeyDown (KeyCode.Alpha3)){
+		if(Input.GetKeyDown (KeyCode.Alpha3) || armes == 2 ){
 			_swapper.CmdSwap (2);
+      
 			timebetweenShot = _swapper._activeItem.GetComponent<Weapon>().cadence;
 		}
 	}
