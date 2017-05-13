@@ -97,7 +97,7 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().cadence = 1;
 		temp3.GetComponent<SortTest> ().degat = 15;
 		temp3.GetComponent<SortTest> ().range = 10;
-		temp3.GetComponent<SortTest> ().vitesse = 5;
+		temp3.GetComponent<SortTest> ().vitesse = 0.5f;
 		temp3.GetComponent<SortTest> ().surchauffe = 10;
 
 		SortTest.sorts.Add (temp3);
@@ -110,25 +110,25 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().id = 4;
 		temp3.GetComponent<SortTest> ().nom = "Protection";
 		temp3.GetComponent<SortTest> ().cadence = 1;
-		temp3.GetComponent<SortTest> ().degat = 15;
-		temp3.GetComponent<SortTest> ().range = 10;
-		temp3.GetComponent<SortTest> ().vitesse = 5;
-		temp3.GetComponent<SortTest> ().surchauffe = 10;
+		temp3.GetComponent<SortTest> ().degat = 0;
+		temp3.GetComponent<SortTest> ().range = 0;
+		temp3.GetComponent<SortTest> ().vitesse = 1;
+		temp3.GetComponent<SortTest> ().surchauffe = 0;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
 		GameObject.Destroy (tempSort);
 
 
-		//Push joueur
+		//Mine
 		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
 		temp3.GetComponent<SortTest> ().id = 5;
-		temp3.GetComponent<SortTest> ().nom = "Push";
-		temp3.GetComponent<SortTest> ().cadence = 1;
-		temp3.GetComponent<SortTest> ().degat = 15;
-		temp3.GetComponent<SortTest> ().range = 10;
-		temp3.GetComponent<SortTest> ().vitesse = 5;
-		temp3.GetComponent<SortTest> ().surchauffe = 10;
+		temp3.GetComponent<SortTest> ().nom = "Mine";
+		temp3.GetComponent<SortTest> ().cadence = 20;
+		temp3.GetComponent<SortTest> ().degat = 5;
+		temp3.GetComponent<SortTest> ().range = 0;
+		temp3.GetComponent<SortTest> ().vitesse = 1;
+		temp3.GetComponent<SortTest> ().surchauffe = 0;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
@@ -140,10 +140,10 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().id = 6;
 		temp3.GetComponent<SortTest> ().nom = "Teleportation";
 		temp3.GetComponent<SortTest> ().cadence = 1;
-		temp3.GetComponent<SortTest> ().degat = 15;
+		temp3.GetComponent<SortTest> ().degat = 0;
 		temp3.GetComponent<SortTest> ().range = 10;
-		temp3.GetComponent<SortTest> ().vitesse = 5;
-		temp3.GetComponent<SortTest> ().surchauffe = 10;
+		temp3.GetComponent<SortTest> ().vitesse = 1;
+		temp3.GetComponent<SortTest> ().surchauffe = 0;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
