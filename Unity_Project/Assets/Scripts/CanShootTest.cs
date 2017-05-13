@@ -23,6 +23,8 @@ public class CanShootTest : NetworkBehaviour {
 		if (W is ArmeTest) {
 			// Tir
 			ArmeTest A = (ArmeTest)W;
+			
+			ph.protectionIsOn = false;
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<BulletTest> ().monJoueur = this.transform.gameObject;
 			bullet.GetComponent<BulletTest> ().DAMAGE = 10;

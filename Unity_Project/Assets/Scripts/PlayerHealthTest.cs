@@ -33,7 +33,7 @@ public class PlayerHealthTest : NetworkBehaviour {
 			return;
 
 		// si bouclier actif, dégat réduit de moitié
-		if(protectionIsOn = true)
+		if(protectionIsOn == true)
 			amount = amount/2;
 
 		currentHealth -= amount;
