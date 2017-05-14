@@ -9,7 +9,7 @@ public class PlayerAnimation : NetworkBehaviour
     public float _runSpeed = 0.5f;
     public float _strafeSpeed = 0.5f;
 
-    static Animator anim;
+    public Animator anim;
     // public float speed = 2.0f;
     // public float rotationSpeed = 75.0f;
 
@@ -30,16 +30,16 @@ public class PlayerAnimation : NetworkBehaviour
         float verticalInput = Input.GetAxis("Vertical");
 
         // Advance...       in nose direction  by run speed * frame duration * input (-1/0/1)
-        transform.position += transform.forward * _runSpeed * Time.deltaTime * verticalInput
-                           + transform.right * _strafeSpeed * Time.deltaTime * horizontalInput;
+        /*transform.position += transform.forward * _runSpeed * Time.deltaTime * verticalInput
+                           + transform.right * _strafeSpeed * Time.deltaTime * horizontalInput;*/
 
         float translation = _runSpeed * verticalInput * Time.deltaTime;
         float rotation = _runSpeed * horizontalInput * Time.deltaTime;
         
-        transform.Translate(0,0, translation);
-        transform.Rotate(0,rotation,0);
+        /*transform.Translate(0,0, translation);
+        transform.Rotate(0,rotation,0);*/
 
-        if(translation != 0)
+        /*if(translation != 0)
         {
          anim.SetBool("walk", true);
          // anim.SetBool("ballattack", false);
@@ -48,7 +48,7 @@ public class PlayerAnimation : NetworkBehaviour
         {
          anim.SetBool("walk", false);
          anim.SetBool("weapon", false);
-        }
+        }*/
 
         // if(Input.GetKeyDown("z"))
         // {

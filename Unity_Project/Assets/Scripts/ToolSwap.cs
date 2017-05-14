@@ -34,6 +34,21 @@ public class ToolSwap : NetworkBehaviour {
 			}
 		}
 		_activeItem = _inventory[CurrentItem];
+		Animator anim = gameObject.GetComponent<PlayerInput> ().anim;
+		AnimArme a = _activeItem.GetComponent<Weapon> ().Anim;
+		if (a == AnimArme.ak) {
+			anim.SetBool("ak", true);
+			anim.SetBool("weapon", false);
+			anim.SetBool("ball", false);
+		} else if (a == AnimArme.ball) {
+			anim.SetBool("ball", true);
+			anim.SetBool("weapon", false);
+			anim.SetBool("ak", false);
+		} else if (a == AnimArme.weapon) {
+			anim.SetBool("weapon", true);
+			anim.SetBool("ak", false);
+			anim.SetBool("ball", false);
+		}
 	}
 	
 	// Update is called once per frame
@@ -67,5 +82,20 @@ public class ToolSwap : NetworkBehaviour {
 		CurrentItem = i;
 		_inventory[CurrentItem].SetActive(true);
 		_activeItem = _inventory[CurrentItem];
+		Animator anim = gameObject.GetComponent<PlayerInput> ().anim;
+		AnimArme a = _activeItem.GetComponent<Weapon> ().Anim;
+		if (a == AnimArme.ak) {
+			anim.SetBool("ak", true);
+			anim.SetBool("weapon", false);
+			anim.SetBool("ball", false);
+		} else if (a == AnimArme.ball) {
+			anim.SetBool("ball", true);
+			anim.SetBool("weapon", false);
+			anim.SetBool("ak", false);
+		} else if (a == AnimArme.weapon) {
+			anim.SetBool("weapon", true);
+			anim.SetBool("ak", false);
+			anim.SetBool("ball", false);
+		}
 	}
 }

@@ -14,6 +14,7 @@ public class PlayerInput : NetworkBehaviour {
 	private ToolSwap _swapper;
 	private CanShoot _shoot;
 	private PlayerOverHeat _POH;
+	public Animator anim;
 
 	private bool _isOverheat = false;
 
@@ -123,10 +124,13 @@ public class PlayerInput : NetworkBehaviour {
 
 		if (Input.GetKey (KeyCode.Z) || (avancer == 10 ) ) {
 			forward = 1;
+			anim.SetBool ("walk", true);
 		} else if (Input.GetKey (KeyCode.S)) {
 			forward = -1;
+			anim.SetBool ("walk", true);
 		} else {
 			forward = 0;
+			anim.SetBool("walk", false);
 		}
 
 		_controller.CmdUpdateForwardSpeed (forward);
