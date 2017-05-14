@@ -106,7 +106,7 @@ public class CanShootTest : NetworkBehaviour {
 
 	IEnumerator CmdMine(Vector3 pos) {
 
-				yield return new  WaitForSeconds(5.0f);
+				yield return new  WaitForSeconds(30.0f);
 				GameObject nO = Resources.Load("ExplosionOrange") as GameObject;
 				GameObject explosion = Instantiate(nO) as GameObject;
 				explosion.transform.position = pos;
