@@ -13,8 +13,8 @@ public class LeapMotionController : MonoBehaviour
 	//Motion capture device related attributes
 	LeapProvider provider;
 
-	double marge= 0.5;
-	double marge_pitch= 0.3;
+	double marge= 0.3;
+	double marge_pitch= 0.6;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
@@ -22,11 +22,13 @@ public class LeapMotionController : MonoBehaviour
 	int gauche=0 ,gauche1=0, gauche2=0;
 	int prevtir=0;
 	int start=0;
+	int hand_counter= 0;
 	int cam_horizon1= 0, cam_vertical1= 0, avancer1= 0, decaler1= 0, tirer1= 0, changerarme1=0;
 
 	//System related attributes
 	string identifier;
 	bool deviceLinked = false;
+	bool ack= false;
 	string clientIp;
 
 	//Network related attributes
@@ -71,8 +73,6 @@ public class LeapMotionController : MonoBehaviour
 		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
 		if (sysmsg.content == MessageTypes.LINK_ESTABLISHED && !this.deviceLinked) 
 		{
-			sendSystemMessage(MessageTypes.ACK_LINK_ESTABLISHED);
-
 			this.deviceLinked = true;
 			this.clientIp = sysmsg.clientIpAddress;
 
@@ -121,8 +121,15 @@ public class LeapMotionController : MonoBehaviour
 		} 
 		else
 		{
+			if (!ack && netcln.isConnected) {
+				sendSystemMessage (MessageTypes.ACK_LINK_ESTABLISHED);
+				ack = true;
+			}
+
 			Frame frame = provider.CurrentFrame;
+			hand_counter = 0;
 			foreach (Hand hand in frame.Hands) {
+				hand_counter++;
 				float pitch = hand.Direction.Pitch;
 				float yaw = hand.Direction.Yaw;
 				float roll = hand.PalmNormal.Roll;
@@ -150,7 +157,7 @@ public class LeapMotionController : MonoBehaviour
 					} else
 						gauche = 0;
 					
-					if (pitch - marge_pitch > -3 && pitch < 0) {
+					if (pitch - marge_pitch + 0.1 > -3 && pitch < 0) {
 						gauche1 = 20;
 						//print ("down");
 					} else if (pitch + marge_pitch < 3 && pitch > 0) {
@@ -220,7 +227,8 @@ public class LeapMotionController : MonoBehaviour
 
 				sendGameMessage (cam_horizon1, cam_vertical1, avancer1, decaler1, tirer1, changerarme1);
 			}
-		
+			if (hand_counter == 0)
+				sendGameMessage (0, 0, 0, 0, 0, 0);
 		}
 	}
 }
