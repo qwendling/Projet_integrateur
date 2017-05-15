@@ -4,12 +4,15 @@ using UnityEngine;
 
 public enum AnimArme{ak,weapon,ball}
 public class Weapon : MonoBehaviour {
-    public int degat;
+    
+	public int id;
+	public int degat;
 	public float cadence;
     public string nom;
     public GameObject FireSpot;
     public float vitesse = 1;
 	public AnimArme Anim;
+	public int surchauffe;
 
 	/*public float timeBetweenTicks = 2;
 	public float _timer = 2;*/

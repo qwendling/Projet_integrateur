@@ -25,7 +25,7 @@ public class Fire : NetworkBehaviour {
 			return;
 
 		if (hit.tag == "Player" && monJoueur != hit.gameObject) {
-			hit.gameObject.GetComponent<PlayerHealthTest> ().TakeDamage (DAMAGE, monJoueur.GetComponent<SkinChoice>()._PlayerName);
+			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE, monJoueur.GetComponent<SkinChoice>()._PlayerName);
 			RpcDestroyBullet ();
 		}
 		if (hit.tag == "Wall") {
