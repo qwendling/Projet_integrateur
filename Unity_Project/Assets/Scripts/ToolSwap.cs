@@ -25,7 +25,7 @@ public class ToolSwap : NetworkBehaviour {
 		/*while (_PlayerMenuChoices == null) {
 			_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
 		}*/
-
+		/*
 		for (int i = 1; i < INVENTORY_SIZE; i++) {
 			if(i == CurrentItem) {
 				_inventory[i].SetActive(true);
@@ -33,7 +33,7 @@ public class ToolSwap : NetworkBehaviour {
 				_inventory[i].SetActive(false);
 			}
 		}
-		_activeItem = _inventory[CurrentItem];
+		_activeItem = _inventory[CurrentItem];*/
 		Animator anim = gameObject.GetComponent<PlayerInput> ().anim;
 		AnimArme a = _activeItem.GetComponent<Weapon> ().Anim;
 		if (a == AnimArme.ak) {
@@ -55,12 +55,19 @@ public class ToolSwap : NetworkBehaviour {
 	void Update () {
 		if (_inventory [0] == null) {
 			_inventory [0] = GameObject.Find ("Weapon1");
+			_inventory[0].SetActive(false);
 		}
 		if (_inventory [1] == null) {
 			_inventory [1] = GameObject.Find ("Weapon2");
+			_inventory[1].SetActive(false);
 		}
 		if (_inventory [2] == null) {
 			_inventory [2] = GameObject.Find ("Weapon3");
+			_inventory[2].SetActive(false);
+		}
+		if (_activeItem == null) {
+			_activeItem = _inventory [_currentItem];
+			_inventory[_currentItem].SetActive(true);
 		}
 	}
 	

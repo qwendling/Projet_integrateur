@@ -11,11 +11,17 @@ public class PlayerHealth : NetworkBehaviour {
 	[SyncVar(hook = "OnChangeHealth")]
 	public int currentHealth;
 
+	public GameObject _Coord;
+
 	public RectTransform healthBar;
 	private float _barMax;
 
+	public bool protectionIsOn = false; //bouclier désactivé par défaut
+
+
 	// Use this for initialization
 	void Start () {
+		_Coord = GameObject.Find ("Coordinator");
 		_barMax = healthBar.sizeDelta.x;
 		currentHealth = MAX_HEALTH;
 	}
@@ -26,14 +32,20 @@ public class PlayerHealth : NetworkBehaviour {
 	}
 
 
-	public void TakeDamage(int amount) {
+	public void TakeDamage(int amount, string opponentName) {
 		if (!isServer)
 			return;
 
+		// si bouclier actif, dégat réduit de moitié
+		if(protectionIsOn == true)
+			amount = amount/2;
+
 		currentHealth -= amount;
 		if (currentHealth <= 0) {
+			if (opponentName != null) {
+				_Coord.GetComponent<Server_PlayerList> ().MamaJustKilledAMan (opponentName);
+			}
 			currentHealth = MAX_HEALTH;
-			transform.position = Vector3.zero;
 			RpcRespawn ();
 		}
 	}
@@ -57,7 +69,7 @@ public class PlayerHealth : NetworkBehaviour {
 	[ClientRpc]
 	void RpcRespawn() {
 		if (isLocalPlayer) {
-			transform.position = Vector3.zero;
+			this.GetComponent<PlayerSpawn>().RandomSpawn();
 		}
 	}
 }
