@@ -74,7 +74,7 @@ public class ReseauxInput : MonoBehaviour {
     else if (sysmsg.content == MessageTypes.ACK_LINK_ESTABLISHED)
     { 
       print("Changement de scene");
-      SceneManager.LoadScene ("Test_multi");		
+      SceneManager.LoadScene ("ConnectionMenu");		
       Cursor.visible = false;
     }
 	}
