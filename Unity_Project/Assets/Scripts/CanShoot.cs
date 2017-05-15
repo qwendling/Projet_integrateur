@@ -7,12 +7,12 @@ public class CanShoot : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-       
+
 	}
 
 	[Command]
@@ -37,7 +37,7 @@ public class CanShoot : NetworkBehaviour {
 
 			Sort S = (Sort)W;
 
-			if(S.id == 3){ //Fire
+			if(S.id == 2){ //Fire
 
 				ph.protectionIsOn = false;
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
@@ -51,7 +51,7 @@ public class CanShoot : NetworkBehaviour {
 
 
 			}
-			else if(S.id == 4){  //Protection
+			else if(S.id == 3){  //Protection
 
 				ph.protectionIsOn = true;
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
@@ -60,7 +60,7 @@ public class CanShoot : NetworkBehaviour {
 				Destroy (sort, 0.5f);
 
 			}
-			else if(S.id == 5){ //Mine
+			else if(S.id == 4){ //Mine
 
 				ph.protectionIsOn = false;
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
@@ -72,12 +72,8 @@ public class CanShoot : NetworkBehaviour {
 				Vector3 pos = sort.transform.position;
 				Destroy (sort, 30.0f);
 				StartCoroutine(CmdMine(pos));
-
-
-
-
 			}
-			else if(S.id == 6){ //Teleportation
+			else if(S.id == 5){ //Teleportation
 
 				ph.protectionIsOn = false;
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;

@@ -92,7 +92,7 @@ public class DBConnect {
 
 		//Fire
 		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
-		temp3.GetComponent<SortTest> ().id = 3;
+		temp3.GetComponent<SortTest> ().id = 2;
 		temp3.GetComponent<SortTest> ().nom = "Fire";
 		temp3.GetComponent<SortTest> ().cadence = 1;
 		temp3.GetComponent<SortTest> ().degat = 15;
@@ -107,7 +107,7 @@ public class DBConnect {
 
 		//Bouclier de protection
 		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
-		temp3.GetComponent<SortTest> ().id = 4;
+		temp3.GetComponent<SortTest> ().id = 3;
 		temp3.GetComponent<SortTest> ().nom = "Protection";
 		temp3.GetComponent<SortTest> ().cadence = 1;
 		temp3.GetComponent<SortTest> ().degat = 0;
@@ -122,7 +122,7 @@ public class DBConnect {
 
 		//Mine
 		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
-		temp3.GetComponent<SortTest> ().id = 5;
+		temp3.GetComponent<SortTest> ().id = 4;
 		temp3.GetComponent<SortTest> ().nom = "Mine";
 		temp3.GetComponent<SortTest> ().cadence = 20;
 		temp3.GetComponent<SortTest> ().degat = 5;
@@ -137,7 +137,7 @@ public class DBConnect {
 
 		//Teleportation
 		temp3 = tempSort.gameObject.AddComponent<SortTest> ();
-		temp3.GetComponent<SortTest> ().id = 6;
+		temp3.GetComponent<SortTest> ().id = 5;
 		temp3.GetComponent<SortTest> ().nom = "Teleportation";
 		temp3.GetComponent<SortTest> ().cadence = 1;
 		temp3.GetComponent<SortTest> ().degat = 0;
