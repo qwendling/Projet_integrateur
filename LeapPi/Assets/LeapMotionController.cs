@@ -13,8 +13,8 @@ public class LeapMotionController : MonoBehaviour
 	//Motion capture device related attributes
 	LeapProvider provider;
 
-	double marge= 0.5;
-	double marge_pitch= 0.6;
+	double marge= 0.4;
+	double marge_pitch= 0.8;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
@@ -22,6 +22,7 @@ public class LeapMotionController : MonoBehaviour
 	int gauche=0 ,gauche1=0, gauche2=0;
 	int prevtir=0;
 	int start=0;
+	int hand_counter= 0;
 	int cam_horizon1= 0, cam_vertical1= 0, avancer1= 0, decaler1= 0, tirer1= 0, changerarme1=0;
 
 	//System related attributes
@@ -126,7 +127,9 @@ public class LeapMotionController : MonoBehaviour
 			}
 
 			Frame frame = provider.CurrentFrame;
+			hand_counter = 0;
 			foreach (Hand hand in frame.Hands) {
+				hand_counter++;
 				float pitch = hand.Direction.Pitch;
 				float yaw = hand.Direction.Yaw;
 				float roll = hand.PalmNormal.Roll;
@@ -224,7 +227,8 @@ public class LeapMotionController : MonoBehaviour
 
 				sendGameMessage (cam_horizon1, cam_vertical1, avancer1, decaler1, tirer1, changerarme1);
 			}
-		
+			if (hand_counter == 0)
+				sendGameMessage (0, 0, 0, 0, 0, 0);
 		}
 	}
 }
