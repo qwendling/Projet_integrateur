@@ -33,18 +33,18 @@ public class DBConnect {
 				Debug.Log (arme [j].ToString());
 			}
 
-			ArmeTest temp;
+			Arme temp;
 			GameObject tempArme = new GameObject ();
-			temp = tempArme.gameObject.AddComponent<ArmeTest> ();
-			temp.GetComponent<ArmeTest> ().id = string.IsNullOrEmpty(arme[0]) ? 0 : int.Parse(arme[0])-1;
-			temp.GetComponent<ArmeTest> ().nom = arme [1];
-			temp.GetComponent<ArmeTest> ().cadence = string.IsNullOrEmpty(arme[2]) ? 0 : float.Parse(arme[2]);
-			temp.GetComponent<ArmeTest> ().degat = string.IsNullOrEmpty(arme[3]) ? 0 : int.Parse(arme[3]);
-			temp.GetComponent<ArmeTest> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
-			temp.GetComponent<ArmeTest> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
-			temp.GetComponent<ArmeTest> ().surchauffe = string.IsNullOrEmpty(arme[6]) ? 0 : int.Parse(arme[6]);
+			temp = tempArme.gameObject.AddComponent<Arme> ();
+			temp.GetComponent<Arme> ().id = string.IsNullOrEmpty(arme[0]) ? 0 : int.Parse(arme[0])-1;
+			temp.GetComponent<Arme> ().nom = arme [1];
+			temp.GetComponent<Arme> ().cadence = string.IsNullOrEmpty(arme[2]) ? 0 : float.Parse(arme[2]);
+			temp.GetComponent<Arme> ().degat = string.IsNullOrEmpty(arme[3]) ? 0 : int.Parse(arme[3]);
+			temp.GetComponent<Arme> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
+			temp.GetComponent<Arme> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
+			temp.GetComponent<Arme> ().surchauffe = string.IsNullOrEmpty(arme[6]) ? 0 : int.Parse(arme[6]);
 
-			ArmeTest.armes.Add (temp);
+			Arme.armes.Add (temp);
 
 			GameObject.Destroy (temp);
 			GameObject.Destroy (tempArme);
@@ -52,34 +52,34 @@ public class DBConnect {
 		*/
 
 		// WHEN THE SERV IS DOWN
-		ArmeTest temp2;
+		Arme temp2;
 		GameObject tempArme2 = new GameObject ();
-		temp2 = tempArme2.gameObject.AddComponent<ArmeTest> ();
-		temp2.GetComponent<ArmeTest> ().id = 0;
-		temp2.GetComponent<ArmeTest> ().nom = "Gun";
-		temp2.GetComponent<ArmeTest> ().cadence = 1;
-		temp2.GetComponent<ArmeTest> ().degat = 15;
-		temp2.GetComponent<ArmeTest> ().range = 50;
-		temp2.GetComponent<ArmeTest> ().vitesse = 5;
-		temp2.GetComponent<ArmeTest> ().surchauffe = 10;
+		temp2 = tempArme2.gameObject.AddComponent<Arme> ();
+		temp2.GetComponent<Arme> ().id = 0;
+		temp2.GetComponent<Arme> ().nom = "Gun";
+		temp2.GetComponent<Arme> ().cadence = 1;
+		temp2.GetComponent<Arme> ().degat = 15;
+		temp2.GetComponent<Arme> ().range = 50;
+		temp2.GetComponent<Arme> ().vitesse = 5;
+		temp2.GetComponent<Arme> ().surchauffe = 10;
 
-		ArmeTest.armes.Add (temp2);
+		Arme.armes.Add (temp2);
 
 		GameObject.Destroy (temp2);
 		GameObject.Destroy (tempArme2);
 
 		temp2 = null;
 		tempArme2 = new GameObject ();
-		temp2 = tempArme2.gameObject.AddComponent<ArmeTest> ();
-		temp2.GetComponent<ArmeTest> ().id = 1;
-		temp2.GetComponent<ArmeTest> ().nom = "AK";
-		temp2.GetComponent<ArmeTest> ().cadence = 6;
-		temp2.GetComponent<ArmeTest> ().degat = 10;
-		temp2.GetComponent<ArmeTest> ().range = 50;
-		temp2.GetComponent<ArmeTest> ().vitesse = 5;
-		temp2.GetComponent<ArmeTest> ().surchauffe = 30;
+		temp2 = tempArme2.gameObject.AddComponent<Arme> ();
+		temp2.GetComponent<Arme> ().id = 1;
+		temp2.GetComponent<Arme> ().nom = "AK";
+		temp2.GetComponent<Arme> ().cadence = 6;
+		temp2.GetComponent<Arme> ().degat = 10;
+		temp2.GetComponent<Arme> ().range = 50;
+		temp2.GetComponent<Arme> ().vitesse = 5;
+		temp2.GetComponent<Arme> ().surchauffe = 30;
 
-		ArmeTest.armes.Add (temp2);
+		Arme.armes.Add (temp2);
 
 		GameObject.Destroy (temp2);
 		GameObject.Destroy (tempArme2);

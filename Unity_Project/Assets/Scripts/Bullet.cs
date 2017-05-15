@@ -25,7 +25,7 @@ public class Bullet : NetworkBehaviour {
 			return;
 		
 		if (hit.tag == "Player" && monJoueur != hit.gameObject) {
-			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE);
+			hit.gameObject.GetComponent<PlayerHealth> ().TakeDamage (DAMAGE, monJoueur.GetComponent<SkinChoice>()._PlayerName);
 			RpcDestroyBullet ();
 		}
 		if (hit.tag == "Wall") {
