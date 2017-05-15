@@ -107,16 +107,16 @@ public class PlayerInput : NetworkBehaviour {
 		_controller.CmdUpdateCameraXY (Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
 		if ( (cam_vertical == 10 ) )// up
-				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.60);
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)0.15);
 
 		if ( (cam_vertical == 20 ) ) // down
-				_controller.CmdUpdateCameraXY ((float)0.0, (float)-0.60);
+				_controller.CmdUpdateCameraXY ((float)0.0, (float)-0.15);
 
 		if ( (cam_horizon == 10 ) )// gauche
-				_controller.CmdUpdateCameraXY ((float)-0.60, (float)0.00);
+				_controller.CmdUpdateCameraXY ((float)-0.5, (float)0.00);
 
 		if ( (cam_horizon == 20 ) ) // droite
-				_controller.CmdUpdateCameraXY ((float)0.60, (float)0.00);
+				_controller.CmdUpdateCameraXY ((float)0.5, (float)0.00);
    
 		// MOVEMENT CONTROL
 

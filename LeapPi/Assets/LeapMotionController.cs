@@ -13,8 +13,8 @@ public class LeapMotionController : MonoBehaviour
 	//Motion capture device related attributes
 	LeapProvider provider;
 
-	double marge= 0.4;
-	double marge_pitch= 0.8;
+	double marge= 0.3;
+	double marge_pitch= 0.6;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
@@ -157,7 +157,7 @@ public class LeapMotionController : MonoBehaviour
 					} else
 						gauche = 0;
 					
-					if (pitch - marge_pitch > -3 && pitch < 0) {
+					if (pitch - marge_pitch + 0.1 > -3 && pitch < 0) {
 						gauche1 = 20;
 						//print ("down");
 					} else if (pitch + marge_pitch < 3 && pitch > 0) {
