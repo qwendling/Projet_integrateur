@@ -14,7 +14,7 @@ public class LeapMotionController : MonoBehaviour
 	LeapProvider provider;
 
 	double marge= 0.5;
-	double marge_pitch= 0.3;
+	double marge_pitch= 0.6;
 	float yaw_max, yaw_min;
 	float pitch_max, pitch_min;
 	int change_arme= 0;
@@ -27,6 +27,7 @@ public class LeapMotionController : MonoBehaviour
 	//System related attributes
 	string identifier;
 	bool deviceLinked = false;
+	bool ack= false;
 	string clientIp;
 
 	//Network related attributes
@@ -71,8 +72,6 @@ public class LeapMotionController : MonoBehaviour
 		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
 		if (sysmsg.content == MessageTypes.LINK_ESTABLISHED && !this.deviceLinked) 
 		{
-			sendSystemMessage(MessageTypes.ACK_LINK_ESTABLISHED);
-
 			this.deviceLinked = true;
 			this.clientIp = sysmsg.clientIpAddress;
 
@@ -121,6 +120,11 @@ public class LeapMotionController : MonoBehaviour
 		} 
 		else
 		{
+			if (!ack && netcln.isConnected) {
+				sendSystemMessage (MessageTypes.ACK_LINK_ESTABLISHED);
+				ack = true;
+			}
+
 			Frame frame = provider.CurrentFrame;
 			foreach (Hand hand in frame.Hands) {
 				float pitch = hand.Direction.Pitch;
