@@ -172,6 +172,11 @@ public class PlayerController : NetworkBehaviour {
 	[Command]
 	public void CmdUpdateForwardSpeed (int d) {
 		d = Mathf.Clamp (d, -1, 1);
+		if (d == 0) {
+			RpcUpdateAnimWalk (false);
+		} else {
+			RpcUpdateAnimWalk (true);
+		}
 		//RpcUpdateForwardSpeed (d);
 		_forwardRunningSpeed = d * DEFAULT_SPEED;
 		transform.position += 
@@ -207,6 +212,11 @@ public class PlayerController : NetworkBehaviour {
 	[ClientRpc]
 	void RpcUpdatePos (Vector3 pos) {
 		transform.position = pos;
+	}
+
+	[ClientRpc]
+	void RpcUpdateAnimWalk (bool setAnim) {
+		gameObject.GetComponent<PlayerInput>().anim.SetBool("walk", setAnim);
 	}
 
 	[ClientRpc]

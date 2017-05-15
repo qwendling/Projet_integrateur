@@ -7,12 +7,10 @@ public class CanShootTest : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//CmdTP(); //pour la téléportation, fonctionne presque
 	}
 
 	[Command]
@@ -23,6 +21,8 @@ public class CanShootTest : NetworkBehaviour {
 		if (W is ArmeTest) {
 			// Tir
 			ArmeTest A = (ArmeTest)W;
+
+			ph.protectionIsOn = false;
 			GameObject bullet = Instantiate(A.projectile, A.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 			bullet.GetComponent<BulletTest> ().monJoueur = this.transform.gameObject;
 			bullet.GetComponent<BulletTest> ().DAMAGE = 10;
@@ -42,9 +42,14 @@ public class CanShootTest : NetworkBehaviour {
 				ph.protectionIsOn = false;
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+				sort.GetComponent<Fire> ().monJoueur = this.transform.gameObject;
+				sort.GetComponent<Fire> ().DAMAGE = 15;
+
 				sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
 				NetworkServer.Spawn (sort);
-				Destroy (sort, 2.0f);
+				Destroy (sort, 1.0f);
+
+
 			}
 			else if(S.id == 4){  //Protection
 
@@ -52,30 +57,36 @@ public class CanShootTest : NetworkBehaviour {
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
 				NetworkServer.Spawn (sort);
-				Destroy (sort, 5.0f);
+				Destroy (sort, 0.5f);
 
 			}
-			else if(S.id == 5){ //Push, ici pas encore mis le bon code car ne fonctionne pas bien pour l'instant
+			else if(S.id == 5){ //Mine
+
+				ph.protectionIsOn = false;
+				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
+				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
+				sort.GetComponent<Fire> ().monJoueur = this.transform.gameObject;
+				sort.GetComponent<Fire> ().DAMAGE = 5;
+
+				NetworkServer.Spawn (sort);
+				Vector3 pos = sort.transform.position;
+				Destroy (sort, 30.0f);
+				StartCoroutine(CmdMine(pos));
+
+
+
+
+			}
+			else if(S.id == 6){ //Teleportation
 
 				ph.protectionIsOn = false;
 				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
 				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
 				sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
 				NetworkServer.Spawn (sort);
-				Destroy (sort, 2.0f);
-
+				StartCoroutine(CmdTP());
+				Destroy (sort,0.2f);
 			}
-			else if(S.id == 6){ //Teleportation, fonctionne presque
-
-				ph.protectionIsOn = false;
-				GameObject sort = Instantiate(S.projectile, S.FireSpot.transform.position, W.FireSpot.transform.rotation) as GameObject;
-				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
-				sort.GetComponent<Rigidbody>().AddForce(sort.transform.forward * 1000);
-				NetworkServer.Spawn (sort);
-				Destroy (sort, 6.0f);
-			}
-
-
 
 		} else {
 		}
@@ -83,29 +94,25 @@ public class CanShootTest : NetworkBehaviour {
 
 
 
+	IEnumerator CmdTP() {
 
+				PlayerController p = gameObject.GetComponent<PlayerController> ();
+				yield return new  WaitForSeconds(0.2f);
+				for(int i=0;i<100;i++)
+					p.CmdUpdateForwardSpeed(1);
 
-
-//pour la téléportation, fonctionne presque
-	[Command]
-	public void CmdTP() {
-
-		WeaponTest W = gameObject.GetComponent<ToolSwapTest> ()._activeItem.GetComponent<WeaponTest> ();
-		if (W is SortTest) {
-
-			SortTest S = (SortTest)W;
-
-			if(S.id == 6){
-
-					if(Input.GetButton("Fire2")){
-
-						if (S != null)
-								transform.position = S.transform.position;
-					}
-			}
-
-		}
 	}
+
+
+	IEnumerator CmdMine(Vector3 pos) {
+
+				yield return new  WaitForSeconds(30.0f);
+				GameObject nO = Resources.Load("ExplosionOrange") as GameObject;
+				GameObject explosion = Instantiate(nO) as GameObject;
+				explosion.transform.position = pos;
+				Destroy (explosion,10.0f);
+	}
+
 
 
 }
