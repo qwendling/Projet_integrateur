@@ -67,11 +67,8 @@ public class CanShoot : NetworkBehaviour {
 				//sort.GetComponent<AudioSource>().PlayOneShot (S.Clip);
 				sort.GetComponent<Fire> ().monJoueur = this.transform.gameObject;
 				sort.GetComponent<Fire> ().DAMAGE = 5;
-
+				sort.GetComponent<Fire> ().isMine = true;
 				NetworkServer.Spawn (sort);
-				Vector3 pos = sort.transform.position;
-				Destroy (sort, 30.0f);
-				StartCoroutine(CmdMine(pos));
 			}
 			else if(S.id == 5){ //Teleportation
 
@@ -99,13 +96,4 @@ public class CanShoot : NetworkBehaviour {
 
 	}
 
-
-	IEnumerator CmdMine(Vector3 pos) {
-
-		yield return new  WaitForSeconds(30.0f);
-		GameObject nO = Resources.Load("ExplosionOrange") as GameObject;
-		GameObject explosion = Instantiate(nO) as GameObject;
-		explosion.transform.position = pos;
-		Destroy (explosion,10.0f);
-	}
 }
