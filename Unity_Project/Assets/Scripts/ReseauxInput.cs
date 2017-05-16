@@ -22,13 +22,14 @@ public class ReseauxInput : MonoBehaviour {
 		SystemMessage mes = listeLeap[index-1] as SystemMessage;
 		sendSystemMessage(mes.deviceId, mes.clientConnection, localIp(), MessageTypes.LINK_ESTABLISHED);
 		print ("Connection established");
-   
+
 	}
 
 	// Use this for initialization
 	void Start () {
 		NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (100, onSystemMessage);
+    NetworkServer.RegisterHandler (200, onGameMessage);
 		print ("Server is listening on : " + NetworkServer.listenPort);
 	}
 
@@ -43,6 +44,7 @@ public class ReseauxInput : MonoBehaviour {
 		msg.content = content;
 
 		NetworkServer.SendToClient (connectionId, 100, msg);
+    
 	}
 
 	public bool containsDevice(ArrayList liste, string deviceId)
@@ -55,7 +57,7 @@ public class ReseauxInput : MonoBehaviour {
 
 		return false;
 	}
-		
+
 	public void onSystemMessage(NetworkMessage net)
 	{
 		SystemMessage sysmsg = net.ReadMessage<SystemMessage> ();
@@ -72,12 +74,21 @@ public class ReseauxInput : MonoBehaviour {
 
 		}
     else if (sysmsg.content == MessageTypes.ACK_LINK_ESTABLISHED)
-    { 
+    {
       print("Changement de scene");
-      SceneManager.LoadScene ("ConnectionMenu");		
-      Cursor.visible = false;
+
+     //SceneManager.LoadScene ("ConnectionMenu");
+     // Cursor.visible = false;
+			//NetworkServer.Shutdown();
     }
 	}
+  
+  public void onGameMessage(NetworkMessage net)
+	{
+		DataMessage msg = net.ReadMessage<DataMessage> ();
+    if ( msg.tirer == 10)
+		print ("DataMessage[ LEAP DEVICE ID: " + msg.deviceId + "avancer: "+msg.avancer + "cam_horizon : " + msg.cam_horizon + "cam_vertical: "+msg.cam_vertical + "tirer: "+msg.tirer + "changer_arme: "+msg.changer_arme + "decaler: "+msg.decaler);
+  }
 
 	public string localIp()
 	{
@@ -95,9 +106,9 @@ public class ReseauxInput : MonoBehaviour {
 
 
 
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 }
