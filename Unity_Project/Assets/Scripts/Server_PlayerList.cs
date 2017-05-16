@@ -51,13 +51,16 @@ public class Server_PlayerList : NetworkBehaviour {
 	public void UpdateRanks(){
 		int idx_max = 0;
 		string[] _PlayersTemp = new string[_NbPlayers];
-		int[] _ScoresTemp = new int[_NbPlayers];
+		string[] _ScoresTempBeforeSplitting = new string[_NbPlayers];
 
-		_PlayersTemp = _Names.ToString ().Split (";");
-		_ScoresTemp = _Scores.ToString ().Split (";");
+		_PlayersTemp = _Names.ToString ().Split (';');
+		int[] _ScoresTemp = new int[_NbPlayers];
+		for (int i = 0; i < _NbPlayers; i++) {
+			_ScoresTemp [i] = int.Parse (_ScoresTempBeforeSplitting [i]);
+		}
 
 		int[] temp = new int[_NbPlayers];
-		this._Scores.CopyTo (temp);
+		_ScoresTemp.CopyTo (temp, 0);
 		int[] Ranking = new int[temp.Length];
 
 		for (int i = 0; i < temp.Length; i++) {
@@ -80,10 +83,10 @@ public class Server_PlayerList : NetworkBehaviour {
 	}
 
 	public string[] GetNames(){
-		return _Names.ToString ().Split (";");
+		return _Names.ToString ().Split (';');
 	}
 
-	public int[] GetScores(){
-		return _Scores.ToString ().Split (";");
+	public string[] GetScores(){
+		return _Scores.ToString ().Split (';');
 	}
 }

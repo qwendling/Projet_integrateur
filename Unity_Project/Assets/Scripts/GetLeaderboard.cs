@@ -10,7 +10,7 @@ public class GetLeaderboard : NetworkBehaviour {
 	public GameObject _Coord;
 
 	public string[] _Players;
-	public int[] _Scores;
+	public string[] _Scores;
 
 	// Use this for initialization
 	void Start () {
@@ -19,13 +19,17 @@ public class GetLeaderboard : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		
+	}
+
+	public void UpdateMenuLeaderBoard(){
 		string leaderBoard = "LEADERBOARD\n";
 
 		_Players = _Coord.GetComponent<Server_PlayerList> ().GetNames ();
 		_Scores = _Coord.GetComponent<Server_PlayerList> ().GetScores ();
 
 		for (int i = 0; i < _Players.Length; i++) {
-			leaderBoard = leaderBoard + this._Players[i] + " - " + this._Scores[i] + " points\n";
+			leaderBoard = leaderBoard + this._Players [i] + " - " + this._Scores [i] + " points\n";
 		}
 		this.GetComponent<Text> ().text = leaderBoard;
 	}

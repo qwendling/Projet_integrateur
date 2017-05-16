@@ -32,7 +32,7 @@ public class InGameMenu : MonoBehaviour {
 			if (display == false) {				
 				_inGameMenu.SetActive (true);
 				//_inGameUI.SetActive (false);
-				_LeaderBoardTextBox.GetComponent<GetLeaderboard>().UpdateLeaderBoard();
+				_LeaderBoardTextBox.GetComponent<GetLeaderboard>().UpdateMenuLeaderBoard();
 				_Player.GetComponent<PlayerController> ()._InGameMenuIsDisplayed = true;
 				display = true;
 				Cursor.visible = true;
