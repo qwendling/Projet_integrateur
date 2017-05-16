@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,3 +21,27 @@ public class MenuManager_LeapChoice : MonoBehaviour {
 		
 	}
 }
+=======
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class MenuManager_LeapChoice : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+	}
+
+	public void OnNextClicked(){
+
+		
+	}
+}
+>>>>>>> origin/master
