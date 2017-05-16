@@ -53,21 +53,23 @@ public class ToolSwap : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (_inventory [0] == null) {
-			_inventory [0] = GameObject.Find ("Weapon1");
-			_inventory[0].SetActive(false);
-		}
-		if (_inventory [1] == null) {
-			_inventory [1] = GameObject.Find ("Weapon2");
-			_inventory[1].SetActive(false);
-		}
-		if (_inventory [2] == null) {
-			_inventory [2] = GameObject.Find ("Weapon3");
-			_inventory[2].SetActive(false);
-		}
-		if (_activeItem == null) {
-			_activeItem = _inventory [_currentItem];
-			_inventory[_currentItem].SetActive(true);
+		if (isLocalPlayer) {
+			if (_inventory [0] == null) {
+				_inventory [0] = GameObject.Find ("Weapon1");
+				_inventory[0].SetActive(false);
+			}
+			if (_inventory [1] == null) {
+				_inventory [1] = GameObject.Find ("Weapon2");
+				_inventory[1].SetActive(false);
+			}
+			if (_inventory [2] == null) {
+				_inventory [2] = GameObject.Find ("Weapon3");
+				_inventory[2].SetActive(false);
+			}
+			if (_activeItem == null) {
+				_activeItem = _inventory [_currentItem];
+				_inventory[_currentItem].SetActive(true);
+			}
 		}
 	}
 	
@@ -76,10 +78,10 @@ public class ToolSwap : NetworkBehaviour {
 		i = Mathf.Clamp (i, 0, INVENTORY_SIZE);
 		if(i != CurrentItem){
 			RpcSwap (i);
-			_inventory[CurrentItem].SetActive(false);
 			CurrentItem = i;
+			/*_inventory[CurrentItem].SetActive(false);
 			_inventory[CurrentItem].SetActive(true);
-			_activeItem = _inventory[CurrentItem];
+			_activeItem = _inventory[CurrentItem];*/
 		}
 	}
 
