@@ -44,7 +44,7 @@ public class DBConnect {
 			temp.GetComponent<Arme> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
 			temp.GetComponent<Arme> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
 			temp.GetComponent<Arme> ().surchauffe = string.IsNullOrEmpty(arme[6]) ? 0 : int.Parse(arme[6]);
-			temp.GetComponent<Arme> ().animType = string.IsNullOrEmpty(arme[7]) ? null : arme[7];
+			temp.GetComponent<Arme> ().Anim = string.IsNullOrEmpty(arme[7]) ? null : int.Parse(arme[7]);
 
 			Arme.armes.Add (temp);
 
@@ -64,6 +64,7 @@ public class DBConnect {
 		temp2.GetComponent<Arme> ().range = 50;
 		temp2.GetComponent<Arme> ().vitesse = 5;
 		temp2.GetComponent<Arme> ().surchauffe = 10;
+		temp2.GetComponent<Arme> ().Anim = AnimArme.weapon;
 
 		Arme.armes.Add (temp2);
 
@@ -80,6 +81,7 @@ public class DBConnect {
 		temp2.GetComponent<Arme> ().range = 50;
 		temp2.GetComponent<Arme> ().vitesse = 5;
 		temp2.GetComponent<Arme> ().surchauffe = 30;
+		temp2.GetComponent<Arme> ().Anim = AnimArme.ak;
 
 		Arme.armes.Add (temp2);
 
@@ -101,6 +103,7 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().range = 10;
 		temp3.GetComponent<SortTest> ().vitesse = 0.5f;
 		temp3.GetComponent<SortTest> ().surchauffe = 10;
+		temp3.GetComponent<Arme> ().Anim = AnimArme.ball;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
@@ -116,6 +119,7 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().range = 0;
 		temp3.GetComponent<SortTest> ().vitesse = 1;
 		temp3.GetComponent<SortTest> ().surchauffe = 0;
+		temp3.GetComponent<Arme> ().Anim = AnimArme.ball;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
@@ -131,6 +135,7 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().range = 0;
 		temp3.GetComponent<SortTest> ().vitesse = 1;
 		temp3.GetComponent<SortTest> ().surchauffe = 0;
+		temp3.GetComponent<Arme> ().Anim = AnimArme.ball;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
@@ -146,6 +151,7 @@ public class DBConnect {
 		temp3.GetComponent<SortTest> ().range = 10;
 		temp3.GetComponent<SortTest> ().vitesse = 1;
 		temp3.GetComponent<SortTest> ().surchauffe = 0;
+		temp3.GetComponent<Arme> ().Anim = AnimArme.ball;
 
 		SortTest.sorts.Add (temp3);
 		GameObject.Destroy (temp3);
