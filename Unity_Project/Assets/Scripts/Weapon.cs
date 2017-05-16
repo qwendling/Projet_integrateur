@@ -13,6 +13,7 @@ public class Weapon : MonoBehaviour {
     public float vitesse = 1;
 	public AnimArme Anim;
 	public int surchauffe;
+	public string anim;
 
 	/*public float timeBetweenTicks = 2;
 	public float _timer = 2;*/

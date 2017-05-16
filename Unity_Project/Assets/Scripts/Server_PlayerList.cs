@@ -52,11 +52,12 @@ public class Server_PlayerList : NetworkBehaviour {
 		int idx_max = 0;
 		string[] _PlayersTemp = new string[_NbPlayers];
 		string[] _ScoresTempBeforeSplitting = new string[_NbPlayers];
-
-		_PlayersTemp = _Names.ToString ().Split (';');
 		int[] _ScoresTemp = new int[_NbPlayers];
+
 		for (int i = 0; i < _NbPlayers; i++) {
-			_ScoresTemp [i] = int.Parse (_ScoresTempBeforeSplitting [i]);
+			_ScoresTemp [i] = _Scores[i];
+			_PlayersTemp[i] = _Names[i];
+			Debug.Log (_PlayersTemp[i] + " --- " + _ScoresTemp [i]);
 		}
 
 		int[] temp = new int[_NbPlayers];
@@ -77,16 +78,24 @@ public class Server_PlayerList : NetworkBehaviour {
 		_Scores = new SyncListInt ();
 		_Names = new SyncListString ();
 		for (int i = 0; i < _NbPlayers; i++) {
-			_Scores.Add (_ScoresTemp [i]);
+			_Scores.Add (temp [i]);
 			_Names.Add (_PlayersTemp [i]);
 		}
 	}
 
 	public string[] GetNames(){
-		return _Names.ToString ().Split (';');
+		string[] _PlayersTemp = new string[_NbPlayers];
+		for (int i = 0; i < _NbPlayers; i++) {
+			_PlayersTemp[i] = _Names[i];
+		}
+		return _PlayersTemp;
 	}
 
 	public string[] GetScores(){
-		return _Scores.ToString ().Split (';');
+		string[] _ScoresTemp = new string[_NbPlayers];
+		for (int i = 0; i < _NbPlayers; i++) {
+			_ScoresTemp[i] = _Scores[i].ToString();
+		}
+		return _ScoresTemp;
 	}
 }

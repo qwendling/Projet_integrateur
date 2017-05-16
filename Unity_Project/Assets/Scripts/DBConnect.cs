@@ -26,6 +26,7 @@ public class DBConnect {
 		string reponse = request.text;
 		string[] armesList = reponse.Split(';');
 
+
 		string[] arme;
 		for(int i = 0; i < armesList.Length-1; i++){
 			arme = armesList[i].Split(',');
@@ -43,6 +44,7 @@ public class DBConnect {
 			temp.GetComponent<Arme> ().range = string.IsNullOrEmpty(arme[4]) ? 0 : int.Parse(arme[4]);
 			temp.GetComponent<Arme> ().vitesse = string.IsNullOrEmpty(arme[5]) ? 0 : float.Parse(arme[5]);
 			temp.GetComponent<Arme> ().surchauffe = string.IsNullOrEmpty(arme[6]) ? 0 : int.Parse(arme[6]);
+			temp.GetComponent<Arme> ().animType = string.IsNullOrEmpty(arme[7]) ? null : arme[7];
 
 			Arme.armes.Add (temp);
 
