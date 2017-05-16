@@ -27,6 +27,7 @@ public class Server_PlayerList : NetworkBehaviour {
 		_NbPlayers++;
 		_Names.Add(playerName);
 		_Scores.Add(0);
+		UpdateRanks ();
 	}
 
 	public void MamaJustKilledAMan(string mama){
@@ -43,5 +44,46 @@ public class Server_PlayerList : NetworkBehaviour {
 			Debug.Log (_Names [i] + " - " + _Scores [i] + " points");
 		}
 		_Mutex = false;
+		UpdateRanks ();
+
+	}
+
+	public void UpdateRanks(){
+		int idx_max = 0;
+		string[] _PlayersTemp = new string[_NbPlayers];
+		int[] _ScoresTemp = new int[_NbPlayers];
+
+		_PlayersTemp = _Names.ToString ().Split (";");
+		_ScoresTemp = _Scores.ToString ().Split (";");
+
+		int[] temp = new int[_NbPlayers];
+		this._Scores.CopyTo (temp);
+		int[] Ranking = new int[temp.Length];
+
+		for (int i = 0; i < temp.Length; i++) {
+			idx_max = 0;
+			for (int j = 0; j < temp.Length; j++) {
+				if (temp [j] > temp [idx_max]) {
+					idx_max = j;
+				}
+			}
+			Ranking [i] = idx_max;
+			temp [idx_max] = -1;
+		}
+
+		_Scores = new SyncListInt ();
+		_Names = new SyncListString ();
+		for (int i = 0; i < _NbPlayers; i++) {
+			_Scores.Add (_ScoresTemp [i]);
+			_Names.Add (_PlayersTemp [i]);
+		}
+	}
+
+	public string[] GetNames(){
+		return _Names.ToString ().Split (";");
+	}
+
+	public int[] GetScores(){
+		return _Scores.ToString ().Split (";");
 	}
 }
