@@ -25,10 +25,10 @@ public class PlayerHealth : NetworkBehaviour {
 		_barMax = healthBar.sizeDelta.x;
 		currentHealth = MAX_HEALTH;
 	}
-	
+
 	// Update is called once per frame
 	void Update () {
-		
+
 	}
 
 
@@ -70,7 +70,7 @@ public class PlayerHealth : NetworkBehaviour {
 	void RpcRespawn() {
 		Debug.Log ("enter");
 		if (isLocalPlayer) {
-			this.GetComponent<PlayerSpawn>().CmdRandomSpawn();
+			this.GetComponent<PlayerSpawn>().RandomSpawn();
 		}
 	}
 }
