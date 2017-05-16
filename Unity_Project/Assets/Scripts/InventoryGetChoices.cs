@@ -9,8 +9,8 @@ public class InventoryGetChoices : MonoBehaviour {
 	public GameObject _PlayerMenuChoices;
 	public GameObject _NManager;
 	public GameObject _Coordinator;
-	public ArmeTest[] _Weapons;
-	public SortTest[] _Spells;
+	public Arme[] _Weapons;
+	public Sort[] _Spells;
 
 	//public GameObject[] _WeaponsSpell;
 
@@ -40,60 +40,60 @@ public class InventoryGetChoices : MonoBehaviour {
 		_Wep1.transform.parent = transform;
 		_Wep2.transform.parent = transform;
 		_Wep3.transform.parent = transform;
-		ArmeTest.armes = new List<ArmeTest> ();
-		SortTest.sorts = new List<SortTest> ();
+		Arme.armes = new List<Arme> ();
+		Sort.sorts = new List<Sort> ();
 
 		DBConnect db_link = new DBConnect ();
 
 		db_link.init (_NManager.GetComponent<NetworkManager>().networkAddress);
 
-		_Weapons = ArmeTest.armes.ToArray();
-		_Spells = SortTest.sorts.ToArray();
+		_Weapons = Arme.armes.ToArray();
+		_Spells = Sort.sorts.ToArray();
 
 		if(_Wep1.tag == "Weapon")
 	{
-		_Wep1.GetComponent<ArmeTest> ().cadence = _Weapons [_Wep1.GetComponent<ArmeTest> ().id].cadence;
-		_Wep1.GetComponent<ArmeTest> ().degat = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].degat;
-		_Wep1.GetComponent<ArmeTest> ().vitesse = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].vitesse;
-		_Wep1.GetComponent<ArmeTest> ().range = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].range;
-		_Wep1.GetComponent<ArmeTest> ().nom = _Weapons[_Wep1.GetComponent<ArmeTest> ().id].nom;
+		_Wep1.GetComponent<Arme> ().cadence = _Weapons [_Wep1.GetComponent<Arme> ().id].cadence;
+		_Wep1.GetComponent<Arme> ().degat = _Weapons[_Wep1.GetComponent<Arme> ().id].degat;
+		_Wep1.GetComponent<Arme> ().vitesse = _Weapons[_Wep1.GetComponent<Arme> ().id].vitesse;
+		_Wep1.GetComponent<Arme> ().range = _Weapons[_Wep1.GetComponent<Arme> ().id].range;
+		_Wep1.GetComponent<Arme> ().nom = _Weapons[_Wep1.GetComponent<Arme> ().id].nom;
 	}
 	else if(_Wep1.tag == "Spell"){
-		_Wep1.GetComponent<SortTest> ().cadence = _Spells [_Wep1.GetComponent<SortTest> ().id].cadence;
-		_Wep1.GetComponent<SortTest> ().degat = _Spells[_Wep1.GetComponent<SortTest> ().id].degat;
-		_Wep1.GetComponent<SortTest> ().vitesse = _Spells[_Wep1.GetComponent<SortTest> ().id].vitesse;
-		_Wep1.GetComponent<SortTest> ().range = _Spells[_Wep1.GetComponent<SortTest> ().id].range;
-		_Wep1.GetComponent<SortTest> ().nom = _Spells[_Wep1.GetComponent<SortTest> ().id].nom;
+		_Wep1.GetComponent<Sort> ().cadence = _Spells [_Wep1.GetComponent<Sort> ().id].cadence;
+		_Wep1.GetComponent<Sort> ().degat = _Spells[_Wep1.GetComponent<Sort> ().id].degat;
+		_Wep1.GetComponent<Sort> ().vitesse = _Spells[_Wep1.GetComponent<Sort> ().id].vitesse;
+		_Wep1.GetComponent<Sort> ().range = _Spells[_Wep1.GetComponent<Sort> ().id].range;
+		_Wep1.GetComponent<Sort> ().nom = _Spells[_Wep1.GetComponent<Sort> ().id].nom;
 	}
 	if(_Wep2.tag == "Weapon")
 	{
-		_Wep2.GetComponent<ArmeTest> ().cadence = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].cadence;
-		_Wep2.GetComponent<ArmeTest> ().degat = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].degat;
-		_Wep2.GetComponent<ArmeTest> ().vitesse = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].vitesse;
-		_Wep2.GetComponent<ArmeTest> ().range = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].range;
-		_Wep2.GetComponent<ArmeTest> ().nom = _Weapons[_Wep2.GetComponent<ArmeTest> ().id].nom;
+		_Wep2.GetComponent<Arme> ().cadence = _Weapons[_Wep2.GetComponent<Arme> ().id].cadence;
+		_Wep2.GetComponent<Arme> ().degat = _Weapons[_Wep2.GetComponent<Arme> ().id].degat;
+		_Wep2.GetComponent<Arme> ().vitesse = _Weapons[_Wep2.GetComponent<Arme> ().id].vitesse;
+		_Wep2.GetComponent<Arme> ().range = _Weapons[_Wep2.GetComponent<Arme> ().id].range;
+		_Wep2.GetComponent<Arme> ().nom = _Weapons[_Wep2.GetComponent<Arme> ().id].nom;
 	}
 	else if(_Wep2.tag == "Spell"){
-		_Wep2.GetComponent<SortTest> ().cadence = _Spells[_Wep2.GetComponent<SortTest> ().id].cadence;
-		_Wep2.GetComponent<SortTest> ().degat = _Spells[_Wep2.GetComponent<SortTest> ().id].degat;
-		_Wep2.GetComponent<SortTest> ().vitesse = _Spells[_Wep2.GetComponent<SortTest> ().id].vitesse;
-		_Wep2.GetComponent<SortTest> ().range = _Spells[_Wep2.GetComponent<SortTest> ().id].range;
-		_Wep2.GetComponent<SortTest> ().nom = _Spells[_Wep2.GetComponent<SortTest> ().id].nom;
+		_Wep2.GetComponent<Sort> ().cadence = _Spells[_Wep2.GetComponent<Sort> ().id].cadence;
+		_Wep2.GetComponent<Sort> ().degat = _Spells[_Wep2.GetComponent<Sort> ().id].degat;
+		_Wep2.GetComponent<Sort> ().vitesse = _Spells[_Wep2.GetComponent<Sort> ().id].vitesse;
+		_Wep2.GetComponent<Sort> ().range = _Spells[_Wep2.GetComponent<Sort> ().id].range;
+		_Wep2.GetComponent<Sort> ().nom = _Spells[_Wep2.GetComponent<Sort> ().id].nom;
 	}
 	if(_Wep3.tag == "Weapon")
 	{
-		_Wep3.GetComponent<ArmeTest> ().cadence = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].cadence;
-		_Wep3.GetComponent<ArmeTest> ().degat = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].degat;
-		_Wep3.GetComponent<ArmeTest> ().vitesse = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].vitesse;
-		_Wep3.GetComponent<ArmeTest> ().range = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].range;
-		_Wep3.GetComponent<ArmeTest> ().nom = _Weapons[_Wep3.GetComponent<ArmeTest> ().id].nom;
+		_Wep3.GetComponent<Arme> ().cadence = _Weapons[_Wep3.GetComponent<Arme> ().id].cadence;
+		_Wep3.GetComponent<Arme> ().degat = _Weapons[_Wep3.GetComponent<Arme> ().id].degat;
+		_Wep3.GetComponent<Arme> ().vitesse = _Weapons[_Wep3.GetComponent<Arme> ().id].vitesse;
+		_Wep3.GetComponent<Arme> ().range = _Weapons[_Wep3.GetComponent<Arme> ().id].range;
+		_Wep3.GetComponent<Arme> ().nom = _Weapons[_Wep3.GetComponent<Arme> ().id].nom;
 	}
 	else if(_Wep3.tag == "Spell"){
-		_Wep3.GetComponent<SortTest> ().cadence = _Spells[_Wep3.GetComponent<SortTest> ().id].cadence;
-		_Wep3.GetComponent<SortTest> ().degat = _Spells[_Wep3.GetComponent<SortTest> ().id].degat;
-		_Wep3.GetComponent<SortTest> ().vitesse = _Spells[_Wep3.GetComponent<SortTest> ().id].vitesse;
-		_Wep3.GetComponent<SortTest> ().range = _Spells[_Wep3.GetComponent<SortTest> ().id].range;
-		_Wep3.GetComponent<SortTest> ().nom = _Spells[_Wep3.GetComponent<SortTest> ().id].nom;}
+		_Wep3.GetComponent<Sort> ().cadence = _Spells[_Wep3.GetComponent<Sort> ().id].cadence;
+		_Wep3.GetComponent<Sort> ().degat = _Spells[_Wep3.GetComponent<Sort> ().id].degat;
+		_Wep3.GetComponent<Sort> ().vitesse = _Spells[_Wep3.GetComponent<Sort> ().id].vitesse;
+		_Wep3.GetComponent<Sort> ().range = _Spells[_Wep3.GetComponent<Sort> ().id].range;
+		_Wep3.GetComponent<Sort> ().nom = _Spells[_Wep3.GetComponent<Sort> ().id].nom;}
 	}
 
 
