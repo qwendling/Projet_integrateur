@@ -68,8 +68,9 @@ public class PlayerHealth : NetworkBehaviour {
 
 	[ClientRpc]
 	void RpcRespawn() {
+		Debug.Log ("enter");
 		if (isLocalPlayer) {
-			this.GetComponent<PlayerSpawn>().RandomSpawn();
+			this.GetComponent<PlayerSpawn>().CmdRandomSpawn();
 		}
 	}
 }
