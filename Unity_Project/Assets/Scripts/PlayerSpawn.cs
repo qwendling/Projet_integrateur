@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerSpawn : MonoBehaviour {
+public class PlayerSpawn : NetworkBehaviour {
 
 	public GameObject _SpawnPoints;
 
@@ -10,7 +11,7 @@ public class PlayerSpawn : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_SpawnPoints = GameObject.Find ("SpawnPoints");
-		RandomSpawn ();
+		CmdRandomSpawn ();
 
 	}
 	
@@ -19,9 +20,22 @@ public class PlayerSpawn : MonoBehaviour {
 		
 	}
 
-	public void RandomSpawn(){
+	[Command]
+	public void CmdRandomSpawn(){
+		if (isLocalPlayer) {
+			Debug.Log ("pouet");
+			int rand = Random.Range (0, _SpawnPoints.transform.childCount);
+			Debug.Log (_SpawnPoints.transform.GetChild (rand).transform.position);
+			Vector3 spawnPosition = _SpawnPoints.transform.GetChild (rand).transform.position;
+			//this.transform.position = spawnPosition;
+			RpcRandomSpawn (spawnPosition);
+		}
+	}
 
-		int rand = Random.Range (0, _SpawnPoints.transform.childCount);
-		this.transform.position = _SpawnPoints.transform.GetChild (rand).transform.position;
+	[ClientRpc]
+	public void RpcRandomSpawn(Vector3 newPos){
+		if(isLocalPlayer){
+			this.transform.position = newPos;
+		}
 	}
 }
