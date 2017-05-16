@@ -19,7 +19,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 		
 
 		if (isLocalPlayer) {
-			
+			Debug.Log (" IS LOCAL PLAYER ");
 			while (_PlayerMenuChoices == null) {
 				_PlayerMenuChoices = GameObject.Find ("PlayerChoices");
 			}
@@ -57,51 +57,51 @@ public class InventoryGetChoices : NetworkBehaviour {
 			_Spells = Sort.sorts.ToArray();
 
 			if(_Wep1.tag == "Weapon")
-		{
-			_Wep1.GetComponent<Arme> ().cadence = _Weapons [_Wep1.GetComponent<Arme> ().id].cadence;
-			_Wep1.GetComponent<Arme> ().degat = _Weapons[_Wep1.GetComponent<Arme> ().id].degat;
-			_Wep1.GetComponent<Arme> ().vitesse = _Weapons[_Wep1.GetComponent<Arme> ().id].vitesse;
-			_Wep1.GetComponent<Arme> ().range = _Weapons[_Wep1.GetComponent<Arme> ().id].range;
-			_Wep1.GetComponent<Arme> ().nom = _Weapons[_Wep1.GetComponent<Arme> ().id].nom;
+			{
+				_Wep1.GetComponent<Arme> ().cadence = _Weapons [_Wep1.GetComponent<Arme> ().id].cadence;
+				_Wep1.GetComponent<Arme> ().degat = _Weapons[_Wep1.GetComponent<Arme> ().id].degat;
+				_Wep1.GetComponent<Arme> ().vitesse = _Weapons[_Wep1.GetComponent<Arme> ().id].vitesse;
+				_Wep1.GetComponent<Arme> ().range = _Weapons[_Wep1.GetComponent<Arme> ().id].range;
+				_Wep1.GetComponent<Arme> ().nom = _Weapons[_Wep1.GetComponent<Arme> ().id].nom;
+			}
+			else if(_Wep1.tag == "Spell"){
+				_Wep1.GetComponent<Sort> ().cadence = _Spells [_Wep1.GetComponent<Sort> ().id].cadence;
+				_Wep1.GetComponent<Sort> ().degat = _Spells[_Wep1.GetComponent<Sort> ().id].degat;
+				_Wep1.GetComponent<Sort> ().vitesse = _Spells[_Wep1.GetComponent<Sort> ().id].vitesse;
+				_Wep1.GetComponent<Sort> ().range = _Spells[_Wep1.GetComponent<Sort> ().id].range;
+				_Wep1.GetComponent<Sort> ().nom = _Spells[_Wep1.GetComponent<Sort> ().id].nom;
+			}
+			if(_Wep2.tag == "Weapon")
+			{
+				_Wep2.GetComponent<Arme> ().cadence = _Weapons[_Wep2.GetComponent<Arme> ().id].cadence;
+				_Wep2.GetComponent<Arme> ().degat = _Weapons[_Wep2.GetComponent<Arme> ().id].degat;
+				_Wep2.GetComponent<Arme> ().vitesse = _Weapons[_Wep2.GetComponent<Arme> ().id].vitesse;
+				_Wep2.GetComponent<Arme> ().range = _Weapons[_Wep2.GetComponent<Arme> ().id].range;
+				_Wep2.GetComponent<Arme> ().nom = _Weapons[_Wep2.GetComponent<Arme> ().id].nom;
+			}
+			else if(_Wep2.tag == "Spell"){
+				_Wep2.GetComponent<Sort> ().cadence = _Spells[_Wep2.GetComponent<Sort> ().id].cadence;
+				_Wep2.GetComponent<Sort> ().degat = _Spells[_Wep2.GetComponent<Sort> ().id].degat;
+				_Wep2.GetComponent<Sort> ().vitesse = _Spells[_Wep2.GetComponent<Sort> ().id].vitesse;
+				_Wep2.GetComponent<Sort> ().range = _Spells[_Wep2.GetComponent<Sort> ().id].range;
+				_Wep2.GetComponent<Sort> ().nom = _Spells[_Wep2.GetComponent<Sort> ().id].nom;
+			}
+			if(_Wep3.tag == "Weapon")
+			{
+				_Wep3.GetComponent<Arme> ().cadence = _Weapons[_Wep3.GetComponent<Arme> ().id].cadence;
+				_Wep3.GetComponent<Arme> ().degat = _Weapons[_Wep3.GetComponent<Arme> ().id].degat;
+				_Wep3.GetComponent<Arme> ().vitesse = _Weapons[_Wep3.GetComponent<Arme> ().id].vitesse;
+				_Wep3.GetComponent<Arme> ().range = _Weapons[_Wep3.GetComponent<Arme> ().id].range;
+				_Wep3.GetComponent<Arme> ().nom = _Weapons[_Wep3.GetComponent<Arme> ().id].nom;
+			}
+			else if(_Wep3.tag == "Spell"){
+				_Wep3.GetComponent<Sort> ().cadence = _Spells[_Wep3.GetComponent<Sort> ().id].cadence;
+				_Wep3.GetComponent<Sort> ().degat = _Spells[_Wep3.GetComponent<Sort> ().id].degat;
+				_Wep3.GetComponent<Sort> ().vitesse = _Spells[_Wep3.GetComponent<Sort> ().id].vitesse;
+				_Wep3.GetComponent<Sort> ().range = _Spells[_Wep3.GetComponent<Sort> ().id].range;
+				_Wep3.GetComponent<Sort> ().nom = _Spells[_Wep3.GetComponent<Sort> ().id].nom;
+			}
 		}
-		else if(_Wep1.tag == "Spell"){
-			_Wep1.GetComponent<Sort> ().cadence = _Spells [_Wep1.GetComponent<Sort> ().id].cadence;
-			_Wep1.GetComponent<Sort> ().degat = _Spells[_Wep1.GetComponent<Sort> ().id].degat;
-			_Wep1.GetComponent<Sort> ().vitesse = _Spells[_Wep1.GetComponent<Sort> ().id].vitesse;
-			_Wep1.GetComponent<Sort> ().range = _Spells[_Wep1.GetComponent<Sort> ().id].range;
-			_Wep1.GetComponent<Sort> ().nom = _Spells[_Wep1.GetComponent<Sort> ().id].nom;
-		}
-		if(_Wep2.tag == "Weapon")
-		{
-			_Wep2.GetComponent<Arme> ().cadence = _Weapons[_Wep2.GetComponent<Arme> ().id].cadence;
-			_Wep2.GetComponent<Arme> ().degat = _Weapons[_Wep2.GetComponent<Arme> ().id].degat;
-			_Wep2.GetComponent<Arme> ().vitesse = _Weapons[_Wep2.GetComponent<Arme> ().id].vitesse;
-			_Wep2.GetComponent<Arme> ().range = _Weapons[_Wep2.GetComponent<Arme> ().id].range;
-			_Wep2.GetComponent<Arme> ().nom = _Weapons[_Wep2.GetComponent<Arme> ().id].nom;
-		}
-		else if(_Wep2.tag == "Spell"){
-			_Wep2.GetComponent<Sort> ().cadence = _Spells[_Wep2.GetComponent<Sort> ().id].cadence;
-			_Wep2.GetComponent<Sort> ().degat = _Spells[_Wep2.GetComponent<Sort> ().id].degat;
-			_Wep2.GetComponent<Sort> ().vitesse = _Spells[_Wep2.GetComponent<Sort> ().id].vitesse;
-			_Wep2.GetComponent<Sort> ().range = _Spells[_Wep2.GetComponent<Sort> ().id].range;
-			_Wep2.GetComponent<Sort> ().nom = _Spells[_Wep2.GetComponent<Sort> ().id].nom;
-		}
-		if(_Wep3.tag == "Weapon")
-		{
-			_Wep3.GetComponent<Arme> ().cadence = _Weapons[_Wep3.GetComponent<Arme> ().id].cadence;
-			_Wep3.GetComponent<Arme> ().degat = _Weapons[_Wep3.GetComponent<Arme> ().id].degat;
-			_Wep3.GetComponent<Arme> ().vitesse = _Weapons[_Wep3.GetComponent<Arme> ().id].vitesse;
-			_Wep3.GetComponent<Arme> ().range = _Weapons[_Wep3.GetComponent<Arme> ().id].range;
-			_Wep3.GetComponent<Arme> ().nom = _Weapons[_Wep3.GetComponent<Arme> ().id].nom;
-		}
-		else if(_Wep3.tag == "Spell"){
-			_Wep3.GetComponent<Sort> ().cadence = _Spells[_Wep3.GetComponent<Sort> ().id].cadence;
-			_Wep3.GetComponent<Sort> ().degat = _Spells[_Wep3.GetComponent<Sort> ().id].degat;
-			_Wep3.GetComponent<Sort> ().vitesse = _Spells[_Wep3.GetComponent<Sort> ().id].vitesse;
-			_Wep3.GetComponent<Sort> ().range = _Spells[_Wep3.GetComponent<Sort> ().id].range;
-			_Wep3.GetComponent<Sort> ().nom = _Spells[_Wep3.GetComponent<Sort> ().id].nom;}
-		}
-
 	}
 
 

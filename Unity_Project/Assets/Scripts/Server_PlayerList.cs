@@ -75,8 +75,8 @@ public class Server_PlayerList : NetworkBehaviour {
 			temp [idx_max] = -1;
 		}
 
-		_Scores = new SyncListInt ();
-		_Names = new SyncListString ();
+		_Scores.Clear ();
+		_Names.Clear();
 		for (int i = 0; i < _NbPlayers; i++) {
 			_Scores.Add (temp [i]);
 			_Names.Add (_PlayersTemp [i]);

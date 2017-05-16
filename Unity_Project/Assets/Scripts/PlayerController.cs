@@ -216,6 +216,8 @@ public class PlayerController : NetworkBehaviour {
 
 	[ClientRpc]
 	void RpcUpdateAnimWalk (bool setAnim) {
+		if (isLocalPlayer)
+			return;
 		gameObject.GetComponent<PlayerInput>().anim.SetBool("walk", setAnim);
 	}
 
