@@ -8,6 +8,10 @@ public class EmptyObject_PlayerChoices : MonoBehaviour {
 	public GameObject _Wep1;
 	public GameObject _Wep2;
 	public GameObject _Wep3;
+
+	public int _IdxWep1;
+	public int _IdxWep2;
+	public int _IdxWep3;
 	public string _Name;
 
 

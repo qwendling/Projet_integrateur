@@ -32,11 +32,17 @@ public class GameMenu : MonoBehaviour {
 
 	public void OnStartClicked(){
 		Menu.SetActive(false);
+
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Model = Model_menu.GetComponent<Menu_ModelChoice> ()._Models [Model_menu.GetComponent<Menu_ModelChoice> ().Models_index];
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Wep1 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ()._Weapons [Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon1_index];
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Wep2 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ()._Weapons [Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon2_index];
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Wep3 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ()._Weapons [Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon3_index];
 		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._Name = NameInput.GetComponent<Text> ().text;
+
+		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep1 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon1_index;
+		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep2 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon2_index;
+		PlayerChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep3 = Weapons_Menu.GetComponent<Menu_WeaponsChoice> ().Weapon3_index;
+
 		DontDestroyOnLoad (PlayerChoices);
 		SceneManager.LoadScene("Arena1");
 	}
