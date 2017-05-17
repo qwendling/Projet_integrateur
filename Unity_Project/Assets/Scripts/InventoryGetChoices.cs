@@ -116,10 +116,10 @@ public class InventoryGetChoices : NetworkBehaviour {
 	}
 
 
-		// Update is called once per frame
-		void Update () {
+	// Update is called once per frame
+	void Update () {
 
-		}
+	}
 
 	[Command]
 	void CmdAddArme(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
@@ -131,11 +131,42 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Arme> ().vitesse = vitesse;
 		newArme.GetComponent<Arme> ().range = range;
 		newArme.GetComponent<Arme> ().nom = nom;
+
+		RpcAddArme (name, id, cadence, degat, vitesse, range, nom);
 	}
 
 	[Command]
 	void CmdAddSort(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
-		print ("Create sort");
+		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+		newArme.name = name;
+		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
+		newArme.GetComponent<Sort> ().cadence = cadence;
+		newArme.GetComponent<Sort> ().degat = degat;
+		newArme.GetComponent<Sort> ().vitesse = vitesse;
+		newArme.GetComponent<Sort> ().range = range;
+		newArme.GetComponent<Sort> ().nom = nom;
+
+		RpcAddSort (name, id, cadence, degat, vitesse, range, nom);
+	}
+
+	[ClientRpc]
+	void RpcAddArme(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
+		if (isLocalPlayer)
+			return;
+		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+		newArme.name = name;
+		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
+		newArme.GetComponent<Arme> ().cadence = cadence;
+		newArme.GetComponent<Arme> ().degat = degat;
+		newArme.GetComponent<Arme> ().vitesse = vitesse;
+		newArme.GetComponent<Arme> ().range = range;
+		newArme.GetComponent<Arme> ().nom = nom;
+	}
+
+	[ClientRpc]
+	void RpcAddSort(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
+		if (isLocalPlayer)
+			return;
 		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
 		newArme.name = name;
 		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
