@@ -16,7 +16,9 @@ public class InventoryGetChoices : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		if (!isLocalPlayer) {
+			CmdInitInventaire ();
+		}
 
 		if (isLocalPlayer) {
 			Debug.Log (" IS LOCAL PLAYER ");
@@ -122,6 +124,65 @@ public class InventoryGetChoices : NetworkBehaviour {
 	}
 
 	[Command]
+	void CmdInitInventaire() {
+		Weapon w1 = GameObject.Find ("Weapon1");
+		if (w1 == null)
+			return;
+		Weapon w2 = GameObject.Find ("Weapon2");
+		Weapon w3 = GameObject.Find ("Weapon3");
+
+		if (w1.tag == "Weapon") {
+			RpcInitArme ("Weapon1", w1.id_tabweapon, w1.cadence, w1.degat, w1.vitesse, w1.range, w1.nom);
+		} else {
+			RpcInitSort ("Weapon1", w1.id_tabweapon, w1.cadence, w1.degat, w1.vitesse, w1.range, w1.nom);
+		}
+
+		if (w2.tag == "Weapon") {
+			RpcInitArme ("Weapon2", w2.id_tabweapon, w2.cadence, w2.degat, w2.vitesse, w2.range, w2.nom);
+		} else {
+			RpcInitSort ("Weapon2", w2.id_tabweapon, w2.cadence, w2.degat, w2.vitesse, w2.range, w2.nom);
+		}
+
+		if (w3.tag == "Weapon") {
+			RpcInitArme ("Weapon3", w3.id_tabweapon, w3.cadence, w3.degat, w3.vitesse, w3.range, w3.nom);
+		} else {
+			RpcInitSort ("Weapon3", w3.id_tabweapon, w3.cadence, w3.degat, w3.vitesse, w3.range, w3.nom);
+		}
+	}
+
+	[ClientRpc]
+	void RpcInitArme(string name,int id,float cadence,int degat,float vitesse,int range,string nom) {
+		if (!isLocalPlayer)
+			return;
+		
+		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+		newArme.name = name;
+		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
+		newArme.GetComponent<Arme> ().cadence = cadence;
+		newArme.GetComponent<Arme> ().degat = degat;
+		newArme.GetComponent<Arme> ().vitesse = vitesse;
+		newArme.GetComponent<Arme> ().range = range;
+		newArme.GetComponent<Arme> ().nom = nom;
+		newArme.GetComponent<Arme> ().id_tabweapon = id;
+	}
+
+	[ClientRpc]
+	void RpcInitSort(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
+		if (!isLocalPlayer)
+			return;
+		
+		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+		newArme.name = name;
+		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
+		newArme.GetComponent<Sort> ().cadence = cadence;
+		newArme.GetComponent<Sort> ().degat = degat;
+		newArme.GetComponent<Sort> ().vitesse = vitesse;
+		newArme.GetComponent<Sort> ().range = range;
+		newArme.GetComponent<Sort> ().nom = nom;
+		newArme.GetComponent<Sort> ().id_tabweapon = id;
+	}
+
+	[Command]
 	void CmdAddArme(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
 		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
 		newArme.name = name;
@@ -131,6 +192,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Arme> ().vitesse = vitesse;
 		newArme.GetComponent<Arme> ().range = range;
 		newArme.GetComponent<Arme> ().nom = nom;
+		newArme.GetComponent<Arme> ().id_tabweapon = id;
 
 		RpcAddArme (name, id, cadence, degat, vitesse, range, nom);
 	}
@@ -145,6 +207,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Sort> ().vitesse = vitesse;
 		newArme.GetComponent<Sort> ().range = range;
 		newArme.GetComponent<Sort> ().nom = nom;
+		newArme.GetComponent<Sort> ().id_tabweapon = id;
 
 		RpcAddSort (name, id, cadence, degat, vitesse, range, nom);
 	}
@@ -161,6 +224,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Arme> ().vitesse = vitesse;
 		newArme.GetComponent<Arme> ().range = range;
 		newArme.GetComponent<Arme> ().nom = nom;
+		newArme.GetComponent<Arme> ().id_tabweapon = id;
 	}
 
 	[ClientRpc]
@@ -175,5 +239,6 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Sort> ().vitesse = vitesse;
 		newArme.GetComponent<Sort> ().range = range;
 		newArme.GetComponent<Sort> ().nom = nom;
+		newArme.GetComponent<Sort> ().id_tabweapon = id;
 	}
 }

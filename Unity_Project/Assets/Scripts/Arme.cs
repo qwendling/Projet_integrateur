@@ -12,8 +12,6 @@ public class Arme : Weapon {
 
 	public static List<Arme> armes = new List<Arme> ();
 
-	public int range;
-
     // Use this for initialization
     void Start () {
 	}

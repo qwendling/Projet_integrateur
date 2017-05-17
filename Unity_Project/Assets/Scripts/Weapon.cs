@@ -13,6 +13,9 @@ public class Weapon : MonoBehaviour {
     public float vitesse = 1;
 	public AnimArme Anim;
 	public int surchauffe;
+	public int range;
+
+	public int id_tabweapon;
 
 	/*public float timeBetweenTicks = 2;
 	public float _timer = 2;*/
