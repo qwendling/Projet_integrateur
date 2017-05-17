@@ -12,13 +12,16 @@ public class InventoryGetChoices : NetworkBehaviour {
 	public Arme[] _Weapons;
 	public Sort[] _Spells;
 
+	[SyncVar]
+	public int[] _indexChoix = new int[3];
+
 	//public GameObject[] _WeaponsSpell;
 
 	// Use this for initialization
 	void Start () {
-		if (!isLocalPlayer) {
+		/*if (!isLocalPlayer) {
 			CmdInitInventaire ();
-		}
+		}*/
 
 		if (isLocalPlayer) {
 			Debug.Log (" IS LOCAL PLAYER ");
@@ -114,6 +117,10 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep3.GetComponent<Sort> ().nom = _Spells[_Wep3.GetComponent<Sort> ().id].nom;
 				CmdAddSort("Weapon3",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Spells[_Wep3.GetComponent<Sort> ().id].cadence,_Spells[_Wep3.GetComponent<Sort> ().id].degat, _Spells[_Wep3.GetComponent<Sort> ().id].vitesse,_Spells[_Wep3.GetComponent<Sort> ().id].range,_Spells[_Wep3.GetComponent<Sort> ().id].nom);
 			}
+
+			_indexChoix [0] = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep1;
+			_indexChoix [1] = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep2;
+			_indexChoix [2] = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep3;
 		}
 	}
 
