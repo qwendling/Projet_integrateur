@@ -116,10 +116,6 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep3.GetComponent<Sort> ().nom = _Spells[_Wep3.GetComponent<Sort> ().id].nom;
 				CmdAddSort("Weapon3",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Spells[_Wep3.GetComponent<Sort> ().id].cadence,_Spells[_Wep3.GetComponent<Sort> ().id].degat, _Spells[_Wep3.GetComponent<Sort> ().id].vitesse,_Spells[_Wep3.GetComponent<Sort> ().id].range,_Spells[_Wep3.GetComponent<Sort> ().id].nom);
 			}
-
-			_indexChoix.Add(_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep1);
-			_indexChoix.Add(_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep2);
-			_indexChoix.Add(_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep3);
 		}
 	}
 
@@ -200,6 +196,8 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Arme> ().nom = nom;
 		newArme.GetComponent<Arme> ().id_tabweapon = id;
 
+		_indexChoix.Add (id);
+
 		RpcAddArme (name, id, cadence, degat, vitesse, range, nom);
 	}
 
@@ -214,6 +212,8 @@ public class InventoryGetChoices : NetworkBehaviour {
 		newArme.GetComponent<Sort> ().range = range;
 		newArme.GetComponent<Sort> ().nom = nom;
 		newArme.GetComponent<Sort> ().id_tabweapon = id;
+
+		_indexChoix.Add (id);
 
 		RpcAddSort (name, id, cadence, degat, vitesse, range, nom);
 	}
