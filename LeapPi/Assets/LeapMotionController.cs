@@ -124,111 +124,118 @@ public class LeapMotionController : MonoBehaviour
 			if (!ack && netcln.isConnected) {
 				sendSystemMessage (MessageTypes.ACK_LINK_ESTABLISHED);
 				ack = true;
-			}
+			} else if(netcln.isConnected) {
+				Frame frame = provider.CurrentFrame;
+				hand_counter = 0;
+				foreach (Hand hand in frame.Hands) {
+					hand_counter++;
+					float pitch = hand.Direction.Pitch;
+					float yaw = hand.Direction.Yaw;
+					float roll = hand.PalmNormal.Roll;
+					print ("roll : " + roll);
 
-			Frame frame = provider.CurrentFrame;
-			hand_counter = 0;
-			foreach (Hand hand in frame.Hands) {
-				hand_counter++;
-				float pitch = hand.Direction.Pitch;
-				float yaw = hand.Direction.Yaw;
-				float roll = hand.PalmNormal.Roll;
-				//print ("roll : " + roll);
+					if (hand.IsLeft) {
+						//enregistrement des min et max
+						if (yaw < yaw_min)
+							yaw_min = yaw;
+						else if (yaw > yaw_max)
+							yaw_max = yaw;
 
-				if (hand.IsLeft) {
-					//enregistrement des min et max
-					if (yaw < yaw_min)
-						yaw_min = yaw;
-					else if (yaw > yaw_max)
-						yaw_max = yaw;
-
-					if (pitch < pitch_min)
-						pitch_min = pitch;
-					else if (pitch > pitch_max)
-						pitch_max = pitch;
-
-
-					if (yaw - marge > yaw_min && yaw < 0) {
-						gauche = 10;
-						//print ("left");
-					} else if (yaw + marge < yaw_max && yaw > 0) {
-						//print ("right");
-						gauche = 20;
-					} else
-						gauche = 0;
-					
-					if (pitch - marge_pitch + 0.1 > -3 && pitch < 0) {
-						gauche1 = 20;
-						//print ("down");
-					} else if (pitch + marge_pitch < 3 && pitch > 0) {
-						gauche1 = 10;
-						//print ("up");
-					} else
-						gauche1 = 0;
-
-					//avancer
-					if (hand.PinchStrength > 0.6) {
-						gauche2 = 10;
-					} else
-						gauche2 = 0;
-
-					if (gauche == 0 && (cam_horizon1 == 10 || cam_horizon1 == 20)) {
-						cam_horizon1 = cam_horizon1 + 1;
-					} else if (gauche != 0) {
-						cam_horizon1 = gauche;
-					} else
-						cam_horizon1 = 0;
-
-					if (gauche1 == 0 && (cam_vertical1 == 10 || cam_vertical1 == 20)) {
-						cam_vertical1 = cam_vertical1 + 1;
-					} else if (gauche1 != 0) {
-						cam_vertical1 = gauche1;
-					} else
-						cam_vertical1 = 0;
-
-					if (gauche2 == 0 && avancer1 == 10) {
-						//print ("stoper");
-						avancer1 = 11;
-					} else if (gauche2 == 10) {
-						avancer1 = 10;
-					} else
-						avancer1 = 0;
-
-				} 
-
-				// main droite
-				else if (hand.IsRight) {
-					//si on ferme le poing on tire
-					if (hand.PinchStrength > 0.6 && tirer1  != 10) {
-						tirer1 = 10;
-						prevtir = 1;
-					} else if (hand.PinchStrength < 0.6 && tirer1 == 10) {
-						prevtir = 0;
-						tirer1 = 11;
-					} else
-						tirer1 = 0;
+						if (pitch < pitch_min)
+							pitch_min = pitch;
+						else if (pitch > pitch_max)
+							pitch_max = pitch;
 
 
-					//print (pitch);
-					// si on leve la main on enregistre
-					if (pitch < 1.9 && pitch > 0)
-						change_arme = 1;
-					//si on a lever la main et on la baisse on change d'arme
-					if ((pitch > 2.5 && pitch > 0) || pitch < 0) {
-						if (change_arme == 1) {
-							change_arme = 0;
-							changerarme1 = 10;
+						if (yaw - marge > yaw_min && yaw < 0) {
+							gauche = 10;
+							//print ("left");
+						} else if (yaw + marge < yaw_max && yaw > 0) {
+							//print ("right");
+							gauche = 20;
+						} else
+							gauche = 0;
+
+						if (roll - marge > 0 && roll > 0) {
+							decaler1 = 20;
+						} else if (roll + marge < 0 && roll < 0) {
+							decaler1 = 10;
+						} else {
+							decaler1 = 0;
 						}
-						else
-							changerarme1 = 0;
-					}
-						
-				}
 
-				sendGameMessage (cam_horizon1, cam_vertical1, avancer1, decaler1, tirer1, changerarme1);
+						if (pitch - marge_pitch + 0.1 > -3 && pitch < 0) {
+							gauche1 = 20;
+							//print ("down");
+						} else if (pitch + marge_pitch < 3 && pitch > 0) {
+							gauche1 = 10;
+							//print ("up");
+						} else
+							gauche1 = 0;
+
+						//avancer
+						if (hand.PinchStrength > 0.6) {
+							gauche2 = 10;
+						} else
+							gauche2 = 0;
+
+						if (gauche == 0 && (cam_horizon1 == 10 || cam_horizon1 == 20)) {
+							cam_horizon1 = cam_horizon1 + 1;
+						} else if (gauche != 0) {
+							cam_horizon1 = gauche;
+						} else
+							cam_horizon1 = 0;
+
+						if (gauche1 == 0 && (cam_vertical1 == 10 || cam_vertical1 == 20)) {
+							cam_vertical1 = cam_vertical1 + 1;
+						} else if (gauche1 != 0) {
+							cam_vertical1 = gauche1;
+						} else
+							cam_vertical1 = 0;
+
+						if (gauche2 == 0 && avancer1 == 10) {
+							//print ("stoper");
+							avancer1 = 11;
+						} else if (gauche2 == 10) {
+							avancer1 = 10;
+						} else
+							avancer1 = 0;
+
+					} 
+
+					// main droite
+					else if (hand.IsRight) {
+						//si on ferme le poing on tire
+						if (hand.PinchStrength > 0.6 && tirer1 != 10) {
+							tirer1 = 10;
+							prevtir = 1;
+						} else if (hand.PinchStrength < 0.6 && tirer1 == 10) {
+							prevtir = 0;
+							tirer1 = 11;
+						} else
+							tirer1 = 0;
+
+
+						//print (pitch);
+						// si on leve la main on enregistre
+						if (pitch < 1.9 && pitch > 0)
+							change_arme = 1;
+						//si on a lever la main et on la baisse on change d'arme
+						if ((pitch > 2.5 && pitch > 0) || pitch < 0) {
+							if (change_arme == 1) {
+								change_arme = 0;
+								changerarme1 = 10;
+							} else
+								changerarme1 = 0;
+						}
+							
+					}
+
+					sendGameMessage (cam_horizon1, cam_vertical1, avancer1, decaler1, tirer1, changerarme1);
+				}
+				if (hand_counter == 0)
+					sendGameMessage (0, 0, 0, 0, 0, 0);
 			}
-			if (hand_counter == 0)
-				sendGameMessage (0, 0, 0, 0, 0, 0);
 		}
 	}
 }
