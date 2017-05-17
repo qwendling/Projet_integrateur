@@ -12,7 +12,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 	public Arme[] _Weapons;
 	public Sort[] _Spells;
 
-	public SyncList<int> _indexChoix;
+	public SyncListInt _indexChoix = new SyncListInt();
 
 	//public GameObject[] _WeaponsSpell;
 
