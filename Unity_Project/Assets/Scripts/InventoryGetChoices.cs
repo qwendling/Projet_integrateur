@@ -12,8 +12,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 	public Arme[] _Weapons;
 	public Sort[] _Spells;
 
-	[SyncVar]
-	public int[] _indexChoix = new int[3];
+	public SyncList<int> _indexChoix;
 
 	//public GameObject[] _WeaponsSpell;
 
@@ -118,9 +117,9 @@ public class InventoryGetChoices : NetworkBehaviour {
 				CmdAddSort("Weapon3",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Spells[_Wep3.GetComponent<Sort> ().id].cadence,_Spells[_Wep3.GetComponent<Sort> ().id].degat, _Spells[_Wep3.GetComponent<Sort> ().id].vitesse,_Spells[_Wep3.GetComponent<Sort> ().id].range,_Spells[_Wep3.GetComponent<Sort> ().id].nom);
 			}
 
-			_indexChoix [0] = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep1;
-			_indexChoix [1] = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep2;
-			_indexChoix [2] = _PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep3;
+			_indexChoix.Add(_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep1);
+			_indexChoix.Add(_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep2);
+			_indexChoix.Add(_PlayerMenuChoices.GetComponent<EmptyObject_PlayerChoices> ()._IdxWep3);
 		}
 	}
 
