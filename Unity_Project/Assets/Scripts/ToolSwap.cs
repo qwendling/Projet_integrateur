@@ -57,19 +57,19 @@ public class ToolSwap : NetworkBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (_inventory [0] == null) {
-			_inventory [0] = GameObject.Find ("Weapon1");
+			_inventory [0] = transform.GetChild (0).GetChild (1).GetChild (0).gameObject;
 			if (_inventory [0] == null)
 				return;
 			_inventory[0].SetActive(false);
 		}
 		if (_inventory [1] == null) {
-			_inventory [1] = GameObject.Find ("Weapon2");
+			_inventory [0] = transform.GetChild (0).GetChild (1).GetChild (1).gameObject;
 			if (_inventory [1] == null)
 				return;
 			_inventory[1].SetActive(false);
 		}
 		if (_inventory [2] == null) {
-			_inventory [2] = GameObject.Find ("Weapon3");
+			_inventory [0] = transform.GetChild (0).GetChild (1).GetChild (2).gameObject;
 			if (_inventory [2] == null)
 				return;
 			_inventory[2].SetActive(false);
