@@ -182,7 +182,7 @@ public class PlayerController : NetworkBehaviour {
 		transform.position += 
 			transform.forward * _forwardRunningSpeed * _acceleration * Time.deltaTime
 			+ transform.right * _strafeSpeed * _acceleration * Time.deltaTime;
-		RpcUpdatePos (transform.position);
+		RpcUpdatePos (_forwardRunningSpeed, _strafeSpeed);
 		//MovePlayer ();
 		//Debug.Log (_forwardRunningSpeed);
 	}
@@ -210,8 +210,10 @@ public class PlayerController : NetworkBehaviour {
 	}
 
 	[ClientRpc]
-	void RpcUpdatePos (Vector3 pos) {
-		transform.position = pos;
+	void RpcUpdatePos (float forward, float strafe) {
+		transform.position += 
+			transform.forward * forward * _acceleration * Time.deltaTime
+			+ transform.right * strafe * _acceleration * Time.deltaTime;
 	}
 
 	[ClientRpc]

@@ -28,7 +28,12 @@ public class PlayerHealth : NetworkBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-
+		if (isServer) {
+			if (transform.position.y < 0.0f) {
+				currentHealth = MAX_HEALTH;
+				RpcRespawn ();
+			}
+		}
 	}
 
 
