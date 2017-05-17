@@ -46,6 +46,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 			_Wep1.transform.parent = _Inventory.transform;
 			_Wep2.transform.parent = _Inventory.transform;
 			_Wep3.transform.parent = _Inventory.transform;
+
 			Arme.armes = new List<Arme> ();
 			Sort.sorts = new List<Sort> ();
 
