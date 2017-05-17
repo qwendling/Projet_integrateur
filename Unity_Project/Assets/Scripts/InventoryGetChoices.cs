@@ -18,9 +18,12 @@ public class InventoryGetChoices : NetworkBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		/*if (!isLocalPlayer) {
-			CmdInitInventaire ();
-		}*/
+		if (!isLocalPlayer) {
+			for(int id = 0; id < _indexChoix.Count; id++) {
+				GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+				newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
+			}
+		}
 
 		if (isLocalPlayer) {
 			Debug.Log (" IS LOCAL PLAYER ");
