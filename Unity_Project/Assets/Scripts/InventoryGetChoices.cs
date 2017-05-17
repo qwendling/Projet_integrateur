@@ -125,11 +125,11 @@ public class InventoryGetChoices : NetworkBehaviour {
 
 	[Command]
 	void CmdInitInventaire() {
-		Weapon w1 = GameObject.Find ("Weapon1");
+		Weapon w1 = GameObject.Find ("Weapon1").GetComponent<Weapon> ();
 		if (w1 == null)
 			return;
-		Weapon w2 = GameObject.Find ("Weapon2");
-		Weapon w3 = GameObject.Find ("Weapon3");
+		Weapon w2 = GameObject.Find ("Weapon2").GetComponent<Weapon> ();
+		Weapon w3 = GameObject.Find ("Weapon3").GetComponent<Weapon> ();
 
 		if (w1.tag == "Weapon") {
 			RpcInitArme ("Weapon1", w1.id_tabweapon, w1.cadence, w1.degat, w1.vitesse, w1.range, w1.nom);
