@@ -11,7 +11,10 @@ public class PlayerSpawn : NetworkBehaviour {
 	// Use this for initialization
 	void Start () {
 		_SpawnPoints = GameObject.Find ("SpawnPoints");
-		CmdRandomSpawn ();
+		if (isLocalPlayer) {
+			CmdRandomSpawn ();
+		}
+
 
 	}
 

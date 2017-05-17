@@ -70,7 +70,7 @@ public class PlayerInput : NetworkBehaviour {
     while(panel ==null){
       panel = GameObject.Find("Dropdown").GetComponent<Dropdown>();
     }
-    
+    /*
     if(isLocalPlayer){
      
       while(validButton == null){
@@ -83,7 +83,7 @@ public class PlayerInput : NetworkBehaviour {
     NetworkServer.Listen (7500);
 		NetworkServer.RegisterHandler (100, onSystemMessage);
     NetworkServer.RegisterHandler (200, onGameMessage);
-		print ("Server is listening on : " + NetworkServer.listenPort);
+		print ("Server is listening on : " + NetworkServer.listenPort);*/
 
 		_timeShot = -1.0;
 	}
