@@ -67,6 +67,8 @@ public class PlayerInput : NetworkBehaviour {
 		_swapper = _player.GetComponent<ToolSwap> ();
 		_shoot = _player.GetComponent<CanShoot> ();
 		_POH = gameObject.GetComponent<PlayerOverHeat> ();
+		GameObject.Find("MenuLeap").SetActive(false);
+
     while(panel ==null){
       panel = GameObject.Find("Dropdown").GetComponent<Dropdown>();
     }
