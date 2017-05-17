@@ -53,7 +53,7 @@ public class ToolSwap : NetworkBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (isLocalPlayer) {
+		if (isLocalPlayer || isServer) {
 			if (_inventory [0] == null) {
 				_inventory [0] = GameObject.Find ("Weapon1");
 				_inventory[0].SetActive(false);
@@ -80,8 +80,8 @@ public class ToolSwap : NetworkBehaviour {
 			RpcSwap (i);
 			CurrentItem = i;
 			/*_inventory[CurrentItem].SetActive(false);
-			_inventory[CurrentItem].SetActive(true);
-			_activeItem = _inventory[CurrentItem];*/
+			_inventory[CurrentItem].SetActive(true);*/
+			_activeItem = _inventory[CurrentItem];
 		}
 	}
 

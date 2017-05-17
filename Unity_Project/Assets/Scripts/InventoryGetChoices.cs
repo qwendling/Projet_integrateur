@@ -63,7 +63,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep1.GetComponent<Arme> ().vitesse = _Weapons[_Wep1.GetComponent<Arme> ().id].vitesse;
 				_Wep1.GetComponent<Arme> ().range = _Weapons[_Wep1.GetComponent<Arme> ().id].range;
 				_Wep1.GetComponent<Arme> ().nom = _Weapons[_Wep1.GetComponent<Arme> ().id].nom;
-				CmdAddArme(_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep1,_Weapons[_Wep1.GetComponent<Arme> ().id].cadence,_Weapons[_Wep1.GetComponent<Arme> ().id].degat, _Weapons[_Wep1.GetComponent<Arme> ().id].vitesse,_Weapons[_Wep1.GetComponent<Arme> ().id].range,_Weapons[_Wep1.GetComponent<Arme> ().id].nom);
+				CmdAddArme("Weapon1",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep1,_Weapons[_Wep1.GetComponent<Arme> ().id].cadence,_Weapons[_Wep1.GetComponent<Arme> ().id].degat, _Weapons[_Wep1.GetComponent<Arme> ().id].vitesse,_Weapons[_Wep1.GetComponent<Arme> ().id].range,_Weapons[_Wep1.GetComponent<Arme> ().id].nom);
 
 			}
 			else if(_Wep1.tag == "Spell"){
@@ -72,7 +72,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep1.GetComponent<Sort> ().vitesse = _Spells[_Wep1.GetComponent<Sort> ().id].vitesse;
 				_Wep1.GetComponent<Sort> ().range = _Spells[_Wep1.GetComponent<Sort> ().id].range;
 				_Wep1.GetComponent<Sort> ().nom = _Spells[_Wep1.GetComponent<Sort> ().id].nom;
-				CmdAddSort(_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep1,_Spells[_Wep1.GetComponent<Sort> ().id].cadence,_Spells[_Wep1.GetComponent<Sort> ().id].degat, _Spells[_Wep1.GetComponent<Sort> ().id].vitesse,_Spells[_Wep1.GetComponent<Sort> ().id].range,_Spells[_Wep1.GetComponent<Sort> ().id].nom);
+				CmdAddSort("Weapon1",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep1,_Spells[_Wep1.GetComponent<Sort> ().id].cadence,_Spells[_Wep1.GetComponent<Sort> ().id].degat, _Spells[_Wep1.GetComponent<Sort> ().id].vitesse,_Spells[_Wep1.GetComponent<Sort> ().id].range,_Spells[_Wep1.GetComponent<Sort> ().id].nom);
 
 			}
 			if(_Wep2.tag == "Weapon")
@@ -82,7 +82,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep2.GetComponent<Arme> ().vitesse = _Weapons[_Wep2.GetComponent<Arme> ().id].vitesse;
 				_Wep2.GetComponent<Arme> ().range = _Weapons[_Wep2.GetComponent<Arme> ().id].range;
 				_Wep2.GetComponent<Arme> ().nom = _Weapons[_Wep2.GetComponent<Arme> ().id].nom;
-				CmdAddArme(_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep2,_Weapons[_Wep2.GetComponent<Arme> ().id].cadence,_Weapons[_Wep2.GetComponent<Arme> ().id].degat, _Weapons[_Wep2.GetComponent<Arme> ().id].vitesse,_Weapons[_Wep2.GetComponent<Arme> ().id].range,_Weapons[_Wep2.GetComponent<Arme> ().id].nom);
+				CmdAddArme("Weapon2",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep2,_Weapons[_Wep2.GetComponent<Arme> ().id].cadence,_Weapons[_Wep2.GetComponent<Arme> ().id].degat, _Weapons[_Wep2.GetComponent<Arme> ().id].vitesse,_Weapons[_Wep2.GetComponent<Arme> ().id].range,_Weapons[_Wep2.GetComponent<Arme> ().id].nom);
 
 			}
 			else if(_Wep2.tag == "Spell"){
@@ -91,7 +91,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep2.GetComponent<Sort> ().vitesse = _Spells[_Wep2.GetComponent<Sort> ().id].vitesse;
 				_Wep2.GetComponent<Sort> ().range = _Spells[_Wep2.GetComponent<Sort> ().id].range;
 				_Wep2.GetComponent<Sort> ().nom = _Spells[_Wep2.GetComponent<Sort> ().id].nom;
-				CmdAddSort(_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep2,_Spells[_Wep2.GetComponent<Sort> ().id].cadence,_Spells[_Wep2.GetComponent<Sort> ().id].degat, _Spells[_Wep2.GetComponent<Sort> ().id].vitesse,_Spells[_Wep2.GetComponent<Sort> ().id].range,_Spells[_Wep2.GetComponent<Sort> ().id].nom);
+				CmdAddSort("Weapon2",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep2,_Spells[_Wep2.GetComponent<Sort> ().id].cadence,_Spells[_Wep2.GetComponent<Sort> ().id].degat, _Spells[_Wep2.GetComponent<Sort> ().id].vitesse,_Spells[_Wep2.GetComponent<Sort> ().id].range,_Spells[_Wep2.GetComponent<Sort> ().id].nom);
 
 			}
 			if(_Wep3.tag == "Weapon")
@@ -101,7 +101,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep3.GetComponent<Arme> ().vitesse = _Weapons[_Wep3.GetComponent<Arme> ().id].vitesse;
 				_Wep3.GetComponent<Arme> ().range = _Weapons[_Wep3.GetComponent<Arme> ().id].range;
 				_Wep3.GetComponent<Arme> ().nom = _Weapons[_Wep3.GetComponent<Arme> ().id].nom;
-				CmdAddArme(_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Weapons[_Wep3.GetComponent<Arme> ().id].cadence,_Weapons[_Wep3.GetComponent<Arme> ().id].degat, _Weapons[_Wep3.GetComponent<Arme> ().id].vitesse,_Weapons[_Wep3.GetComponent<Arme> ().id].range,_Weapons[_Wep3.GetComponent<Arme> ().id].nom);
+				CmdAddArme("Weapon3",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Weapons[_Wep3.GetComponent<Arme> ().id].cadence,_Weapons[_Wep3.GetComponent<Arme> ().id].degat, _Weapons[_Wep3.GetComponent<Arme> ().id].vitesse,_Weapons[_Wep3.GetComponent<Arme> ().id].range,_Weapons[_Wep3.GetComponent<Arme> ().id].nom);
 			}
 			else if(_Wep3.tag == "Spell"){
 				_Wep3.GetComponent<Sort> ().cadence = _Spells[_Wep3.GetComponent<Sort> ().id].cadence;
@@ -109,7 +109,7 @@ public class InventoryGetChoices : NetworkBehaviour {
 				_Wep3.GetComponent<Sort> ().vitesse = _Spells[_Wep3.GetComponent<Sort> ().id].vitesse;
 				_Wep3.GetComponent<Sort> ().range = _Spells[_Wep3.GetComponent<Sort> ().id].range;
 				_Wep3.GetComponent<Sort> ().nom = _Spells[_Wep3.GetComponent<Sort> ().id].nom;
-				CmdAddSort(_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Spells[_Wep3.GetComponent<Sort> ().id].cadence,_Spells[_Wep3.GetComponent<Sort> ().id].degat, _Spells[_Wep3.GetComponent<Sort> ().id].vitesse,_Spells[_Wep3.GetComponent<Sort> ().id].range,_Spells[_Wep3.GetComponent<Sort> ().id].nom);
+				CmdAddSort("Weapon3",_PlayerMenuChoices.GetComponent < EmptyObject_PlayerChoices> ()._IdxWep3,_Spells[_Wep3.GetComponent<Sort> ().id].cadence,_Spells[_Wep3.GetComponent<Sort> ().id].degat, _Spells[_Wep3.GetComponent<Sort> ().id].vitesse,_Spells[_Wep3.GetComponent<Sort> ().id].range,_Spells[_Wep3.GetComponent<Sort> ().id].nom);
 			}
 		}
 	}
@@ -121,8 +121,9 @@ public class InventoryGetChoices : NetworkBehaviour {
 		}
 
 	[Command]
-	void CmdAddArme(int id,float cadence,int degat,float vitesse,int range,string nom){
+	void CmdAddArme(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
 		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+		newArme.name = name;
 		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
 		newArme.GetComponent<Arme> ().cadence = cadence;
 		newArme.GetComponent<Arme> ().degat = degat;
@@ -132,9 +133,10 @@ public class InventoryGetChoices : NetworkBehaviour {
 	}
 
 	[Command]
-	void CmdAddSort(int id,float cadence,int degat,float vitesse,int range,string nom){
+	void CmdAddSort(string name,int id,float cadence,int degat,float vitesse,int range,string nom){
 		print ("Create sort");
 		GameObject newArme = Instantiate (GameObject.Find ("TabPrefab").GetComponent<TabPrefabs> ().tab [id],transform.position, Quaternion.identity);
+		newArme.name = name;
 		newArme.transform.parent=this.transform.FindChild ("Camera Pivot").transform.FindChild ("Inventory").gameObject.transform;
 		newArme.GetComponent<Sort> ().cadence = cadence;
 		newArme.GetComponent<Sort> ().degat = degat;
