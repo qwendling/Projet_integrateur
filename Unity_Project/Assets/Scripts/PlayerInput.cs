@@ -182,6 +182,9 @@ public class PlayerInput : NetworkBehaviour {
 			_isOverheat = false;
 		}
 
+		if (_swapper._activeItem == null) {
+			return;
+		}
 		timebetweenShot = 1/_swapper._activeItem.GetComponent<Weapon>().cadence;
 		_timeShot -= 1.0 * Time.deltaTime;
 

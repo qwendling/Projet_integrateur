@@ -14,7 +14,7 @@ public class Menu_ModelChoice : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		_ModelPreview.GetComponent<Image> ().sprite = _Models [Models_index].GetComponent<ModelPreviewReferencing>()._ModelSprite;
+		//_ModelPreview.GetComponent<Image> ().sprite = _Models [Models_index].GetComponent<ModelPreviewReferencing>()._ModelSprite;
 	}
 	
 	public void OnModelUpClicked(){

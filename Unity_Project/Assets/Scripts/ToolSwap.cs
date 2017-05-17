@@ -35,19 +35,21 @@ public class ToolSwap : NetworkBehaviour {
 		}
 		_activeItem = _inventory[CurrentItem];*/
 		Animator anim = gameObject.GetComponent<PlayerInput> ().anim;
-		AnimArme a = _activeItem.GetComponent<Weapon> ().Anim;
-		if (a == AnimArme.ak) {
-			anim.SetBool("ak", true);
-			anim.SetBool("weapon", false);
-			anim.SetBool("ball", false);
-		} else if (a == AnimArme.ball) {
-			anim.SetBool("ball", true);
-			anim.SetBool("weapon", false);
-			anim.SetBool("ak", false);
-		} else if (a == AnimArme.weapon) {
-			anim.SetBool("weapon", true);
-			anim.SetBool("ak", false);
-			anim.SetBool("ball", false);
+		if (_activeItem != null) {
+			AnimArme a = _activeItem.GetComponent<Weapon> ().Anim;
+			if (a == AnimArme.ak) {
+				anim.SetBool ("ak", true);
+				anim.SetBool ("weapon", false);
+				anim.SetBool ("ball", false);
+			} else if (a == AnimArme.ball) {
+				anim.SetBool ("ball", true);
+				anim.SetBool ("weapon", false);
+				anim.SetBool ("ak", false);
+			} else if (a == AnimArme.weapon) {
+				anim.SetBool ("weapon", true);
+				anim.SetBool ("ak", false);
+				anim.SetBool ("ball", false);
+			}
 		}
 	}
 	
@@ -56,14 +58,20 @@ public class ToolSwap : NetworkBehaviour {
 		if (isLocalPlayer || isServer) {
 			if (_inventory [0] == null) {
 				_inventory [0] = GameObject.Find ("Weapon1");
+				if (_inventory [0] == null)
+					return;
 				_inventory[0].SetActive(false);
 			}
 			if (_inventory [1] == null) {
 				_inventory [1] = GameObject.Find ("Weapon2");
+				if (_inventory [1] == null)
+					return;
 				_inventory[1].SetActive(false);
 			}
 			if (_inventory [2] == null) {
 				_inventory [2] = GameObject.Find ("Weapon3");
+				if (_inventory [2] == null)
+					return;
 				_inventory[2].SetActive(false);
 			}
 			if (_activeItem == null) {
